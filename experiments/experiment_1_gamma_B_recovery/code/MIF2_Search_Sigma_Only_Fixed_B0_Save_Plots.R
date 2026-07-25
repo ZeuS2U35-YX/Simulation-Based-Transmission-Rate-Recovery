@@ -1,6 +1,5 @@
 # ============================================================
-# Estimating epidemic transmission rates using mif2
-# True transmission rate is constant: B(t) = 4
+# Estimating sigma_beta with B0 fixed using mif2
 # ============================================================
 
 
@@ -132,10 +131,7 @@ sir_step <- Csnippet("
   double p_SI;
   double p_IR;
 
-  // Piecewise transmission-rate structure
-  //
-  // In this experiment, Beta_high and Beta_low
-  // are both equal to 4, so B(t) is constant.
+  // Piecewise transmission rate
   if (t < t_switch) {
     Beta_now = Beta_high;
   } else {
@@ -179,7 +175,6 @@ sir_rinit_piecewise <- Csnippet("
 sir_rmeas <- Csnippet("
   reports = rnbinom_mu(k, rho * H);
 ")
-
 
 sir_dmeas <- Csnippet("
   lik = dnbinom_mu(
@@ -237,7 +232,7 @@ simple_SIR <- pomp(
 
 theta <- c(
   Beta_high = 4,
-  Beta_low = 4,
+  Beta_low = 2,
   t_switch = 5,
   mu_IR = 3,
   N = 10000,
@@ -261,8 +256,10 @@ sim1 <- simulate(
 )
 
 
+
+
 # ------------------------------------------------------------
-# 4.1 Keep only the observed reports
+# 4. Keep only the observed reports
 # ------------------------------------------------------------
 
 sim1_observed <- sim1 |>
@@ -391,10 +388,7 @@ pf_gamma_model <- pomp(
   ),
 
   partrans = parameter_trans(
-    log = c(
-      "B0",
-      "sigma_beta"
-    )
+    log = "sigma_beta"
   )
 )
 
@@ -417,13 +411,21 @@ pf_sanity_check <- pfilter(
 # 7. Set up the mif2 search
 # ------------------------------------------------------------
 
-# These are different starting values for mif2.
-# They are not a grid search.
-# Each mif2 run searches continuously from its own start.
+# B0 is assumed known and is fixed at 4.
+# Only sigma_beta is estimated by mif2.
 
-start_values <- expand.grid(
-  B0 = c(2, 4, 6),
-  sigma_beta = c(0.10, 0.30, 0.45)
+fixed_B0 <- 4
+
+
+# Different starting values for sigma_beta.
+# These are multiple starting points, not a grid search.
+
+start_values <- tibble(
+  sigma_beta = c(
+    0.10,
+    0.30,
+    0.45
+  )
 )
 
 
@@ -439,7 +441,7 @@ Np_mif <- 1000
 
 # Number of particles used to evaluate each fitted parameter vector
 
-Np_eval <- 50000
+Np_eval <- 5000
 
 
 # Number of repeated pfilter evaluations for each mif2 result
@@ -447,36 +449,30 @@ Np_eval <- 50000
 n_pf_evals <- 5
 
 
-# Number of particles for the final filtered paths
+# Number of particles for the final filtered B path
 
 Np_final <- 50000
 
 
-# Random-walk perturbation sizes used only during mif2.
+# Random-walk perturbation size used during mif2.
+# B0 is not included, so it remains fixed.
 #
-# B0 is an initial-value parameter:
-# it determines B only at time 0.
-#
-# sigma_beta is a regular time-constant parameter.
-#
-# Because both parameters are log-transformed,
-# these perturbations occur on the estimation scale.
+# Because sigma_beta is log-transformed in pf_gamma_model,
+# this perturbation occurs on the estimation scale.
 
 mif_rw_sd <- rw_sd(
-  B0 = ivp(0.20),
   sigma_beta = 0.05
 )
 
 
 # ------------------------------------------------------------
-# 8. Run mif2 from multiple starting values
+# 8. Run mif2 from multiple sigma_beta starting values
 # ------------------------------------------------------------
 
 mif_fits <- vector(
   mode = "list",
   length = nrow(start_values)
 )
-
 
 mif_result_list <- vector(
   mode = "list",
@@ -486,15 +482,14 @@ mif_result_list <- vector(
 
 for (i in seq_len(nrow(start_values))) {
 
-  # Start with the full baseline parameter vector
+  # Start with the full baseline parameter vector.
 
   theta_start <- theta_gamma
 
 
-  # Replace the two starting values for this mif2 run
+  # Keep B0 fixed and replace only the sigma_beta starting value.
 
-  theta_start[["B0"]] <-
-    start_values$B0[i]
+  theta_start[["B0"]] <- fixed_B0
 
   theta_start[["sigma_beta"]] <-
     start_values$sigma_beta[i]
@@ -505,24 +500,25 @@ for (i in seq_len(nrow(start_values))) {
     i,
     " of ",
     nrow(start_values),
-    ": B0 = ",
+    ": fixed B0 = ",
     theta_start[["B0"]],
-    ", sigma_beta = ",
+    ", starting sigma_beta = ",
     theta_start[["sigma_beta"]],
     "\n",
     sep = ""
   )
 
 
-  # All nine starting values use the same mif2 seed.
-  # The seed is reset before every mif2 run.
+  # Reset the same mif2 seed before every run.
 
   set.seed(
     20260628
   )
 
 
-  # Run mif2
+  # Run mif2.
+  # Only sigma_beta is perturbed because rw.sd contains
+  # only sigma_beta.
 
   mif_now <- tryCatch(
     mif2(
@@ -559,55 +555,52 @@ for (i in seq_len(nrow(start_values))) {
   )
 
 
-  # If mif2 failed, record missing results
+  # If mif2 itself failed, record missing results.
 
   if (is.null(mif_now)) {
 
     mif_result_list[[i]] <- tibble(
       run = i,
 
-      start_B0 =
-        theta_start[["B0"]],
+      fixed_B0 =
+        fixed_B0,
 
       start_sigma_beta =
         theta_start[["sigma_beta"]],
 
-      B0_hat = NA_real_,
+      sigma_beta_hat =
+        NA_real_,
 
-      sigma_beta_hat = NA_real_,
+      logLik =
+        NA_real_,
 
-      logLik = NA_real_,
-
-      logLik_se = NA_real_
+      logLik_se =
+        NA_real_
     )
 
     next
   }
 
 
-  # Store successful mif2 result
+  # Store successful mif2 result.
 
   mif_fits[[i]] <- mif_now
 
 
-  # Extract the fitted parameter values
+  # Extract fitted parameter values from mif2.
 
   mif_coef_now <- coef(
     mif_now
   )
 
 
-  # Build a complete parameter vector for pfilter evaluation.
-  #
-  # Keep mu_IR, N, rho, and k fixed.
-  # Replace only B0 and sigma_beta.
+  # Build the parameter vector for pfilter evaluation.
+  # B0, mu_IR, N, rho, and k remain fixed.
+  # Replace only sigma_beta with the mif2 estimate.
 
   theta_eval_now <- theta_gamma
 
-  theta_eval_now[["B0"]] <-
-    unname(
-      mif_coef_now[["B0"]]
-    )
+  theta_eval_now[["B0"]] <- fixed_B0
 
   theta_eval_now[["sigma_beta"]] <-
     unname(
@@ -630,9 +623,6 @@ for (i in seq_len(nrow(start_values))) {
 
     # Every mif2 result uses the same evaluation seed
     # for the same repetition j.
-    #
-    # The five seeds are:
-    # 20260801, 20260802, ..., 20260805.
 
     set.seed(
       20260800 + j
@@ -677,14 +667,14 @@ for (i in seq_len(nrow(start_values))) {
   }
 
 
-  # Keep only successful pfilter evaluations
+  # Keep only successful pfilter evaluations.
 
   eval_logLik <- eval_logLik[
     is.finite(eval_logLik)
   ]
 
 
-  # Combine repeated likelihood estimates
+  # Combine repeated likelihood estimates.
 
   if (length(eval_logLik) > 0) {
 
@@ -709,19 +699,16 @@ for (i in seq_len(nrow(start_values))) {
   }
 
 
-  # Store the result from this starting point
+  # Store the result from this starting point.
 
   mif_result_list[[i]] <- tibble(
     run = i,
 
-    start_B0 =
-      theta_start[["B0"]],
+    fixed_B0 =
+      fixed_B0,
 
     start_sigma_beta =
       theta_start[["sigma_beta"]],
-
-    B0_hat =
-      theta_eval_now[["B0"]],
 
     sigma_beta_hat =
       theta_eval_now[["sigma_beta"]],
@@ -732,15 +719,21 @@ for (i in seq_len(nrow(start_values))) {
     logLik_se =
       estimated_logLik_se
   )
+
 }
 
 
 # ------------------------------------------------------------
-# 8.1 Combine all mif2 results
+# 8.1 Combine and show all mif2 results
 # ------------------------------------------------------------
 
 mif_results <- bind_rows(
   mif_result_list
+)
+
+
+print(
+  mif_results
 )
 
 
@@ -760,7 +753,6 @@ best_fit <- mif_results |>
 
 
 if (nrow(best_fit) == 0) {
-
   stop(
     "All mif2 runs or all pfilter evaluations failed."
   )
@@ -780,21 +772,17 @@ best_run_id <- best_fit$run[[1]]
 
 mif_best <- mif_fits[[best_run_id]]
 
-
 mif_coef_best <- coef(
   mif_best
 )
 
 
-# Keep fixed parameters from theta_gamma
-# and use the selected estimates for B0 and sigma_beta
+# Keep B0 and all other non-estimated parameters fixed.
+# Use only the selected mif2 estimate of sigma_beta.
 
 theta_best <- theta_gamma
 
-theta_best[["B0"]] <-
-  unname(
-    mif_coef_best[["B0"]]
-  )
+theta_best[["B0"]] <- fixed_B0
 
 theta_best[["sigma_beta"]] <-
   unname(
@@ -810,7 +798,7 @@ print(
 cat(
   "\nBest result:",
   " run =", best_run_id,
-  "| B0 =", round(theta_best[["B0"]], 4),
+  "| fixed B0 =", round(theta_best[["B0"]], 4),
   "| sigma_beta =", round(theta_best[["sigma_beta"]], 4),
   "| logLik =", round(best_fit$logLik[[1]], 4),
   "| MCSE =", round(best_fit$logLik_se[[1]], 4),
@@ -818,59 +806,8 @@ cat(
 )
 
 
-
 # ------------------------------------------------------------
-# 10.1 Save the best mif2 object
-# ------------------------------------------------------------
-
-# Output folders
-mif2_output_dir <- results_directory
-mif2_figure_dir <- figures_directory
-
-
-# Create the folders if they do not already exist
-dir.create(
-  mif2_output_dir,
-  recursive = TRUE,
-  showWarnings = FALSE
-)
-
-dir.create(
-  mif2_figure_dir,
-  recursive = TRUE,
-  showWarnings = FALSE
-)
-
-
-# ------------------------------------------------------------
-# 10.2 Plot the best mif2 object
-# ------------------------------------------------------------
-
-# ------------------------------------------------------------
-# 10.2 Plot the best MIF2 object
-# ------------------------------------------------------------
-
-pdf(
-  file = file.path(
-    figures_directory,
-    "Part_A_Best_MIF2_Convergence.pdf"
-  ),
-  width = 8,
-  height = 5
-)
-
-plot(
-  mif_best,
-  pars = c(
-    "B0",
-    "sigma_beta"
-  )
-)
-
-dev.off()
-
-# ------------------------------------------------------------
-# 11. Run a final particle filter for the filtered paths
+# 11. Run a final particle filter for the filtered B path
 # ------------------------------------------------------------
 
 set.seed(999)
@@ -906,10 +843,7 @@ B_estimate <- tibble(
 )
 
 
-# Add the true B path.
-#
-# Beta_high and Beta_low are both 4,
-# so the true transmission rate remains constant.
+# Add the true B path because this is simulated data
 
 B_estimate <- B_estimate |>
   mutate(
@@ -944,6 +878,8 @@ infectious_estimate <- tibble(
   )
 
 
+
+
 # ------------------------------------------------------------
 # 13. Plot the true and filtered transmission-rate paths
 # ------------------------------------------------------------
@@ -955,7 +891,7 @@ B_path_plot <- ggplot(
   )
 ) +
 
-  # True B(t) = 4
+  # True B(t)
   geom_step(
     aes(
       y = B_true,
@@ -965,7 +901,7 @@ B_path_plot <- ggplot(
     direction = "hv"
   ) +
 
-  # Gamma-filtered B(t)
+  # Filtered B(t)
   geom_line(
     aes(
       y = B_filtered_mean,
@@ -974,7 +910,7 @@ B_path_plot <- ggplot(
     linewidth = 0.7
   ) +
 
-  # Reference time t_switch = 5
+  # True switching time
   geom_vline(
     xintercept = theta[["t_switch"]],
     linetype = "dashed",
@@ -994,11 +930,7 @@ B_path_plot <- ggplot(
 
   scale_y_continuous(
     limits = c(0, 6),
-    breaks = seq(
-      from = 0,
-      to = 6,
-      by = 1
-    )
+    breaks = seq(0, 6, by = 1)
   ) +
 
   theme_bw(
@@ -1020,10 +952,11 @@ print(
   B_path_plot
 )
 
+
 ggsave(
   filename = file.path(
     figures_directory,
-    "Part_A_Constant_B4_True_and_Gamma_Filtered_B_Path.pdf"
+    "fixed_B0_sigma_only_B_path.pdf"
   ),
   plot = B_path_plot,
   width = 8,
@@ -1034,7 +967,7 @@ ggsave(
 
 
 # ------------------------------------------------------------
-# 13.1 Plot the true and Gamma-filtered infectious paths
+# 13.1 Plot the true and Gamma-filtered I paths
 # ------------------------------------------------------------
 
 infectious_path_plot <- ggplot(
@@ -1062,7 +995,7 @@ infectious_path_plot <- ggplot(
     linewidth = 0.6
   ) +
 
-  # Reference time t_switch = 5
+  # True switching time
   geom_vline(
     xintercept = theta[["t_switch"]],
     linetype = "dashed",
@@ -1099,10 +1032,11 @@ print(
   infectious_path_plot
 )
 
+
 ggsave(
   filename = file.path(
     figures_directory,
-    "Part_A_Constant_B4_True_and_Gamma_Filtered_Infectious_Path.pdf"
+    "fixed_B0_sigma_only_infectious_path.pdf"
   ),
   plot = infectious_path_plot,
   width = 8,

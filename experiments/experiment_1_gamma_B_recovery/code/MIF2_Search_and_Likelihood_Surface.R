@@ -17,6 +17,94 @@ options(
 
 
 # ------------------------------------------------------------
+# Project-relative output paths
+# ------------------------------------------------------------
+
+# Locate this experiment folder without using an absolute path.
+# This keeps figure output reproducible after the repository is
+# cloned to another computer or run on a different account.
+get_script_directory <- function() {
+
+  command_args <- commandArgs(
+    trailingOnly = FALSE
+  )
+
+  file_argument <- grep(
+    "^--file=",
+    command_args,
+    value = TRUE
+  )
+
+  if (length(file_argument) > 0) {
+    return(
+      dirname(
+        normalizePath(
+          sub(
+            "^--file=",
+            "",
+            file_argument[[1]]
+          ),
+          mustWork = FALSE
+        )
+      )
+    )
+  }
+
+  source_file <- tryCatch(
+    sys.frame(1)$ofile,
+    error = function(e) NULL
+  )
+
+  if (!is.null(source_file)) {
+    return(
+      dirname(
+        normalizePath(
+          source_file,
+          mustWork = FALSE
+        )
+      )
+    )
+  }
+
+  normalizePath(
+    getwd(),
+    mustWork = FALSE
+  )
+}
+
+script_directory <- get_script_directory()
+
+experiment_directory <- if (
+  basename(script_directory) == "code"
+) {
+  dirname(script_directory)
+} else {
+  script_directory
+}
+
+figures_directory <- file.path(
+  experiment_directory,
+  "figures"
+)
+
+results_directory <- file.path(
+  experiment_directory,
+  "results"
+)
+
+dir.create(
+  figures_directory,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+
+dir.create(
+  results_directory,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+
+# ------------------------------------------------------------
 # 2. Define the time grid for the simulated data
 # ------------------------------------------------------------
 
@@ -869,6 +957,18 @@ print(
   B_path_plot
 )
 
+ggsave(
+  filename = file.path(
+    figures_directory,
+    "Part_C_True_vs_Gamma_Filtered_B_Path.pdf"
+  ),
+  plot = B_path_plot,
+  width = 8,
+  height = 5,
+  units = "in",
+  device = "pdf"
+)
+
 
 # ------------------------------------------------------------
 # 13.1 Plot the true and Gamma-filtered I paths
@@ -934,4 +1034,16 @@ infectious_path_plot <- ggplot(
 
 print(
   infectious_path_plot
+)
+
+ggsave(
+  filename = file.path(
+    figures_directory,
+    "Part_C_True_vs_Gamma_Filtered_Infectious_Path.pdf"
+  ),
+  plot = infectious_path_plot,
+  width = 8,
+  height = 5,
+  units = "in",
+  device = "pdf"
 )

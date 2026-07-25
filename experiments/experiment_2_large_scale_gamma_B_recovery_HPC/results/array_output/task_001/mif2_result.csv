@@ -1,0 +1,2 @@
+"task_id","mif_seed","start_B0","start_sigma_beta","B0_hat","sigma_beta_hat","logLik","logLik_se","successful_pf_evals"
+1,20260628,2,0.1,4.50096865560734,0.208571188579173,-197.497890166258,0.0025473281796351,5

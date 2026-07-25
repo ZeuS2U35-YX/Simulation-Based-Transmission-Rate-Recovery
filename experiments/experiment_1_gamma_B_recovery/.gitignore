@@ -1,0 +1,15 @@
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio project state
+.Rproj.user/
+
+# Temporary editor files
+*~
+*.swp
