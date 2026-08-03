@@ -1,0 +1,11 @@
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+*.out
+*.err
+logs/
+/Results/task_*/
+results/recreated_mif2/*.rds
+
+__MACOSX/

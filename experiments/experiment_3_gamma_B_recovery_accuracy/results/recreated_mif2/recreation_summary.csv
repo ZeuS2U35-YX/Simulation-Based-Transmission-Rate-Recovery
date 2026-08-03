@@ -1,0 +1,2 @@
+task_id,run,simulation_seed,mif_seed_base,simulation_attempt,max_H,start_B0,start_sigma_beta,original_B0_hat,recreated_B0_hat,B0_difference,original_sigma_beta_hat,recreated_sigma_beta_hat,sigma_beta_difference,original_evaluated_logLik,rds_file,diagnostic_pdf
+149,9,1149,169260728,1,30,6,0.45,3.08039619743945,3.08039619743935,-9.72555369571637e-14,0.262097674309167,0.262097674309167,-5.55111512312578e-17,-127.251110495349,global_best_task_149_run_09_mif2.rds,figures/mif2_diagnostic_task_149_run_09.pdf

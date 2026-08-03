@@ -1,0 +1,2 @@
+"task_id","simulation_seed","run","start_B0","start_sigma_beta","B0_hat","sigma_beta_hat","logLik","logLik_se","n_successful_pf_evals","status","error_message"
+149,1149,9,6,0.45,3.08039619743945,0.262097674309167,-127.251110495349,0.010795713094278,5,"success",NA
