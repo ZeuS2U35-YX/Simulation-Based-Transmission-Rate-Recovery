@@ -2,8 +2,8 @@
 # Post-process Experiment 3 combined results
 #
 # Reads the existing combined CSV files only. No MIF2 reruns.
-# Produces RSS, RMSE, bias summaries, likelihood gaps, and PDFs.
-# Time is stored in weeks; observations are spaced 1/7 week apart.
+# Produces publication-ready summary figures and updated CSV
+# summaries from the stored combined results.
 #
 # Usage from the Experiment 3 directory:
 #   Rscript code/04_analyze_results.R
@@ -19,9 +19,70 @@ best <- read.csv(file.path(results_dir, "combined_best_fit_summary.csv"))
 paths <- read.csv(file.path(results_dir, "combined_filtered_B_paths.csv"))
 runs <- read.csv(file.path(results_dir, "combined_mif2_results.csv"))
 
+required_best_columns <- c(
+  "task_id", "best_run", "logLik", "fit_success", "final_pf_success"
+)
 required_path_columns <- c("task_id", "week", "B_filtered_mean", "B_true")
-if (!all(required_path_columns %in% names(paths))) {
-  stop("combined_filtered_B_paths.csv is missing required columns.")
+required_run_columns <- c("task_id", "run", "logLik")
+required_columns <- list(
+  combined_best_fit_summary = required_best_columns,
+  combined_filtered_B_paths = required_path_columns,
+  combined_mif2_results = required_run_columns
+)
+values <- list(
+  combined_best_fit_summary = best,
+  combined_filtered_B_paths = paths,
+  combined_mif2_results = runs
+)
+for (name in names(required_columns)) {
+  missing_columns <- setdiff(required_columns[[name]], names(values[[name]]))
+  if (length(missing_columns) > 0) {
+    stop(name, ".csv is missing column(s): ", paste(missing_columns, collapse = ", "))
+  }
+}
+
+expected_tasks <- seq_len(200L)
+if (!identical(sort(unique(best$task_id)), expected_tasks)) {
+  stop("combined_best_fit_summary.csv must contain tasks 1 through 200 exactly once.")
+}
+if (anyDuplicated(best$task_id) || nrow(best) != length(expected_tasks)) {
+  stop("combined_best_fit_summary.csv must contain one row per task.")
+}
+if (!all(best$fit_success & best$final_pf_success)) {
+  stop("The stored recovery summary contains an unsuccessful selected fit or final particle filter.")
+}
+if (!identical(sort(unique(paths$task_id)), expected_tasks) ||
+    !all(table(paths$task_id) == 70L)) {
+  stop("combined_filtered_B_paths.csv must contain 70 rows for each task 1 through 200.")
+}
+if (!identical(sort(unique(runs$task_id)), expected_tasks) ||
+    !all(table(runs$task_id) == 9L)) {
+  stop("combined_mif2_results.csv must contain nine rows for each task 1 through 200.")
+}
+best_from_runs <- do.call(
+  rbind,
+  lapply(split(runs[is.finite(runs$logLik), , drop = FALSE], runs$task_id), function(x) {
+    x[which.max(x$logLik), c("task_id", "run", "logLik"), drop = FALSE]
+  })
+)
+best_check <- merge(
+  best[, c("task_id", "best_run", "logLik")],
+  best_from_runs,
+  by = "task_id",
+  suffixes = c("_summary", "_runs"),
+  sort = TRUE
+)
+if (nrow(best_check) != 200L ||
+    any(best_check$best_run != best_check$run) ||
+    any(abs(best_check$logLik_summary - best_check$logLik_runs) > 1e-12)) {
+  stop("Stored selected fits do not match the largest evaluated likelihood within each task.")
+}
+if (any(!is.finite(paths$B_filtered_mean)) || any(!is.finite(paths$B_true))) {
+  stop("The stored filtered paths contain non-finite transmission-rate values.")
+}
+if (any(paths$B_true[paths$week < 5] != 4) ||
+    any(paths$B_true[paths$week >= 5] != 2)) {
+  stop("The stored true transmission-rate path does not match the documented week-5 switch.")
 }
 
 paths$error <- paths$B_filtered_mean - paths$B_true
@@ -61,16 +122,8 @@ likelihood_gaps <- do.call(
 )
 rownames(likelihood_gaps) <- NULL
 
-write.csv(
-  error_summary,
-  file.path(results_dir, "task_level_error_summary.csv"),
-  row.names = FALSE
-)
-write.csv(
-  likelihood_gaps,
-  file.path(results_dir, "likelihood_gaps_by_task.csv"),
-  row.names = FALSE
-)
+write.csv(error_summary, file.path(results_dir, "task_level_error_summary.csv"), row.names = FALSE)
+write.csv(likelihood_gaps, file.path(results_dir, "likelihood_gaps_by_task.csv"), row.names = FALSE)
 
 summary_table <- data.frame(
   quantity = c("RSS", "RMSE", "bias_all", "bias_before", "bias_after", "logLik_gap"),
@@ -99,55 +152,134 @@ summary_table <- data.frame(
     sd(likelihood_gaps$logLik_gap, na.rm = TRUE)
   )
 )
-write.csv(
-  summary_table,
-  file.path(results_dir, "overall_summary.csv"),
-  row.names = FALSE
-)
+write.csv(summary_table, file.path(results_dir, "overall_summary.csv"), row.names = FALSE)
 
-pdf(file.path(figures_dir, "rss_distribution.pdf"), width = 7, height = 5)
-hist(
-  error_summary$RSS,
-  breaks = 20,
-  main = "Distribution of transmission-path RSS",
-  xlab = "RSS across 70 observation times"
-)
-dev.off()
+# ----------------------------
+# Plotting helpers
+# ----------------------------
+set_clean_plot_style <- function() {
+  par(
+    bty = "l",
+    las = 1,
+    lend = "butt",
+    tcl = -0.25,
+    mgp = c(2.0, 0.6, 0),
+    mar = c(3.6, 3.9, 1.0, 0.8),
+    cex.axis = 0.95,
+    cex.lab = 1.1
+  )
+}
 
-pdf(file.path(figures_dir, "bias_before_after.pdf"), width = 7, height = 5)
-boxplot(
-  error_summary$bias_before,
-  error_summary$bias_after,
-  names = c("Before change", "After change"),
-  ylab = "Mean filtered-path error",
-  main = "Bias before and after the transmission-rate change"
-)
-abline(h = 0, lty = 2)
-dev.off()
+# ----------------------------
+# Figure 1: mean filtered path
+# ----------------------------
+mean_path <- aggregate(cbind(B_filtered_mean, B_true) ~ week, data = paths, FUN = mean)
 
-mean_path <- aggregate(
-  cbind(B_filtered_mean, B_true) ~ week,
-  data = paths,
-  FUN = mean
-)
-
-pdf(file.path(figures_dir, "mean_filtered_B_path.pdf"), width = 7, height = 5)
+pdf(file.path(figures_dir, "mean_filtered_B_path.pdf"), width = 6.2, height = 4.2)
+set_clean_plot_style()
 plot(
   mean_path$week,
   mean_path$B_filtered_mean,
   type = "l",
   lwd = 2,
+  col = "#6BAED6",
+  xlim = c(0, 10),
+  ylim = c(0, 6),
   xlab = "Week",
-  ylab = "Transmission rate",
-  main = "Mean filtered transmission-rate path across 200 datasets"
+  ylab = "Transmission rate, B(t)",
+  xaxt = "n",
+  yaxt = "n"
 )
-lines(mean_path$week, mean_path$B_true, lty = 2, lwd = 2)
+axis(1, at = seq(0, 10, by = 2))
+axis(2, at = 0:6)
+abline(v = 5, col = "gray70", lty = 2, lwd = 1)
+segments(x0 = 0, y0 = 4, x1 = 5, y1 = 4, lwd = 2, col = "black")
+segments(x0 = 5, y0 = 2, x1 = 10, y1 = 2, lwd = 2, col = "black")
+lines(mean_path$week, mean_path$B_filtered_mean, lwd = 2, col = "#6BAED6")
 legend(
   "topright",
-  legend = c("Mean filtered B", "True B"),
-  lty = c(1, 2),
-  lwd = 2,
-  bty = "n"
+  legend = c("True B(t)", "Gamma-noise model mean"),
+  lwd = c(2, 2),
+  col = c("black", "#6BAED6"),
+  bty = "n",
+  x.intersp = 0.8,
+  seg.len = 3
+)
+dev.off()
+
+# ----------------------------
+# Figure 2: RSS distribution
+# ----------------------------
+pdf(file.path(figures_dir, "rss_distribution.pdf"), width = 6.2, height = 4.2)
+set_clean_plot_style()
+hist(
+  error_summary$RSS,
+  breaks = seq(0, max(ceiling(error_summary$RSS / 5) * 5, 60), by = 5),
+  col = "gray85",
+  border = "gray20",
+  main = "",
+  xlab = "Residual sum of squares of B(t)",
+  ylab = "Frequency"
+)
+dev.off()
+
+# ----------------------------
+# Figure 3: RMSE distribution
+# ----------------------------
+pdf(file.path(figures_dir, "rmse_distribution.pdf"), width = 6.2, height = 4.2)
+set_clean_plot_style()
+hist(
+  error_summary$RMSE,
+  breaks = seq(0.3, max(1.1, ceiling(max(error_summary$RMSE) * 20) / 20), by = 0.05),
+  col = "gray85",
+  border = "gray20",
+  main = "",
+  xlab = "RMSE of B(t)",
+  ylab = "Frequency"
+)
+dev.off()
+
+# ----------------------------
+# Figure 4: bias distributions
+# ----------------------------
+pdf(file.path(figures_dir, "bias_before_after.pdf"), width = 7.4, height = 3.2)
+par(mfrow = c(1, 3))
+set_clean_plot_style()
+par(mar = c(3.6, 3.9, 1.5, 0.8))
+bias_limits <- range(c(error_summary$bias_all, error_summary$bias_before, error_summary$bias_after, -1.2, 1.2))
+bias_breaks <- seq(floor(bias_limits[1] / 0.2) * 0.2, ceiling(bias_limits[2] / 0.2) * 0.2, by = 0.2)
+for (j in seq_along(list(error_summary$bias_all, error_summary$bias_before, error_summary$bias_after))) {
+  current_data <- list(error_summary$bias_all, error_summary$bias_before, error_summary$bias_after)[[j]]
+  current_title <- c("Overall", "Before week 5", "Week 5 onward")[j]
+  hist(
+    current_data,
+    breaks = bias_breaks,
+    col = "gray85",
+    border = "gray20",
+    main = "",
+    xlab = "Mean estimation error",
+    ylab = if (j == 1) "Frequency" else "",
+    xlim = range(bias_breaks)
+  )
+  abline(v = 0, lty = 2, lwd = 1)
+  abline(v = mean(current_data), lty = 3, lwd = 1, col = "gray35")
+  title(current_title, cex.main = 0.9, font.main = 1, line = 0.35)
+}
+dev.off()
+
+# ----------------------------
+# Figure 5: likelihood-gap distribution
+# ----------------------------
+pdf(file.path(figures_dir, "likelihood_gap_distribution.pdf"), width = 6.2, height = 4.2)
+set_clean_plot_style()
+hist(
+  likelihood_gaps$logLik_gap,
+  breaks = seq(0, max(0.15, ceiling(max(likelihood_gaps$logLik_gap, na.rm = TRUE) * 100) / 100), by = 0.005),
+  col = "gray85",
+  border = "gray20",
+  main = "",
+  xlab = "Best - second-best evaluated log likelihood",
+  ylab = "Frequency"
 )
 dev.off()
 

@@ -8,4 +8,8 @@ logs/
 /Results/task_*/
 results/recreated_mif2/*.rds
 
+# Local Matplotlib draft retained for provenance; the canonical generator is
+# code/04_analyze_results.R.
+regenerate_exp3_figures.py
+
 __MACOSX/

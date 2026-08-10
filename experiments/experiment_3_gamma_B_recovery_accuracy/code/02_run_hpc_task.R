@@ -4,7 +4,7 @@
 #
 # One Slurm array task:
 #   1. generates one accepted simulated epidemic data set;
-#   2. fits the Gamma-transition model from 9 mif2 starts;
+#   2. fits the Gamma-noise model from 9 mif2 starts;
 #   3. evaluates every fitted parameter vector with repeated pfilters;
 #   4. selects the best start;
 #   5. saves numerical CSV outputs only.
@@ -343,7 +343,7 @@ cat(
 )
 
 # ------------------------------------------------------------
-# 5. Define the Gamma-transition filtering model
+# 5. Define the Gamma-noise filtering model
 # ------------------------------------------------------------
 
 sir_step_gamma <- Csnippet("

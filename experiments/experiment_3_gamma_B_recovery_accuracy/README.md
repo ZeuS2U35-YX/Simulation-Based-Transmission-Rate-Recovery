@@ -2,160 +2,174 @@
 
 ## Overview
 
-This simulation study evaluates the ability of the Gamma-transition POMP
-model to recover a time-varying transmission-rate trajectory from
-simulated epidemic data.
+This earlier `Nmif = 100` supporting study evaluates whether the Gamma-noise POMP model can recover a prescribed time-varying epidemic transmission-rate trajectory from simulated case-report data. Experiment 4 supersedes it as the source of final Gamma-noise model numerical claims.
 
-The study contains 200 independently generated, accepted simulation
-replicates. For each replicate, epidemic data are generated from a
-prescribed transmission-rate path, the Gamma-transition POMP model is
-fitted from nine different starting-value combinations, and the filtered
-transmission-rate trajectory is compared with the true trajectory.
+The experiment contains 200 independently generated, accepted simulation replicates. For each replicate, the same fitting workflow is applied: the model is fitted from nine starting-value combinations, each fitted parameter vector is evaluated using repeated particle filters, the run with the largest independently evaluated log likelihood is selected, and a final particle filter is used to estimate the filtered mean trajectory of `B(t)`.
 
-Recovery performance is summarized using residual sum of squares (RSS),
-root mean squared error (RMSE), and transmission-rate bias. The gap between
-the largest and second-largest evaluated log-likelihoods is also recorded
-as a diagnostic of the multi-start search.
+Recovery accuracy is summarized using residual sum of squares (RSS), root mean squared error (RMSE), and mean transmission-rate error. The gap between the largest and second-largest independently evaluated log likelihoods is retained as a diagnostic of the multi-start search.
 
 ## Research question
 
-Can the Gamma-transition POMP model accurately recover the true
-transmission-rate trajectory from simulated epidemic data?
+**Can the Gamma-noise POMP model recover the true transmission-rate trajectory from simulated epidemic data?**
 
-More specifically:
+The analysis focuses on three aspects:
 
-- How closely does the filtered transmission-rate path match the true path?
-- Does the method systematically overestimate or underestimate the true
-  transmission rate?
-- How variable is recovery performance across independently simulated data
-  sets?
+- how closely the filtered mean trajectory follows the true `B(t)` path;
+- whether recovery shows systematic over- or under-estimation before and after the change in transmission rate;
+- how variable recovery accuracy is across independently simulated data sets.
 
 ## Study design
 
-The data-generating transmission rate is
+The data-generating transmission rate is piecewise constant:
 
 - `B(t) = 4` for `t < 5` weeks;
 - `B(t) = 2` for `t >= 5` weeks.
 
-Each data set covers 10 weeks and contains 70 observation times, spaced
-`1/7` week apart. The variable `week` therefore records time in weeks,
-while successive observations are one day apart.
+Each data set covers 10 weeks and contains 70 observation times separated by `1/7` week. A simulated trajectory is accepted only if the accumulated number of new infections satisfies `max(H) > 20` for at least one observation interval. The reported recovery results are therefore conditional on this acceptance rule.
 
-To exclude trajectories containing little information about transmission,
-a simulated data set is accepted only when the number of new infections
-accumulated during at least one observation interval satisfies `max(H) > 20`.
-The reported results are therefore conditional on this acceptance rule.
+The data-generating process is a stochastic SIR model with Euler step `1/30` week, latent states `S`, `I`, `R`, and the incidence accumulator `H`, and initial state `S = 9990`, `I = 10`, `R = 0`, `H = 0`. The fixed values are `mu_IR = 3`, population size `N = 10000`, reporting fraction `rho = 0.5`, and negative-binomial size `k = 10`. Reports follow
 
-The fitting model estimates `B0` and `sigma_beta`; the remaining model and
-measurement parameters are fixed at their data-generating values.
+\[
+Y_n\mid H_n \sim \operatorname{NegBin}(\text{mean}=\rho H_n,\text{size}=k).
+\]
+
+The fitted Gamma-noise transmission-rate model uses the same SIR and measurement components but replaces the prescribed piecewise path with a positive latent `B(t)` process. Under this model, the one-step transition distribution for `B(t)` is Gamma with conditional mean equal to its previous value. The fitting model estimates only `B0` and `sigma_beta`; `mu_IR`, `N`, `rho`, `k`, and the initial epidemic state remain fixed at their data-generating values. Both estimated parameters use log transformations.
 
 For each accepted data set:
 
-- MIF2 is run from the nine combinations of
-  `B0 in {2, 4, 6}` and `sigma_beta in {0.10, 0.30, 0.45}`;
+- MIF2 is run from the nine combinations of `B0 in {2, 4, 6}` and `sigma_beta in {0.10, 0.30, 0.45}`;
 - each MIF2 run uses 100 iterations and 5,000 particles;
-- each fitted parameter vector is evaluated using five particle filters,
-  each with 50,000 particles;
-- repeated likelihood estimates are combined using `pomp::logmeanexp()`;
-- the run with the largest evaluated log-likelihood is selected;
-- a final 50,000-particle filter is used to obtain the filtered mean of
-  `B(t)`.
+- MIF2 uses geometric cooling with `cooling.fraction.50 = 0.5` and random-walk standard deviations `B0 = ivp(0.20)` and `sigma_beta = 0.05`;
+- each fitted parameter vector is evaluated using five particle filters with 50,000 particles each;
+- the repeated likelihood estimates are combined using `pomp::logmeanexp()`;
+- the run with the largest independently evaluated log likelihood is selected;
+- a final 50,000-particle filter is used to obtain the filtered mean of `B(t)`.
 
-Within each simulation replicate, the same task-specific MIF2 seed and the
-same sequence of evaluation seeds are reused across the nine starting-value
-combinations. This keeps the seed settings fixed across the multi-start
-comparison but does not eliminate Monte Carlo error.
+Within a simulation replicate, the same task-specific MIF2 seed and the same sequence of evaluation seeds are reused across the nine starting-value combinations. This keeps the random-number settings fixed across the multi-start comparison but does not remove Monte Carlo error.
+
+The committed `results/paramlist.csv` records all task-level seeds. For task `i`, the simulation seed is `1000 + i`, the shared MIF2 seed is `20260728 + 1000000*i`, the evaluation seed base is `20260800 + 1000000*i` (with repetitions using base plus 1 through 5), and the final-filter seed is `20260900 + 1000000*i`.
 
 ## Workflow
 
-Each simulation replicate consists of the following steps:
+Each of the 200 simulation replicates follows the same sequence:
 
 1. generate one accepted simulated epidemic data set;
 2. run MIF2 from nine starting-value combinations;
-3. evaluate each fitted parameter vector using repeated particle filters;
-4. select the run with the largest evaluated log-likelihood;
-5. obtain the filtered mean transmission-rate trajectory;
-6. calculate RSS, RMSE, and transmission-rate bias.
-
-The complete simulation study repeats this workflow for 200 simulation
-replicates.
+3. evaluate every fitted parameter vector using repeated particle filters;
+4. select the run with the largest independently evaluated log likelihood;
+5. run a final particle filter at the selected parameter vector;
+6. calculate the filtered `B(t)` recovery errors and summary metrics.
 
 ## Directory structure
 
 ```text
-code/                  Scripts for simulation, fitting, combination, and analysis
-figures/               Figures generated from the stored or reconstructed results
+code/                  Simulation, fitting, combination, analysis, and reconstruction scripts
+figures/               Recovery figures and the reconstructed MIF2 diagnostic
 results/
     paramlist.csv      Task-specific random seeds
     combined/          Combined outputs from the 200 original replicates
     recreated_mif2/    Metadata and regenerated data for one reconstructed run
-README.md              Documentation for Experiment 3
+README.md              Experiment documentation
 ```
 
 ### `code/`
 
-- `01_create_paramlist.R`: creates the task-specific seed table.
-- `02_run_hpc_task.R`: runs one simulation replicate and writes task-level
-  CSV outputs.
-- `03_combine_results.R`: validates and combines the 200 task-level output
-  directories.
-- `04_analyze_results.R`: computes error summaries and regenerates figures
-  from the combined CSV files; it does not rerun MIF2.
-- `05_recreate_global_best_mif2.R`: reconstructs one selected MIF2 run for
-  diagnostic purposes.
-- `run_simulation_array.sh`: submits the 200 Slurm array tasks.
+- `01_create_paramlist.R` creates the task-specific seed table.
+- `02_run_hpc_task.R` runs one complete simulation replicate and writes task-level outputs.
+- `03_combine_results.R` validates and combines the 200 task-level result directories.
+- `04_analyze_results.R` regenerates error summaries and the aggregate figures from the stored combined CSV files. It does **not** rerun MIF2.
+- `05_recreate_global_best_mif2.R` reconstructs one selected MIF2 run for diagnostic purposes.
+- `run_simulation_array.sh` submits the 200-replicate Slurm array.
 
-### `figures/`
+The canonical aggregate-figure generator is `code/04_analyze_results.R`. It reads `combined_best_fit_summary.csv`, `combined_filtered_B_paths.csv`, and `combined_mif2_results.csv`, validates their task structure, rewrites the three compact summary CSVs, and creates all five aggregate PDFs listed below. A local Matplotlib draft generator is not part of the canonical repository workflow. The separate `code/05_recreate_global_best_mif2.R` script is the source of the two-page reconstructed MIF2 diagnostic only.
 
-Contains:
+## Main outputs
 
-- `rss_distribution.pdf`;
-- `bias_before_after.pdf`;
-- `mean_filtered_B_path.pdf`;
-- `mif2_diagnostic_task_149_run_09.pdf`.
+### Combined numerical results
 
-The first three figures are generated by `04_analyze_results.R`. The MIF2
-diagnostic is generated by `05_recreate_global_best_mif2.R`.
+`results/combined/` contains:
 
-### `results/combined/`
+- `combined_mif2_results.csv`;
+- `combined_best_fit_summary.csv`;
+- `combined_filtered_B_paths.csv`;
+- `combined_simulated_data.csv`;
+- `task_level_error_summary.csv`;
+- `overall_summary.csv`;
+- `likelihood_gaps_by_task.csv`.
 
-Contains the combined outputs from all 200 original simulation replicates,
-including MIF2 summaries, filtered transmission-rate paths, simulated data,
-error summaries, and likelihood-gap summaries.
+### Figures
 
-### `results/recreated_mif2/`
+`figures/` contains:
 
-The original study saved numerical summaries but did not save the selected
-MIF2 objects. This directory stores the metadata, regenerated data, parameter
-comparison, and session information from a post hoc reconstruction of task
-149, run 9.
+- `mean_filtered_B_path.pdf`: mean filtered transmission-rate recovery across the 200 replicates, with the true piecewise-constant trajectory shown as two separate black segments;
+- `rss_distribution.pdf`: distribution of trajectory RSS across the 200 replicates;
+- `rmse_distribution.pdf`: distribution of trajectory RMSE;
+- `bias_before_after.pdf`: aligned distributions of overall, pre-switch, and post-switch mean estimation error;
+- `likelihood_gap_distribution.pdf`: distribution of the gap between the best and second-best independently evaluated log likelihoods;
+- `mif2_diagnostic_task_149_run_09.pdf`: reconstructed POMP/MIF2 diagnostic for one selected run.
 
-The reconstruction script also creates an MIF2 `.rds` object locally. That
-file is excluded from Git tracking and can be regenerated with the command
-below.
+The reconstructed MIF2 diagnostic is a repository diagnostic, not a summary figure for the 200-replicate recovery study.
+
+## Headline recovery results
+
+The stored 200-replicate results have 200 successful selected fits and 200 successful final particle filters. Summary values from `results/combined/overall_summary.csv` are:
+
+- mean RSS: **24.14** (median 21.77);
+- mean RMSE: **0.576** (median 0.558);
+- mean overall `B(t)` error: **0.024**;
+- mean pre-switch error: **-0.090**;
+- mean post-switch error: **0.132**.
+
+The best-versus-second-best evaluated log-likelihood gap has a median of approximately **0.011 log-likelihood units**. This quantity is retained as a multi-start diagnostic; a small gap should not be interpreted as proof that the best start is scientifically distinct from the alternatives, because particle-filter likelihood estimates contain Monte Carlo error.
+
+## Figure design and visual review
+
+The aggregate figures use a deliberately conservative applied-mathematics style:
+
+- no decorative grid or background;
+- no large in-figure titles when the caption can carry that information;
+- consistent axis labeling and units;
+- grayscale distributions with thin black/gray outlines;
+- restrained color only where it materially improves line identification;
+- reference lines used only when they have a clear inferential meaning.
+
+The mean `B(t)` figure uses black for the true trajectory and a light blue curve for the filtered mean. The two true levels are drawn as separate horizontal segments, so the plotted truth does not visually imply a continuous transition at week 5.
+
+Before using a figure in a report or manuscript, perform the following check:
+
+1. render the PDF at approximately its intended printed size;
+2. verify that labels and line types remain legible in grayscale;
+3. verify that panels use comparable scales when the comparison requires them;
+4. remove redundant titles, legends, colors, or annotations;
+5. compare the visual density and clarity with published POMP / applied-mathematics figures, especially King, Nguyen, and Ionides (2016), and simplify further if the figure is noticeably more decorative or harder to read.
+
+Reference for the visual standard:
+
+> King, A. A., Nguyen, D., & Ionides, E. L. (2016). *Statistical Inference for Partially Observed Markov Processes via the R Package pomp*. Journal of Statistical Software, 69(12), 1-43. https://doi.org/10.18637/jss.v069.i12
 
 ## Reproducibility
 
-Run all commands from the Experiment 3 directory.
+Run all commands from the Experiment 3 root directory.
 
-### Regenerate summaries and figures from the stored results
+### Regenerate summaries and aggregate figures
 
-The combined outputs from the original 200 simulation replicates are
-included in `results/combined/`. No MIF2 rerun is needed.
+The stored combined outputs are sufficient; no MIF2 rerun is required.
 
 ```bash
 Rscript code/04_analyze_results.R
 ```
 
+This command regenerates `task_level_error_summary.csv`, `likelihood_gaps_by_task.csv`, `overall_summary.csv`, and the five aggregate PDFs. It does not modify the four original combined CSVs.
+
 ### Reconstruct the selected MIF2 diagnostic (optional)
 
-Create the task-specific seed table:
+Create the seed table if necessary:
 
 ```bash
 Rscript code/01_create_paramlist.R results/paramlist.csv
 ```
 
-Then reconstruct the selected run:
+Then run:
 
 ```bash
 Rscript code/05_recreate_global_best_mif2.R \
@@ -165,69 +179,31 @@ Rscript code/05_recreate_global_best_mif2.R \
   figures
 ```
 
-This command recreates task 149, run 9 using the original simulation seed,
-MIF2 seed, starting values, and fitting settings. It saves the MIF2 object
-under `results/recreated_mif2/` and the diagnostic PDF under `figures/`.
+The reconstruction uses the stored simulation seed, MIF2 seed, starting values, and original fitting settings for task 149, run 9. Exact bit-for-bit agreement can depend on the R, `pomp`, compiler, and computing environment.
 
-### Rerun the complete simulation study on an HPC system
+### Rerun the full simulation study on Slurm
 
-A full rerun requires R, the `pomp` package, Slurm, and the required HPC
-software environment.
-
-Create the task-specific seed table:
+A full rerun requires R, `pomp`, and Slurm.
 
 ```bash
 Rscript code/01_create_paramlist.R results/paramlist.csv
-```
-
-Submit the Slurm array job:
-
-```bash
 sbatch code/run_simulation_array.sh
 ```
 
-The array tasks write temporary task-level outputs to `Results/task_001/`
-through `Results/task_200/`. After all tasks have finished, combine them:
+The array tasks write to `Results/task_001/` through `Results/task_200/`. After all tasks finish:
 
 ```bash
 Rscript code/03_combine_results.R \
   Results \
   results/combined
-```
 
-Finally, regenerate the summaries and figures:
-
-```bash
 Rscript code/04_analyze_results.R
 ```
 
-## Outputs
-
-The original simulation study produces:
-
-- 1,800 MIF2-run summaries (`200 x 9` runs);
-- one selected-fit summary for each simulation replicate;
-- filtered mean transmission-rate paths at 70 observation times;
-- simulated latent and observed data;
-- task-level RSS, RMSE, and bias summaries;
-- likelihood-gap summaries;
-- three aggregate recovery figures.
-
-The optional reconstruction produces one MIF2 object, a convergence
-diagnostic, regenerated data, a parameter-comparison summary, and session
-information.
-
 ## Notes on the reconstructed diagnostic
 
-The original 200-replicate study did not save the selected MIF2 objects.
-A separate reconstruction script was added afterward to recover one formal
-MIF2 trajectory for diagnostic use.
+The original 200-replicate study stored numerical summaries but did not save the selected MIF2 objects. The reconstruction script therefore recreates one run after the fact.
 
-The script selects the stored run with the largest evaluated log-likelihood
-among all 1,800 runs, which is task 149, run 9. This selection is used only
-to identify a run to reconstruct; it should not be interpreted as a typical
-simulation replicate or as the replicate with the smallest recovery error.
+It selects the stored run with the largest evaluated log likelihood among all 1,800 MIF2 runs: task 149, run 9. This choice identifies a run for diagnostic reconstruction only. It is not intended to represent a typical replicate, the smallest-error replicate, or evidence of convergence across all 200 tasks.
 
-The reconstructed object does not replace or modify the original filtered
-paths, RSS, RMSE, bias, likelihood summaries, or figures derived from the
-200-replicate study.
+The reconstructed object does not replace or modify the original filtered paths, RSS, RMSE, bias, or likelihood summaries used in the 200-replicate analysis.

@@ -245,6 +245,10 @@ for (i in seq_along(task_folders)) {
     )
   }
 
+  required_mif_columns <- c(
+    "task_id", "simulation_seed", "run", "logLik"
+  )
+
   required_best_columns <- c(
     "task_id",
     "simulation_seed",
@@ -256,6 +260,41 @@ for (i in seq_along(task_folders)) {
     "final_pf_success",
     "status"
   )
+
+  required_B_path_columns <- c(
+    "task_id", "simulation_seed", "week", "B_filtered_mean", "B_true"
+  )
+
+  required_simulated_columns <- c(
+    "week", "reports", "S", "I", "R", "H"
+  )
+
+  required_by_file <- list(
+    mif2_results.csv = required_mif_columns,
+    best_fit_summary.csv = required_best_columns,
+    filtered_B_path.csv = required_B_path_columns,
+    simulated_data.csv = required_simulated_columns
+  )
+
+  values_by_file <- list(
+    mif2_results.csv = mif_results_i,
+    best_fit_summary.csv = best_fit_i,
+    filtered_B_path.csv = B_path_i,
+    simulated_data.csv = simulated_data_i
+  )
+
+  for (file_name in names(required_by_file)) {
+    missing_columns <- setdiff(
+      required_by_file[[file_name]],
+      names(values_by_file[[file_name]])
+    )
+    if (length(missing_columns) > 0) {
+      stop(
+        basename(task_folder), " is missing column(s) in ", file_name, ": ",
+        paste(missing_columns, collapse = ", ")
+      )
+    }
+  }
 
   missing_best_columns <- setdiff(
     required_best_columns,
@@ -293,6 +332,42 @@ for (i in seq_along(task_folders)) {
   }
 
   simulation_seed_i <- best_fit_i$simulation_seed[[1]]
+
+  if (any(mif_results_i$task_id != expected_task_id) ||
+      any(B_path_i$task_id != expected_task_id)) {
+    stop("Task ID mismatch in task-level MIF2 or filtered-path output for ", basename(task_folder), ".")
+  }
+  if (any(mif_results_i$simulation_seed != simulation_seed_i) ||
+      any(B_path_i$simulation_seed != simulation_seed_i)) {
+    stop("Simulation-seed mismatch among task-level outputs for ", basename(task_folder), ".")
+  }
+  if (nrow(simulated_data_i) != 70L || max(simulated_data_i$H) <= 20) {
+    stop(basename(task_folder), " does not contain a 70-row accepted outbreak with max(H) > 20.")
+  }
+
+  final_pf_success_i <- isTRUE(as.logical(best_fit_i$final_pf_success[[1]]))
+  expected_B_rows <- if (final_pf_success_i) 70L else 0L
+  if (nrow(B_path_i) != expected_B_rows) {
+    stop(basename(task_folder), " has an unexpected number of filtered-path rows.")
+  }
+  if (final_pf_success_i &&
+      (any(B_path_i$B_true[B_path_i$week < 5] != 4) ||
+       any(B_path_i$B_true[B_path_i$week >= 5] != 2))) {
+    stop("The saved true transmission path is inconsistent in ", basename(task_folder), ".")
+  }
+
+  finite_results_i <- mif_results_i[is.finite(mif_results_i$logLik), , drop = FALSE]
+  fit_success_i <- isTRUE(as.logical(best_fit_i$fit_success[[1]]))
+  if (fit_success_i) {
+    if (nrow(finite_results_i) == 0L) {
+      stop(basename(task_folder), " reports a successful fit but has no finite evaluated likelihood.")
+    }
+    selected_i <- finite_results_i[which.max(finite_results_i$logLik), , drop = FALSE]
+    if (selected_i$run[[1]] != best_fit_i$best_run[[1]] ||
+        !isTRUE(all.equal(selected_i$logLik[[1]], best_fit_i$logLik[[1]], tolerance = 1e-12))) {
+      stop("Best-fit selection is inconsistent in ", basename(task_folder), ".")
+    }
+  }
 
   if (
     !("task_id" %in% names(simulated_data_i))

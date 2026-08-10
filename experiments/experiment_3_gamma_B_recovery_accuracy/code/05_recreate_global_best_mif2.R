@@ -457,7 +457,7 @@ cat(
 )
 
 # ------------------------------------------------------------
-# 6. Define the original Gamma-transition fitting model
+# 6. Define the original Gamma-noise fitting model
 # ------------------------------------------------------------
 
 sir_step_gamma <- Csnippet("
