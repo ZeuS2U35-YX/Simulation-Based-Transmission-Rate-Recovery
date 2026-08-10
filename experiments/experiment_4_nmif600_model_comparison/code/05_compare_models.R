@@ -1,5 +1,5 @@
 # ============================================================
-# Gamma-noise vs. constant-B model comparison
+# Gamma-noise versus constant-B comparison
 # on exactly the same shared data sets
 #
 # Produces validated paired summary tables and a set of figures

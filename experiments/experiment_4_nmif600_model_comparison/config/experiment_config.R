@@ -2,7 +2,7 @@
 # Experiment 4 configuration
 #
 # Scientific question:
-# Gamma-noise vs. constant-B model comparison,
+# Gamma-noise versus constant-B comparison,
 # both fitted with Nmif = 600, on exactly the same 200 accepted
 # simulated epidemic data sets.
 # ============================================================

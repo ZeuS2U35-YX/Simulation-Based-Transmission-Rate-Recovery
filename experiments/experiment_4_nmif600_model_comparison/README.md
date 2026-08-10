@@ -1,4 +1,4 @@
-# Experiment 4: Gamma-noise vs. constant-B model comparison at Nmif = 600
+# Experiment 4: Gamma-noise versus constant-B comparison at Nmif = 600
 
 Experiment 4 is the canonical final computational analysis in this repository and the primary source of quantitative evidence for the report, which is currently in progress. Experiments 1-3 are developmental or supporting studies. In particular, Experiment 3 is an earlier `Nmif = 100` recovery-accuracy study and is superseded by Experiment 4 for final Gamma-noise model numerical claims.
 
