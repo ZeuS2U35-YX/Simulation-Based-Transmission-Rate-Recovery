@@ -7,3 +7,6 @@
 .RData
 .Ruserdata
 .Rproj.user/
+
+# Local pre-cleanup archive retained outside the published repository.
+/experiments/experiment_1_gamma_B_recovery_final.tar.gz
