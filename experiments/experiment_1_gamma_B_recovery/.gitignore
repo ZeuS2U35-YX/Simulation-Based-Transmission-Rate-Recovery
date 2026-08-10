@@ -13,3 +13,6 @@
 # Temporary editor files
 *~
 *.swp
+
+# Regenerable fitted objects (CSV summaries and PDFs remain trackable)
+results/*.rds

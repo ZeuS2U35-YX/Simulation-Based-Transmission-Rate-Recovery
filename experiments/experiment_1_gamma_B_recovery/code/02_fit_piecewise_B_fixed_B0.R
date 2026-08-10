@@ -1,5 +1,6 @@
 # ============================================================
-# Estimating sigma_beta with B0 fixed using mif2
+# Experiment 1B: fit the Gamma-noise model to piecewise-B simulated data
+# Fix B0 = 4 and estimate sigma_beta with multi-start MIF2
 # ============================================================
 
 
@@ -270,7 +271,7 @@ sim1_observed <- sim1 |>
 
 
 # ------------------------------------------------------------
-# 5. Define the Gamma-transition filtering model
+# 5. Define the Gamma-noise filtering model
 # ------------------------------------------------------------
 
 sir_step_gamma <- Csnippet("
@@ -321,7 +322,7 @@ sir_step_gamma <- Csnippet("
 
 
 # ------------------------------------------------------------
-# 5.1 Define initial states for the Gamma-transition model
+# 5.1 Define initial states for the Gamma-noise model
 # ------------------------------------------------------------
 
 sir_rinit_gamma <- Csnippet("
@@ -350,7 +351,7 @@ theta_gamma <- c(
 
 
 # ------------------------------------------------------------
-# 6. Build the Gamma-transition pomp object
+# 6. Build the Gamma-noise pomp object
 # ------------------------------------------------------------
 
 pf_gamma_model <- pomp(
@@ -807,6 +808,35 @@ cat(
 
 
 # ------------------------------------------------------------
+# 10.1 Save fitted summaries and selected MIF2 object
+# ------------------------------------------------------------
+
+write.csv(
+  mif_results,
+  file.path(results_directory, "piecewise_fixed_B0_mif2_results.csv"),
+  row.names = FALSE
+)
+
+write.csv(
+  best_fit,
+  file.path(results_directory, "piecewise_fixed_B0_best_fit.csv"),
+  row.names = FALSE
+)
+
+saveRDS(
+  mif_best,
+  file.path(results_directory, "piecewise_fixed_B0_best_mif2.rds")
+)
+
+pdf(
+  file = file.path(figures_directory, "piecewise_fixed_B0_mif2_diagnostic.pdf"),
+  width = 7.2,
+  height = 4.6
+)
+plot(mif_best, pars = "sigma_beta")
+dev.off()
+
+# ------------------------------------------------------------
 # 11. Run a final particle filter for the filtered B path
 # ------------------------------------------------------------
 
@@ -881,166 +911,149 @@ infectious_estimate <- tibble(
 
 
 # ------------------------------------------------------------
-# 13. Plot the true and filtered transmission-rate paths
+# 13. Save numerical outputs
 # ------------------------------------------------------------
 
-B_path_plot <- ggplot(
+write.csv(
   B_estimate,
-  aes(
-    x = week
-  )
-) +
-
-  # True B(t)
-  geom_step(
-    aes(
-      y = B_true,
-      color = "True B(t)"
-    ),
-    linewidth = 1,
-    direction = "hv"
-  ) +
-
-  # Filtered B(t)
-  geom_line(
-    aes(
-      y = B_filtered_mean,
-      color = "Gamma-filtered B(t)"
-    ),
-    linewidth = 0.7
-  ) +
-
-  # True switching time
-  geom_vline(
-    xintercept = theta[["t_switch"]],
-    linetype = "dashed",
-    linewidth = 0.7
-  ) +
-
-  scale_color_manual(
-    values = c(
-      "True B(t)" = "#00BFC4",
-      "Gamma-filtered B(t)" = "#F8766D"
-    ),
-    breaks = c(
-      "True B(t)",
-      "Gamma-filtered B(t)"
-    )
-  ) +
-
-  scale_y_continuous(
-    limits = c(0, 6),
-    breaks = seq(0, 6, by = 1)
-  ) +
-
-  theme_bw(
-    base_size = 14
-  ) +
-
-  labs(
-    x = "Week",
-    y = expression(B(t)),
-    color = NULL
-  ) +
-
-  theme(
-    legend.position = "top"
-  )
-
-
-print(
-  B_path_plot
+  file.path(results_directory, "piecewise_fixed_B0_filtered_B_path.csv"),
+  row.names = FALSE
 )
 
+write.csv(
+  infectious_estimate,
+  file.path(results_directory, "piecewise_fixed_B0_filtered_infectious_path.csv"),
+  row.names = FALSE
+)
+
+# ------------------------------------------------------------
+# 14. Publication-style filtered-path figures
+# ------------------------------------------------------------
+
+true_B_segments <- tibble(
+  x = c(0, 5),
+  xend = c(5, 10),
+  y = c(4, 2),
+  yend = c(4, 2),
+  series = "True B(t)"
+)
+
+B_path_plot <- ggplot() +
+  geom_segment(
+    data = true_B_segments,
+    aes(x = x, xend = xend, y = y, yend = yend, color = series),
+    linewidth = 0.8
+  ) +
+  geom_line(
+    data = B_estimate,
+    aes(x = week, y = B_filtered_mean, color = "Filtered mean B(t)"),
+    linewidth = 0.8
+  ) +
+  geom_vline(xintercept = 5, linetype = "dashed", linewidth = 0.4, color = "gray70") +
+  scale_color_manual(
+    values = c(
+      "True B(t)" = "black",
+      "Filtered mean B(t)" = "#5DA5DA"
+    ),
+    breaks = c("True B(t)", "Filtered mean B(t)")
+  ) +
+  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 2), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 6), breaks = 0:6, expand = c(0, 0)) +
+  labs(x = "Week", y = "Transmission rate, B(t)", color = NULL) +
+  theme_classic(base_size = 11) +
+  theme(
+    legend.position = c(0.70, 0.90),
+    legend.justification = c(0, 1),
+    legend.background = element_blank(),
+    legend.key = element_blank()
+  )
 
 ggsave(
-  filename = file.path(
-    figures_directory,
-    "fixed_B0_sigma_only_B_path.pdf"
-  ),
+  filename = file.path(figures_directory, "piecewise_fixed_B0_filtered_B_path.pdf"),
   plot = B_path_plot,
-  width = 8,
-  height = 5,
+  width = 6.2,
+  height = 4.2,
   units = "in",
   device = "pdf"
 )
 
-
-# ------------------------------------------------------------
-# 13.1 Plot the true and Gamma-filtered I paths
-# ------------------------------------------------------------
-
-infectious_path_plot <- ggplot(
-  infectious_estimate,
-  aes(
-    x = week
-  )
-) +
-
-  # True I(t)
-  geom_line(
-    aes(
-      y = true_infectious,
-      color = "True I(t)"
-    ),
-    linewidth = 1
-  ) +
-
-  # Gamma-filtered I(t)
-  geom_line(
-    aes(
-      y = gamma_infectious,
-      color = "Gamma-filtered I(t)"
-    ),
-    linewidth = 0.6
-  ) +
-
-  # True switching time
-  geom_vline(
-    xintercept = theta[["t_switch"]],
-    linetype = "dashed",
-    linewidth = 0.7
-  ) +
-
+infectious_path_plot <- ggplot(infectious_estimate, aes(x = week)) +
+  geom_line(aes(y = true_infectious, color = "True I(t)"), linewidth = 0.75) +
+  geom_line(aes(y = gamma_infectious, color = "Filtered mean I(t)"), linewidth = 0.7) +
+  geom_vline(xintercept = 5, linetype = "dashed", linewidth = 0.4, color = "gray70") +
   scale_color_manual(
     values = c(
-      "True I(t)" = "#00BFC4",
-      "Gamma-filtered I(t)" = "#E69F00"
+      "True I(t)" = "black",
+      "Filtered mean I(t)" = "#5DA5DA"
     ),
-    breaks = c(
-      "True I(t)",
-      "Gamma-filtered I(t)"
-    )
+    breaks = c("True I(t)", "Filtered mean I(t)")
   ) +
-
-  theme_bw(
-    base_size = 14
-  ) +
-
-  labs(
-    x = "Week",
-    y = "Number infected and infectious",
-    color = NULL
-  ) +
-
+  scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 2), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.04))) +
+  labs(x = "Week", y = "Number infected and infectious", color = NULL) +
+  theme_classic(base_size = 11) +
   theme(
-    legend.position = "top"
+    legend.position = c(0.70, 0.90),
+    legend.justification = c(0, 1),
+    legend.background = element_blank(),
+    legend.key = element_blank()
   )
 
-
-print(
-  infectious_path_plot
+ggsave(
+  filename = file.path(figures_directory, "piecewise_fixed_B0_filtered_infectious_path.pdf"),
+  plot = infectious_path_plot,
+  width = 6.2,
+  height = 4.2,
+  units = "in",
+  device = "pdf"
 )
 
+# ------------------------------------------------------------
+# 15. Starting-value likelihood diagnostic
+# ------------------------------------------------------------
+
+starting_value_plot_data <- mif_results |>
+  mutate(
+    start_label = paste0("sigma=", sprintf("%.2f", start_sigma_beta)),
+    selected = run == best_fit$run[[1]],
+    lower = logLik - 2 * logLik_se,
+    upper = logLik + 2 * logLik_se
+  )
+
+starting_value_plot <- ggplot(
+  starting_value_plot_data,
+  aes(x = factor(run, levels = run), y = logLik)
+) +
+  geom_errorbar(
+    aes(ymin = lower, ymax = upper),
+    width = 0,
+    linewidth = 0.45,
+    color = "black"
+  ) +
+  geom_point(
+    aes(fill = selected),
+    shape = 21,
+    size = 2.4,
+    stroke = 0.6,
+    color = "black"
+  ) +
+  scale_fill_manual(values = c(`FALSE` = "white", `TRUE` = "black"), guide = "none") +
+  scale_x_discrete(labels = starting_value_plot_data$start_label) +
+  labs(
+    x = "Starting-point combination",
+    y = "Evaluated log likelihood"
+  ) +
+  theme_classic(base_size = 11) +
+  theme(
+    axis.text.x = element_text(angle = 35, hjust = 1, vjust = 1),
+    plot.margin = margin(5.5, 8, 5.5, 5.5)
+  )
 
 ggsave(
-  filename = file.path(
-    figures_directory,
-    "fixed_B0_sigma_only_infectious_path.pdf"
-  ),
-  plot = infectious_path_plot,
-  width = 8,
-  height = 5,
+  filename = file.path(figures_directory, "piecewise_fixed_B0_starting_value_loglik.pdf"),
+  plot = starting_value_plot,
+  width = 6.4,
+  height = 4.4,
   units = "in",
   device = "pdf"
 )
