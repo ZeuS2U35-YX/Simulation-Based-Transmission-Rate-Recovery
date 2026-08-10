@@ -1,8 +1,18 @@
-# Experiment 2: Large-scale Gamma-B Recovery on HPC
+# Experiment 2: High-particle Gamma-noise recovery with multi-start MIF2 on HPC
 
-## Experiment
+## Purpose
 
-One fixed simulated epidemic dataset is generated with
+This supporting experiment fits the Gamma-noise transmission-rate model to **one fixed simulated epidemic dataset** using **nine starting points** and **high particle counts** on an HPC cluster. The main goal is to check whether the high-particle workflow gives a stable fitted solution and a plausible recovered transmission-rate path when the same dataset is fitted from different starting values.
+
+This experiment is **not** a replicated recovery-accuracy study across many independent datasets. It is a one-dataset, multi-start, high-particle diagnostic experiment.
+
+Experiment 2 is a supporting computational study, not a co-equal final analysis. Experiment 4 is the canonical computational analysis and the primary source of quantitative evidence for the report.
+
+## Scientific setup
+
+### Data-generating model
+
+A single epidemic dataset is simulated for 10 weeks, with observations every `1/7` week and Euler process step `1/30` week. The true transmission-rate path is piecewise constant:
 
 \[
 B(t)=
@@ -12,133 +22,194 @@ B(t)=
 \end{cases}
 \]
 
-The Gamma-transition model is fitted from nine starting points:
+The latent states are `S`, `I`, `R`, and the incidence accumulator `H`. The initial state is:
 
-- \(B_0 \in \{2,4,6\}\)
-- \(\sigma_\beta \in \{0.10,0.30,0.45\}\)
+\[
+S(0)=9990,\qquad I(0)=10,\qquad R(0)=0,\qquad H(0)=0.
+\]
 
-Each starting point is assigned to one SLURM array task.
+The measurement model is
 
-Formal settings:
+\[
+Y_n\mid H_n \sim \operatorname{NegBin}(\text{mean}=\rho H_n,\text{size}=k).
+\]
+
+Fixed data-generating values:
+
+- `Beta_high = 4`
+- `Beta_low = 2`
+- `t_switch = 5`
+- `mu_IR = 3`
+- `N = 10000`
+- `rho = 0.5`
+- `k = 10`
+- simulation seed `20260527`
+
+### Fitted model
+
+Under the fitted Gamma-noise model, the one-step transition distribution for the positive latent state `B(t)` is Gamma. MIF2 estimates only:
+
+- `B0`
+- `sigma_beta`
+
+The remaining parameters (`mu_IR`, `N`, `rho`, `k`) and the initial epidemic state are fixed at their true values.
+
+### Starting points
+
+The model is fitted from the nine combinations
+
+\[
+B_0\in\{2,4,6\},\qquad \sigma_\beta\in\{0.10,0.30,0.45\}.
+\]
+
+Each starting point is assigned to one Slurm array task.
+
+## Computational settings
 
 - `Nmif = 100`
 - `Np_mif = 50000`
 - `Np_eval = 50000`
 - `n_pf_evals = 5`
 - `Np_final = 50000`
+- geometric cooling with `cooling.fraction.50 = 0.5`
+- random-walk standard deviations:
+  - `B0 = ivp(0.20)`
+  - `sigma_beta = 0.05`
+- log transformation for `B0` and `sigma_beta`
 
-## Seed design
+Seed design:
 
-- Dataset simulation seed: `20260527`
-- MIF2 seed shared by all nine starts: `20260628`
-- Likelihood-evaluation seeds shared by all nine starts:
-  `20260801` to `20260805`
-- Final particle-filter seed: `999`
+- MIF2 seed shared by all starts: `20260628`
+- evaluation seeds: `20260801` to `20260805`
+- final particle-filter seed: `999`
 
-## HPC environment
+Using common random numbers across the nine starts helps isolate starting-value effects for this fixed dataset, but it does not replace a full robustness study across independent MIF2 random-number streams.
 
-- `StdEnv/2020`
-- `r/4.1.2`
-- `R_LIBS_USER=$HOME/packages-R4.1`
+## Workflow
 
-## Upload location
+1. Generate one fixed piecewise-`B` dataset.
+2. Run nine MIF2 searches, one per starting-point combination.
+3. For each fitted parameter vector, run five independent particle-filter likelihood evaluations.
+4. Combine those five values using `pomp::logmeanexp`.
+5. Select the candidate with the largest combined evaluated log likelihood.
+6. Run a final particle filter for the selected fit with `filter.mean = TRUE`.
+7. Save filtered paths, combined results, and diagnostic figures.
 
-Upload this entire folder directly to:
+## Main outputs
 
-```text
-/global/home/hpc6245/
-```
+### Data
 
-The resulting full path must be:
+- `data/fixed_piecewise_B_dataset.csv`
 
-```text
-/global/home/hpc6245/experiment2_large_scale_gamma_B_recovery_HPC
-```
+### Local task-level outputs
 
-## Run
+- `results/array_output/task_001/` to `results/array_output/task_009/`
+  - `mif2_result.csv`
+  - `pfilter_evaluations.csv`
+  - `mif2_object.rds`
 
-```bash
-cd ~/experiment2_large_scale_gamma_B_recovery_HPC
-chmod +x run_experiment.sh
-chmod +x hpc/*.sh
-./run_experiment.sh
-```
+These task directories are immutable raw HPC products. They remain available locally but are ignored by Git; the repository retains the compact combined summaries and the selected fitted object needed for documented evidence and figure regeneration.
 
-This single command:
+### Combined outputs
 
-1. generates the fixed dataset;
-2. submits nine MIF2 array tasks;
-3. automatically submits a dependent finishing job;
-4. combines results after all nine tasks succeed;
-5. selects the best fit;
-6. runs the final particle filter;
-7. saves final data and figures.
-
-## Outputs
-
-### Fixed data
-
-```text
-data/fixed_piecewise_B_dataset.csv
-```
-
-### Per-task outputs
-
-```text
-results/array_output/task_001/
-...
-results/array_output/task_009/
-```
-
-Each task contains:
-
-```text
-mif2_result.csv
-pfilter_evaluations.csv
-mif2_object.rds
-```
-
-### Combined results
-
-```text
-results/combined_mif2_results.csv
-results/best_fit.csv
-results/best_mif2_object.rds
-results/final_filtered_B_path.csv
-results/final_filtered_infectious_path.csv
-```
+- `results/combined_mif2_results.csv`
+- `results/starting_value_summary.csv`
+- `results/best_fit.csv`
+- `results/best_mif2_object.rds`
+- `results/final_filtered_B_path.csv`
+- `results/final_filtered_infectious_path.csv`
 
 ### Figures
 
+- `figures/best_B_path.pdf`
+- `figures/best_infectious_path.pdf`
+- `figures/starting_value_loglik.pdf`
+- `figures/best_mif2_trace.pdf`
+
+All four tracked figures are generated by `code/05_regenerate_figures.R`. The path figures read `results/final_filtered_B_path.csv` and `results/final_filtered_infectious_path.csv`; the starting-value figure reads `results/combined_mif2_results.csv` and `results/best_fit.csv`; and the MIF2 trace reads `results/best_mif2_object.rds`. No simulation, MIF2 fit, or particle filter is run by this figure-only script.
+
+## Reproduction commands
+
+Run commands from the Experiment 2 directory. The complete HPC submission workflow is:
+
+```bash
+bash run_experiment.sh
+```
+
+This generates the fixed dataset, submits the nine-task MIF2 array, and then runs the combine, final-filter, and figure steps after the array succeeds. The workflow assumes Slurm plus the modules documented in the shell scripts; computational cost is dominated by nine `Nmif=100`, `Np_mif=50000` fits.
+
+After existing task outputs are present, the post-processing order is:
+
+```bash
+Rscript code/03_Combine_MIF2_Array_Results.R
+Rscript code/04_Plot_Best_Fit.R
+Rscript code/05_regenerate_figures.R
+```
+
+To reproduce only the four committed PDFs and `results/starting_value_summary.csv` from committed compact results, run:
+
+```bash
+Rscript code/05_regenerate_figures.R
+```
+
+## Headline numerical result
+
+The selected best fit is task 9, started from `B0 = 6`, `sigma_beta = 0.45`, with:
+
+- `B0_hat = 4.4568169`
+- `sigma_beta_hat = 0.2105710`
+- combined evaluated log likelihood `= -197.4811728`
+- Monte Carlo SE `= 0.0099761`
+
+Across the nine starting points, the evaluated log likelihoods are all very close. This suggests that, for this dataset and this seed design, the high-particle workflow brings the different starts to a similar high-likelihood region. Because the likelihood estimates themselves are Monte Carlo estimates, small differences between starts should be interpreted cautiously.
+
+## Interpretation
+
+This experiment supports discussion of:
+
+- high-particle implementation of the Gamma-noise model recovery workflow;
+- starting-value sensitivity for a fixed dataset;
+- the recovered `B(t)` path for the selected fit;
+- the corresponding filtered infectious path.
+
+This experiment alone does **not** establish:
+
+- replicated recovery accuracy;
+- bias or RMSE across many simulated epidemics;
+- coverage properties;
+- robustness across independent MIF2 seeds;
+- proof that the selected fit is a unique global optimum.
+
+## Repository structure
+
 ```text
-figures/best_B_path.png
-figures/best_infectious_path.png
-figures/best_mif2_trace.png
+experiment_2_large_scale_gamma_B_recovery_HPC/
+├── code/
+│   ├── 01_Generate_Fixed_Piecewise_Data.R
+│   ├── 02_Run_MIF2_Array.R
+│   ├── 03_Combine_MIF2_Array_Results.R
+│   ├── 04_Plot_Best_Fit.R
+│   └── 05_regenerate_figures.R
+├── data/
+├── figures/
+├── hpc/
+│   ├── 01_submit_mif2_array.sh
+│   └── 02_combine_and_plot.sh
+├── logs/
+├── notes/
+│   └── experiment_design.md
+├── results/
+├── README.md
+└── run_experiment.sh
 ```
 
-### Logs
+## Visual-review checklist used in this revision
 
-```text
-logs/slurm-mif2-<JOBID>_<TASKID>.out
-logs/slurm-mif2-<JOBID>_<TASKID>.err
-logs/slurm-finish-<JOBID>.out
-logs/slurm-finish-<JOBID>.err
-```
+The revised figures were checked against a simple paper-style standard:
 
-## Check progress
-
-```bash
-squeue -u "$USER"
-```
-
-Count completed task results:
-
-```bash
-find results/array_output -name "mif2_result.csv" | wc -l
-```
-
-View task 1 log:
-
-```bash
-tail -50 logs/slurm-mif2-<JOBID>_1.out
-```
+- no decorative background or dense grid;
+- clean axis labels and readable tick marks;
+- reference lines only when scientifically useful;
+- legends short and explicit;
+- titles not overloaded with interpretation;
+- outputs suitable for both GitHub preview and report / manuscript drafting.

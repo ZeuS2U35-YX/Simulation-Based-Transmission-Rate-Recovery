@@ -4,11 +4,12 @@
 #SBATCH --time=12:00:00
 #SBATCH --mem=12G
 #SBATCH --cpus-per-task=1
-#SBATCH --chdir=/global/home/hpc6245/experiment2_large_scale_gamma_B_recovery_HPC
-#SBATCH --output=/global/home/hpc6245/experiment2_large_scale_gamma_B_recovery_HPC/logs/slurm-mif2-%A_%a.out
-#SBATCH --error=/global/home/hpc6245/experiment2_large_scale_gamma_B_recovery_HPC/logs/slurm-mif2-%A_%a.err
+#SBATCH --output=logs/slurm-mif2-%A_%a.out
+#SBATCH --error=logs/slurm-mif2-%A_%a.err
 
 set -euo pipefail
+
+cd "${SLURM_SUBMIT_DIR:?Submit this script from the Experiment 2 directory}"
 
 module --force purge
 module load StdEnv/2020

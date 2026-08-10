@@ -1,0 +1,14 @@
+# macOS and R session state
+.DS_Store
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# HPC logs are immutable local execution records, not repository evidence.
+logs/*
+!logs/.gitkeep
+
+# Per-task MIF2 outputs are raw HPC products. Compact combined summaries and
+# the selected fitted object remain tracked under results/.
+results/array_output/task_*/

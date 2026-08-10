@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-cd /global/home/hpc6245/experiment2_large_scale_gamma_B_recovery_HPC
+cd "$(dirname "$0")"
 
 module --force purge
 module load StdEnv/2020

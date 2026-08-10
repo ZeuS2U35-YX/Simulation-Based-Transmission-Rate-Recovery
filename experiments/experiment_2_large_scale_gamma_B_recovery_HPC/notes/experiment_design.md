@@ -1,29 +1,86 @@
 # Experiment 2 design
 
-## Purpose
+## Primary purpose
 
-Assess whether MIF2 runs initialized from nine different starting points
-converge to a similar high-likelihood region when fitting one fixed
-piecewise-transmission epidemic dataset.
+Repeat the Gamma-noise model recovery workflow using 50,000 particles on an HPC
+cluster. The term `large_scale` in the folder name refers primarily to the
+large particle count, not to the number of simulated datasets.
 
-## Data-generating transmission rate
+The experiment also checks starting-value sensitivity by fitting one fixed
+simulated dataset from nine combinations of initial values for `B0` and
+`sigma_beta`.
 
-- \(B(t)=4\) before week 5.
-- \(B(t)=2\) from week 5 onward.
+## Scope
 
-## Search design
+This is a one-dataset, multi-start, large-particle experiment. It is intended
+to examine computational stability and convergence to a similar
+high-likelihood region.
 
-- One fixed simulated dataset.
-- Nine starting points.
+It is not a replicated recovery-accuracy experiment and does not estimate
+bias or RMSE across independently simulated datasets.
+
+This experiment is retained as supporting evidence for the high-particle
+implementation and starting-value behavior. Experiment 4 is the canonical
+computational analysis and supersedes this experiment for final quantitative
+Gamma-noise model claims.
+
+## Data-generating model
+
+- One fixed simulated epidemic dataset.
+- Observation period: 10 weeks.
+- Observation interval: `1/7` week.
+- Euler process step: `1/30` week.
+- Initial state: `S = 9990`, `I = 10`, `R = 0`, `H = 0`.
+- True transmission rate:
+  - \(B(t)=4\) before week 5;
+  - \(B(t)=2\) from week 5 onward.
+- Measurement model:
+  \(Y_n\mid H_n\sim\operatorname{NegBin}(\text{mean}=\rho H_n,\text{size}=k)\).
+- Fixed values: `mu_IR = 3`, `N = 10000`, `rho = 0.5`, `k = 10`.
+- Simulation seed: `20260527`.
+
+## Fitted model
+
+Under the fitted Gamma-noise model, the one-step transition distribution for
+the positive latent state `B` is Gamma. MIF2 estimates only:
+
+- `B0`;
+- `sigma_beta`.
+
+The remaining parameters and the initial epidemic state are fixed at their
+data-generating values. Both estimated parameters are log-transformed through
+`parameter_trans(log = c("B0", "sigma_beta"))`, so MIF2 perturbations occur
+on the transformed estimation scale. `B0` is an initial-value parameter that
+determines the value of the latent transmission-rate process at time zero,
+whereas `sigma_beta` is a regular time-constant parameter.
+
+## Multi-start search design
+
+- One fixed dataset shared by all tasks.
+- Nine starting points:
+  - `B0` in `{2, 4, 6}`;
+  - `sigma_beta` in `{0.10, 0.30, 0.45}`.
 - One MIF2 search per starting point.
-- Nine SLURM array tasks.
+- One Slurm array task per starting point.
+- Shared MIF2 seed across starting points: `20260628`.
+
+## Large-particle settings
+
 - `Nmif = 100`.
 - `Np_mif = 50000`.
 - Five likelihood evaluations per fitted parameter vector.
 - `Np_eval = 50000`.
+- `Np_final = 50000`.
+- Evaluation seeds: `20260801` to `20260805`.
+- Final filtering seed: `999`.
 
-## Selection
+## Selection and final filtering
 
-The fitted parameter vector with the highest replicated particle-filter
-log-likelihood estimate is selected. A final particle filter is then run
-to produce filtered transmission-rate and infectious paths.
+For each fitted parameter vector, five particle-filter likelihood estimates
+are combined using `pomp::logmeanexp`. The candidate with the largest combined
+evaluated log-likelihood is selected. A final particle filter with
+`filter.mean = TRUE` then produces filtered transmission-rate and infectious
+paths.
+
+The selected candidate is the best among the nine evaluated fits. This rule
+does not prove that it is a unique global optimum.

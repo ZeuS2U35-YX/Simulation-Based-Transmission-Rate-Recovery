@@ -1,21 +1,22 @@
 # ============================================================
-# Run the final particle filter and plot the selected best fit
+# Run the final particle filter and save compact path summaries
+# for the selected best fit.
 #
 # Inputs:
 #   data/fixed_piecewise_B_dataset.csv
 #   results/best_fit.csv
 #   results/best_mif2_object.rds
+#   results/combined_mif2_results.csv
 #
 # Outputs:
 #   results/final_filtered_B_path.csv
 #   results/final_filtered_infectious_path.csv
-#   figures/best_B_path.png
-#   figures/best_infectious_path.png
-#   figures/best_mif2_trace.png
+#   results/starting_value_summary.csv
+#
+# Figures are generated separately by code/05_regenerate_figures.R.
 # ============================================================
 
 library(pomp)
-library(ggplot2)
 
 options(stringsAsFactors = FALSE)
 
@@ -26,96 +27,53 @@ options(stringsAsFactors = FALSE)
 data_file <- "data/fixed_piecewise_B_dataset.csv"
 best_fit_file <- "results/best_fit.csv"
 best_object_file <- "results/best_mif2_object.rds"
+combined_results_file <- "results/combined_mif2_results.csv"
 
 required_files <- c(
   data_file,
   best_fit_file,
-  best_object_file
+  best_object_file,
+  combined_results_file
 )
 
-missing_files <- required_files[
-  !file.exists(required_files)
-]
+missing_files <- required_files[!file.exists(required_files)]
 
 if (length(missing_files) > 0) {
   stop(
     paste(
       "Missing required files:",
-      paste(
-        missing_files,
-        collapse = ", "
-      )
+      paste(missing_files, collapse = ", ")
     )
   )
 }
 
-sim1 <- read.csv(
-  data_file,
-  stringsAsFactors = FALSE
-)
+sim1 <- read.csv(data_file)
+best_fit <- read.csv(best_fit_file)
+combined_results <- read.csv(combined_results_file)
+mif_best <- readRDS(best_object_file)
 
-best_fit <- read.csv(
-  best_fit_file,
-  stringsAsFactors = FALSE
-)
-
-mif_best <- readRDS(
-  best_object_file
-)
-
-sim1_observed <- sim1[
-  ,
-  c(
-    "week",
-    "reports"
-  ),
-  drop = FALSE
-]
+sim1_observed <- sim1[, c("week", "reports"), drop = FALSE]
 
 # ------------------------------------------------------------
-# 2. Rebuild Gamma-transition model
+# 2. Rebuild Gamma-noise model
 # ------------------------------------------------------------
 
-sir_rmeas <- Csnippet("
-  reports = rnbinom_mu(k, rho * H);
-")
+sir_rmeas <- Csnippet("reports = rnbinom_mu(k, rho * H);")
 
-sir_dmeas <- Csnippet("
-  lik = dnbinom_mu(
-    reports,
-    k,
-    rho * H,
-    give_log
-  );
-")
+sir_dmeas <- Csnippet("lik = dnbinom_mu(reports, k, rho * H, give_log);")
 
 sir_step_gamma <- Csnippet("
-
   double shape_B;
   double scale_B;
-
   double dN_SI;
   double dN_IR;
-
   double p_SI;
   double p_IR;
 
   if (sigma_beta > 0.0) {
-
-    shape_B =
-      1.0 /
-      (sigma_beta * sigma_beta * dt);
-
-    scale_B =
-      B *
-      sigma_beta *
-      sigma_beta *
-      dt;
-
-    B = rgamma(
-      shape_B,
-      scale_B
-    );
+    shape_B = 1.0 / (sigma_beta * sigma_beta * dt);
+    scale_B = B * sigma_beta * sigma_beta * dt;
+    B = rgamma(shape_B, scale_B);
   }
 
   p_SI = 1.0 - exp(-B * I / N * dt);
@@ -127,7 +85,6 @@ sir_step_gamma <- Csnippet("
   S = S - dN_SI;
   I = I + dN_SI - dN_IR;
   R = R + dN_IR;
-
   H = H + dN_SI;
 ")
 
@@ -153,55 +110,24 @@ pf_gamma_model <- pomp(
   times = "week",
   t0 = 0,
   rinit = sir_rinit_gamma,
-  rprocess = euler(
-    sir_step_gamma,
-    delta.t = 1 / 30
-  ),
+  rprocess = euler(sir_step_gamma, delta.t = 1 / 30),
   rmeasure = sir_rmeas,
   dmeasure = sir_dmeas,
   accumvars = "H",
-  statenames = c(
-    "S",
-    "I",
-    "R",
-    "H",
-    "B"
-  ),
-  paramnames = c(
-    "B0",
-    "sigma_beta",
-    "mu_IR",
-    "N",
-    "rho",
-    "k"
-  ),
-  partrans = parameter_trans(
-    log = c(
-      "B0",
-      "sigma_beta"
-    )
-  )
+  statenames = c("S", "I", "R", "H", "B"),
+  paramnames = c("B0", "sigma_beta", "mu_IR", "N", "rho", "k"),
+  partrans = parameter_trans(log = c("B0", "sigma_beta"))
 )
 
 # ------------------------------------------------------------
-# 3. Construct best complete parameter vector
+# 3. Construct best parameter vector
 # ------------------------------------------------------------
 
-mif_coef_best <- coef(
-  mif_best
-)
+mif_coef_best <- coef(mif_best)
 
 theta_best <- theta_gamma
-
-theta_best[["B0"]] <-
-  unname(
-    mif_coef_best[["B0"]]
-  )
-
-theta_best[["sigma_beta"]] <-
-  unname(
-    mif_coef_best[["sigma_beta"]]
-  )
+theta_best[["B0"]] <- unname(mif_coef_best[["B0"]])
+theta_best[["sigma_beta"]] <- unname(mif_coef_best[["sigma_beta"]])
 
 # ------------------------------------------------------------
 # 4. Final particle filter
@@ -210,9 +136,7 @@ theta_best[["sigma_beta"]] <-
 Np_final <- 50000
 final_filter_seed <- 999
 
-set.seed(
-  final_filter_seed
-)
+set.seed(final_filter_seed)
 
 pf_best <- pfilter(
   pf_gamma_model,
@@ -221,23 +145,14 @@ pf_best <- pfilter(
   filter.mean = TRUE
 )
 
-final_logLik <- as.numeric(
-  logLik(pf_best)
-)
-
-fm <- filter_mean(
-  pf_best
-)
+final_logLik <- as.numeric(logLik(pf_best))
+fm <- filter_mean(pf_best)
 
 # ------------------------------------------------------------
-# 5. Extract paths
+# 5. Extract paths and save CSV outputs
 # ------------------------------------------------------------
 
-theta_true <- c(
-  Beta_high = 4,
-  Beta_low = 2,
-  t_switch = 5
-)
+theta_true <- c(Beta_high = 4, Beta_low = 2, t_switch = 5)
 
 B_estimate <- data.frame(
   week = time(pf_best),
@@ -246,27 +161,15 @@ B_estimate <- data.frame(
     theta_true[["Beta_high"]],
     theta_true[["Beta_low"]]
   ),
-  B_filtered_mean = as.numeric(
-    fm["B", ]
-  )
+  B_filtered_mean = as.numeric(fm["B", ])
 )
 
 infectious_estimate <- data.frame(
   week = time(pf_best),
-  gamma_infectious = as.numeric(
-    fm["I", ]
-  )
+  gamma_infectious = as.numeric(fm["I", ])
 )
 
-true_infectious <- sim1[
-  ,
-  c(
-    "week",
-    "I"
-  ),
-  drop = FALSE
-]
-
+true_infectious <- sim1[, c("week", "I"), drop = FALSE]
 names(true_infectious)[2] <- "true_infectious"
 
 infectious_estimate <- merge(
@@ -277,183 +180,20 @@ infectious_estimate <- merge(
   sort = FALSE
 )
 
-dir.create(
-  "results",
-  recursive = TRUE,
-  showWarnings = FALSE
-)
+dir.create("results", recursive = TRUE, showWarnings = FALSE)
 
-write.csv(
-  B_estimate,
-  "results/final_filtered_B_path.csv",
-  row.names = FALSE
-)
+write.csv(B_estimate, "results/final_filtered_B_path.csv", row.names = FALSE)
+write.csv(infectious_estimate, "results/final_filtered_infectious_path.csv", row.names = FALSE)
 
-write.csv(
-  infectious_estimate,
-  "results/final_filtered_infectious_path.csv",
-  row.names = FALSE
-)
-
-# ------------------------------------------------------------
-# 6. Plot B path
-# ------------------------------------------------------------
-
-dir.create(
-  "figures",
-  recursive = TRUE,
-  showWarnings = FALSE
-)
-
-B_path_plot <- ggplot(
-  B_estimate,
-  aes(x = week)
-) +
-  geom_step(
-    aes(
-      y = B_true,
-      color = "True B(t)"
-    ),
-    linewidth = 1,
-    direction = "hv"
-  ) +
-  geom_line(
-    aes(
-      y = B_filtered_mean,
-      color = "Gamma-filtered B(t)"
-    ),
-    linewidth = 0.7
-  ) +
-  geom_vline(
-    xintercept = theta_true[["t_switch"]],
-    linetype = "dashed",
-    linewidth = 0.7
-  ) +
-  scale_color_manual(
-    values = c(
-      "True B(t)" = "#00BFC4",
-      "Gamma-filtered B(t)" = "#F8766D"
-    ),
-    breaks = c(
-      "True B(t)",
-      "Gamma-filtered B(t)"
-    )
-  ) +
-  scale_y_continuous(
-    limits = c(0, 6),
-    breaks = seq(
-      0,
-      6,
-      by = 1
-    )
-  ) +
-  theme_bw(
-    base_size = 14
-  ) +
-  labs(
-    x = "Week",
-    y = expression(B(t)),
-    color = NULL
-  ) +
-  theme(
-    legend.position = "top"
-  )
-
-ggsave(
-  filename = "figures/best_B_path.png",
-  plot = B_path_plot,
-  width = 8,
-  height = 5,
-  dpi = 300
-)
-
-# ------------------------------------------------------------
-# 7. Plot infectious path
-# ------------------------------------------------------------
-
-infectious_path_plot <- ggplot(
-  infectious_estimate,
-  aes(x = week)
-) +
-  geom_line(
-    aes(
-      y = true_infectious,
-      color = "True I(t)"
-    ),
-    linewidth = 1
-  ) +
-  geom_line(
-    aes(
-      y = gamma_infectious,
-      color = "Gamma-filtered I(t)"
-    ),
-    linewidth = 0.6
-  ) +
-  geom_vline(
-    xintercept = theta_true[["t_switch"]],
-    linetype = "dashed",
-    linewidth = 0.7
-  ) +
-  scale_color_manual(
-    values = c(
-      "True I(t)" = "#00BFC4",
-      "Gamma-filtered I(t)" = "#E69F00"
-    ),
-    breaks = c(
-      "True I(t)",
-      "Gamma-filtered I(t)"
-    )
-  ) +
-  theme_bw(
-    base_size = 14
-  ) +
-  labs(
-    x = "Week",
-    y = "Number infected and infectious",
-    color = NULL
-  ) +
-  theme(
-    legend.position = "top"
-  )
-
-ggsave(
-  filename = "figures/best_infectious_path.png",
-  plot = infectious_path_plot,
-  width = 8,
-  height = 5,
-  dpi = 300
-)
-
-# ------------------------------------------------------------
-# 8. Plot MIF2 traces
-# ------------------------------------------------------------
-
-png(
-  filename = "figures/best_mif2_trace.png",
-  width = 2400,
-  height = 1600,
-  res = 300
-)
-
-plot(
-  mif_best,
-  pars = c(
-    "B0",
-    "sigma_beta"
-  )
-)
-
-dev.off()
+combined_results$is_selected_best <- combined_results$task_id == best_fit$task_id[[1]]
+combined_results <- combined_results[order(-combined_results$logLik), ]
+write.csv(combined_results, "results/starting_value_summary.csv", row.names = FALSE)
 
 cat(
-  "Best task ID = ",
-  best_fit$task_id[[1]],
-  "\nEstimated B0 = ",
-  theta_best[["B0"]],
-  "\nEstimated sigma_beta = ",
-  theta_best[["sigma_beta"]],
-  "\nFinal pfilter logLik = ",
-  final_logLik,
+  "Best task ID = ", best_fit$task_id[[1]],
+  "\nEstimated B0 = ", theta_best[["B0"]],
+  "\nEstimated sigma_beta = ", theta_best[["sigma_beta"]],
+  "\nFinal pfilter logLik = ", final_logLik,
   "\n",
   sep = ""
 )

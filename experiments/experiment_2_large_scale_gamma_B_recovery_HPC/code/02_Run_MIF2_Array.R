@@ -100,7 +100,7 @@ sir_dmeas <- Csnippet("
 ")
 
 # ------------------------------------------------------------
-# 4. Gamma-transition process model
+# 4. Gamma-noise process model
 # ------------------------------------------------------------
 
 sir_step_gamma <- Csnippet("
