@@ -2,7 +2,7 @@
 
 This repository develops and evaluates partially observed Markov process models for recovering a time-varying epidemic transmission rate from noisy case-report data. The canonical final analysis is a Gamma-noise versus constant-B comparison, where the constant-`B` model is deliberately restricted.
 
-This repository state is a **canonical computational results milestone**, not the final repository release. The report is currently in progress, and no licensing decision has yet been made.
+This repository state is a **canonical computational results milestone**, not the final repository release. The report is currently in progress. The repository is distributed under the [MIT License](LICENSE).
 
 ## Scientific hierarchy
 
@@ -33,6 +33,7 @@ experiments/
 └── experiment_4_nmif600_model_comparison/
 README.md
 SOFTWARE.md
+LICENSE
 ```
 
 Each experiment README documents its scientific purpose, settings, execution order, compact retained results, figure provenance, limitations, and full or lightweight reproduction commands. Raw task-level HPC outputs and Slurm logs are intentionally kept out of Git when compact combined evidence is available.
@@ -79,4 +80,4 @@ The complete HPC workflows are computationally expensive and require Slurm. See 
 
 ## Release status
 
-The computational milestone is suitable for supervisor review and continued report drafting. It is not a final archival release: the report remains in progress, exact historical package environments are only partly documented, and a project license must be chosen with supervisor guidance.
+The computational milestone is suitable for supervisor review and continued report drafting. It is not a final archival release: the report remains in progress and exact historical package environments are only partly documented. The repository is licensed under the [MIT License](LICENSE).
