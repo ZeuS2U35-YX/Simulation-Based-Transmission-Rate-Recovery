@@ -1,0 +1,36 @@
+# macOS and R metadata
+.DS_Store
+__MACOSX/
+.Rhistory
+.RData
+.Rproj.user/
+
+# HPC logs and generated outputs
+logs/**/*
+!logs/**/.gitkeep
+shared_data/task_*/
+results_raw/gamma/task_*/
+results_raw/constant/task_*/
+results/combined/**/*.csv
+results/combined/**/*.txt
+results/pilot_combined/**/*.csv
+results/pilot_combined/**/*.txt
+results/comparison/*.csv
+results/pilot_comparison/*.csv
+figures/**/*.pdf
+figures/**/*.csv
+downloads/*.tar.gz
+downloads/*.txt
+results/full_submission.txt
+results/pilot_submission.txt
+results/pilot_job_ids.env
+
+# Keep the reproducible seed table under version control
+!results/paramlist.csv
+
+# Keep canonical final evidence under version control
+!results/combined/**/*.csv
+!results/comparison/*.csv
+!figures/comparison/*.pdf
+!figures/convergence/*.pdf
+!figures/convergence/*.csv

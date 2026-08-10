@@ -1,0 +1,10 @@
+"quantity","gamma_mean_or_proportion","constant_mean","median_paired_difference_gamma_minus_constant"
+"RSS",24.0868885692156,102.833056846228,-74.4116440831379
+"RMSE",0.575074590343979,1.19892369846335,-0.631966363132192
+"absolute overall bias",0.160483694698219,0.606471360835161,-0.44609934845482
+"before-switch bias",-0.0897004240138495,-0.423777496527741,0.353985996435552
+"after-switch bias",0.139350823011797,1.57622250347226,-1.43119959640556
+"independent log-likelihood",-191.083372379125,-209.2276659701,17.797998077017
+"Gamma-noise model win proportion by RSS",1,NA,NA
+"Gamma-noise model win proportion by RMSE",1,NA,NA
+"Gamma-noise model win proportion by absolute bias",0.905,NA,NA
