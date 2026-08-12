@@ -13,11 +13,16 @@ options(stringsAsFactors = FALSE)
 
 results_dir <- file.path("results", "combined")
 figures_dir <- "figures"
+write_summary_csvs <- !identical(Sys.getenv("EXP3_FIGURES_ONLY"), "1")
 dir.create(figures_dir, recursive = TRUE, showWarnings = FALSE)
+selected_trajectory_file <- file.path(
+  "results", "selected_trajectory", "experiment3_task145_B_trajectory.csv"
+)
 
 best <- read.csv(file.path(results_dir, "combined_best_fit_summary.csv"))
 paths <- read.csv(file.path(results_dir, "combined_filtered_B_paths.csv"))
 runs <- read.csv(file.path(results_dir, "combined_mif2_results.csv"))
+selected_trajectory <- read.csv(selected_trajectory_file, check.names = FALSE)
 
 required_best_columns <- c(
   "task_id", "best_run", "logLik", "fit_success", "final_pf_success"
@@ -84,6 +89,18 @@ if (any(paths$B_true[paths$week < 5] != 4) ||
     any(paths$B_true[paths$week >= 5] != 2)) {
   stop("The stored true transmission-rate path does not match the documented week-5 switch.")
 }
+required_selected_columns <- c(
+  "experiment", "task_id", "week", "B_trajectory", "B_true", "is_time_zero"
+)
+if (!all(required_selected_columns %in% names(selected_trajectory)) ||
+    nrow(selected_trajectory) != 71L ||
+    !identical(unique(selected_trajectory$task_id), 145L) ||
+    any(!is.finite(selected_trajectory$week)) ||
+    any(!is.finite(selected_trajectory$B_trajectory)) ||
+    is.unsorted(selected_trajectory$week, strictly = TRUE) ||
+    anyDuplicated(selected_trajectory$week)) {
+  stop("The selected task-145 trajectory artifact failed validation.")
+}
 
 paths$error <- paths$B_filtered_mean - paths$B_true
 paths$squared_error <- paths$error^2
@@ -122,8 +139,10 @@ likelihood_gaps <- do.call(
 )
 rownames(likelihood_gaps) <- NULL
 
-write.csv(error_summary, file.path(results_dir, "task_level_error_summary.csv"), row.names = FALSE)
-write.csv(likelihood_gaps, file.path(results_dir, "likelihood_gaps_by_task.csv"), row.names = FALSE)
+if (write_summary_csvs) {
+  write.csv(error_summary, file.path(results_dir, "task_level_error_summary.csv"), row.names = FALSE)
+  write.csv(likelihood_gaps, file.path(results_dir, "likelihood_gaps_by_task.csv"), row.names = FALSE)
+}
 
 summary_table <- data.frame(
   quantity = c("RSS", "RMSE", "bias_all", "bias_before", "bias_after", "logLik_gap"),
@@ -152,7 +171,9 @@ summary_table <- data.frame(
     sd(likelihood_gaps$logLik_gap, na.rm = TRUE)
   )
 )
-write.csv(summary_table, file.path(results_dir, "overall_summary.csv"), row.names = FALSE)
+if (write_summary_csvs) {
+  write.csv(summary_table, file.path(results_dir, "overall_summary.csv"), row.names = FALSE)
+}
 
 # ----------------------------
 # Plotting helpers
@@ -171,36 +192,42 @@ set_clean_plot_style <- function() {
 }
 
 # ----------------------------
-# Figure 1: mean filtered path
+# Figure 1: one prespecified ancestry-preserving particle trajectory.
+# This is not a filtering mean and is not aggregated across tasks.
 # ----------------------------
-mean_path <- aggregate(cbind(B_filtered_mean, B_true) ~ week, data = paths, FUN = mean)
-
-pdf(file.path(figures_dir, "mean_filtered_B_path.pdf"), width = 6.2, height = 4.2)
+truth_x <- c(0, 5, 5, 10)
+truth_y <- c(4, 4, 2, 2)
+selected_ylim <- range(c(0, 6, selected_trajectory$B_trajectory), finite = TRUE)
+selected_ylim <- selected_ylim + c(-1, 1) * 0.04 * diff(selected_ylim)
+pdf(file.path(figures_dir, "01_selected_task_B_trajectory.pdf"),
+    width = 6.2, height = 4.2, useDingbats = FALSE)
 set_clean_plot_style()
 plot(
-  mean_path$week,
-  mean_path$B_filtered_mean,
+  selected_trajectory$week,
+  selected_trajectory$B_trajectory,
   type = "l",
-  lwd = 2,
-  col = "#6BAED6",
+  lwd = 1.45,
+  lty = 1,
+  col = "#0072B2",
   xlim = c(0, 10),
-  ylim = c(0, 6),
+  ylim = selected_ylim,
   xlab = "Week",
-  ylab = "Transmission rate, B(t)",
+  ylab = "Transmission rate B(t)",
   xaxt = "n",
   yaxt = "n"
 )
 axis(1, at = seq(0, 10, by = 2))
-axis(2, at = 0:6)
+axis(2)
 abline(v = 5, col = "gray70", lty = 2, lwd = 1)
-segments(x0 = 0, y0 = 4, x1 = 5, y1 = 4, lwd = 2, col = "black")
-segments(x0 = 5, y0 = 2, x1 = 10, y1 = 2, lwd = 2, col = "black")
-lines(mean_path$week, mean_path$B_filtered_mean, lwd = 2, col = "#6BAED6")
+lines(truth_x, truth_y, lwd = 1.65, lty = 2, col = "black")
+lines(selected_trajectory$week, selected_trajectory$B_trajectory,
+      lwd = 1.45, lty = 1, col = "#0072B2")
 legend(
   "topright",
-  legend = c("True B(t)", "Gamma-noise model mean"),
-  lwd = c(2, 2),
-  col = c("black", "#6BAED6"),
+  legend = c("True B(t)", "Gamma-noise trajectory (task 145)"),
+  lwd = c(1.65, 1.45),
+  lty = c(2, 1),
+  col = c("black", "#0072B2"),
   bty = "n",
   x.intersp = 0.8,
   seg.len = 3
@@ -218,7 +245,7 @@ hist(
   col = "gray85",
   border = "gray20",
   main = "",
-  xlab = "Residual sum of squares of B(t)",
+  xlab = "Observation-time filtering-mean RSS",
   ylab = "Frequency"
 )
 dev.off()
@@ -234,7 +261,7 @@ hist(
   col = "gray85",
   border = "gray20",
   main = "",
-  xlab = "RMSE of B(t)",
+  xlab = "Observation-time filtering-mean RMSE",
   ylab = "Frequency"
 )
 dev.off()

@@ -1,0 +1,36 @@
+experiment: 3
+selection_label: experiment3-trajectory-2026-08-12
+selection_sha256: a7d32e608ff0f1c1f20a36f04d68503a949ccda4e39753819f89db11c4f080f8
+hash_to_task_rule: UTF-8 label without trailing newline; full SHA-256 interpreted as one unsigned big-endian integer H; task=1+(H mod 200)
+selected_task_id: 145
+task_selected_before_trajectory_inspection: yes
+trajectory_seed: 900000145
+historical_filtering_mean_final_pf_seed: 165260900
+particle_count: 50000
+R_version: R version 4.5.2 (2025-10-31)
+pomp_version: 6.4
+RNGkind: Mersenne-Twister, Inversion, Rejection
+generated_at_utc: 2026-08-12 19:01:59 UTC
+repository_base_commit: 7067d7641cb0cb4abaacb6a1fd30448e8c09ac79
+selected_data_path: results/combined/combined_simulated_data.csv [task_id=145; columns=week,reports]
+selected_observation_sha256: d12699591399f1eef7701aba44524f2758690ee1f154c904e0a1f98cacba0df8
+selected_observation_checksum_method: SHA-256 of write.csv(row.names=FALSE) serialization of the exact 70-row week,reports input
+source_combined_data_sha256: ee159ff6d3da6dab04f5acc3f24b16c4cc97226cc260f029adbe4072b35f9976
+simulation_seed: 1145
+best_run: 9
+B0_hat: 4.08137604772541
+sigma_beta_hat: 0.31846128870979701
+fixed_parameters: mu_IR=3; N=10000; rho=0.5; k=10
+truth: B_true(t)=4 for t<5; B_true(t)=2 for t>=5
+process_grid: Euler delta.t=1/30 week
+observation_grid: 70 times, 1/7 through 10 weeks
+PF_method: pomp::pfilter(..., Np=50000, filter.traj=TRUE) at the selected plug-in parameter vector
+extraction_method: pomp::filter_traj(pf_trajectory, vars='B', format='data.frame')
+trajectory_semantics: one terminal particle's ancestry-preserving finite-particle plug-in approximation to a smoothing trajectory conditioned on the complete selected observation series
+exact_posterior_draw: no
+parameter_uncertainty_integrated: no
+filtering_mean_or_across_task_average: no
+number_of_observations: 70
+number_of_extracted_trajectory_times: 71
+t0_included: yes
+trajectory_csv_sha256: ffb94657433f58f8421462dc45403b977afb653e7a4c019ceb6506a05f67252a

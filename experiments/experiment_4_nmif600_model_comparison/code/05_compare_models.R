@@ -11,13 +11,18 @@ source("config/experiment_config.R")
 
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 4L) {
-  stop("Usage: Rscript code/05_compare_models.R <gamma_combined_dir> <constant_combined_dir> <output_dir> <figures_dir>")
+  stop("Usage: Rscript code/05_compare_models.R <gamma_combined_dir> <constant_combined_dir> <output_dir> <figures_dir> [include_selected_trajectory_figure]")
 }
 
 gamma_dir <- args[[1]]
 constant_dir <- args[[2]]
 output_dir <- args[[3]]
 figures_dir <- args[[4]]
+include_selected_trajectory_figure <- if (length(args) >= 5L) {
+  identical(tolower(args[[5]]), "true")
+} else {
+  TRUE
+}
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(figures_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -230,42 +235,71 @@ set_figure_par <- function(mar = c(4.2, 4.5, 0.5, 0.5)) {
 }
 
 # ------------------------------------------------------------
-# Figure 1: mean recovered B(t) paths.
-# Fixed y-axis 0--6 gives the transmission-rate scale context and
-# prevents the plot from exaggerating small deviations around 2--4.
+# Figure 1: one prespecified ancestry-preserving Gamma trajectory,
+# the prescribed truth, and the same task's fitted constant-B value.
+# This figure is not aggregated across tasks. Pilot post-processing
+# explicitly disables it because task 117 is not in the five-task pilot.
 # ------------------------------------------------------------
-
-mean_gamma <- aggregate(cbind(B_estimate, B_true) ~ week, gamma$paths, mean)
-mean_constant <- aggregate(B_estimate ~ week, constant$paths, mean)
-
-pdf(file.path(figures_dir, "01_mean_recovered_B_paths.pdf"), width = 6.15, height = 4.15, useDingbats = FALSE)
-set_figure_par()
-plot(
-  mean_gamma$week,
-  mean_gamma$B_true,
-  type = "n",
-  xlim = c(0, 10),
-  ylim = c(0, 6),
-  xaxs = "i",
-  yaxs = "i",
-  xlab = "Week",
-  ylab = "Transmission rate, B(t)",
-  axes = TRUE
-)
-lines(mean_gamma$week, mean_gamma$B_true, type = "s", lwd = 1.5, lty = 2, col = "black")
-lines(mean_gamma$week, mean_gamma$B_estimate, lwd = 1.35, lty = 1, col = "black")
-lines(mean_constant$week, mean_constant$B_estimate, lwd = 1.20, lty = 3, col = "grey35")
-abline(v = experiment_config$true_parameters[["t_switch"]], lty = 3, lwd = 0.8, col = "grey55")
-legend(
-  "topright",
-  legend = c("True B(t)", "Gamma-noise model", "Constant-B"),
-  lty = c(2, 1, 3),
-  lwd = c(1.5, 1.35, 1.20),
-  col = c("black", "black", "grey35"),
-  bty = "n",
-  cex = 0.85
-)
-dev.off()
+if (include_selected_trajectory_figure) {
+  selected_trajectory_file <- file.path(
+    "results", "selected_trajectory",
+    "experiment4_task117_B_trajectory_comparison.csv"
+  )
+  selected <- read.csv(selected_trajectory_file, check.names = FALSE)
+  required_selected_columns <- c(
+    "experiment", "task_id", "week", "B_trajectory", "B_true", "B_constant",
+    "is_time_zero"
+  )
+  if (!all(required_selected_columns %in% names(selected)) ||
+      nrow(selected) != 71L ||
+      !identical(unique(selected$task_id), 117L) ||
+      any(!is.finite(selected$week)) ||
+      any(!is.finite(selected$B_trajectory)) ||
+      is.unsorted(selected$week, strictly = TRUE) ||
+      anyDuplicated(selected$week) ||
+      length(unique(selected$B_constant)) != 1L) {
+    stop("The selected task-117 trajectory artifact failed validation.")
+  }
+  truth_x <- c(0, 5, 5, 10)
+  truth_y <- c(4, 4, 2, 2)
+  selected_ylim <- range(c(0, 6, selected$B_trajectory, selected$B_constant),
+                         finite = TRUE)
+  selected_ylim <- selected_ylim + c(-1, 1) * 0.04 * diff(selected_ylim)
+  pdf(file.path(figures_dir, "01_selected_task_B_trajectory_comparison.pdf"),
+      width = 6.15, height = 4.15, useDingbats = FALSE)
+  set_figure_par()
+  plot(
+    selected$week,
+    selected$B_trajectory,
+    type = "l",
+    lwd = 1.45,
+    col = "#0072B2",
+    xlim = c(0, 10),
+    ylim = selected_ylim,
+    xaxs = "i",
+    xlab = "Week",
+    ylab = "Transmission rate B(t)",
+    axes = TRUE
+  )
+  lines(truth_x, truth_y, lwd = 1.65, lty = 2, col = "black")
+  lines(selected$week, selected$B_constant,
+        lwd = 1.35, lty = 4, col = "#A05A4A")
+  abline(v = experiment_config$true_parameters[["t_switch"]],
+         lty = 3, lwd = 0.8, col = "grey55")
+  lines(selected$week, selected$B_trajectory,
+        lwd = 1.45, lty = 1, col = "#0072B2")
+  legend(
+    "topright",
+    legend = c("True B(t)", "Gamma-noise trajectory (task 117)",
+               "Fitted constant B (task 117)"),
+    lty = c(2, 1, 4),
+    lwd = c(1.65, 1.45, 1.35),
+    col = c("black", "#0072B2", "#A05A4A"),
+    bty = "n",
+    cex = 0.82
+  )
+  dev.off()
+}
 
 # ------------------------------------------------------------
 # Figure 2: RSS distributions in vertically stacked panels.
@@ -299,7 +333,7 @@ hist(
   col = "grey82",
   border = "black",
   xlim = c(0, rss_max),
-  xlab = "Residual sum of squares of B(t)",
+  xlab = "Observation-time point-estimator RSS",
   ylab = "Frequency",
   main = ""
 )
@@ -375,8 +409,8 @@ plot(
   asp = 1,
   pch = 1,
   cex = 0.75,
-  xlab = "Constant-B RMSE",
-  ylab = "Gamma-noise model RMSE"
+  xlab = "Repeated-static-estimate RMSE",
+  ylab = "Filtering-mean RMSE"
 )
 abline(0, 1, lty = 2, lwd = 0.9)
 dev.off()
@@ -410,7 +444,7 @@ hist(
   col = "grey82",
   border = "black",
   xlim = c(0.30, 2.00),
-  xlab = "RMSE of B(t)",
+  xlab = "Observation-time point-estimator RMSE",
   ylab = "Frequency",
   main = ""
 )

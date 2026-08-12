@@ -9,7 +9,7 @@ This experiment compares the ability of two fitted POMP models to recover the pr
 1. a Gamma-noise model with latent time-varying `B(t)`;
 2. a deliberately restricted constant-B comparator that cannot represent temporal variation in `B(t)`.
 
-Both models use `Nmif = 600` and are fitted to **exactly the same 200 accepted simulated epidemic data sets**. Because acceptance requires `max(H) > 20`, all reported performance is conditional on informative accepted outbreaks satisfying this rule; it is not unconditional performance over all simulated trajectories. The primary comparison is transmission-path recovery, measured by RSS, RMSE, and bias. Independent particle-filter log likelihoods are also retained as descriptive fitting diagnostics; they are not, by themselves, a complexity-adjusted model-selection criterion.
+Both models use `Nmif = 600` and are fitted to **exactly the same 200 accepted simulated epidemic data sets**. Because acceptance requires `max(H) > 20`, all reported performance is conditional on informative accepted outbreaks satisfying this rule; it is not unconditional performance over all simulated trajectories. The numerical comparison uses observation-time errors of the Gamma filtering mean and the repeated fitted static constant-B estimate. Independent particle-filter log likelihoods are also retained as descriptive fitting diagnostics; they are not, by themselves, a complexity-adjusted model-selection criterion.
 
 ## Fixed experiment settings
 
@@ -57,6 +57,7 @@ results_raw/gamma/task_###/     Gamma task-level outputs
 results_raw/constant/task_###/  Constant-B task-level outputs
 results/combined/               Validated model-specific combined tables
 results/comparison/             Paired model-comparison tables
+results/selected_trajectory/    Task-117 trajectory and provenance
 figures/comparison/             Final model-comparison PDFs
 figures/convergence/            Nmif=600 convergence diagnostics
 logs/                           Slurm stdout and stderr
@@ -126,7 +127,7 @@ figures/pilot/
 results/pilot_comparison/
 ```
 
-The convergence PDFs contain all starts for the five selected diagnostic tasks. A dotted vertical line marks the beginning of the final 100 iterations. The script also writes tail slopes to `convergence_tail_summary.csv`. Stabilization in these selected traces provides empirical support for using `Nmif = 600`, but does not prove convergence for all 200 fitted data sets.
+The pilot post-processing produces metric distributions and convergence diagnostics, but no primary `B(t)` curve: an average of five pilot tasks is not a coherent latent trajectory. The convergence PDFs contain all starts for the five selected diagnostic tasks. A dotted vertical line marks the beginning of the final 100 iterations. The script also writes tail slopes to `convergence_tail_summary.csv`. Stabilization in these selected traces provides empirical support for using `Nmif = 600`, but does not prove convergence for all 200 fitted data sets.
 
 ### 3. Submit the complete 200-task experiment
 
@@ -178,23 +179,25 @@ Paired comparison outputs:
 
 Main figures:
 
-- `01_mean_recovered_B_paths.pdf`: mean true trajectory, mean Gamma-noise model recovery, and mean constant-B recovery; the vertical line marks the true switch at week 5. This is the only comparison figure that intentionally uses restrained color, because line identity is the main visual task.
-- `02_RSS_distributions.pdf`: direct comparison of RSS distributions using common histogram bins.
+- `01_selected_task_B_trajectory_comparison.pdf`: prescribed truth, one prespecified task-117 ancestry-preserving Gamma trajectory, and task 117's single fitted constant-B estimate repeated over time; no series is averaged across tasks.
+- `02_RSS_distributions.pdf`: comparison of observation-time point-estimator RSS distributions using common histogram bins.
 - `03_bias_distributions.pdf`: a 2 × 3 panel summarizing overall, pre-switch, and post-switch mean estimation error for both models; zero is unbiased and the dotted line marks the sample mean within each panel.
-- `04_paired_RMSE_scatter.pdf`: each point is one shared simulated data set; points below the diagonal favor the Gamma-noise model.
-- `05_RMSE_distributions.pdf`: overall RMSE distribution for the two models.
+- `04_paired_RMSE_scatter.pdf`: each point is one shared simulated data set, comparing Gamma filtering-mean RMSE with repeated-static-estimate RMSE; points below the diagonal favor the Gamma-noise estimator.
+- `05_RMSE_distributions.pdf`: observation-time point-estimator RMSE distributions for the two models.
 - `06_independent_loglik_difference.pdf`: Gamma-noise minus constant-B independent log likelihood; positive values favor the Gamma-noise model in raw likelihood, but this is not a complexity-adjusted model-selection criterion.
 - model-specific convergence diagnostic PDFs in `figures/convergence/`.
 
-The figure style follows a deliberately restrained applied-mathematics convention: black/gray comparison plots, minimal ornament, no decorative grid, and simple line-type or panel distinctions. The only exception is Figure 01, where modest color is used to help the reader distinguish the overlaid trajectories. Before finalizing figures, compare them visually against Aaron King / POMP-style papers: if a figure feels noticeably more decorative, more color-dependent, or less legible in grayscale than those references, simplify it further.
+The figure style follows a deliberately restrained applied-mathematics convention: black/gray comparison plots, minimal ornament, no decorative grid, and simple line-type or panel distinctions. Figure 01 uses modest color to distinguish the three scientific objects. Its Gamma curve is a finite-particle, plug-in-parameter approximation to a smoothing trajectory conditioned on task 117's complete observation series; it is not an exact posterior draw, a filtering mean, or an across-task average. The constant curve is a fitted static parameter, not a latent trajectory.
 
 For the report, Figures 01-05 are the most directly interpretable recovery summaries. Figure 06 is a descriptive likelihood diagnostic and should be accompanied by interpretation rather than shown without explanation.
 
 ## Canonical lightweight figure regeneration
 
-The canonical figure generators are the R scripts `code/05_compare_models.R` for the six comparison PDFs and `code/06_make_convergence_diagnostics.R` for the two convergence PDFs and their tail-summary CSV. Run the following commands from the canonical Experiment 4 directory (`experiments/experiment_4_nmif600_model_comparison`):
+The selected trajectory is generated separately by `code/07_generate_selected_B_trajectory.R`, which runs one final 50,000-particle filter at the already fitted task-117 parameters. The canonical lightweight figure generators are `code/05_compare_models.R` for the six comparison PDFs (reading the saved selected trajectory for Figure 01) and `code/06_make_convergence_diagnostics.R` for the convergence PDFs and tail summary. Run from the Experiment 4 directory:
 
 ```bash
+Rscript code/07_generate_selected_B_trajectory.R
+
 Rscript code/05_compare_models.R \
   results/combined/gamma \
   results/combined/constant \
@@ -207,14 +210,14 @@ Rscript code/06_make_convergence_diagnostics.R \
   figures/convergence
 ```
 
-`regenerate_exp4_figures.py` is retained as an optional alternative generator for environments with its Python plotting dependencies. It is not the canonical workflow and is not co-equal with the two R scripts above.
+`regenerate_exp4_figures.py` is retained as an optional alternative generator. It reads the same selected task-117 trajectory for the primary figure and cannot generate the retired across-task curve. Pilot regeneration deliberately omits Figure 01.
 
 
 ## Completed-run validation and headline results
 
 The packaged completed run passed the model-specific combination checks for all 200 tasks: both models have 200/200 tasks present, no missing tasks, no combination problems, unique task IDs, `Nmif = 600`, and successful best-fit status. The paired data check verifies the same simulation seed and identical observed-data MD5 checksum for the two models on every task.
 
-The main recovery summaries from `results/comparison/overall_model_comparison.csv` are:
+The main recovery summaries from `results/comparison/overall_model_comparison.csv` compare per-task Gamma filtering means with per-task fitted constant values repeated over the 70 observation times:
 
 - mean RSS: Gamma-noise model 24.09; constant-B 102.83;
 - mean RMSE: Gamma-noise model 0.575; constant-B 1.199;
@@ -223,7 +226,7 @@ The main recovery summaries from `results/comparison/overall_model_comparison.cs
 - the Gamma-noise model has lower RSS and lower RMSE on all 200 paired tasks;
 - the Gamma-noise model has lower absolute overall bias on 90.5% of paired tasks.
 
-These summaries describe recovery performance under this simulation experiment. The independent likelihood comparison is retained as a descriptive fitting diagnostic and should not be interpreted as a complexity-adjusted model-selection test.
+These summaries are unchanged by the illustrative task-117 trajectory, which is not used to calculate any metric. The independent likelihood comparison is retained as a descriptive fitting diagnostic and should not be interpreted as a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for the trajectory-figure repair.
 
 ## Rerunning an incomplete or failed task
 

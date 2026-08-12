@@ -31,23 +31,20 @@ def polish(ax):
     ax.tick_params(direction='out', top=False, right=False)
     ax.grid(False)
 
-def get_data(combined_root, comparison_root):
+def get_data(comparison_root):
     paired=pd.read_csv(os.path.join(comparison_root,'paired_model_comparison.csv'))
-    gp=pd.read_csv(os.path.join(combined_root,'gamma','combined_B_paths.csv'))
-    cp=pd.read_csv(os.path.join(combined_root,'constant','combined_B_paths.csv'))
-    return paired,gp,cp
+    return paired
 
-def mean_paths(gp,cp):
-    mg=gp.groupby('week',as_index=False)[['B_estimate','B_true']].mean()
-    mc=cp.groupby('week',as_index=False)['B_estimate'].mean()
-    return mg,mc
-
-def save_mean_path(gp,cp,out):
-    mg,mc=mean_paths(gp,cp)
-    # restrained publication colors: true path in solid black, gamma in light blue,
-    # constant-B in brown-red; gray switch-time reference retained.
+def save_selected_path(selected,out):
+    required={'experiment','task_id','week','B_trajectory','B_true','B_constant','is_time_zero'}
+    if not required.issubset(selected.columns) or len(selected) != 71:
+        raise ValueError('Invalid selected task-117 trajectory artifact')
+    if set(selected.task_id) != {117} or selected.week.duplicated().any():
+        raise ValueError('Selected trajectory must contain only task 117 at unique times')
+    if selected.B_constant.nunique() != 1:
+        raise ValueError('Constant-B line must be one repeated task-117 estimate')
     true_col='black'
-    gamma_col='#5DA5DA'
+    gamma_col='#0072B2'
     const_col='#A05A4A'
     switch_col='0.70'
     fig,ax=plt.subplots(figsize=(6.15,4.15))
@@ -55,10 +52,10 @@ def save_mean_path(gp,cp,out):
     # as one connected curve.
     ax.hlines(4.0, xmin=0, xmax=5, color=true_col, linewidth=1.6, label='True B(t)')
     ax.hlines(2.0, xmin=5, xmax=10, color=true_col, linewidth=1.6)
-    ax.plot(mg.week, mg.B_estimate, color=gamma_col, linewidth=1.5, label='Gamma-noise model')
-    ax.plot(mc.week, mc.B_estimate, color=const_col, linewidth=1.35, linestyle=(0,(1.5,2.2)), label='Constant-B')
+    ax.plot(selected.week, selected.B_trajectory, color=gamma_col, linewidth=1.5, label='Gamma-noise trajectory (task 117)')
+    ax.plot(selected.week, selected.B_constant, color=const_col, linewidth=1.35, linestyle=(0,(1.5,2.2)), label='Fitted constant B (task 117)')
     ax.axvline(5, color=switch_col, linewidth=0.8, linestyle=(0,(3,3)))
-    ax.set_xlim(0,10); ax.set_ylim(0,6)
+    ax.set_xlim(0,10); ax.set_ylim(min(0,selected.B_trajectory.min())-.2,max(6,selected.B_trajectory.max())+.2)
     ax.set_xticks(np.arange(0,11,2)); ax.set_yticks(np.arange(0,7,1))
     ax.set_xlabel('Week'); ax.set_ylabel('Transmission rate, B(t)')
     polish(ax)
@@ -132,16 +129,20 @@ def save_loglik(p,out):
     fig.savefig(out,bbox_inches='tight')
     plt.close(fig)
 
-def generate_compare(combined_root,comparison_root,figdir):
+def generate_compare(comparison_root,figdir,include_primary=False,selected_file=None):
     os.makedirs(figdir,exist_ok=True)
-    p,gp,cp=get_data(combined_root,comparison_root)
-    save_mean_path(gp,cp,os.path.join(figdir,'01_mean_recovered_B_paths.pdf'))
+    p=get_data(comparison_root)
+    if include_primary:
+        if selected_file is None:
+            raise ValueError('selected_file is required for the primary trajectory figure')
+        selected=pd.read_csv(selected_file)
+        save_selected_path(selected,os.path.join(figdir,'01_selected_task_B_trajectory_comparison.pdf'))
     bins=np.arange(0,261,15)
-    stacked_hist(p.RSS_gamma,p.RSS_constant,os.path.join(figdir,'02_RSS_distributions.pdf'),'Residual sum of squares of B(t)',bins=bins,xlim=(0,260))
+    stacked_hist(p.RSS_gamma,p.RSS_constant,os.path.join(figdir,'02_RSS_distributions.pdf'),'Observation-time point-estimator RSS',bins=bins,xlim=(0,260))
     save_bias(p,os.path.join(figdir,'03_bias_distributions.pdf'))
     save_rmse_scatter(p,os.path.join(figdir,'04_paired_RMSE_scatter.pdf'))
     bins=np.arange(.3,2.01,.1)
-    stacked_hist(p.RMSE_gamma,p.RMSE_constant,os.path.join(figdir,'05_RMSE_distributions.pdf'),'RMSE of B(t)',bins=bins,xlim=(.3,2.0))
+    stacked_hist(p.RMSE_gamma,p.RMSE_constant,os.path.join(figdir,'05_RMSE_distributions.pdf'),'Observation-time point-estimator RMSE',bins=bins,xlim=(.3,2.0))
     save_loglik(p,os.path.join(figdir,'06_independent_loglik_difference.pdf'))
 
 def best_runs(runs):
@@ -175,7 +176,8 @@ def convergence_pdf(trace_file,runs_file,out,model):
 
 final_comb=os.path.join(ROOT,'results','combined')
 final_comp=os.path.join(ROOT,'results','comparison')
-generate_compare(final_comb,final_comp,os.path.join(ROOT,'figures','comparison'))
+selected_file=os.path.join(ROOT,'results','selected_trajectory','experiment4_task117_B_trajectory_comparison.csv')
+generate_compare(final_comp,os.path.join(ROOT,'figures','comparison'),include_primary=True,selected_file=selected_file)
 convergence_pdf(os.path.join(final_comb,'gamma','combined_mif2_traces.csv'),os.path.join(final_comb,'gamma','combined_mif2_results.csv'),os.path.join(ROOT,'figures','convergence','gamma_convergence_diagnostics.pdf'),'gamma')
 convergence_pdf(os.path.join(final_comb,'constant','combined_mif2_traces.csv'),os.path.join(final_comb,'constant','combined_mif2_results.csv'),os.path.join(ROOT,'figures','convergence','constant_B_convergence_diagnostics.pdf'),'constant')
 
@@ -184,7 +186,9 @@ pilot_comp=os.path.join(ROOT,'results','pilot_comparison')
 # Pilot outputs are retained unchanged by default. Set this explicit opt-in only
 # when the pilot figures themselves are intentionally being regenerated.
 if os.environ.get('REGENERATE_EXP4_PILOT_FIGURES') == '1' and os.path.exists(pilot_comp):
-    generate_compare(pilot_comb,pilot_comp,os.path.join(ROOT,'figures','pilot'))
+    # The pilot has no task-117 analogue and therefore regenerates only metric
+    # distributions; it cannot create an across-task primary B(t) curve.
+    generate_compare(pilot_comp,os.path.join(ROOT,'figures','pilot'),include_primary=False)
     convergence_pdf(os.path.join(pilot_comb,'gamma','combined_mif2_traces.csv'),os.path.join(pilot_comb,'gamma','combined_mif2_results.csv'),os.path.join(ROOT,'figures','pilot','gamma_convergence_diagnostics.pdf'),'gamma')
     convergence_pdf(os.path.join(pilot_comb,'constant','combined_mif2_traces.csv'),os.path.join(pilot_comb,'constant','combined_mif2_results.csv'),os.path.join(ROOT,'figures','pilot','constant_B_convergence_diagnostics.pdf'),'constant')
 print('done')

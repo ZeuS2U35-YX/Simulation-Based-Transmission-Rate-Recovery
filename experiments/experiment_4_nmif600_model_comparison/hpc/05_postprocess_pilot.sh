@@ -25,7 +25,8 @@ Rscript code/05_compare_models.R \
   results/pilot_combined/gamma \
   results/pilot_combined/constant \
   results/pilot_comparison \
-  figures/pilot
+  figures/pilot \
+  false
 
 Rscript code/06_make_convergence_diagnostics.R \
   results/pilot_combined/gamma \

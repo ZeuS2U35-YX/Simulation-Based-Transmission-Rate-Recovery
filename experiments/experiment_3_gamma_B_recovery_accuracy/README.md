@@ -2,11 +2,11 @@
 
 ## Overview
 
-This earlier `Nmif = 100` supporting study evaluates whether the Gamma-noise POMP model can recover a prescribed time-varying epidemic transmission-rate trajectory from simulated case-report data. Experiment 4 supersedes it as the source of final Gamma-noise model numerical claims.
+This earlier `Nmif = 100` supporting study evaluates observation-time recovery of a prescribed time-varying epidemic transmission rate from simulated case-report data. Experiment 4 supersedes it as the source of final Gamma-noise model numerical claims.
 
-The experiment contains 200 independently generated, accepted simulation replicates. For each replicate, the same fitting workflow is applied: the model is fitted from nine starting-value combinations, each fitted parameter vector is evaluated using repeated particle filters, the run with the largest independently evaluated log likelihood is selected, and a final particle filter is used to estimate the filtered mean trajectory of `B(t)`.
+The experiment contains 200 independently generated, accepted simulation replicates. For each replicate, the same fitting workflow is applied: the model is fitted from nine starting-value combinations, each fitted parameter vector is evaluated using repeated particle filters, the run with the largest independently evaluated log likelihood is selected, and a final particle filter estimates the filtering mean of `B(t)` at each observation time.
 
-Recovery accuracy is summarized using residual sum of squares (RSS), root mean squared error (RMSE), and mean transmission-rate error. The gap between the largest and second-largest independently evaluated log likelihoods is retained as a diagnostic of the multi-start search.
+Recovery accuracy is summarized using errors of each task's observation-time filtering mean: residual sum of squares (RSS), root mean squared error (RMSE), and mean transmission-rate error. These are point-estimator metrics, not errors of sampled latent trajectories. The gap between the largest and second-largest independently evaluated log likelihoods is retained as a diagnostic of the multi-start search.
 
 ## Research question
 
@@ -14,7 +14,7 @@ Recovery accuracy is summarized using residual sum of squares (RSS), root mean s
 
 The analysis focuses on three aspects:
 
-- how closely the filtered mean trajectory follows the true `B(t)` path;
+- how closely the observation-time filtering mean follows the true `B(t)` values;
 - whether recovery shows systematic over- or under-estimation before and after the change in transmission rate;
 - how variable recovery accuracy is across independently simulated data sets.
 
@@ -58,7 +58,7 @@ Each of the 200 simulation replicates follows the same sequence:
 3. evaluate every fitted parameter vector using repeated particle filters;
 4. select the run with the largest independently evaluated log likelihood;
 5. run a final particle filter at the selected parameter vector;
-6. calculate the filtered `B(t)` recovery errors and summary metrics.
+6. calculate observation-time filtering-mean errors and summary metrics.
 
 ## Directory structure
 
@@ -67,7 +67,8 @@ code/                  Simulation, fitting, combination, analysis, and reconstru
 figures/               Recovery figures and the reconstructed MIF2 diagnostic
 results/
     paramlist.csv      Task-specific random seeds
-    combined/          Combined outputs from the 200 original replicates
+    combined/          Combined filtering-mean and fit outputs from 200 replicates
+    selected_trajectory/ Prespecified task-145 trajectory and provenance
     recreated_mif2/    Metadata and regenerated data for one reconstructed run
 README.md              Experiment documentation
 ```
@@ -77,11 +78,12 @@ README.md              Experiment documentation
 - `01_create_paramlist.R` creates the task-specific seed table.
 - `02_run_hpc_task.R` runs one complete simulation replicate and writes task-level outputs.
 - `03_combine_results.R` validates and combines the 200 task-level result directories.
-- `04_analyze_results.R` regenerates error summaries and the aggregate figures from the stored combined CSV files. It does **not** rerun MIF2.
+- `04_analyze_results.R` regenerates the filtering-mean error summaries, the selected-task primary figure, and aggregate metric figures from stored CSV files. It does **not** rerun MIF2.
 - `05_recreate_global_best_mif2.R` reconstructs one selected MIF2 run for diagnostic purposes.
+- `06_generate_selected_B_trajectory.R` runs one final task-145 particle filter with ancestry tracking and writes the selected trajectory, provenance, and primary figure. It does not rerun MIF2.
 - `run_simulation_array.sh` submits the 200-replicate Slurm array.
 
-The canonical aggregate-figure generator is `code/04_analyze_results.R`. It reads `combined_best_fit_summary.csv`, `combined_filtered_B_paths.csv`, and `combined_mif2_results.csv`, validates their task structure, rewrites the three compact summary CSVs, and creates all five aggregate PDFs listed below. A local Matplotlib draft generator is not part of the canonical repository workflow. The separate `code/05_recreate_global_best_mif2.R` script is the source of the two-page reconstructed MIF2 diagnostic only.
+The canonical summary-figure generator is `code/04_analyze_results.R`. It reads the selected trajectory artifact for Figure 01 and the combined filtering-mean results for the metric distributions. It never averages combined paths to construct the primary trajectory figure. The optional Matplotlib generator follows the same object distinction. The separate `code/05_recreate_global_best_mif2.R` script is the source of the two-page reconstructed MIF2 diagnostic only.
 
 ## Main outputs
 
@@ -101,10 +103,10 @@ The canonical aggregate-figure generator is `code/04_analyze_results.R`. It read
 
 `figures/` contains:
 
-- `mean_filtered_B_path.pdf`: mean filtered transmission-rate recovery across the 200 replicates, with the true piecewise-constant trajectory shown as two separate black segments;
-- `rss_distribution.pdf`: distribution of trajectory RSS across the 200 replicates;
-- `rmse_distribution.pdf`: distribution of trajectory RMSE;
-- `bias_before_after.pdf`: aligned distributions of overall, pre-switch, and post-switch mean estimation error;
+- `01_selected_task_B_trajectory.pdf`: prescribed truth and one prespecified task-145 ancestry-preserving particle-filter trajectory, including `t0`;
+- `rss_distribution.pdf`: distribution of observation-time filtering-mean RSS across 200 tasks;
+- `rmse_distribution.pdf`: distribution of observation-time filtering-mean RMSE;
+- `bias_before_after.pdf`: aligned distributions of per-task filtering-mean signed error overall, before the switch, and from week 5;
 - `likelihood_gap_distribution.pdf`: distribution of the gap between the best and second-best independently evaluated log likelihoods;
 - `mif2_diagnostic_task_149_run_09.pdf`: reconstructed POMP/MIF2 diagnostic for one selected run.
 
@@ -112,7 +114,7 @@ The reconstructed MIF2 diagnostic is a repository diagnostic, not a summary figu
 
 ## Headline recovery results
 
-The stored 200-replicate results have 200 successful selected fits and 200 successful final particle filters. Summary values from `results/combined/overall_summary.csv` are:
+The stored 200-replicate results have 200 successful selected fits and 200 successful final particle filters. The following values from `results/combined/overall_summary.csv` summarize errors of per-task filtering means, not the selected task-145 trajectory:
 
 - mean RSS: **24.14** (median 21.77);
 - mean RMSE: **0.576** (median 0.558);
@@ -133,7 +135,7 @@ The aggregate figures use a deliberately conservative applied-mathematics style:
 - restrained color only where it materially improves line identification;
 - reference lines used only when they have a clear inferential meaning.
 
-The mean `B(t)` figure uses black for the true trajectory and a light blue curve for the filtered mean. The two true levels are drawn as separate horizontal segments, so the plotted truth does not visually imply a continuous transition at week 5.
+Figure 01 uses black for the truth and blue for one task-145 ancestry-preserving particle trajectory. This curve is a finite-particle, plug-in-parameter approximation to a smoothing trajectory conditioned on the complete selected observation series; it is not an exact posterior draw, a filtering mean, or an across-task average. It was prespecified by a SHA-256 rule before its values were inspected and is not used in the 200-task metric tables.
 
 Before using a figure in a report or manuscript, perform the following check:
 
@@ -151,7 +153,17 @@ Reference for the visual standard:
 
 Run all commands from the Experiment 3 root directory.
 
-### Regenerate summaries and aggregate figures
+### Regenerate the prespecified trajectory (only when intentionally required)
+
+The selected task and fitted parameters are already stored, so no MIF2 rerun is required. This command runs one new 50,000-particle final filter:
+
+```bash
+Rscript code/06_generate_selected_B_trajectory.R
+```
+
+It writes the 71-row task-145 trajectory and provenance under `results/selected_trajectory/` and the primary PDF under `figures/`.
+
+### Regenerate summaries and figures
 
 The stored combined outputs are sufficient; no MIF2 rerun is required.
 
@@ -159,7 +171,7 @@ The stored combined outputs are sufficient; no MIF2 rerun is required.
 Rscript code/04_analyze_results.R
 ```
 
-This command regenerates `task_level_error_summary.csv`, `likelihood_gaps_by_task.csv`, `overall_summary.csv`, and the five aggregate PDFs. It does not modify the four original combined CSVs.
+This command regenerates `task_level_error_summary.csv`, `likelihood_gaps_by_task.csv`, `overall_summary.csv`, the selected-task primary PDF from its saved trajectory CSV, and the metric-distribution PDFs. It does not modify the original combined CSVs and does not rerun a particle filter.
 
 ### Reconstruct the selected MIF2 diagnostic (optional)
 
@@ -206,4 +218,4 @@ The original 200-replicate study stored numerical summaries but did not save the
 
 It selects the stored run with the largest evaluated log likelihood among all 1,800 MIF2 runs: task 149, run 9. This choice identifies a run for diagnostic reconstruction only. It is not intended to represent a typical replicate, the smallest-error replicate, or evidence of convergence across all 200 tasks.
 
-The reconstructed object does not replace or modify the original filtered paths, RSS, RMSE, bias, or likelihood summaries used in the 200-replicate analysis.
+The reconstructed object and the selected task-145 illustrative trajectory do not replace or modify the original filtering means, RSS, RMSE, signed errors, or likelihood summaries used in the 200-replicate analysis.
