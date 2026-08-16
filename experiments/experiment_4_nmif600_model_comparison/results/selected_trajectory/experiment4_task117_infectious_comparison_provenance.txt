@@ -1,0 +1,35 @@
+experiment: 4
+selected_task_id: 117
+selection_basis: prespecified task 117 retained as an additional illustration
+simulation_seed: 1117
+observed_data_md5: 64dffb15867fda5ef262e2caf0e46bbf
+observed_data_sha256: f7767d357c3b871c9b737d5b619cbf1bbe368a4aab3e750c130070b4c632ab75
+particle_count_per_infectious_filter: 50000
+Gamma_final_pf_seed: 137260900
+constant_final_pf_seed: 138160628
+Gamma_B0_hat: 3.6102663778531099
+Gamma_sigma_beta_hat: 0.34528388982657399
+constant_Beta_hat: 3.3878099385514902
+Gamma_final_pf_logLik: -184.24157355722392
+constant_final_pf_logLik: -215.16328447116865
+B_gamma_semantics: saved ancestry-preserving task-117 smoothing-trajectory approximation
+B_constant_semantics: fitted static task-117 estimate
+I_gamma_semantics: observation-time filtering mean from the Gamma-noise model
+I_constant_semantics: observation-time filtering mean from the constant-B model
+I_true_semantics: task-117 latent infectious state from the shared simulated data
+I_gamma_RMSE: 24.071432876764728
+I_constant_RMSE: 39.126718756489723
+I_gamma_MAE: 13.705127407964341
+I_constant_MAE: 21.305908199607089
+parameter_uncertainty_integrated: no
+across_task_average: no
+MIF2_rerun: no
+independent_likelihood_evaluations_rerun: no
+number_of_observations: 70
+R_version: R version 4.5.2 (2025-10-31)
+pomp_version: 6.4
+RNGkind: Mersenne-Twister, Inversion, Rejection
+generated_at_utc: 2026-08-16 05:46:49 UTC
+repository_base_commit: 9e25a1ba21b214e7a09c86219231e655c948fae8
+historical_B_csv_sha256: 927431361081b49766e94bdb4c53c2a3d3d855f28eb47fc61ff9f2f034a72ad3
+infectious_comparison_csv_sha256: 9af4cba0f84f228769a87ccda60acc3756f40f9875a0e2f4c0ccdb1535caa865

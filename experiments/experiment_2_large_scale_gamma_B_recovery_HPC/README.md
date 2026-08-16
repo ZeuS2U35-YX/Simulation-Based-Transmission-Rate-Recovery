@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This supporting experiment fits the Gamma-noise transmission-rate model to **one fixed simulated epidemic dataset** using **nine starting points** and **high particle counts** on an HPC cluster. The main goal is to check whether the high-particle workflow gives a stable fitted solution and a plausible recovered transmission-rate path when the same dataset is fitted from different starting values.
+This supporting experiment fits the Gamma-noise partially observed Markov process (POMP) model to **one fixed simulated epidemic data set** from **nine starting points** using high particle counts on an HPC cluster. Its purpose is to determine whether the tested starts reach similar independently evaluated likelihood regions and to document the resulting observation-time filtering mean for the transmission rate.
 
-This experiment is **not** a replicated recovery-accuracy study across many independent datasets. It is a one-dataset, multi-start, high-particle diagnostic experiment.
+This experiment is **not** a replicated recovery-accuracy study across independent data sets. It is a one-data-set, multi-start computational diagnostic.
 
 Experiment 2 is a supporting computational study, not a co-equal final analysis. Experiment 4 is the canonical computational analysis and the primary source of quantitative evidence for the report.
 
@@ -12,27 +12,27 @@ Experiment 2 is a supporting computational study, not a co-equal final analysis.
 
 ### Data-generating model
 
-A single epidemic dataset is simulated for 10 weeks, with observations every `1/7` week and Euler process step `1/30` week. The true transmission-rate path is piecewise constant:
+A single epidemic data set is simulated for 10 weeks, with observations every `1/7` week and an Euler process step of `1/30` week. The true transmission-rate path is piecewise constant:
 
-\[
+$$
 B(t)=
 \begin{cases}
 4, & t<5,\\
 2, & t\ge 5.
 \end{cases}
-\]
+$$
 
 The latent states are `S`, `I`, `R`, and the incidence accumulator `H`. The initial state is:
 
-\[
+$$
 S(0)=9990,\qquad I(0)=10,\qquad R(0)=0,\qquad H(0)=0.
-\]
+$$
 
 The measurement model is
 
-\[
+$$
 Y_n\mid H_n \sim \operatorname{NegBin}(\text{mean}=\rho H_n,\text{size}=k).
-\]
+$$
 
 Fixed data-generating values:
 
@@ -47,7 +47,7 @@ Fixed data-generating values:
 
 ### Fitted model
 
-Under the fitted Gamma-noise model, the one-step transition distribution for the positive latent state `B(t)` is Gamma. MIF2 estimates only:
+Under the fitted Gamma-noise model, the one-step transition distribution for the positive latent state `B(t)` is Gamma. Iterated filtering (MIF2) estimates only:
 
 - `B0`
 - `sigma_beta`
@@ -58,9 +58,9 @@ The remaining parameters (`mu_IR`, `N`, `rho`, `k`) and the initial epidemic sta
 
 The model is fitted from the nine combinations
 
-\[
+$$
 B_0\in\{2,4,6\},\qquad \sigma_\beta\in\{0.10,0.30,0.45\}.
-\]
+$$
 
 Each starting point is assigned to one Slurm array task.
 
@@ -83,11 +83,11 @@ Seed design:
 - evaluation seeds: `20260801` to `20260805`
 - final particle-filter seed: `999`
 
-Using common random numbers across the nine starts helps isolate starting-value effects for this fixed dataset, but it does not replace a full robustness study across independent MIF2 random-number streams.
+Using common random numbers across the nine starts helps isolate starting-value effects for this fixed data set. It does not replace a robustness study across independent MIF2 random-number streams.
 
 ## Workflow
 
-1. Generate one fixed piecewise-`B` dataset.
+1. Generate one fixed piecewise-`B` data set.
 2. Run nine MIF2 searches, one per starting-point combination.
 3. For each fitted parameter vector, run five independent particle-filter likelihood evaluations.
 4. Combine those five values using `pomp::logmeanexp`.
@@ -136,7 +136,7 @@ Run commands from the Experiment 2 directory. The complete HPC submission workfl
 bash run_experiment.sh
 ```
 
-This generates the fixed dataset, submits the nine-task MIF2 array, and then runs the combine, final-filter, and figure steps after the array succeeds. The workflow assumes Slurm plus the modules documented in the shell scripts; computational cost is dominated by nine `Nmif=100`, `Np_mif=50000` fits.
+This generates the fixed data set, submits the nine-task MIF2 array, and then runs the combine, final-filter, and figure steps after the array succeeds. The workflow assumes Slurm and the modules documented in the shell scripts. Computational cost is dominated by nine fits with `Nmif = 100` and `Np_mif = 50000`.
 
 After existing task outputs are present, the post-processing order is:
 
@@ -159,18 +159,18 @@ The selected best fit is task 9, started from `B0 = 6`, `sigma_beta = 0.45`, wit
 - `B0_hat = 4.4568169`
 - `sigma_beta_hat = 0.2105710`
 - combined evaluated log likelihood `= -197.4811728`
-- Monte Carlo SE `= 0.0099761`
+- Monte Carlo standard error `= 0.0099761`
 
-Across the nine starting points, the evaluated log likelihoods are all very close. This suggests that, for this dataset and this seed design, the high-particle workflow brings the different starts to a similar high-likelihood region. Because the likelihood estimates themselves are Monte Carlo estimates, small differences between starts should be interpreted cautiously.
+Across the nine starting points, the evaluated log likelihoods are very close. For this data set and seed design, the tested starts therefore reached a similar high-likelihood region. Because particle-filter likelihood estimates contain Monte Carlo error, the small differences among starts should be interpreted cautiously.
 
 ## Interpretation
 
 This experiment supports discussion of:
 
 - high-particle implementation of the Gamma-noise model recovery workflow;
-- starting-value sensitivity for a fixed dataset;
-- the recovered `B(t)` path for the selected fit;
-- the corresponding filtered infectious path.
+- starting-value sensitivity for a fixed data set;
+- the observation-time filtering mean of `B(t)` for the selected fit;
+- the corresponding infectious-state filtering mean.
 
 This experiment alone does **not** establish:
 
@@ -203,9 +203,9 @@ experiment_2_large_scale_gamma_B_recovery_HPC/
 └── run_experiment.sh
 ```
 
-## Visual-review checklist used in this revision
+## Figure conventions
 
-The revised figures were checked against a simple paper-style standard:
+The retained figures follow a restrained paper-style standard:
 
 - no decorative background or dense grid;
 - clean axis labels and readable tick marks;
