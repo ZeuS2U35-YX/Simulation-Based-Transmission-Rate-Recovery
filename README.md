@@ -1,4 +1,4 @@
-# Time-varying epidemic transmission-rate recovery with POMP models
+# A Simulation-Based Approach to Recovering Time-Varying Epidemic Transmission Rates
 
 This repository develops and evaluates partially observed Markov process (POMP) models for recovering a time-varying epidemic transmission rate, `B(t)`, from noisy case-report data. Four simulation experiments progress from workflow development and computational diagnostics to a paired model comparison. The canonical analysis is Experiment 4, which compares a Gamma-noise model with latent time-varying `B(t)` against a deliberately restricted constant-B model on the same 200 accepted simulated outbreaks.
 
