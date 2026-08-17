@@ -92,6 +92,30 @@ for (task_id in expected_tasks) {
   if (nrow(path) != 70L) {
     problems <- c(problems, paste0("task_", sprintf("%03d", task_id), " has ", nrow(path), " B-path rows; expected 70"))
   }
+  if (model_arg == "gamma" && nrow(path) > 0L) {
+    required_path_columns <- c("trajectory_seed", "path_semantics")
+    if (!all(required_path_columns %in% names(path))) {
+      problems <- c(
+        problems,
+        paste0(
+          "task_", sprintf("%03d", task_id),
+          " Gamma B path is not labelled as a sampled latent trajectory"
+        )
+      )
+    } else if (
+      length(unique(path$trajectory_seed)) != 1L ||
+      !all(path$path_semantics ==
+           "ancestry_preserving_sampled_latent_trajectory")
+    ) {
+      problems <- c(
+        problems,
+        paste0(
+          "task_", sprintf("%03d", task_id),
+          " Gamma B path has inconsistent trajectory provenance"
+        )
+      )
+    }
+  }
 
   # Canonicalize the machine-readable label while accepting legacy raw
   # outputs produced before the Gamma-noise terminology update.

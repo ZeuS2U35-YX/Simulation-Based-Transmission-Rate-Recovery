@@ -19,6 +19,9 @@ Rscript code/04_combine_results.R \
 Rscript code/04_combine_results.R \
   constant results_raw/constant results/combined/constant 1:200
 
+Rscript code/07_generate_task1_comparison_figures.R
+Rscript code/08_generate_task117_comparison_figures.R
+
 Rscript code/05_compare_models.R \
   results/combined/gamma \
   results/combined/constant \

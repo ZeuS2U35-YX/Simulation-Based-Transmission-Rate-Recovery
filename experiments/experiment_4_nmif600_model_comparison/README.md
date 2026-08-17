@@ -9,7 +9,7 @@ This experiment asks which of two fitted partially observed Markov process (POMP
 1. a Gamma-noise model with latent time-varying `B(t)`;
 2. a deliberately restricted constant-B comparator that cannot represent temporal variation in `B(t)`.
 
-Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), and signed errors of the observation-time Gamma filtering mean and the repeated fitted constant-B estimate. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
+Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each data set, the best Gamma fit is followed by one ancestry-preserving sampled latent `B(t)` trajectory from the final particle filter. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from that sampled trajectory and the repeated fitted constant-B estimate. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
 
 ## Fixed experiment settings
 
@@ -181,40 +181,45 @@ Main figures and their estimands:
 
 | Figure | Quantity displayed | Scientific role |
 | --- | --- | --- |
-| `01_selected_task_B_trajectory_comparison.pdf` | Prescribed truth, task-1 Gamma filtering mean, and the task-1 fitted constant-B estimate repeated over 70 observation times | Selected-task illustration of transmission-rate recovery |
-| `02_RSS_distributions.pdf` | Across-task distributions of Gamma filtering-mean RSS and constant repeated-static-estimate RSS | Aggregate recovery comparison |
-| `03_bias_distributions.pdf` | Overall, pre-switch, and post-switch signed mean errors for both estimators | Direction and timing of recovery error |
+| `01_selected_task_B_trajectory_comparison.pdf` | Prescribed truth, task-1 Gamma sampled latent trajectory, and the task-1 fitted constant-B estimate | Selected-task illustration of transmission-rate recovery |
+| `02_RSS_distributions.pdf` | Across-task distributions of sampled-trajectory RSS and constant repeated-static-estimate RSS | Aggregate recovery comparison |
+| `03_mean_error_distributions.pdf` | Overall, pre-switch, and post-switch signed mean errors for both estimators | Direction and timing of recovery error |
 | `04_paired_RMSE_scatter.pdf` | Paired task-level RMSE values on the same simulated data sets | Direct within-task model comparison |
 | `05_RMSE_distributions.pdf` | Across-task RMSE distributions | Aggregate error magnitude |
 | `06_independent_loglik_difference.pdf` | Gamma-noise minus constant-B independent log likelihood | Descriptive fit diagnostic only |
-| `07_task1_infectious_path_comparison.pdf` | Task-1 true infectious path and both models' filtering means | Selected-task infectious-state recovery |
-| `08_task117_B_trajectory_comparison.pdf` | Prescribed truth, one task-117 ancestry-preserving Gamma trajectory, and the task-117 fitted constant-B estimate | Additional trajectory illustration |
-| `09_task117_infectious_path_comparison.pdf` | Task-117 true infectious path and both models' filtering means | Additional infectious-state illustration |
+| `08_task117_B_trajectory_comparison.pdf` | Prescribed truth, task-117 Gamma sampled latent trajectory, and the task-117 fitted constant-B estimate | Second selected-task illustration |
 
 Model-specific convergence diagnostic PDFs are stored in `figures/convergence/`.
 
 The figures use a restrained publication style with a white background, no decorative grid, and color-plus-line-type encoding that remains interpretable in grayscale. Truth is shown as a solid black line, the Gamma-noise result as a blue dashed line, and the constant-B result as an orange dot-dashed line. A light-gray vertical reference marks the week-5 change point.
 
-The Gamma curves in Figures 01, 07, and 09 are plug-in-parameter, finite-particle filtering means at the observation times. The constant-B infectious curves in Figures 07 and 09 are the corresponding filtering means from the constant-B model. Figure 08 instead preserves the original task-117 ancestry and is a finite-particle smoothing-trajectory approximation conditioned on the complete observation series. It is not a filtering mean, an exact posterior draw, or an across-task average. The constant curves in Figures 01 and 08 are fitted static estimates repeated over time, not latent trajectories.
+The Gamma curves in Figures 01 and 08 are the exact sampled paths used for the corresponding task-level recovery metrics. Each is one ancestry-preserving finite-particle plug-in approximation to a smoothing trajectory conditional on the complete observation series. It is not a filtering mean, an exact posterior draw, an uncertainty interval, or an across-task average. The constant curves are fitted static estimates repeated over time, not latent trajectories. The figures include `t0`; RSS, RMSE, mean error, and AOB use only the 70 observation times.
 
-Figures 01-05 and 07 provide the primary recovery summaries for the report. Figures 08 and 09 retain the additional task-117 illustration. Figure 06 should be presented only with its stated likelihood-interpretation boundary.
+Figures 01-05 and 08 provide the primary recovery summaries for the report. Figure 06 should be presented only with its stated likelihood-interpretation boundary.
 
 ## Canonical lightweight figure regeneration
 
-`code/07_generate_task1_comparison_figures.R` generates the task-1 artifacts, and `code/08_generate_task117_comparison_figures.R` generates the additional task-117 artifacts. Both scripts require `pomp`, `digest`, and `ggplot2`. They use `svglite` and `ragg`, when available, for editable SVG and high-resolution raster export.
+`code/09_regenerate_sampled_B_trajectories.R` reconstructs the 200 canonical Gamma paths from the saved best-fit parameter records. It does not rerun MIF2 or the five independent likelihood evaluations. For each task, it runs the final 50,000-particle filter with `filter.traj = TRUE`, extracts one path with `filter_traj()`, verifies the saved final-filter log likelihood, and writes the 70 observation-time values.
 
-The task-1 script reproduces the saved Gamma filtering mean for `B(t)` and obtains the two infectious filtering means. The task-117 script preserves the stored ancestry trajectory for Figure 08 and obtains the infectious filtering means for Figure 09. Each infectious filter uses 50,000 particles at an already fitted parameter vector. Neither script reruns MIF2 or the independent likelihood evaluations. Figure 07 uses Experiment 4 task 1 with simulation seed 1001, not the separate illustrative simulation from Experiment 1.
+`code/07_generate_task1_comparison_figures.R` and `code/08_generate_task117_comparison_figures.R` then read the canonical sampled paths used by the recovery metrics and generate the selected-task figures. They do not run another particle filter, so the displayed curve and the metric input cannot diverge.
 
 The canonical lightweight generators are:
 
-- `code/07_generate_task1_comparison_figures.R` for Figures 01 and 07;
-- `code/08_generate_task117_comparison_figures.R` for Figures 08 and 09;
+- `code/09_regenerate_sampled_B_trajectories.R` for the 200 sampled Gamma paths;
+- `code/07_generate_task1_comparison_figures.R` for Figure 01;
+- `code/08_generate_task117_comparison_figures.R` for Figure 08;
 - `code/05_compare_models.R` for Figures 02-06 and selected-artifact validation;
 - `code/06_make_convergence_diagnostics.R` for the convergence PDFs and tail summary.
 
 Run from the Experiment 4 directory:
 
 ```bash
+Rscript code/09_regenerate_sampled_B_trajectories.R \
+  results/combined/gamma/combined_B_paths.csv \
+  results/combined/gamma/sampled_B_trajectory_provenance.csv \
+  4 \
+  1:200
+
 Rscript code/07_generate_task1_comparison_figures.R
 Rscript code/08_generate_task117_comparison_figures.R
 
@@ -230,22 +235,22 @@ Rscript code/06_make_convergence_diagnostics.R \
   figures/convergence
 ```
 
-`code/07_generate_selected_B_trajectory.R` is retained as a backward-compatible wrapper for the task-1 generator. The Python regeneration script is non-canonical; the R workflow above is the authoritative route for Figures 01 and 07-09. Pilot regeneration deliberately omits the selected-task figures.
+`code/07_generate_selected_B_trajectory.R` is retained as a backward-compatible wrapper for the task-1 generator. The Python regeneration script is non-canonical; the R workflow above is the authoritative route for Figures 01 and 08. Pilot regeneration deliberately omits the selected-task figures.
 
 ## Completed-run validation and headline results
 
 The packaged run passed the model-specific combination checks for all 200 tasks. Both models have 200 of 200 tasks present, no missing tasks, no combination problems, unique task IDs, `Nmif = 600`, and successful best-fit status. The paired data check confirms matching simulation seeds and identical observed-data MD5 checksums for the two models on every task.
 
-The main recovery summaries from `results/comparison/overall_model_comparison.csv` compare per-task Gamma filtering means with per-task fitted constant values repeated over the 70 observation times:
+The main recovery summaries from `results/comparison/overall_model_comparison.csv` compare one sampled Gamma trajectory per task with the fitted constant value repeated over the same 70 observation times:
 
-- mean RSS: Gamma-noise model 24.09; constant-B 102.83;
-- mean RMSE: Gamma-noise model 0.575; constant-B 1.199;
-- mean absolute overall bias: Gamma-noise model 0.160; constant-B 0.606;
-- mean after-switch bias: Gamma-noise model 0.139; constant-B 1.576;
-- the Gamma-noise model has lower RSS and lower RMSE on all 200 paired tasks;
-- the Gamma-noise model has lower absolute overall bias on 90.5% of paired tasks.
+- mean RSS: Gamma-noise model 33.054; constant-B 102.833;
+- mean RMSE: Gamma-noise model 0.653; constant-B 1.199;
+- mean AOB: Gamma-noise model 0.229; constant-B 0.606;
+- mean post-switch signed mean error: Gamma-noise model 0.008; constant-B 1.576;
+- the Gamma-noise model has lower RSS and lower RMSE on 97.5% of paired tasks;
+- the Gamma-noise model has lower AOB on 88.5% of paired tasks.
 
-These summaries are unchanged by the selected-task figures. Figure 01 uses the task-1 Gamma filtering mean already included in the 200-task recovery metrics. Figures 07-09 are additional state or trajectory illustrations and do not enter those metrics. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for the selected-task figure revision.
+Figures 01 and 08 use the same task-1 and task-117 sampled trajectories already included in the 200-task recovery metrics. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for this correction.
 
 ## Rerunning an incomplete or failed task
 

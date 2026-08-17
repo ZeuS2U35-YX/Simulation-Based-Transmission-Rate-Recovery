@@ -235,7 +235,12 @@ evaluation_results <- do.call(rbind, eval_rows)
 valid <- mif_results[is.finite(mif_results$logLik), , drop = FALSE]
 
 empty_path <- data.frame(
-  week = numeric(0), B_estimate = numeric(0), B_true = numeric(0)
+  week = numeric(0),
+  B_estimate = numeric(0),
+  B_true = numeric(0),
+  trajectory_seed = integer(0),
+  path_semantics = character(0),
+  stringsAsFactors = FALSE
 )
 
 if (nrow(valid) == 0L) {
@@ -260,7 +265,7 @@ if (nrow(valid) == 0L) {
       gamma_model,
       params = theta_best,
       Np = config$Np_final,
-      filter.mean = TRUE
+      filter.traj = TRUE
     ),
     error = function(e) structure(
       list(message = conditionMessage(e)), class = "final_pf_error"
@@ -273,15 +278,41 @@ if (nrow(valid) == 0L) {
     final_pf_success <- FALSE
     final_status <- "final_pf_failed"
   } else {
-    fm <- filter_mean(pf_best)
-    B_path <- data.frame(
-      week = as.numeric(time(pf_best)),
-      B_estimate = as.numeric(fm["B", ])
+    sampled <- tryCatch(
+      filter_traj(pf_best, vars = "B", format = "data.frame"),
+      error = function(e) structure(
+        list(message = conditionMessage(e)), class = "trajectory_error"
+      )
     )
-    B_path$B_true <- true_B_at_times(B_path$week, config)
-    final_pf_logLik <- as.numeric(logLik(pf_best))
-    final_pf_success <- TRUE
-    final_status <- "success"
+
+    expected_times <- c(0, observed_data$week)
+    valid_sample <- !inherits(sampled, "trajectory_error") &&
+      all(c("time", "value") %in% names(sampled)) &&
+      nrow(sampled) == length(expected_times) &&
+      all(is.finite(sampled$time)) && all(is.finite(sampled$value)) &&
+      max(abs(sampled$time - expected_times)) <= 1e-12 &&
+      !is.unsorted(sampled$time, strictly = TRUE) &&
+      !anyDuplicated(sampled$time)
+
+    if (!valid_sample) {
+      B_path <- empty_path
+      final_pf_logLik <- as.numeric(logLik(pf_best))
+      final_pf_success <- FALSE
+      final_status <- "sampled_trajectory_extraction_failed"
+    } else {
+      sampled_observation_times <- sampled[-1L, , drop = FALSE]
+      B_path <- data.frame(
+        week = as.numeric(sampled_observation_times$time),
+        B_estimate = as.numeric(sampled_observation_times$value),
+        B_true = true_B_at_times(sampled_observation_times$time, config),
+        trajectory_seed = final_pf_seed,
+        path_semantics = "ancestry_preserving_sampled_latent_trajectory",
+        stringsAsFactors = FALSE
+      )
+      final_pf_logLik <- as.numeric(logLik(pf_best))
+      final_pf_success <- TRUE
+      final_status <- "success"
+    }
   }
 
   best_summary <- data.frame(

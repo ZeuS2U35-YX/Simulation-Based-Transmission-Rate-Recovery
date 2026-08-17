@@ -68,19 +68,42 @@ if (!all(pair_check$same_simulation_seed) || !all(pair_check$same_observed_data_
 # ------------------------------------------------------------
 
 calculate_metrics <- function(paths, model_name) {
+  required_columns <- c("task_id", "week", "B_estimate", "B_true")
+  if (!all(required_columns %in% names(paths))) {
+    stop(model_name, " paths lack required recovery-metric columns.")
+  }
   paths$error <- paths$B_estimate - paths$B_true
   paths$squared_error <- paths$error^2
   split_paths <- split(paths, paths$task_id)
 
   out <- do.call(rbind, lapply(split_paths, function(x) {
+    expected_times <- seq(
+      from = experiment_config$observation_interval,
+      to = experiment_config$n_weeks,
+      by = experiment_config$observation_interval
+    )
+    if (nrow(x) != 70L || length(expected_times) != 70L ||
+        max(abs(x$week - expected_times)) > 1e-12 ||
+        is.unsorted(x$week, strictly = TRUE) || anyDuplicated(x$week)) {
+      stop(
+        model_name, " task ", x$task_id[[1]],
+        " does not contain exactly the 70 configured observation times."
+      )
+    }
+    mean_error <- mean(x$error)
     data.frame(
       task_id = x$task_id[[1]],
       model = model_name,
       RSS = sum(x$squared_error),
       RMSE = sqrt(mean(x$squared_error)),
-      bias_all = mean(x$error),
-      bias_before = mean(x$error[x$week < experiment_config$true_parameters[["t_switch"]]]),
-      bias_after = mean(x$error[x$week >= experiment_config$true_parameters[["t_switch"]]]),
+      mean_error = mean_error,
+      AOB = abs(mean_error),
+      mean_error_before_5 = mean(
+        x$error[x$week < experiment_config$true_parameters[["t_switch"]]]
+      ),
+      mean_error_after_5 = mean(
+        x$error[x$week >= experiment_config$true_parameters[["t_switch"]]]
+      ),
       stringsAsFactors = FALSE
     )
   }))
@@ -173,35 +196,42 @@ names(paired)[names(paired) == "status"] <- "status_constant"
 
 paired$delta_RSS_gamma_minus_constant <- paired$RSS_gamma - paired$RSS_constant
 paired$delta_RMSE_gamma_minus_constant <- paired$RMSE_gamma - paired$RMSE_constant
-paired$delta_abs_bias_gamma_minus_constant <- abs(paired$bias_all_gamma) - abs(paired$bias_all_constant)
+paired$delta_AOB_gamma_minus_constant <- paired$AOB_gamma - paired$AOB_constant
 paired$delta_logLik_gamma_minus_constant <- paired$logLik_gamma - paired$logLik_constant
 paired$gamma_lower_RSS <- paired$RSS_gamma < paired$RSS_constant
 paired$gamma_lower_RMSE <- paired$RMSE_gamma < paired$RMSE_constant
-paired$gamma_lower_absolute_bias <- abs(paired$bias_all_gamma) < abs(paired$bias_all_constant)
+paired$gamma_lower_AOB <- paired$AOB_gamma < paired$AOB_constant
 write.csv(paired, file.path(output_dir, "paired_model_comparison.csv"), row.names = FALSE)
 
 overall <- data.frame(
   quantity = c(
-    "RSS", "RMSE", "absolute overall bias", "before-switch bias", "after-switch bias",
+    "RSS", "RMSE", "AOB (absolute task-level mean error)",
+    "mean error before week 5", "mean error from week 5",
     "independent log-likelihood", "Gamma-noise model win proportion by RSS",
-    "Gamma-noise model win proportion by RMSE", "Gamma-noise model win proportion by absolute bias"
+    "Gamma-noise model win proportion by RMSE",
+    "Gamma-noise model win proportion by AOB"
   ),
   gamma_mean_or_proportion = c(
-    mean(paired$RSS_gamma), mean(paired$RMSE_gamma), mean(abs(paired$bias_all_gamma)),
-    mean(paired$bias_before_gamma), mean(paired$bias_after_gamma), mean(paired$logLik_gamma),
-    mean(paired$gamma_lower_RSS), mean(paired$gamma_lower_RMSE), mean(paired$gamma_lower_absolute_bias)
+    mean(paired$RSS_gamma), mean(paired$RMSE_gamma), mean(paired$AOB_gamma),
+    mean(paired$mean_error_before_5_gamma),
+    mean(paired$mean_error_after_5_gamma), mean(paired$logLik_gamma),
+    mean(paired$gamma_lower_RSS), mean(paired$gamma_lower_RMSE),
+    mean(paired$gamma_lower_AOB)
   ),
   constant_mean = c(
-    mean(paired$RSS_constant), mean(paired$RMSE_constant), mean(abs(paired$bias_all_constant)),
-    mean(paired$bias_before_constant), mean(paired$bias_after_constant), mean(paired$logLik_constant),
+    mean(paired$RSS_constant), mean(paired$RMSE_constant), mean(paired$AOB_constant),
+    mean(paired$mean_error_before_5_constant),
+    mean(paired$mean_error_after_5_constant), mean(paired$logLik_constant),
     NA_real_, NA_real_, NA_real_
   ),
   median_paired_difference_gamma_minus_constant = c(
     median(paired$delta_RSS_gamma_minus_constant),
     median(paired$delta_RMSE_gamma_minus_constant),
-    median(paired$delta_abs_bias_gamma_minus_constant),
-    median(paired$bias_before_gamma - paired$bias_before_constant),
-    median(paired$bias_after_gamma - paired$bias_after_constant),
+    median(paired$delta_AOB_gamma_minus_constant),
+    median(paired$mean_error_before_5_gamma -
+           paired$mean_error_before_5_constant),
+    median(paired$mean_error_after_5_gamma -
+           paired$mean_error_after_5_constant),
     median(paired$delta_logLik_gamma_minus_constant),
     NA_real_, NA_real_, NA_real_
   ),
@@ -235,58 +265,53 @@ set_figure_par <- function(mar = c(4.2, 4.5, 0.5, 0.5)) {
 }
 
 # ------------------------------------------------------------
-# Figures 1 and 7 are task-1 filtering comparisons generated by
-# code/07_generate_task1_comparison_figures.R. This block validates their
-# source-data artifacts and confirms that the corresponding PDFs exist.
+# Figures 1 and 8 show the sampled Gamma-noise latent trajectories for
+# tasks 1 and 117. This block validates their source data and confirms that
+# the corresponding PDFs exist.
 # Pilot post-processing disables this validation because selected-task
 # figures are not part of the five-task pilot summary.
 # ------------------------------------------------------------
 if (include_selected_trajectory_figure) {
-  selected_B_file <- file.path(
+  selected_B_files <- file.path(
     "results", "selected_trajectory",
-    "experiment4_task1_B_filter_comparison.csv"
-  )
-  selected_I_file <- file.path(
-    "results", "selected_trajectory",
-    "experiment4_task1_infectious_filter_comparison.csv"
+    c(
+      "experiment4_task1_B_trajectory_comparison.csv",
+      "experiment4_task117_B_trajectory_comparison.csv"
+    )
   )
   selected_figure_files <- c(
     file.path(figures_dir, "01_selected_task_B_trajectory_comparison.pdf"),
-    file.path(figures_dir, "07_task1_infectious_path_comparison.pdf")
+    file.path(figures_dir, "08_task117_B_trajectory_comparison.pdf")
   )
-  required_selected_files <- c(
-    selected_B_file, selected_I_file, selected_figure_files
-  )
+  required_selected_files <- c(selected_B_files, selected_figure_files)
   if (any(!file.exists(required_selected_files))) {
     stop(
-      "Missing task-1 selected-figure artifact(s). Run ",
-      "Rscript code/07_generate_task1_comparison_figures.R first."
+      "Missing selected-trajectory artifact(s). Run the task-1 and task-117 ",
+      "comparison-figure scripts first."
     )
   }
-  selected_B <- read.csv(selected_B_file, check.names = FALSE)
-  selected_I <- read.csv(selected_I_file, check.names = FALSE)
   required_B_columns <- c(
-    "experiment", "task_id", "week", "B_true", "B_gamma_filtered_mean",
-    "B_constant"
+    "experiment", "task_id", "week", "B_true",
+    "B_gamma_sampled_trajectory", "B_constant", "is_time_zero"
   )
-  required_I_columns <- c(
-    "experiment", "task_id", "week", "I_true", "I_gamma_filtered_mean",
-    "I_constant_filtered_mean"
-  )
-  valid_selected <-
-    all(required_B_columns %in% names(selected_B)) &&
-    all(required_I_columns %in% names(selected_I)) &&
-    nrow(selected_B) == 70L && nrow(selected_I) == 70L &&
-    identical(unique(selected_B$task_id), 1L) &&
-    identical(unique(selected_I$task_id), 1L) &&
-    identical(selected_B$week, selected_I$week) &&
-    !is.unsorted(selected_B$week, strictly = TRUE) &&
-    !anyDuplicated(selected_B$week) &&
-    all(is.finite(unlist(selected_B[required_B_columns[-c(1L, 2L)]]))) &&
-    all(is.finite(unlist(selected_I[required_I_columns[-c(1L, 2L)]]))) &&
-    length(unique(selected_B$B_constant)) == 1L
-  if (!valid_selected) {
-    stop("The task-1 selected-figure artifacts failed validation.")
+  for (j in seq_along(selected_B_files)) {
+    selected_B <- read.csv(selected_B_files[[j]], check.names = FALSE)
+    expected_task <- c(1L, 117L)[[j]]
+    valid_selected <-
+      all(required_B_columns %in% names(selected_B)) &&
+      nrow(selected_B) == 71L &&
+      identical(unique(selected_B$task_id), expected_task) &&
+      !is.unsorted(selected_B$week, strictly = TRUE) &&
+      !anyDuplicated(selected_B$week) &&
+      isTRUE(selected_B$is_time_zero[[1]]) &&
+      !any(selected_B$is_time_zero[-1L]) &&
+      all(is.finite(unlist(selected_B[c(
+        "week", "B_true", "B_gamma_sampled_trajectory", "B_constant"
+      )]))) &&
+      length(unique(selected_B$B_constant)) == 1L
+    if (!valid_selected) {
+      stop("The selected task-", expected_task, " trajectory failed validation.")
+    }
   }
 }
 
@@ -330,35 +355,53 @@ text(rss_max * 0.98, par("usr")[[4]] * 0.86, "Constant-B", adj = c(1, 0.5), cex 
 dev.off()
 
 # ------------------------------------------------------------
-# Figure 3: bias distributions in a 2 x 3 panel figure.
+# Figure 3: signed mean-error distributions in a 2 x 3 panel figure.
 # Columns are overall, before week 5, and from week 5 onward.
 # Rows are Gamma-noise model and constant-B. The dashed vertical
-# line is zero bias; the dotted line is the sample mean bias.
+# line is zero error; the dotted line is the across-task mean error.
 # ------------------------------------------------------------
 
-bias_sets <- list(
-  list(title = "Overall", gamma = paired$bias_all_gamma, constant = paired$bias_all_constant),
-  list(title = "Before week 5", gamma = paired$bias_before_gamma, constant = paired$bias_before_constant),
-  list(title = "From week 5", gamma = paired$bias_after_gamma, constant = paired$bias_after_constant)
+mean_error_sets <- list(
+  list(
+    title = "Overall",
+    gamma = paired$mean_error_gamma,
+    constant = paired$mean_error_constant
+  ),
+  list(
+    title = "Before week 5",
+    gamma = paired$mean_error_before_5_gamma,
+    constant = paired$mean_error_before_5_constant
+  ),
+  list(
+    title = "From week 5",
+    gamma = paired$mean_error_after_5_gamma,
+    constant = paired$mean_error_after_5_constant
+  )
 )
-all_bias <- unlist(lapply(bias_sets, function(z) c(z$gamma, z$constant)))
-bias_min <- min(-1.25, floor(min(all_bias, na.rm = TRUE) * 4) / 4)
-bias_max <- max(2.75, ceiling(max(all_bias, na.rm = TRUE) * 4) / 4)
-bias_breaks <- seq(bias_min, bias_max, by = 0.25)
+all_mean_errors <- unlist(lapply(
+  mean_error_sets, function(z) c(z$gamma, z$constant)
+))
+mean_error_min <- min(
+  -1.25, floor(min(all_mean_errors, na.rm = TRUE) * 4) / 4
+)
+mean_error_max <- max(
+  2.75, ceiling(max(all_mean_errors, na.rm = TRUE) * 4) / 4
+)
+mean_error_breaks <- seq(mean_error_min, mean_error_max, by = 0.25)
 
-pdf(file.path(figures_dir, "03_bias_distributions.pdf"), width = 7.15, height = 4.55, useDingbats = FALSE)
+pdf(file.path(figures_dir, "03_mean_error_distributions.pdf"), width = 7.15, height = 4.55, useDingbats = FALSE)
 par(mfrow = c(2, 3), oma = c(0.5, 0.5, 0.2, 2.0))
 for (row_name in c("gamma", "constant")) {
-  for (j in seq_along(bias_sets)) {
-    z <- bias_sets[[j]]
+  for (j in seq_along(mean_error_sets)) {
+    z <- mean_error_sets[[j]]
     values <- z[[row_name]]
     set_figure_par(c(if (row_name == "constant") 4.0 else 1.7, if (j == 1) 3.8 else 2.0, 1.8, 0.5))
     hist(
       values,
-      breaks = bias_breaks,
+      breaks = mean_error_breaks,
       col = "grey82",
       border = "black",
-      xlim = c(bias_min, bias_max),
+      xlim = c(mean_error_min, mean_error_max),
       xaxt = if (row_name == "gamma") "n" else "s",
       xlab = if (row_name == "constant") "Mean estimation error" else "",
       ylab = if (j == 1) "Frequency" else "",
@@ -385,7 +428,11 @@ dev.off()
 # style. Points below the diagonal have lower RMSE under Gamma.
 # ------------------------------------------------------------
 
-rmse_limits <- c(0.30, 2.00)
+all_rmse <- c(paired$RMSE_gamma, paired$RMSE_constant)
+rmse_limits <- c(
+  floor(min(all_rmse, na.rm = TRUE) * 10) / 10,
+  ceiling(max(all_rmse, na.rm = TRUE) * 10) / 10
+)
 pdf(file.path(figures_dir, "04_paired_RMSE_scatter.pdf"), width = 4.85, height = 4.75, useDingbats = FALSE)
 set_figure_par(c(4.2, 4.5, 0.5, 0.5))
 plot(
@@ -399,7 +446,7 @@ plot(
   pch = 1,
   cex = 0.75,
   xlab = "Repeated-static-estimate RMSE",
-  ylab = "Filtering-mean RMSE"
+  ylab = "Sampled-trajectory RMSE"
 )
 abline(0, 1, lty = 2, lwd = 0.9)
 dev.off()
@@ -409,7 +456,7 @@ dev.off()
 # filled histograms with a common x scale.
 # ------------------------------------------------------------
 
-rmse_breaks <- seq(0.30, 2.00, by = 0.10)
+rmse_breaks <- seq(rmse_limits[[1]], rmse_limits[[2]], by = 0.10)
 pdf(file.path(figures_dir, "05_RMSE_distributions.pdf"), width = 6.15, height = 4.60, useDingbats = FALSE)
 layout(matrix(1:2, ncol = 1))
 set_figure_par(c(2.0, 4.5, 0.5, 0.5))
@@ -418,13 +465,17 @@ hist(
   breaks = rmse_breaks,
   col = "grey82",
   border = "black",
-  xlim = c(0.30, 2.00),
+  xlim = rmse_limits,
   xaxt = "n",
   xlab = "",
   ylab = "Frequency",
   main = ""
 )
-text(1.97, par("usr")[[4]] * 0.86, "Gamma-noise model", adj = c(1, 0.5), cex = 0.88)
+text(
+  rmse_limits[[2]] - 0.01 * diff(rmse_limits),
+  par("usr")[[4]] * 0.86,
+  "Gamma-noise model", adj = c(1, 0.5), cex = 0.88
+)
 
 set_figure_par(c(4.2, 4.5, 0.5, 0.5))
 hist(
@@ -432,12 +483,16 @@ hist(
   breaks = rmse_breaks,
   col = "grey82",
   border = "black",
-  xlim = c(0.30, 2.00),
+  xlim = rmse_limits,
   xlab = "Observation-time point-estimator RMSE",
   ylab = "Frequency",
   main = ""
 )
-text(1.97, par("usr")[[4]] * 0.86, "Constant-B", adj = c(1, 0.5), cex = 0.88)
+text(
+  rmse_limits[[2]] - 0.01 * diff(rmse_limits),
+  par("usr")[[4]] * 0.86,
+  "Constant-B", adj = c(1, 0.5), cex = 0.88
+)
 dev.off()
 
 # ------------------------------------------------------------
