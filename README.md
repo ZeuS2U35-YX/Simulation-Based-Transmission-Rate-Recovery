@@ -36,14 +36,13 @@ experiments/
 ├── experiment_2_large_scale_gamma_B_recovery_HPC/
 ├── experiment_3_gamma_B_recovery_accuracy/
 └── experiment_4_nmif600_model_comparison/
-report/                           Complete LaTeX report and code appendix
 overleaf_model_code/              Report-facing implementation excerpts
 README.md
 SOFTWARE.md
 LICENSE
 ```
 
-Each experiment README documents its scientific purpose, model settings, execution order, retained outputs, figure provenance, limitations, and reproduction commands. Experiment 4 retains the exact shared simulated data needed to reconstruct its sampled trajectories. Large task-level fitted objects and Slurm logs remain excluded when compact validated summaries provide the required evidence. The [complete report source](report/) includes its bibliography, figures, and a self-contained Experiment 4 code appendix; a [compiled PDF](report/report.pdf) is included for direct reading.
+Each experiment README documents its scientific purpose, model settings, execution order, retained outputs, figure provenance, limitations, and reproduction commands. Experiment 4 retains the exact shared simulated data needed to reconstruct its sampled trajectories. Large task-level fitted objects and Slurm logs remain excluded when compact validated summaries provide the required evidence.
 
 For the primary analysis, start with the [Experiment 4 README](experiments/experiment_4_nmif600_model_comparison/README.md). Its canonical evidence is stored in:
 
