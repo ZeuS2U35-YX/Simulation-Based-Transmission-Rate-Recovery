@@ -1,22 +1,22 @@
-# Experiment 3: Transmission-Rate Recovery Accuracy
+# Experiment 3: Transmission-rate recovery accuracy
 
 ## Overview
 
-This earlier `Nmif = 100` supporting study evaluates observation-time recovery of a prescribed time-varying epidemic transmission rate from simulated case-report data. Experiment 4 supersedes it as the source of final Gamma-noise model numerical claims.
+This earlier `Nmif = 100` supporting study evaluates recovery of a prescribed time-varying epidemic transmission rate from simulated case-report data. It uses a Gamma-noise partially observed Markov process (POMP) model and measures error in the observation-time filtering mean. Experiment 4 supersedes it as the source of final Gamma-noise model numerical claims.
 
-The experiment contains 200 independently generated, accepted simulation replicates. For each replicate, the same fitting workflow is applied: the model is fitted from nine starting-value combinations, each fitted parameter vector is evaluated using repeated particle filters, the run with the largest independently evaluated log likelihood is selected, and a final particle filter estimates the filtering mean of `B(t)` at each observation time.
+The experiment contains 200 independently generated, accepted simulation replicates. For each replicate, the model is fitted from nine starting-value combinations. Each fitted parameter vector is then evaluated with repeated particle filters, the run with the largest independently evaluated log likelihood is selected, and a final particle filter estimates the filtering mean of `B(t)` at each observation time.
 
-Recovery accuracy is summarized using errors of each task's observation-time filtering mean: residual sum of squares (RSS), root mean squared error (RMSE), and mean transmission-rate error. These are point-estimator metrics, not errors of sampled latent trajectories. The gap between the largest and second-largest independently evaluated log likelihoods is retained as a diagnostic of the multi-start search.
+Recovery accuracy is summarized using errors of each task's observation-time filtering mean: residual sum of squares (RSS), root mean squared error (RMSE), and signed mean transmission-rate error. These are point-estimator metrics, not errors of sampled latent trajectories. The gap between the largest and second-largest independently evaluated log likelihoods is retained as a diagnostic of the multi-start search.
 
 ## Research question
 
-**Can the Gamma-noise POMP model recover the true transmission-rate trajectory from simulated epidemic data?**
+**Can the Gamma-noise POMP model recover the prescribed values of the time-varying transmission rate `B(t)` at the observation times?**
 
 The analysis focuses on three aspects:
 
 - how closely the observation-time filtering mean follows the true `B(t)` values;
-- whether recovery shows systematic over- or under-estimation before and after the change in transmission rate;
-- how variable recovery accuracy is across independently simulated data sets.
+- whether recovery shows systematic overestimation or underestimation before and after the change in transmission rate;
+- how recovery accuracy varies across independently simulated data sets.
 
 ## Study design
 
@@ -25,17 +25,17 @@ The data-generating transmission rate is piecewise constant:
 - `B(t) = 4` for `t < 5` weeks;
 - `B(t) = 2` for `t >= 5` weeks.
 
-Each data set covers 10 weeks and contains 70 observation times separated by `1/7` week. A simulated trajectory is accepted only if the accumulated number of new infections satisfies `max(H) > 20` for at least one observation interval. The reported recovery results are therefore conditional on this acceptance rule.
+Each data set covers 10 weeks and contains 70 observation times separated by `1/7` week. A simulated epidemic is accepted only if the maximum interval-specific incidence accumulator satisfies `max(H) > 20`. The reported recovery results are therefore conditional on this acceptance rule.
 
 The data-generating process is a stochastic SIR model with Euler step `1/30` week, latent states `S`, `I`, `R`, and the incidence accumulator `H`, and initial state `S = 9990`, `I = 10`, `R = 0`, `H = 0`. The fixed values are `mu_IR = 3`, population size `N = 10000`, reporting fraction `rho = 0.5`, and negative-binomial size `k = 10`. Reports follow
 
-\[
+$$
 Y_n\mid H_n \sim \operatorname{NegBin}(\text{mean}=\rho H_n,\text{size}=k).
-\]
+$$
 
 The fitted Gamma-noise transmission-rate model uses the same SIR and measurement components but replaces the prescribed piecewise path with a positive latent `B(t)` process. Under this model, the one-step transition distribution for `B(t)` is Gamma with conditional mean equal to its previous value. The fitting model estimates only `B0` and `sigma_beta`; `mu_IR`, `N`, `rho`, `k`, and the initial epidemic state remain fixed at their data-generating values. Both estimated parameters use log transformations.
 
-For each accepted data set:
+For each accepted data set, iterated filtering (MIF2) and particle filtering proceed as follows:
 
 - MIF2 is run from the nine combinations of `B0 in {2, 4, 6}` and `sigma_beta in {0.10, 0.30, 0.45}`;
 - each MIF2 run uses 100 iterations and 5,000 particles;
@@ -43,7 +43,7 @@ For each accepted data set:
 - each fitted parameter vector is evaluated using five particle filters with 50,000 particles each;
 - the repeated likelihood estimates are combined using `pomp::logmeanexp()`;
 - the run with the largest independently evaluated log likelihood is selected;
-- a final 50,000-particle filter is used to obtain the filtered mean of `B(t)`.
+- a final 50,000-particle filter is used to obtain the filtering mean of `B(t)`.
 
 Within a simulation replicate, the same task-specific MIF2 seed and the same sequence of evaluation seeds are reused across the nine starting-value combinations. This keeps the random-number settings fixed across the multi-start comparison but does not remove Monte Carlo error.
 
@@ -135,7 +135,7 @@ The aggregate figures use a deliberately conservative applied-mathematics style:
 - restrained color only where it materially improves line identification;
 - reference lines used only when they have a clear inferential meaning.
 
-Figure 01 uses black for the truth and blue for one task-145 ancestry-preserving particle trajectory. This curve is a finite-particle, plug-in-parameter approximation to a smoothing trajectory conditioned on the complete selected observation series; it is not an exact posterior draw, a filtering mean, or an across-task average. It was prespecified by a SHA-256 rule before its values were inspected and is not used in the 200-task metric tables.
+Figure 01 uses black for the truth and blue for one task-145 ancestry-preserving particle trajectory. The blue curve is a finite-particle, plug-in-parameter approximation to a smoothing trajectory conditioned on the complete selected observation series. It is not an exact posterior draw, a filtering mean, or an across-task average. The task was prespecified by a SHA-256 rule before the trajectory was inspected, and the curve is not used in the 200-task metric tables.
 
 Before using a figure in a report or manuscript, perform the following check:
 
@@ -218,4 +218,4 @@ The original 200-replicate study stored numerical summaries but did not save the
 
 It selects the stored run with the largest evaluated log likelihood among all 1,800 MIF2 runs: task 149, run 9. This choice identifies a run for diagnostic reconstruction only. It is not intended to represent a typical replicate, the smallest-error replicate, or evidence of convergence across all 200 tasks.
 
-The reconstructed object and the selected task-145 illustrative trajectory do not replace or modify the original filtering means, RSS, RMSE, signed errors, or likelihood summaries used in the 200-replicate analysis.
+The reconstructed object and the selected task-145 illustration do not replace or modify the filtering means, RSS, RMSE, signed errors, or likelihood summaries used in the 200-replicate analysis.

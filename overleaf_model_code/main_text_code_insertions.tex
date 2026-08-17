@@ -1,0 +1,76 @@
+% Placement guide only: copy each block into the indicated report subsection.
+
+% Section 2.5: Shared Measurement Model
+\paragraph{Computational implementation.}
+The simulation and evaluation functions use the same negative-binomial
+parameterization as the measurement model above. The implementation specifies
+the conditional mean as \(\rho H\) and the size parameter as \(k\).
+
+\lstinputlisting[
+  style=reportcode,
+  language=R,
+  caption={Simulation and likelihood evaluation for the shared measurement
+  model.},
+  label={lst:measurement-model}
+]{overleaf_model_code/05_measurement_model.R}
+
+% Section 2.6.1: Shared Stochastic SIR Component
+\paragraph{Computational implementation.}
+The code first converts the current infection and recovery hazards into
+one-step probabilities, samples the two event counts, and then applies the
+state updates. The following excerpt uses the prescribed-path model as a
+representative implementation of the stochastic SIR transition mechanism
+shared by all three models.
+
+\lstinputlisting[
+  style=reportcode,
+  language=C,
+  firstline=17,
+  lastline=31,
+  caption={Representative implementation of the shared stochastic SIR
+  transition mechanism.},
+  label={lst:shared-sir-kernel}
+]{overleaf_model_code/01_piecewise_latent_process.R}
+
+% Section 2.6.2: Prescribed Transmission-Rate Path
+\paragraph{Computational implementation.}
+The current transmission rate is selected from the prescribed path before the
+shared SIR transition kernel is evaluated.
+
+\lstinputlisting[
+  style=reportcode,
+  language=C,
+  firstline=10,
+  lastline=15,
+  caption={Implementation of the prescribed transmission-rate path.},
+  label={lst:prescribed-B-path}
+]{overleaf_model_code/01_piecewise_latent_process.R}
+
+% Section 2.6.3: Gamma-Noise Transmission-Rate Process
+\paragraph{Computational implementation.}
+The Gamma update is implemented using the shape--scale parameterization. The
+updated value of \(B\) is then supplied to the shared SIR transition kernel.
+
+\lstinputlisting[
+  style=reportcode,
+  language=C,
+  firstline=13,
+  lastline=30,
+  caption={Gamma-noise update of the latent transmission rate.},
+  label={lst:gamma-B-update}
+]{overleaf_model_code/03_gamma_latent_process.R}
+
+% Section 2.6.4: Constant-B Transmission-Rate Model
+\paragraph{Computational implementation.}
+The constant parameter \(B\) enters the infection probability directly and is
+not updated by the latent process.
+
+\lstinputlisting[
+  style=reportcode,
+  language=C,
+  firstline=9,
+  lastline=11,
+  caption={Use of the constant transmission-rate parameter in the infection
+  probability.},
+  label={lst:constant-B-kernel}
+]{overleaf_model_code/09_constant_latent_process.R}

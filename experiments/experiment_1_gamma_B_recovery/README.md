@@ -2,38 +2,38 @@
 
 ## Overview
 
-Experiment 1 is an early developmental simulation study of a Gamma-noise POMP model for recovering a time-varying epidemic transmission rate. It contains three controlled, single-dataset scenarios:
+Experiment 1 is a developmental simulation study of a Gamma-noise partially observed Markov process (POMP) model for recovering a time-varying epidemic transmission rate. It contains three controlled, single-data-set scenarios:
 
 1. constant true transmission rate, with `B0` and `sigma_beta` estimated;
 2. piecewise true transmission rate, with `B0 = 4` fixed and `sigma_beta` estimated;
-3. the same piecewise dataset, with both `B0` and `sigma_beta` estimated.
+3. the same piecewise data set, with both `B0` and `sigma_beta` estimated.
 
-The purpose is to illustrate the fitting workflow, inspect starting-value sensitivity, and compare filtered latent trajectories with known simulated truth. Because each scenario uses only one simulated epidemic, Experiment 1 is **not** a repeated-simulation assessment of bias, RMSE, coverage, or robustness. Those questions belong to later experiments.
+The experiment illustrates the fitting workflow, examines sensitivity to the tested starting values, and compares observation-time filtering means with known simulated truth. Because each scenario uses only one simulated epidemic, Experiment 1 is **not** a repeated-simulation assessment of bias, RMSE, coverage, or robustness. Those questions are addressed by the later experiments.
 
 Experiment 1 is developmental evidence, not a co-equal final analysis. Experiment 4 is the canonical computational analysis and the primary source of quantitative evidence for the report.
 
 ## Model
 
-The latent epidemic process contains `S`, `I`, `R`, the incidence accumulator `H`, and - in the fitted model - the latent transmission-rate state `B`.
+The latent epidemic process contains `S`, `I`, `R`, the incidence accumulator `H`, and, in the fitted model, the latent transmission-rate state `B`.
 
 The initial epidemic state is
 
-\[
+$$
 S(0)=9990,\qquad I(0)=10,\qquad R(0)=0,\qquad H(0)=0.
-\]
+$$
 
 Reported cases follow
 
-\[
+$$
 Y_n\mid H_n \sim \operatorname{NegBin}(\text{mean}=\rho H_n,\text{size}=k).
-\]
+$$
 
 Fixed parameters are:
 
-- `mu_IR = 3`
-- `N = 10000`
-- `rho = 0.5`
-- `k = 10`
+- `mu_IR = 3`;
+- `N = 10000`;
+- `rho = 0.5`;
+- `k = 10`.
 
 There are 70 observation times over 10 weeks, spaced `1/7` week apart (daily observations with time expressed in weeks). The latent process uses an Euler step of `1/30` week.
 
@@ -45,9 +45,9 @@ All simulations use seed `20260527`.
 
 Script: `code/01_fit_constant_B4.R`
 
-\[
+$$
 B(t)=4,\qquad 0\le t\le10.
-\]
+$$
 
 Estimated parameters:
 
@@ -56,55 +56,55 @@ Estimated parameters:
 
 Starting grid:
 
-\[
+$$
 B_0\in\{2,4,6\},\qquad
 \sigma_\beta\in\{0.10,0.30,0.45\}.
-\]
+$$
 
 Selected fit from the stored run:
 
 - `B0_hat = 3.9893`
 - `sigma_beta_hat = 0.00253`
 - evaluated log likelihood `= -250.6249`
-- Monte Carlo SE `= 0.0574`
+- Monte Carlo standard error `= 0.0574`
 
-The near-zero fitted `sigma_beta` is consistent with the constant data-generating transmission rate in this illustrative dataset.
+The near-zero fitted `sigma_beta` is consistent with the constant data-generating transmission rate in this illustrative data set.
 
 ### 1B. Piecewise transmission rate with known `B0`
 
 Script: `code/02_fit_piecewise_B_fixed_B0.R`
 
-\[
+$$
 B(t)=
 \begin{cases}
 4,&t<5,\\
 2,&t\ge5.
 \end{cases}
-\]
+$$
 
-`B0` is fixed at 4. MIF2 estimates only `sigma_beta`, starting from `0.10`, `0.30`, and `0.45`.
+`B0` is fixed at 4. Iterated filtering (MIF2) estimates only `sigma_beta`, starting from `0.10`, `0.30`, and `0.45`.
 
 Selected fit:
 
 - `B0 = 4` fixed
 - `sigma_beta_hat = 0.1969`
 - evaluated log likelihood `= -197.7006`
-- Monte Carlo SE `= 0.0499`
+- Monte Carlo standard error `= 0.0499`
 
 ### 1C. Piecewise transmission rate with `B0` and `sigma_beta` estimated
 
 Script: `code/03_fit_piecewise_B_estimate_B0_sigma.R`
 
-This scenario uses the **same simulated piecewise dataset as Scenario 1B** because the data-generating model and simulation seed are identical.
+This scenario uses the **same simulated piecewise data set as Scenario 1B** because the data-generating model and simulation seed are identical.
 
-The starting grid is the same 3 x 3 grid used in Scenario 1A.
+The starting grid is the same 3 by 3 grid used in Scenario 1A.
 
 Selected fit:
 
 - `B0_hat = 4.5365`
 - `sigma_beta_hat = 0.2206`
 - evaluated log likelihood `= -197.3708`
-- Monte Carlo SE `= 0.0462`
+- Monte Carlo standard error `= 0.0462`
 
 The selected run is simply the largest Monte Carlo-evaluated likelihood among the tested starts; it is not proof of a unique global maximum.
 
@@ -155,7 +155,7 @@ Rscript code/02_fit_piecewise_B_fixed_B0.R
 Rscript code/03_fit_piecewise_B_estimate_B0_sigma.R
 ```
 
-Each script independently regenerates its simulated dataset, runs the multi-start fit, evaluates the candidates, selects the best stored candidate, runs a final particle filter, writes numerical outputs to `results/`, and writes PDF figures to `figures/`.
+Each script independently regenerates its simulated data set, runs the multi-start fit, evaluates the candidates, selects the candidate with the largest evaluated log likelihood, runs a final particle filter, writes numerical outputs to `results/`, and writes PDF figures to `figures/`.
 
 The three scenario scripts are the authoritative full-analysis workflows and are computationally nontrivial because they rerun MIF2 and particle filters. To reproduce only the nine report-facing PDFs from the committed compact CSV results, run:
 
@@ -171,8 +171,8 @@ For each scenario, `results/` contains:
 
 - `*_mif2_results.csv` - all starting-point fits and evaluated likelihoods;
 - `*_best_fit.csv` - selected candidate;
-- `*_filtered_B_path.csv` - true and filtered mean transmission-rate paths;
-- `*_filtered_infectious_path.csv` - true and filtered mean infectious paths;
+- `*_filtered_B_path.csv` - truth and observation-time filtering mean for the transmission rate;
+- `*_filtered_infectious_path.csv` - truth and observation-time filtering mean for the infectious state;
 - `*_best_mif2.rds` - regenerable fitted object, ignored by Git.
 
 The nine canonical, lightweight-regenerable PDF figures are:
@@ -204,7 +204,7 @@ The main figures use the same restrained visual language as the later experiment
 - PDF output only;
 - no decorative grid or large in-figure title;
 - true trajectories in black;
-- filtered means in light blue;
+- filtering means in light blue;
 - piecewise true `B(t)` drawn as two separate horizontal segments with no solid vertical connector at week 5;
 - week 5 shown, when relevant, with a light-gray dashed reference line;
 - `B(t)` panels use a common `0-6` vertical range;
@@ -231,4 +231,4 @@ experiment_1_gamma_B_recovery/
 
 ## Interpretation and limitations
 
-Experiment 1 supports qualitative statements about fitting behavior on controlled examples and about sensitivity to the tested starting values. It does not support population-level statements about systematic recovery performance. For repeated-simulation recovery accuracy and model comparison, use the later experiments.
+Experiment 1 supports qualitative statements about fitting behavior in these controlled examples and about sensitivity to the tested starting values. It does not support population-level claims about systematic recovery performance. Experiment 3 provides an earlier repeated recovery study, while Experiment 4 provides the canonical paired model comparison.

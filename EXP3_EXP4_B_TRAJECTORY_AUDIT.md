@@ -1,11 +1,13 @@
 # Experiment 3/4 B-trajectory audit
 
+> **Historical audit record.** This verdict applies to the pre-repair repository state identified below. The trajectory defect was subsequently repaired, and Experiment 4 later added separate task-1 and task-117 comparison figures. Consult `EXP3_EXP4_B_TRAJECTORY_REPAIR.md` and the current Experiment 3 and Experiment 4 READMEs for the active artifact definitions. The evidence and line references below are intentionally preserved as an audit trail.
+
 ## 1. Executive verdict: FAIL
 
 The saved Gamma-noise curves in both experiments are **not** one coherent latent
 particle-ancestry trajectory.  The formal Experiment 4 Figure 01, its optional
 Python duplicate, and its pilot analogue plot an across-replicate mean of
-per-task filtering means.  This conflicts with Felicia's binding requirement
+per-task filtering means.  This conflicts with the supervisor's binding requirement
 for the illustrative Gamma-noise curve.  Experiment 3's analogous figure has
 the same mathematical object.  No defect was found in the stored MIF2 fits,
 best-start selection, independent likelihood evaluations, or arithmetic of the
@@ -14,15 +16,14 @@ saved filtering-mean metrics.
 ## 2. Severity counts
 
 | Critical | Major | Minor | Optional |
-|---:|---:|---:|
+|---:|---:|---:|---:|
 | 1 | 3 | 2 | 1 |
 
 ### Audit safety record
 
 - Applicable `AGENTS.md`: none found in the repository or its checked ancestor
   directories.
-- `git rev-parse --show-toplevel`:
-  `/Users/zeus/Desktop/R/GitHub/2026_summer_epidemic_project`
+- `git rev-parse --show-toplevel`: the repository root.
 - Initial `git status --short`: `?? overleaf_model_code/` (preserved; not
   inspected as an audit artifact and not modified).
 - `git branch --show-current`: `main`.
@@ -158,7 +159,7 @@ uncertainty.
   errors of one sampled CT would change the estimand and inject
   trajectory-sampling variance.
 - **Needed action:** wording correction throughout; no recomputation unless
-  Felicia changes the desired metric estimand.  Preferred replacement:
+  the project lead changes the desired metric estimand.  Preferred replacement:
   “observation-time filtering-mean recovery metric” for Gamma and
   “observation-time repeated-static-estimate metric” for constant-B.
 
@@ -283,8 +284,8 @@ and this audit found no row-order or duplication issue.
 
 ## 8. Report/documentation impact assessment
 
-Report source **was available and audited** at
-`/Users/zeus/Desktop/Math-Resources/Research_2026summer/Reports/Summer_Report_revision_01/`.
+Report source **was available and audited** in an external, non-versioned local
+report directory.
 It copied Figure 01 unchanged (`sections/D_reproducibility.tex:6-18`) and calls
 it an average (`sections/05_results.tex:12-25`), so the report does not falsely
 call the old line a single trajectory.  It nevertheless needs a replacement
@@ -330,7 +331,7 @@ new calculation is the new CT for the illustration, followed by a replacement
 Figure 01 (and E3's mean figure only if it is retained as an illustrative
 Gamma-noise curve).  Recomputing RSS/RMSE/bias from one CT would be a different
 scientific estimand and would add particle-trajectory sampling variation; do so
-only if Felicia explicitly requests that new estimand.
+only if the project lead explicitly requests that new estimand.
 
 ## 12. Minimum rerun required
 
@@ -401,7 +402,7 @@ bit-identical to the old FM PF.
 - regenerate and visually inspect the changed PDFs; recompute no existing
   metrics unless a new CT-error estimand is formally approved.
 
-## 15. Remaining scientific questions for Felicia
+## 15. Remaining scientific questions for the project lead
 
 1. Must Experiment 3's supporting AFM figure be replaced, or may it remain as
    a clearly labelled across-replicate filtering-mean summary?

@@ -1,0 +1,76 @@
+\section{Selected Computational Implementations}
+\label{app:code-listings}
+
+This appendix records the report-facing implementation excerpts corresponding
+to the mathematical model, numerical initialization, and recovery metrics.
+The complete executable workflows, including validation, error handling,
+random-number seeds, and file input/output, are provided in the accompanying
+GitHub repository.
+
+\subsection{Measurement model}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Negative-binomial measurement simulation and likelihood evaluation.},
+  label={lst:app-measurement}]
+{overleaf_model_code/05_measurement_model.R}
+
+\subsection{Data-generating process}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Prescribed-path stochastic SIR process used for data generation.},
+  label={lst:app-data-process}]
+{overleaf_model_code/01_piecewise_latent_process.R}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Initial states for the data-generating process.},
+  label={lst:app-data-initial}]
+{overleaf_model_code/02_piecewise_initial_values.R}
+
+\subsection{Gamma-noise fitted model}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Gamma-noise latent process.},label={lst:app-gamma-process}]
+{overleaf_model_code/03_gamma_latent_process.R}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Initial states for the Gamma-noise model.},label={lst:app-gamma-initial}]
+{overleaf_model_code/04_gamma_initial_values.R}
+
+\subsection{Constant-\texorpdfstring{\(B\)}{B} fitted model}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Constant-\(B\) latent process.},label={lst:app-constant-process}]
+{overleaf_model_code/09_constant_latent_process.R}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Initial states for the constant-\(B\) model.},
+  label={lst:app-constant-initial}]
+{overleaf_model_code/10_constant_initial_values.R}
+
+\subsection{POMP object construction and fixed parameters}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Construction of the data-generating POMP object.},label={lst:app-data-pomp}]
+{overleaf_model_code/06_data_generating_pomp_object.R}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Construction of the Gamma-noise POMP object.},label={lst:app-gamma-pomp}]
+{overleaf_model_code/07_gamma_filtering_pomp_object.R}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Construction of the constant-\(B\) POMP object.},
+  label={lst:app-constant-pomp}]
+{overleaf_model_code/11_constant_filtering_pomp_object.R}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Fixed and baseline model parameters.},label={lst:app-model-parameters}]
+{overleaf_model_code/08_model_parameters.R}
+
+\subsection{Multi-start initialization for IF2}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Starting-value combinations, representative multi-start IF2
+  implementation, independent particle-filter likelihood aggregation, and
+  best-fit selection.},label={lst:app-multistart}]
+{overleaf_model_code/12_multistart_initialization.R}
+
+\subsection{Sampled latent transmission-rate trajectory}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Extraction of one ancestry-preserving sampled latent
+  transmission-rate trajectory at the selected best fit.},
+  label={lst:app-sampled-trajectory}]
+{overleaf_model_code/14_sampled_B_trajectory.R}
+
+\subsection{Recovery metrics}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Task-level recovery metrics and across-task absolute mean-error
+  summaries.},label={lst:app-recovery-metrics}]
+{overleaf_model_code/13_recovery_metrics.R}

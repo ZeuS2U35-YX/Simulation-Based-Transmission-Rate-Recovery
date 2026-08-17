@@ -1,30 +1,34 @@
-# 2026 Summer Epidemic Project
+# A Simulation-Based Approach to Recovering Time-Varying Epidemic Transmission Rates
 
-This repository develops and evaluates partially observed Markov process models for recovering a time-varying epidemic transmission rate from noisy case-report data. The canonical final analysis is a Gamma-noise versus constant-B comparison, where the constant-`B` model is deliberately restricted.
+This repository develops and evaluates partially observed Markov process (POMP) models for recovering a time-varying epidemic transmission rate, `B(t)`, from noisy case-report data. Four simulation experiments progress from workflow development and computational diagnostics to a paired model comparison. The canonical analysis is Experiment 4, which compares a Gamma-noise model with latent time-varying `B(t)` against a deliberately restricted constant-B model on the same 200 accepted simulated outbreaks.
 
-This repository state is a **canonical computational results milestone**, not the final repository release. The report is currently in progress. The repository is distributed under the [MIT License](LICENSE).
+This repository is a **computational-results milestone**, not a final archival release. The accompanying report remains in development. Code is distributed under the [MIT License](LICENSE).
 
-## Scientific hierarchy
+## Scientific question and evidence chain
 
-The experiments document a progression rather than four co-equal final analyses:
+The central question is whether a Gamma-noise POMP model can recover a prescribed change in transmission rate from partially observed epidemic data, and whether it does so more accurately than a model that assumes transmission is constant. Model parameters are estimated by iterated filtering (IF2, implemented with `mif2()`). Each multi-start fit is evaluated with five independent particle filters; their likelihood estimates are aggregated with `pomp::logmeanexp`, and the fit with the largest aggregated log likelihood is retained.
 
-| Experiment | Scientific role | Main question | Status in the report |
+The experiments form a progression rather than four co-equal analyses:
+
+| Experiment | Role in the evidence chain | Question addressed | Use in the report |
 | --- | --- | --- | --- |
-| [Experiment 1](experiments/experiment_1_gamma_B_recovery/) | Developmental and exploratory | Do the initial one-dataset fitting scenarios recover constant and piecewise transmission paths from several starts? | Workflow development only |
-| [Experiment 2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | Supporting high-particle diagnostic | On one fixed data set, do nine starts reach a similar high-likelihood region with 50,000 particles? | Supporting implementation evidence |
-| [Experiment 3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated recovery study | How accurately do `Nmif = 100` observation-time filtering means recover prescribed values across 200 accepted outbreaks? | Supporting study; superseded by Experiment 4 for final Gamma-noise numerical claims |
-| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Canonical final computational analysis | How does the `Nmif = 600` Gamma-noise model compare with the constant-`B` model on the same 200 accepted outbreaks? | Primary quantitative evidence for the report |
+| [Experiment 1](experiments/experiment_1_gamma_B_recovery/) | Workflow development | Can the initial single-data-set workflows recover constant and piecewise transmission patterns from multiple starting values? | Developmental illustration |
+| [Experiment 2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | High-particle computational diagnostic | On one fixed data set, do nine starting points reach similar independently evaluated likelihood regions with 50,000 particles? | Supporting implementation evidence |
+| [Experiment 3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated recovery study | How accurately do observation-time filtering means from the `Nmif = 100` Gamma-noise workflow recover prescribed `B(t)` values across 200 accepted outbreaks? | Supporting study; superseded by Experiment 4 for final numerical claims |
+| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Canonical paired comparison | How does the `Nmif = 600` Gamma-noise model compare with the constant-B model on the same 200 accepted outbreaks? | Primary quantitative evidence |
 
-Experiment 4 is therefore the canonical source for final numerical results. Experiments 1–3 remain useful for development history, diagnostics, and supporting interpretation, but should not be presented as equally important final analyses.
+Experiment 4 is therefore the source for final numerical comparisons. Experiments 1-3 document workflow development, particle-count and starting-value diagnostics, and supporting recovery behavior.
 
 ## Interpretation boundaries
 
-- The constant-`B` model in Experiment 4 cannot represent temporal variation in `B(t)`; it is intentionally used as a restricted comparator.
-- Recovery and comparison conclusions in Experiments 3 and 4 are conditional on accepted informative outbreaks satisfying `max(H) > 20`. They do not estimate unconditional performance over every attempted epidemic trajectory.
-- Experiment 3 and Gamma-model Experiment 4 RSS/RMSE/error summaries use per-task filtering means at 70 observation times; Experiment 4 constant-model metrics use one fitted static value repeated at those times. The primary `B(t)` figures instead show one prespecified ancestry-preserving particle trajectory and are illustrative, not inputs to the 200-task metric tables.
-- Traces from selected Experiment 4 diagnostic tasks 1, 50, 100, 150, and 200 provide empirical support for `Nmif = 600`, but do not establish convergence for all 200 fitted data sets. These tasks are selected diagnostics, not a random sample.
+- All findings arise from simulated stochastic SIR epidemics under the stated process and measurement models. They are not evidence of performance on real surveillance data.
+- Experiments 3 and 4 retain only outbreaks satisfying `max(H) > 20`. Their recovery results are conditional on this informative-outbreak acceptance rule, not unconditional performance over all attempted simulations.
+- Experiment 4 Gamma-noise residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias use one ancestry-preserving sampled latent trajectory from the final particle filter for each task. The constant-B metrics repeat that task's fitted static estimate across the same 70 observation times.
+- The Experiment 4 task-1 and task-117 figures show the exact sampled trajectories used in their task-level metrics. They are finite-particle, plug-in-parameter approximations to smoothing trajectories, not filtering means, exact posterior draws, uncertainty intervals, or across-task averages.
+- Independent particle-filter log likelihoods are descriptive fitting diagnostics. They are not complexity-adjusted model-selection criteria.
+- Experiment 4 convergence traces for tasks 1, 50, 100, 150, and 200 support the chosen computational settings for those tasks but do not establish convergence for all 200 fitted data sets.
 
-## Repository layout
+## Repository guide
 
 ```text
 experiments/
@@ -32,25 +36,29 @@ experiments/
 ├── experiment_2_large_scale_gamma_B_recovery_HPC/
 ├── experiment_3_gamma_B_recovery_accuracy/
 └── experiment_4_nmif600_model_comparison/
+overleaf_model_code/              Report-facing implementation excerpts
 README.md
 SOFTWARE.md
 LICENSE
 ```
 
-Each experiment README documents its scientific purpose, settings, execution order, compact retained results, figure provenance, limitations, and full or lightweight reproduction commands. Raw task-level HPC outputs and Slurm logs are intentionally kept out of Git when compact combined evidence is available.
+Each experiment README documents its scientific purpose, model settings, execution order, retained outputs, figure provenance, limitations, and reproduction commands. Experiment 4 retains the exact shared simulated data needed to reconstruct its sampled trajectories. Large task-level fitted objects and Slurm logs remain excluded when compact validated summaries provide the required evidence.
 
-The canonical Experiment 4 evidence is under:
+For the primary analysis, start with the [Experiment 4 README](experiments/experiment_4_nmif600_model_comparison/README.md). Its canonical evidence is stored in:
 
-- [`results/combined/gamma/`](experiments/experiment_4_nmif600_model_comparison/results/combined/gamma/)
-- [`results/combined/constant/`](experiments/experiment_4_nmif600_model_comparison/results/combined/constant/)
-- [`results/comparison/`](experiments/experiment_4_nmif600_model_comparison/results/comparison/)
-- [`results/selected_trajectory/`](experiments/experiment_4_nmif600_model_comparison/results/selected_trajectory/)
-- [`figures/comparison/`](experiments/experiment_4_nmif600_model_comparison/figures/comparison/)
-- [`figures/convergence/`](experiments/experiment_4_nmif600_model_comparison/figures/convergence/)
+- [`results/combined/gamma/`](experiments/experiment_4_nmif600_model_comparison/results/combined/gamma/);
+- [`results/combined/constant/`](experiments/experiment_4_nmif600_model_comparison/results/combined/constant/);
+- [`results/comparison/`](experiments/experiment_4_nmif600_model_comparison/results/comparison/);
+- [`shared_data/`](experiments/experiment_4_nmif600_model_comparison/shared_data/);
+- [`results/selected_trajectory/`](experiments/experiment_4_nmif600_model_comparison/results/selected_trajectory/);
+- [`figures/comparison/`](experiments/experiment_4_nmif600_model_comparison/figures/comparison/);
+- [`figures/convergence/`](experiments/experiment_4_nmif600_model_comparison/figures/convergence/).
 
-## Lightweight reproduction entry points
+The root-level [trajectory audit](EXP3_EXP4_B_TRAJECTORY_AUDIT.md) and [repair record](EXP3_EXP4_B_TRAJECTORY_REPAIR.md) are retained as historical evidence of the distinction among filtering means, across-task averages, and ancestry-preserving trajectories. They are not substitutes for the current experiment READMEs.
 
-Run each command from the corresponding experiment directory. These commands rebuild figures and compact summaries from retained results; they do not rerun MIF2 or the full HPC studies. The selected-trajectory generation commands documented in the experiment READMEs each run one final particle filter and are intentionally separate.
+## Lightweight reproduction
+
+Run each command from the corresponding experiment directory. These commands rebuild figures and compact summaries from retained results unless explicitly stated otherwise; they do not rerun the full MIF2 studies.
 
 ```bash
 # Experiment 1
@@ -66,20 +74,27 @@ Rscript code/04_analyze_results.R
 For Experiment 4:
 
 ```bash
+# Selected-task B(t) figures.
+# These read the retained sampled paths and verify the corresponding shared data.
+Rscript code/07_generate_task1_comparison_figures.R
+Rscript code/08_generate_task117_comparison_figures.R
+
+# Paired 200-task summaries and selected-task artifact validation.
 Rscript code/05_compare_models.R \
   results/combined/gamma \
   results/combined/constant \
   results/comparison \
   figures/comparison
 
+# Convergence diagnostics for the prespecified diagnostic tasks.
 Rscript code/06_make_convergence_diagnostics.R \
   results/combined/gamma \
   results/combined/constant \
   figures/convergence
 ```
 
-The complete HPC workflows are computationally expensive and require Slurm. See each experiment README before submitting them. Software and environment evidence is summarized in [SOFTWARE.md](SOFTWARE.md).
+The complete workflows are computationally expensive and require Slurm. Consult the experiment-specific README before submitting an array job. Recorded and currently tested software environments are summarized in [SOFTWARE.md](SOFTWARE.md).
 
 ## Release status
 
-The computational milestone is suitable for supervisor review and continued report drafting. It is not a final archival release: the report remains in progress and exact historical package environments are only partly documented. The repository is licensed under the [MIT License](LICENSE).
+The current milestone is suitable for supervisor review, report development, and independent inspection of the retained computational evidence. Exact historical package environments are only partly documented, so bit-for-bit reproduction of every original HPC particle-filter realization is not claimed.
