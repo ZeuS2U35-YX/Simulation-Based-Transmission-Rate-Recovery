@@ -11,7 +11,7 @@ theta <- c(
 )
 
 
-# Baseline parameters for the Gamma-transition filtering model
+# Baseline parameters for the Gamma-noise POMP model
 
 theta_gamma <- c(
   B0 = 4,

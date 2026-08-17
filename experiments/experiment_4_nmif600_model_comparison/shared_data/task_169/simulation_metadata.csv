@@ -1,0 +1,2 @@
+"experiment_id","task_id","simulation_seed","simulation_attempt","accepted","acceptance_threshold","max_H","Beta_high","Beta_low","t_switch","mu_IR","N","rho","k"
+"experiment_4_nmif600_model_comparison",169,1169,1,TRUE,20,152,4,2,5,3,10000,0.5,10

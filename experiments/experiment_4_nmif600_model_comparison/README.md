@@ -9,7 +9,7 @@ This experiment asks which of two fitted partially observed Markov process (POMP
 1. a Gamma-noise model with latent time-varying `B(t)`;
 2. a deliberately restricted constant-B comparator that cannot represent temporal variation in `B(t)`.
 
-Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each data set, the best Gamma fit is followed by one ancestry-preserving sampled latent `B(t)` trajectory from the final particle filter. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from that sampled trajectory and the repeated fitted constant-B estimate. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
+Both models are fitted by iterated filtering (IF2, implemented with `mif2()`) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each starting-value combination or starting value, five independent particle-filter likelihood estimates are aggregated with `pomp::logmeanexp`; the fit with the largest aggregated log likelihood is retained. For each data set, that selected Gamma fit is followed by one ancestry-preserving sampled latent `B(t)` trajectory from the final particle filter. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated directly from that sampled trajectory and the repeated fitted constant-B estimate. No filtering mean enters these recovery metrics. The independent likelihood evaluations are descriptive fitting diagnostics, not a complexity-adjusted model-selection criterion.
 
 ## Fixed experiment settings
 
@@ -92,7 +92,7 @@ cd experiment_4_nmif600_model_comparison
 
 ### 2. Submit five full-setting pilot tasks
 
-The pilot uses diagnostic tasks 1, 50, 100, 150, and 200. They are not a random sample. The pilot uses the full `Nmif = 600` setting, particle counts, starting grids, and likelihood evaluations. Its completed task outputs are production-quality and are reused by the full array.
+The pilot uses diagnostic tasks 1, 50, 100, 150, and 200. They are not a random sample. The pilot uses the full `Nmif = 600` setting, particle counts, multi-start initialization, and likelihood evaluations. Its completed task outputs are production-quality and are reused by the full array.
 
 ```bash
 bash hpc/submit_pilot.sh
@@ -271,4 +271,4 @@ Do not delete or regenerate `shared_data/task_149` unless the shared data themse
 
 ## Interpretation boundary
 
-The experiment evaluates recovery only under the stated simulation model, acceptance rule, starting grids, particle counts, and `Nmif = 600`. Its performance estimand is conditional on accepted outbreaks satisfying `max(H) > 20`. Stable traces in diagnostic tasks 1, 50, 100, 150, and 200 support the computational choice for those tasks but do not prove convergence for all 200 fitted data sets. Independent particle-filter evaluations, multi-start results, and convergence diagnostics should therefore be interpreted together.
+The experiment evaluates recovery only under the stated simulation model, acceptance rule, multi-start initialization, particle counts, and `Nmif = 600`. Its performance estimand is conditional on accepted outbreaks satisfying `max(H) > 20`. Stable traces in diagnostic tasks 1, 50, 100, 150, and 200 support the computational choice for those tasks but do not prove convergence for all 200 fitted data sets. Independent particle-filter evaluations, multi-start results, and convergence diagnostics should therefore be interpreted together.

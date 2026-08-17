@@ -53,5 +53,21 @@ for (s in seq_len(nrow(constant_start_values))) {
   )
 }
 
-# After independent particle-filter evaluation, retain the largest likelihood
+# For each completed IF2 run, evaluate the fitted parameters with five
+# independent particle filters. logmeanexp averages likelihood estimates on the
+# likelihood scale and returns the result on the log scale; it is not an
+# arithmetic mean of log likelihoods and it is unrelated to a filtering mean.
+evaluation_loglik <- replicate(
+  config$n_pf_evals,
+  as.numeric(logLik(pfilter(
+    model,
+    params = fitted_params,
+    Np = config$Np_eval
+  )))
+)
+aggregated_loglik <- as.numeric(
+  pomp::logmeanexp(evaluation_loglik)
+)
+
+# The stored logLik column contains aggregated_loglik for each candidate run.
 best <- valid[which.max(valid$logLik), , drop = FALSE]

@@ -40,13 +40,18 @@ Section 2.7: Initial States and Fixed Parameters for Data Generation
 
 Section 3.4: Multi-start Initialization for IF2
   Present the starting values as a table in the main text. The corresponding
-  configuration and representative loop are in 12_multistart_initialization.R.
+  configuration, representative loop, independent particle-filter likelihood
+  aggregation, and best-fit selection are in 12_multistart_initialization.R.
 
 Section 3.5: Absolute Task-Level Mean Error and Residual Sum of Squares
   Keep the mathematical definitions in the main text. The implementation is
-  shown in 13_recovery_metrics.R. The source code first stores the signed
-  task-level mean error as bias_all and applies abs() during model comparison;
-  hence abs(bias_all) equals abs(mean(error)).
+  shown in 13_recovery_metrics.R. Each Gamma-noise task uses the saved sampled
+  trajectory; no filtering mean enters these recovery metrics.
+
+Section 3.6: Sampled Latent Transmission-Rate Trajectory
+  14_sampled_B_trajectory.R shows best-fit selection, the final particle filter
+  with ancestry storage, extraction with filter_traj(), and removal of time zero
+  before task-level metric calculation.
 
 Supporting files
 ----------------

@@ -1,4 +1,4 @@
-# Construction of the Gamma-transition filtering POMP model
+# Construction of the Gamma-noise POMP model
 
 pf_gamma_model <- pomp(
   data = sim1_observed,

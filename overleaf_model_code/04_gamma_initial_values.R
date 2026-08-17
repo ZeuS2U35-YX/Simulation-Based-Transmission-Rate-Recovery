@@ -1,4 +1,4 @@
-# Initial states for the Gamma-transition filtering model
+# Initial states for the Gamma-noise POMP model
 
 sir_rinit_gamma <- Csnippet("
   S = N - 10;

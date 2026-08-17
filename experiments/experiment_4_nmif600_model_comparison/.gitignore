@@ -8,7 +8,9 @@ __MACOSX/
 # HPC logs and generated outputs
 logs/**/*
 !logs/**/.gitkeep
-shared_data/task_*/
+# Keep the completed shared simulated data under version control. Ignore only
+# incomplete atomic-write directories created while a task is running.
+shared_data/.task_*_tmp_*/
 results_raw/gamma/task_*/
 results_raw/constant/task_*/
 results/combined/**/*.csv

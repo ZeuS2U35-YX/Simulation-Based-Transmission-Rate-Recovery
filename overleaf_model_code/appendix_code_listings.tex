@@ -57,9 +57,17 @@ GitHub repository.
 
 \subsection{Multi-start initialization for IF2}
 \lstinputlisting[style=reportcode,language=R,
-  caption={Starting-value combinations and representative multi-start IF2
-  implementation.},label={lst:app-multistart}]
+  caption={Starting-value combinations, representative multi-start IF2
+  implementation, independent particle-filter likelihood aggregation, and
+  best-fit selection.},label={lst:app-multistart}]
 {overleaf_model_code/12_multistart_initialization.R}
+
+\subsection{Sampled latent transmission-rate trajectory}
+\lstinputlisting[style=reportcode,language=R,
+  caption={Extraction of one ancestry-preserving sampled latent
+  transmission-rate trajectory at the selected best fit.},
+  label={lst:app-sampled-trajectory}]
+{overleaf_model_code/14_sampled_B_trajectory.R}
 
 \subsection{Recovery metrics}
 \lstinputlisting[style=reportcode,language=R,

@@ -1,0 +1,142 @@
+\section{Inference and evaluation}
+\label{sec:method}
+
+\subsection{Likelihood and maximum-likelihood estimation}
+
+The observed case series does not reveal the epidemic states or, in the
+Gamma-noise model, the transmission-rate path.  The observed-data likelihood
+therefore averages over all latent state histories compatible with a fixed
+parameter vector.  That integral is not available analytically for these
+nonlinear stochastic POMP models.  The inferential target is the maximum
+likelihood estimate
+\begin{equation}
+\widehat{\theta}
+=
+\arg\max_{\theta}\ell(\theta;y_{1:N}).
+\label{eq:mle}
+\end{equation}
+The model-specific static transmission parameters are
+\[
+\theta_G=(B_0,\sigB),
+\qquad
+\theta_C=(\Bconst).
+\]
+The nuisance parameters \(\mu_{IR},N,\rho,k\) and the initial epidemic state
+are fixed in this benchmark.  In particular, the latent sequence \(B(t)\) is
+not optimized as an unrelated parameter at every time point; it is integrated
+over according to the Gamma transition in Equation~\ref{eq:gamma-update}.
+
+\subsection{Particle filtering}
+
+For a fixed parameter vector, a particle filter propagates many possible
+latent states through the process model, weights them according to each new
+reported count, and resamples states that better explain the observations.
+These weighted particles approximate both the observed-data likelihood and
+the filtering distribution of the latent state given reports through the
+current observation time \citep{gordon1993particle,king2016pomp}.  The analysis
+uses the implementation in the \texttt{pomp} package
+\citep{king2025pomp64}.
+
+At an observation time, weighting favors particles whose accumulated
+incidence makes the reported count plausible; resampling then concentrates
+subsequent computation on those histories without collapsing the scientific
+model to a single path.  Because only finitely many particles are used, two
+independent filters at the same parameter vector need not return identical
+likelihood estimates or sampled latent histories.  This particle-filter Monte Carlo
+variation is reduced by increasing the particle population and is separate
+from every biological or reporting source of randomness in Section~\ref{sec:model}.
+
+\subsection{IF2 estimation}
+
+Iterated filtering (IF2) connects particle filtering to the optimization in
+Equation~\ref{eq:mle} \citep{ionides2015if2}.  IF2 repeatedly applies a particle
+filter to an extended parameter--state system.  Artificial perturbations allow
+the static-parameter particles to explore the likelihood surface, while
+observation weighting and resampling favor parameter--state combinations that
+better explain the data.  A cooling schedule reduces the perturbation scale
+across iterations, producing an approximate maximum likelihood estimate.
+Multiple starting points broaden the search but do not guarantee that the
+global maximum has been found.
+
+In the implemented search, each starting point underwent a fixed sequence of
+600 IF2 iterations.  The decreasing perturbations turn the early iterations
+into relatively broad exploration and the later iterations into a more local
+search.  Candidate endpoints were not ranked using the final IF2 trace value
+alone: five independent ordinary particle filters reevaluated each endpoint
+after perturbations had been removed.  If \(\ell_{dsj}\) is the log-likelihood
+estimate for data set \(d\), start \(s\), and evaluation \(j\), the ranking
+summary was
+\begin{equation}
+\widetilde\ell_{ds}
+=
+\log\left\{\frac{1}{5}\sum_{j=1}^{5}\exp(\ell_{dsj})\right\},
+\label{eq:logmeanexp}
+\end{equation}
+computed numerically with \texttt{pomp::logmeanexp}.  Thus the averaging occurs
+on the likelihood scale.  It is neither an arithmetic mean of log likelihoods
+nor a mean of the latent transmission trajectories.  The endpoint with the
+largest finite \(\widetilde\ell_{ds}\) was selected as the best fit.  This
+separates parameter search from the final comparison as far as the finite
+computation allows.
+
+IF2 perturbations are algorithmic and disappear from the focal model after
+optimization.  They are distinct from Gamma process noise, which governs the
+scientific evolution of latent \(B(t)\) at the fitted value of \(\sigB\).
+Appendix~\ref{app:implementation} records the starting values, particle counts,
+perturbation scales, cooling, and selection details.
+
+\subsection{Transmission-rate recovery}
+
+For paired data set \(d\), the selected Gamma parameters were passed to one
+final 50,000-particle filter with trajectory ancestry retained.  The
+\texttt{filter\_traj()} function then extracted one internally consistent
+latent history,
+\begin{equation}
+\widehat B^{(G)}_d(t_{0:N})
+=B^{*}_d(t_{0:N};\widehat\theta_{G,d}),
+\label{eq:bhat}
+\end{equation}
+where the superscript \(*\) denotes the sampled history rather than a posterior
+or filtering mean.  Because its ancestry is traced through the final particle
+population, this is a finite-particle, plug-in-parameter approximation to a
+smoothing trajectory conditional on the complete reported series.  It is not
+an exact posterior draw, an uncertainty interval, or a separately optimized
+value of \(B\) at each time.  The value at \(t_0\) is retained only for display;
+all recovery metrics use the 70 observation times \(t_1,\ldots,t_N\).
+
+The constant-model estimator is the selected static value repeated over those
+same observation times,
+\[
+\widehat B^{(C)}_d(t_n)=\widehat B_{\mathrm{const},d}.
+\]
+Both models are therefore represented by one observation-time trajectory
+before comparison, even though the constant trajectory necessarily repeats a
+single value.  No filtering mean enters the Experiment~4 recovery metrics.
+For model \(m\in\{G,C\}\), the primary task-level outcome is
+\begin{equation}
+\operatorname{RMSE}^{(m)}_d
+=
+\sqrt{
+\frac{1}{N_{\mathrm{obs}}}
+\sum_{n=1}^{N_{\mathrm{obs}}}
+\left[
+\widehat B^{(m)}_d(t_n)-\Btrue(t_n)
+\right]^2
+}.
+\label{eq:rmse}
+\end{equation}
+This definition compares like observation times within each paired data set.
+Each data set contributes one RMSE per model and therefore one within-pair
+difference.  Averaging these task-level RMSE values gives equal weight to the
+200 accepted epidemics, rather than allowing a data set with more cases to
+dominate the summary.  Squaring before averaging also prevents early
+underestimation and late overestimation from canceling.
+
+Secondary summaries describe signed recovery error.  The task-level mean error
+averages \(\widehat B^{(m)}_d(t_n)-\Btrue(t_n)\) over all observation times;
+its absolute value measures overall displacement without allowing the final
+sign to determine magnitude.  Segment-specific signed errors average the same
+quantity before and after week~5.  Post-fitting particle-filter likelihoods
+provide an additional same-data fitting diagnostic, but they are neither
+penalized nor evaluated on held-out observations and are not treated as a
+formal model-selection test.

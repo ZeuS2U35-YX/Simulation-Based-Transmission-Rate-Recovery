@@ -1,0 +1,40 @@
+\section{Developmental experiments}
+\label{app:developmental}
+
+Experiments~1--3 developed the modeling and computational workflow but do not
+contribute numerical evidence to the main comparison.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Developmental progression to Experiment~4.}
+\begin{tabularx}{\textwidth}{
+  >{\raggedright\arraybackslash}p{0.12\textwidth}
+  >{\raggedright\arraybackslash}p{0.25\textwidth}
+  >{\raggedright\arraybackslash}p{0.27\textwidth}
+  >{\raggedright\arraybackslash}X}
+\toprule
+Experiment & Purpose & Why developmental & Link to Experiment~4 \\
+\midrule
+1
+& Construct and illustrate the Gamma-noise model under constant and
+piecewise transmission scenarios.
+& Each scenario used one simulated epidemic and primarily examined model
+construction and starting-value sensitivity.
+& Established the basic latent-rate recovery workflow. \\
+2
+& Exercise a high-particle, multi-start Gamma-noise fitting workflow.
+& The workflow was applied to one fixed simulated data set.
+& Established the repeated-fitting workflow. \\
+3
+& Evaluate Gamma-noise recovery across 200 tasks with
+\(N_{\mathrm{mif}}=100\).
+& Its lower-iteration analysis was superseded for final numerical claims.
+& Motivated the \(N_{\mathrm{mif}}=600\) paired comparison. \\
+4
+& Compare Gamma-noise and constant-\(B\) recovery on shared data.
+& Main experiment rather than developmental evidence.
+& Supplies all numerical results in the main text. \\
+\bottomrule
+\end{tabularx}
+\end{table}
