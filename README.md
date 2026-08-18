@@ -68,9 +68,21 @@ Rscript code/04_analyze_results.R
 
 For Experiment 4:
 
+The sampled-path reconstruction command has one additional input requirement.
+`code/09_regenerate_sampled_B_trajectories.R` reads the exact case series from
+`shared_data/task_###/observed_data.csv`. The full Slurm workflow creates these
+files during its shared-data stage, and the packaged completed-experiment
+archive includes them. They are not committed in this compact repository
+milestone. To rerun the final particle filters, first restore `shared_data/`
+from that archive or run the full shared-data generation stage. Without those
+files, use the retained canonical
+`results/combined/gamma/combined_B_paths.csv` and skip the first command; the
+subsequent figure and comparison commands operate on retained combined results.
+
 ```bash
 # Reconstruct the 200 canonical sampled Gamma trajectories from saved fits.
-# This reruns only the final 50,000-particle filters.
+# Requires shared_data/task_###/observed_data.csv for tasks 1-200.
+# This reruns only the final 50,000-particle filters, not MIF2.
 Rscript code/09_regenerate_sampled_B_trajectories.R \
   results/combined/gamma/combined_B_paths.csv \
   results/combined/gamma/sampled_B_trajectory_provenance.csv \
