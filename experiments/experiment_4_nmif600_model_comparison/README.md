@@ -1,15 +1,15 @@
-# Experiment 4: Gamma-noise versus constant-B comparison at Nmif = 600
+# Experiment 4: Gamma-noise versus constant-B comparison at `Nmif = 600`
 
-Experiment 4 is the canonical final computational analysis in this repository and the primary source of quantitative evidence for the report, which is currently in progress. Experiments 1-3 are developmental or supporting studies. In particular, Experiment 3 is an earlier `Nmif = 100` recovery-accuracy study and is superseded by Experiment 4 for final Gamma-noise model numerical claims.
+Experiment 4 is the canonical computational analysis in this repository and the primary source of quantitative evidence for the report. It replaces Experiment 3's earlier `Nmif = 100` workflow as the source of final Gamma-noise model numerical claims. Experiments 1-3 remain developmental or supporting studies.
 
 ## Research question
 
-This experiment compares the ability of two fitted POMP models to recover the prescribed transmission-rate trajectory `B(t)`:
+This experiment asks which of two fitted partially observed Markov process (POMP) models more accurately recovers the prescribed transmission-rate path `B(t)`:
 
 1. a Gamma-noise model with latent time-varying `B(t)`;
 2. a deliberately restricted constant-B comparator that cannot represent temporal variation in `B(t)`.
 
-Both models use `Nmif = 600` and are fitted to **exactly the same 200 accepted simulated epidemic data sets**. Because acceptance requires `max(H) > 20`, all reported performance is conditional on informative accepted outbreaks satisfying this rule; it is not unconditional performance over all simulated trajectories. The numerical comparison uses observation-time errors of the Gamma filtering mean and the repeated fitted static constant-B estimate. Independent particle-filter log likelihoods are also retained as descriptive fitting diagnostics; they are not, by themselves, a complexity-adjusted model-selection criterion.
+Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each data set, the best Gamma fit is followed by one ancestry-preserving sampled latent `B(t)` trajectory from the final particle filter. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from that sampled trajectory and the repeated fitted constant-B estimate. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
 
 ## Fixed experiment settings
 
@@ -57,9 +57,9 @@ results_raw/gamma/task_###/     Gamma task-level outputs
 results_raw/constant/task_###/  Constant-B task-level outputs
 results/combined/               Validated model-specific combined tables
 results/comparison/             Paired model-comparison tables
-results/selected_trajectory/    Task-117 trajectory and provenance
+results/selected_trajectory/    Selected task-1 and task-117 comparisons and provenance
 figures/comparison/             Final model-comparison PDFs
-figures/convergence/            Nmif=600 convergence diagnostics
+figures/convergence/            Nmif = 600 convergence diagnostics
 logs/                           Slurm stdout and stderr
 downloads/                      Final downloadable tar.gz archive
 ```
@@ -78,7 +78,7 @@ export R_LIBS_USER="$HOME/packages-R4.1"
 
 The Slurm scripts intentionally do **not** hard-code a partition. On the Frontenac CAC system used for this run, explicit partition names caused submission failures for this account, while submitting without `--partition` allowed the scheduler to choose an eligible partition automatically. Fitting tasks request one CPU, 12 GB memory, and a 24-hour wall-time limit.
 
-The completed five-task pilot showed that these limits are very conservative: Gamma-noise model tasks took about 1 hour 9-11 minutes and constant-B tasks about 33-36 minutes, with peak resident memory around 0.2 GB. The resource limits are therefore safety ceilings, not expected runtimes.
+The completed five-task pilot showed that these limits were conservative. Gamma-noise tasks took approximately 1 hour 9-11 minutes, while constant-B tasks took approximately 33-36 minutes. Peak resident memory was about 200 MB, so the requested resources should be interpreted as safety ceilings rather than expected usage.
 
 ## Recommended workflow
 
@@ -92,7 +92,7 @@ cd experiment_4_nmif600_model_comparison
 
 ### 2. Submit five full-setting pilot tasks
 
-The pilot uses selected diagnostic tasks 1, 50, 100, 150, and 200. They are not described as a random sample. The pilot runs the real `Nmif=600`, particle numbers, starts, and likelihood evaluations. The outputs are production-quality and will be reused by the full array.
+The pilot uses diagnostic tasks 1, 50, 100, 150, and 200. They are not a random sample. The pilot uses the full `Nmif = 600` setting, particle counts, starting grids, and likelihood evaluations. Its completed task outputs are production-quality and are reused by the full array.
 
 ```bash
 bash hpc/submit_pilot.sh
@@ -177,26 +177,51 @@ Paired comparison outputs:
 - `likelihood_gaps_by_model.csv`;
 - `starting_value_sensitivity.csv`.
 
-Main figures:
+Main figures and their estimands:
 
-- `01_selected_task_B_trajectory_comparison.pdf`: prescribed truth, one prespecified task-117 ancestry-preserving Gamma trajectory, and task 117's single fitted constant-B estimate repeated over time; no series is averaged across tasks.
-- `02_RSS_distributions.pdf`: comparison of observation-time point-estimator RSS distributions using common histogram bins.
-- `03_bias_distributions.pdf`: a 2 × 3 panel summarizing overall, pre-switch, and post-switch mean estimation error for both models; zero is unbiased and the dotted line marks the sample mean within each panel.
-- `04_paired_RMSE_scatter.pdf`: each point is one shared simulated data set, comparing Gamma filtering-mean RMSE with repeated-static-estimate RMSE; points below the diagonal favor the Gamma-noise estimator.
-- `05_RMSE_distributions.pdf`: observation-time point-estimator RMSE distributions for the two models.
-- `06_independent_loglik_difference.pdf`: Gamma-noise minus constant-B independent log likelihood; positive values favor the Gamma-noise model in raw likelihood, but this is not a complexity-adjusted model-selection criterion.
-- model-specific convergence diagnostic PDFs in `figures/convergence/`.
+| Figure | Quantity displayed | Scientific role |
+| --- | --- | --- |
+| `01_selected_task_B_trajectory_comparison.pdf` | Prescribed truth, task-1 Gamma sampled latent trajectory, and the task-1 fitted constant-B estimate | Selected-task illustration of transmission-rate recovery |
+| `02_RSS_distributions.pdf` | Across-task distributions of sampled-trajectory RSS and constant repeated-static-estimate RSS | Aggregate recovery comparison |
+| `03_mean_error_distributions.pdf` | Overall, pre-switch, and post-switch signed mean errors for both estimators | Direction and timing of recovery error |
+| `04_paired_RMSE_scatter.pdf` | Paired task-level RMSE values on the same simulated data sets | Direct within-task model comparison |
+| `05_RMSE_distributions.pdf` | Across-task RMSE distributions | Aggregate error magnitude |
+| `06_independent_loglik_difference.pdf` | Gamma-noise minus constant-B independent log likelihood | Descriptive fit diagnostic only |
+| `08_task117_B_trajectory_comparison.pdf` | Prescribed truth, task-117 Gamma sampled latent trajectory, and the task-117 fitted constant-B estimate | Second selected-task illustration |
 
-The figure style follows a deliberately restrained applied-mathematics convention: black/gray comparison plots, minimal ornament, no decorative grid, and simple line-type or panel distinctions. Figure 01 uses modest color to distinguish the three scientific objects. Its Gamma curve is a finite-particle, plug-in-parameter approximation to a smoothing trajectory conditioned on task 117's complete observation series; it is not an exact posterior draw, a filtering mean, or an across-task average. The constant curve is a fitted static parameter, not a latent trajectory.
+Model-specific convergence diagnostic PDFs are stored in `figures/convergence/`.
 
-For the report, Figures 01-05 are the most directly interpretable recovery summaries. Figure 06 is a descriptive likelihood diagnostic and should be accompanied by interpretation rather than shown without explanation.
+The figures use a restrained publication style with a white background, no decorative grid, and color-plus-line-type encoding that remains interpretable in grayscale. Truth is shown as a solid black line, the Gamma-noise result as a blue dashed line, and the constant-B result as an orange dot-dashed line. A light-gray vertical reference marks the week-5 change point.
+
+The Gamma curves in Figures 01 and 08 are the exact sampled paths used for the corresponding task-level recovery metrics. Each is one ancestry-preserving finite-particle plug-in approximation to a smoothing trajectory conditional on the complete observation series. It is not a filtering mean, an exact posterior draw, an uncertainty interval, or an across-task average. The constant curves are fitted static estimates repeated over time, not latent trajectories. The figures include `t0`; RSS, RMSE, mean error, and AOB use only the 70 observation times.
+
+Figures 01-05 and 08 provide the primary recovery summaries for the report. Figure 06 should be presented only with its stated likelihood-interpretation boundary.
 
 ## Canonical lightweight figure regeneration
 
-The selected trajectory is generated separately by `code/07_generate_selected_B_trajectory.R`, which runs one final 50,000-particle filter at the already fitted task-117 parameters. The canonical lightweight figure generators are `code/05_compare_models.R` for the six comparison PDFs (reading the saved selected trajectory for Figure 01) and `code/06_make_convergence_diagnostics.R` for the convergence PDFs and tail summary. Run from the Experiment 4 directory:
+`code/09_regenerate_sampled_B_trajectories.R` reconstructs the 200 canonical Gamma paths from the saved best-fit parameter records. It does not rerun MIF2 or the five independent likelihood evaluations. For each task, it runs the final 50,000-particle filter with `filter.traj = TRUE`, extracts one path with `filter_traj()`, verifies the saved final-filter log likelihood, and writes the 70 observation-time values.
+
+`code/07_generate_task1_comparison_figures.R` and `code/08_generate_task117_comparison_figures.R` then read the canonical sampled paths used by the recovery metrics and generate the selected-task figures. They do not run another particle filter, so the displayed curve and the metric input cannot diverge.
+
+The canonical lightweight generators are:
+
+- `code/09_regenerate_sampled_B_trajectories.R` for the 200 sampled Gamma paths;
+- `code/07_generate_task1_comparison_figures.R` for Figure 01;
+- `code/08_generate_task117_comparison_figures.R` for Figure 08;
+- `code/05_compare_models.R` for Figures 02-06 and selected-artifact validation;
+- `code/06_make_convergence_diagnostics.R` for the convergence PDFs and tail summary.
+
+Run from the Experiment 4 directory:
 
 ```bash
-Rscript code/07_generate_selected_B_trajectory.R
+Rscript code/09_regenerate_sampled_B_trajectories.R \
+  results/combined/gamma/combined_B_paths.csv \
+  results/combined/gamma/sampled_B_trajectory_provenance.csv \
+  4 \
+  1:200
+
+Rscript code/07_generate_task1_comparison_figures.R
+Rscript code/08_generate_task117_comparison_figures.R
 
 Rscript code/05_compare_models.R \
   results/combined/gamma \
@@ -210,23 +235,22 @@ Rscript code/06_make_convergence_diagnostics.R \
   figures/convergence
 ```
 
-`regenerate_exp4_figures.py` is retained as an optional alternative generator. It reads the same selected task-117 trajectory for the primary figure and cannot generate the retired across-task curve. Pilot regeneration deliberately omits Figure 01.
-
+`code/07_generate_selected_B_trajectory.R` is retained as a backward-compatible wrapper for the task-1 generator. The Python regeneration script is non-canonical; the R workflow above is the authoritative route for Figures 01 and 08. Pilot regeneration deliberately omits the selected-task figures.
 
 ## Completed-run validation and headline results
 
-The packaged completed run passed the model-specific combination checks for all 200 tasks: both models have 200/200 tasks present, no missing tasks, no combination problems, unique task IDs, `Nmif = 600`, and successful best-fit status. The paired data check verifies the same simulation seed and identical observed-data MD5 checksum for the two models on every task.
+The packaged run passed the model-specific combination checks for all 200 tasks. Both models have 200 of 200 tasks present, no missing tasks, no combination problems, unique task IDs, `Nmif = 600`, and successful best-fit status. The paired data check confirms matching simulation seeds and identical observed-data MD5 checksums for the two models on every task.
 
-The main recovery summaries from `results/comparison/overall_model_comparison.csv` compare per-task Gamma filtering means with per-task fitted constant values repeated over the 70 observation times:
+The main recovery summaries from `results/comparison/overall_model_comparison.csv` compare one sampled Gamma trajectory per task with the fitted constant value repeated over the same 70 observation times:
 
-- mean RSS: Gamma-noise model 24.09; constant-B 102.83;
-- mean RMSE: Gamma-noise model 0.575; constant-B 1.199;
-- mean absolute overall bias: Gamma-noise model 0.160; constant-B 0.606;
-- mean after-switch bias: Gamma-noise model 0.139; constant-B 1.576;
-- the Gamma-noise model has lower RSS and lower RMSE on all 200 paired tasks;
-- the Gamma-noise model has lower absolute overall bias on 90.5% of paired tasks.
+- mean RSS: Gamma-noise model 33.054; constant-B 102.833;
+- mean RMSE: Gamma-noise model 0.653; constant-B 1.199;
+- mean AOB: Gamma-noise model 0.229; constant-B 0.606;
+- mean post-switch signed mean error: Gamma-noise model 0.008; constant-B 1.576;
+- the Gamma-noise model has lower RSS and lower RMSE on 97.5% of paired tasks;
+- the Gamma-noise model has lower AOB on 88.5% of paired tasks.
 
-These summaries are unchanged by the illustrative task-117 trajectory, which is not used to calculate any metric. The independent likelihood comparison is retained as a descriptive fitting diagnostic and should not be interpreted as a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for the trajectory-figure repair.
+Figures 01 and 08 use the same task-1 and task-117 sampled trajectories already included in the 200-task recovery metrics. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for this correction.
 
 ## Rerunning an incomplete or failed task
 
@@ -247,4 +271,4 @@ Do not delete or regenerate `shared_data/task_149` unless the shared data themse
 
 ## Interpretation boundary
 
-The experiment tests recovery under the stated simulation model, acceptance rule, starting grids, particle counts, and `Nmif=600`. Its performance estimand is conditional on informative accepted outbreaks satisfying `max(H) > 20`. Stable traces in selected diagnostic tasks 1, 50, 100, 150, and 200 provide empirical support for the computational choice, but do not prove convergence for all 200 fitted data sets. The independent pfilter evaluations and multi-start results should be reviewed together with the convergence diagnostics.
+The experiment evaluates recovery only under the stated simulation model, acceptance rule, starting grids, particle counts, and `Nmif = 600`. Its performance estimand is conditional on accepted outbreaks satisfying `max(H) > 20`. Stable traces in diagnostic tasks 1, 50, 100, 150, and 200 support the computational choice for those tasks but do not prove convergence for all 200 fitted data sets. Independent particle-filter evaluations, multi-start results, and convergence diagnostics should therefore be interpreted together.

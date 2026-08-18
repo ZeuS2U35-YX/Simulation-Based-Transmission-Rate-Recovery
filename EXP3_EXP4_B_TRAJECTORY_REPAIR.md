@@ -1,5 +1,7 @@
 # Experiment 3 and 4 B-Trajectory Repair
 
+> **Historical repair record.** This document describes an earlier repair stage. A subsequent Experiment 4 revision replaced the active filtering-mean recovery metrics with one ancestry-preserving sampled latent trajectory per accepted replicate and made tasks 1 and 117 the selected sampled-trajectory illustrations. The older filtering-mean values and checksums below are historical rather than current. Use the Experiment 4 README, `results/comparison/`, and `results/selected_trajectory/` for active definitions, values, and provenance.
+
 ## Verdict
 
 **PASS.** The Experiment 3 and Experiment 4 primary transmission-rate figures now use one prespecified, ancestry-preserving particle-filter trajectory from one selected fitted dataset. The Experiment 4 figure uses the fitted constant-B estimate from that same dataset. The protected numerical results are byte-for-byte unchanged, the revised report compiles, and the corrected outputs passed programmatic and visual checks.
