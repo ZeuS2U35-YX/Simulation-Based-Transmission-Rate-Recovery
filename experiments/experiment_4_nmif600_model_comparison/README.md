@@ -197,9 +197,21 @@ The Gamma curves in Figures 01 and 08 are the exact sampled paths used for the c
 
 Figures 01-05 and 08 provide the primary recovery summaries for the report. Figure 06 should be presented only with its stated likelihood-interpretation boundary.
 
-## Canonical lightweight figure regeneration
+## Canonical lightweight regeneration and input requirements
 
 `code/09_regenerate_sampled_B_trajectories.R` reconstructs the 200 canonical Gamma paths from the saved best-fit parameter records. It does not rerun MIF2 or the five independent likelihood evaluations. For each task, it runs the final 50,000-particle filter with `filter.traj = TRUE`, extracts one path with `filter_traj()`, verifies the saved final-filter log likelihood, and writes the 70 observation-time values.
+
+This reconstruction is lightweight relative to the full IF2 workflow, but it
+is not self-contained from the compact combined results alone. For every task,
+the script reads the exact fitted case series from
+`shared_data/task_###/observed_data.csv` and checks its MD5 value against the
+saved best-fit record. The full workflow creates `shared_data/` in stage 1,
+and the completed-experiment download archive includes it. The directory is not
+committed in this compact repository milestone. Before running the command,
+either restore `shared_data/` from the archive or run the shared-data generation
+stage. If `shared_data/` is unavailable, retain the existing canonical
+`results/combined/gamma/combined_B_paths.csv` and run only the downstream figure,
+comparison, and convergence commands.
 
 `code/07_generate_task1_comparison_figures.R` and `code/08_generate_task117_comparison_figures.R` then read the canonical sampled paths used by the recovery metrics and generate the selected-task figures. They do not run another particle filter, so the displayed curve and the metric input cannot diverge.
 
@@ -214,6 +226,7 @@ The canonical lightweight generators are:
 Run from the Experiment 4 directory:
 
 ```bash
+# Requires shared_data/task_###/observed_data.csv for tasks 1-200.
 Rscript code/09_regenerate_sampled_B_trajectories.R \
   results/combined/gamma/combined_B_paths.csv \
   results/combined/gamma/sampled_B_trajectory_provenance.csv \
