@@ -1,0 +1,4 @@
+"comparison","model_a","model_b","n_pairs","RMSE_difference_definition","mean_paired_RMSE_difference","median_paired_RMSE_difference","paired_RMSE_difference_Q1","paired_RMSE_difference_Q3","model_a_win_count","model_b_win_count","tie_count"
+"Gamma-noise vs Constant-B","gamma_noise","constant_B",200,"model_a_minus_model_b",-0.664076282911087,-0.669321044137013,-0.783279123497272,-0.539553031734628,200,0,0
+"B-spline vs Constant-B","bspline_B","constant_B",200,"model_a_minus_model_b",-0.473067425319295,-0.486572931845779,-0.644895829644366,-0.308430870280822,188,12,0
+"B-spline vs Gamma-noise","bspline_B","gamma_noise",200,"model_a_minus_model_b",0.191008857591792,0.116056683518267,0.0275070540432674,0.355354031045958,38,162,0
