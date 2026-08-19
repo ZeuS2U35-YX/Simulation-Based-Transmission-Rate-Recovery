@@ -1,0 +1,10 @@
+"display_model","error_scope","panel_mean"
+"Gamma-noise","Overall",-0.000474068400603332
+"B-spline","Overall",-0.290793845204505
+"Constant-B","Overall",0.576222503472259
+"Gamma-noise","Through week 5",-0.0869071099337937
+"B-spline","Through week 5",-0.172370741753301
+"Constant-B","Through week 5",-0.423777496527741
+"Gamma-noise","After week 5",0.0859589731325872
+"B-spline","After week 5",-0.40921694865571
+"Constant-B","After week 5",1.57622250347226

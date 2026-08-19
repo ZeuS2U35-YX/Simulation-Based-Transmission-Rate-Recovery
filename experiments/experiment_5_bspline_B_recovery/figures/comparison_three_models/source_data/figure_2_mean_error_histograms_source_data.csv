@@ -1,0 +1,1801 @@
+"task_id","simulation_seed","observed_data_md5","model","display_model","error_scope","mean_error_value"
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","gamma_noise","Gamma-noise","Overall",0.273543835850054
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","gamma_noise","Gamma-noise","Overall",0.316868238807433
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","gamma_noise","Gamma-noise","Overall",-0.578655360756867
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","gamma_noise","Gamma-noise","Overall",0.280258293078012
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","gamma_noise","Gamma-noise","Overall",-0.0656804701051087
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","gamma_noise","Gamma-noise","Overall",-0.0518231428437162
+7,1007,"c23f10d0daa427c993e4ece1079ed751","gamma_noise","Gamma-noise","Overall",0.430343841430011
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","gamma_noise","Gamma-noise","Overall",0.157846063775461
+9,1009,"51101219b554b4802624e043f09d6160","gamma_noise","Gamma-noise","Overall",0.251902317347823
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","gamma_noise","Gamma-noise","Overall",-0.0853432709513923
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","gamma_noise","Gamma-noise","Overall",0.324495819398569
+12,1012,"05f564b562cd69afde749fbba393d734","gamma_noise","Gamma-noise","Overall",-0.190139256674929
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","gamma_noise","Gamma-noise","Overall",0.322786360099803
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","gamma_noise","Gamma-noise","Overall",0.230957839009052
+15,1015,"ae056eafb87645cec401ccb46346269b","gamma_noise","Gamma-noise","Overall",0.090880535597218
+16,1016,"a714e996eac59ec21285ac81b9fb5223","gamma_noise","Gamma-noise","Overall",0.159608718543685
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","gamma_noise","Gamma-noise","Overall",-0.280093504082475
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","gamma_noise","Gamma-noise","Overall",-0.066182335270125
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","gamma_noise","Gamma-noise","Overall",-0.123746909816552
+20,1020,"714f6bb12c5d63009433470452ca002b","gamma_noise","Gamma-noise","Overall",0.120169428402923
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","gamma_noise","Gamma-noise","Overall",-0.0483038289030676
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","gamma_noise","Gamma-noise","Overall",0.0900177941172016
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","gamma_noise","Gamma-noise","Overall",0.171431292387248
+24,1024,"f17101a77a91a5858651ca092461a15e","gamma_noise","Gamma-noise","Overall",-0.066666379614224
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","gamma_noise","Gamma-noise","Overall",-0.104446377509852
+26,1026,"7d638818fac5c183766d7bd337251990","gamma_noise","Gamma-noise","Overall",0.088379498615558
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","gamma_noise","Gamma-noise","Overall",0.104742934286506
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","gamma_noise","Gamma-noise","Overall",0.153009411093007
+29,1029,"f88e4728f80479179227d46e3ae73be8","gamma_noise","Gamma-noise","Overall",-0.204262240845473
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","gamma_noise","Gamma-noise","Overall",0.140165467099153
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","gamma_noise","Gamma-noise","Overall",-0.531253779809292
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","gamma_noise","Gamma-noise","Overall",0.134458997258005
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","gamma_noise","Gamma-noise","Overall",0.388713324039044
+34,1034,"6295649cce30d443915163e1f486574c","gamma_noise","Gamma-noise","Overall",0.126930565368746
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","gamma_noise","Gamma-noise","Overall",-0.0037980411046314
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","gamma_noise","Gamma-noise","Overall",-0.0284374633077964
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","gamma_noise","Gamma-noise","Overall",-0.227751567499219
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","gamma_noise","Gamma-noise","Overall",-0.260984437239321
+39,1039,"42f80019227937c2a1292d80471ad885","gamma_noise","Gamma-noise","Overall",0.10173632466434
+40,1040,"ab1d08dee64fd498a66e009327aa8634","gamma_noise","Gamma-noise","Overall",-0.013677522083186
+41,1041,"287dedf1d0604d7339bf2699355ae974","gamma_noise","Gamma-noise","Overall",-0.127725863312535
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","gamma_noise","Gamma-noise","Overall",0.0900174189795591
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","gamma_noise","Gamma-noise","Overall",-0.0738251725030673
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","gamma_noise","Gamma-noise","Overall",0.177892099037702
+45,1045,"ea38700766ed00739f841a67050a1f0f","gamma_noise","Gamma-noise","Overall",-0.0616821729219129
+46,1046,"9df354b439dcb34c0723dc7a22427817","gamma_noise","Gamma-noise","Overall",0.385512533859188
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","gamma_noise","Gamma-noise","Overall",0.342100194238142
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","gamma_noise","Gamma-noise","Overall",-0.054028350675377
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","gamma_noise","Gamma-noise","Overall",-0.378762482920503
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","gamma_noise","Gamma-noise","Overall",0.37044788162421
+51,1051,"900920f25b406cb0530e847b193e6c9b","gamma_noise","Gamma-noise","Overall",0.0765617654219202
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","gamma_noise","Gamma-noise","Overall",0.147874742702185
+53,1053,"21c503be1bfd17d135902892b999365f","gamma_noise","Gamma-noise","Overall",-0.049231145466928
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","gamma_noise","Gamma-noise","Overall",-0.0227078490456026
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","gamma_noise","Gamma-noise","Overall",-0.0816636168378976
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","gamma_noise","Gamma-noise","Overall",0.0513416313001041
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","gamma_noise","Gamma-noise","Overall",-0.201433181474403
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","gamma_noise","Gamma-noise","Overall",-0.0501202461906769
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","gamma_noise","Gamma-noise","Overall",-0.0685420994523542
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","gamma_noise","Gamma-noise","Overall",0.158407313812136
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","gamma_noise","Gamma-noise","Overall",0.11550986240624
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","gamma_noise","Gamma-noise","Overall",-0.0313895232352897
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","gamma_noise","Gamma-noise","Overall",-0.0721615173414016
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","gamma_noise","Gamma-noise","Overall",0.0582661771398513
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","gamma_noise","Gamma-noise","Overall",-0.065258009668763
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","gamma_noise","Gamma-noise","Overall",0.172515368417327
+67,1067,"a64edf122ea9288d9cc5843d572b4219","gamma_noise","Gamma-noise","Overall",0.088408600372501
+68,1068,"e2dc17973047d198b1f70625999d7313","gamma_noise","Gamma-noise","Overall",-0.0325170155897319
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","gamma_noise","Gamma-noise","Overall",-0.328861217189417
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","gamma_noise","Gamma-noise","Overall",-0.166594585473763
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","gamma_noise","Gamma-noise","Overall",0.107622256870916
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","gamma_noise","Gamma-noise","Overall",-0.0539857591357878
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","gamma_noise","Gamma-noise","Overall",0.158498396552794
+74,1074,"44fe946085f2400c80cee533d6231e9a","gamma_noise","Gamma-noise","Overall",0.0317675751754335
+75,1075,"0d820f5ccbfe13549eea216ee2513074","gamma_noise","Gamma-noise","Overall",-0.191364504449129
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","gamma_noise","Gamma-noise","Overall",0.223709865785013
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","gamma_noise","Gamma-noise","Overall",0.0159442075232857
+78,1078,"83a908c8ed5455b6c9ef246884162afc","gamma_noise","Gamma-noise","Overall",0.0992308362117447
+79,1079,"022bd08caeebfca4473b74c3678f71c2","gamma_noise","Gamma-noise","Overall",0.0423507384364153
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","gamma_noise","Gamma-noise","Overall",-0.0373985167522401
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","gamma_noise","Gamma-noise","Overall",0.105224913543648
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","gamma_noise","Gamma-noise","Overall",-0.234661621639755
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","gamma_noise","Gamma-noise","Overall",-0.285182753323875
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","gamma_noise","Gamma-noise","Overall",-0.287383489311221
+85,1085,"f306053231f91c40dca3c621e8419b61","gamma_noise","Gamma-noise","Overall",0.0289277375470743
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","gamma_noise","Gamma-noise","Overall",-0.481804504156386
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","gamma_noise","Gamma-noise","Overall",0.425046639928367
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","gamma_noise","Gamma-noise","Overall",0.14452073462163
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","gamma_noise","Gamma-noise","Overall",-0.133168067581066
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","gamma_noise","Gamma-noise","Overall",0.341184254724467
+91,1091,"ffb0df50d948dd9dad8db95b89578130","gamma_noise","Gamma-noise","Overall",-0.00371412087889756
+92,1092,"42c5e41b64f024125d08f483c49d5109","gamma_noise","Gamma-noise","Overall",-0.20363427880221
+93,1093,"7866b869b011f99e5a6d626fd2b53319","gamma_noise","Gamma-noise","Overall",0.000688460497027668
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","gamma_noise","Gamma-noise","Overall",0.195736591228149
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","gamma_noise","Gamma-noise","Overall",0.0686079958945679
+96,1096,"dce19abeba3755021094f84a48b227a7","gamma_noise","Gamma-noise","Overall",-0.125216522081825
+97,1097,"5f10705eaab893b924c7745af7cbddc2","gamma_noise","Gamma-noise","Overall",0.15469886394889
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","gamma_noise","Gamma-noise","Overall",-0.353404700170746
+99,1099,"9d985583339f37fbacb7140d4222662d","gamma_noise","Gamma-noise","Overall",-0.153984045158247
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","gamma_noise","Gamma-noise","Overall",0.58447601912117
+101,1101,"51fea122ace66c28fcf6227076a2210d","gamma_noise","Gamma-noise","Overall",-0.11358313706767
+102,1102,"87466aaae46506b8e351c34782985403","gamma_noise","Gamma-noise","Overall",-0.16902379832269
+103,1103,"e898b26388bd31312b334e141687631d","gamma_noise","Gamma-noise","Overall",-0.0819470068398064
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","gamma_noise","Gamma-noise","Overall",-0.21532766210248
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","gamma_noise","Gamma-noise","Overall",-0.0720403445083675
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","gamma_noise","Gamma-noise","Overall",0.018197831975112
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","gamma_noise","Gamma-noise","Overall",0.236242090162883
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","gamma_noise","Gamma-noise","Overall",0.122550812454631
+109,1109,"64378d1cf8147aa375c77012a1f6217d","gamma_noise","Gamma-noise","Overall",-0.0862101391237965
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","gamma_noise","Gamma-noise","Overall",0.344723175048434
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","gamma_noise","Gamma-noise","Overall",-0.154621873466691
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","gamma_noise","Gamma-noise","Overall",-0.276914473848102
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","gamma_noise","Gamma-noise","Overall",0.143723719082463
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","gamma_noise","Gamma-noise","Overall",-0.0866894277591977
+115,1115,"527c2542099f691a2a03e60fc5521e3b","gamma_noise","Gamma-noise","Overall",0.164642683558359
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","gamma_noise","Gamma-noise","Overall",0.409240684273481
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","gamma_noise","Gamma-noise","Overall",-0.280558981263873
+118,1118,"4fe04592b1bd1b0073226474bda79a17","gamma_noise","Gamma-noise","Overall",0.0935683692341953
+119,1119,"53a63bcc974e882529742ef97a8b74d5","gamma_noise","Gamma-noise","Overall",0.151866349467015
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","gamma_noise","Gamma-noise","Overall",-0.0629653266032268
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","gamma_noise","Gamma-noise","Overall",0.121838792159596
+122,1122,"2de2afe17b444c1be6ab135102d2e749","gamma_noise","Gamma-noise","Overall",-0.0918379953622013
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","gamma_noise","Gamma-noise","Overall",-0.222322500367472
+124,1124,"fee16d34d4badef781de40b823c932b3","gamma_noise","Gamma-noise","Overall",0.0275517248300993
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","gamma_noise","Gamma-noise","Overall",0.572563068283129
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","gamma_noise","Gamma-noise","Overall",0.0197205807275582
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","gamma_noise","Gamma-noise","Overall",-0.415415838336464
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","gamma_noise","Gamma-noise","Overall",-0.278981171500087
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","gamma_noise","Gamma-noise","Overall",-0.00621557813307998
+130,1130,"bf14545e60a11dc820244df794a9bbde","gamma_noise","Gamma-noise","Overall",-0.429542342331603
+131,1131,"f9b4bd3734443873f1d31c98484de516","gamma_noise","Gamma-noise","Overall",-0.0634186844361991
+132,1132,"b571595faf7cf9bf9fb646335e089636","gamma_noise","Gamma-noise","Overall",-0.502537648246594
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","gamma_noise","Gamma-noise","Overall",0.05914654008113
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","gamma_noise","Gamma-noise","Overall",0.1610803921329
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","gamma_noise","Gamma-noise","Overall",0.113783234121024
+136,1136,"75dc159ba49385507004b04106ac29e8","gamma_noise","Gamma-noise","Overall",0.139600987710074
+137,1137,"25af99e573ba8708856ba71f5d31801d","gamma_noise","Gamma-noise","Overall",-0.0401789760502478
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","gamma_noise","Gamma-noise","Overall",-0.0795397370202976
+139,1139,"392c573a8d8baf810091dbff34258106","gamma_noise","Gamma-noise","Overall",0.0733314664006197
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","gamma_noise","Gamma-noise","Overall",-0.0469143826665191
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","gamma_noise","Gamma-noise","Overall",0.411618553493665
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","gamma_noise","Gamma-noise","Overall",0.0920322962969213
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","gamma_noise","Gamma-noise","Overall",-0.000237897500421549
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","gamma_noise","Gamma-noise","Overall",-0.142480523341305
+145,1145,"2db60151e6a71b77be25757b07f7d413","gamma_noise","Gamma-noise","Overall",-0.181859676780146
+146,1146,"11b683568a8c7109187e0d518ad44753","gamma_noise","Gamma-noise","Overall",-0.0462525594153047
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","gamma_noise","Gamma-noise","Overall",0.00167219527311284
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","gamma_noise","Gamma-noise","Overall",0.419214877030853
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","gamma_noise","Gamma-noise","Overall",-0.399000665466122
+150,1150,"4538cec1dfd416909e103d8882091c24","gamma_noise","Gamma-noise","Overall",-0.175975307435632
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","gamma_noise","Gamma-noise","Overall",-0.0022616507121591
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","gamma_noise","Gamma-noise","Overall",0.258344318557917
+153,1153,"442e0ebc852ae02e3200593355a37960","gamma_noise","Gamma-noise","Overall",-0.0345701765790796
+154,1154,"64361962d8cd28975836ca41ffba829e","gamma_noise","Gamma-noise","Overall",0.372700338111348
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","gamma_noise","Gamma-noise","Overall",-0.0499952674883124
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","gamma_noise","Gamma-noise","Overall",-0.283733473914259
+157,1157,"66c6e6745a642b2c128f396464ab9c36","gamma_noise","Gamma-noise","Overall",0.194883068151662
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","gamma_noise","Gamma-noise","Overall",0.0143024946234527
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","gamma_noise","Gamma-noise","Overall",0.0981531580340399
+160,1160,"6fc5bd4defacec08d522e9606a883766","gamma_noise","Gamma-noise","Overall",0.102232622112402
+161,1161,"a357237d620a342d728f96dc8aac5757","gamma_noise","Gamma-noise","Overall",0.0435899083723723
+162,1162,"4cc160a48b020eb4685997894bf01baf","gamma_noise","Gamma-noise","Overall",-0.034931360888037
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","gamma_noise","Gamma-noise","Overall",0.0574223603866027
+164,1164,"d690f07a51a75e813d73e446e77eb394","gamma_noise","Gamma-noise","Overall",-0.0767012008305487
+165,1165,"50366235ff21bfd0a4d01f895b905c92","gamma_noise","Gamma-noise","Overall",-0.0650828210025303
+166,1166,"495d59eeef0b219751064d03c686254d","gamma_noise","Gamma-noise","Overall",-0.168374808359363
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","gamma_noise","Gamma-noise","Overall",0.0565414749734167
+168,1168,"d65d84681677642681932395599566ad","gamma_noise","Gamma-noise","Overall",-0.16674871114298
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","gamma_noise","Gamma-noise","Overall",-0.220689101031607
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","gamma_noise","Gamma-noise","Overall",-0.317223923816283
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","gamma_noise","Gamma-noise","Overall",-0.164082534029153
+172,1172,"68d41d2891a14e960534c955889a715f","gamma_noise","Gamma-noise","Overall",-0.149782523273526
+173,1173,"b998c1e8401789afff3d7d34e1be5997","gamma_noise","Gamma-noise","Overall",0.0142645400374574
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","gamma_noise","Gamma-noise","Overall",-0.059285874573157
+175,1175,"2744bfdd13475fbe6815e8986de922fa","gamma_noise","Gamma-noise","Overall",0.258329550873371
+176,1176,"c141df7878a0d44e38a58170b4492543","gamma_noise","Gamma-noise","Overall",-0.0867073533373264
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","gamma_noise","Gamma-noise","Overall",-0.0891737090157925
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","gamma_noise","Gamma-noise","Overall",-0.0541447493225455
+179,1179,"6d4a044da028c76d3fafc003136384eb","gamma_noise","Gamma-noise","Overall",0.0347351416256071
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","gamma_noise","Gamma-noise","Overall",0.013455094719414
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","gamma_noise","Gamma-noise","Overall",0.14163863114302
+182,1182,"941f9c48ec56eb19b25786187b006f10","gamma_noise","Gamma-noise","Overall",-0.0578346491267616
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","gamma_noise","Gamma-noise","Overall",-0.379565513284251
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","gamma_noise","Gamma-noise","Overall",-0.171972148034446
+185,1185,"52e3986fb55b179cf59e4540a86a982d","gamma_noise","Gamma-noise","Overall",-0.275361729927187
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","gamma_noise","Gamma-noise","Overall",-0.153922331730752
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","gamma_noise","Gamma-noise","Overall",0.405613841504275
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","gamma_noise","Gamma-noise","Overall",-0.093722917661267
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","gamma_noise","Gamma-noise","Overall",-0.34498221468769
+190,1190,"e11e338409fdbfff7af641a286a93437","gamma_noise","Gamma-noise","Overall",0.149590792935797
+191,1191,"88ccda7d997701880c9d0c636b220b1e","gamma_noise","Gamma-noise","Overall",-0.00107487423850539
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","gamma_noise","Gamma-noise","Overall",-0.165345543787114
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","gamma_noise","Gamma-noise","Overall",0.240553771579721
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","gamma_noise","Gamma-noise","Overall",-0.0651661938574239
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","gamma_noise","Gamma-noise","Overall",-0.0222151293285237
+196,1196,"4a7772e1b5862480e3537a3124e41c07","gamma_noise","Gamma-noise","Overall",-0.176003017515759
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","gamma_noise","Gamma-noise","Overall",-0.0899287429799073
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","gamma_noise","Gamma-noise","Overall",0.112174203019832
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","gamma_noise","Gamma-noise","Overall",0.0610893442459497
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","gamma_noise","Gamma-noise","Overall",0.041153385813991
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","bspline_B","B-spline","Overall",-0.395141697818892
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","bspline_B","B-spline","Overall",-0.288408427146518
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","bspline_B","B-spline","Overall",-0.816440622688451
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","bspline_B","B-spline","Overall",0.0180326095735944
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","bspline_B","B-spline","Overall",-0.500237827667772
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","bspline_B","B-spline","Overall",-0.0965015584880884
+7,1007,"c23f10d0daa427c993e4ece1079ed751","bspline_B","B-spline","Overall",0.0588783952761532
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","bspline_B","B-spline","Overall",0.289837600633185
+9,1009,"51101219b554b4802624e043f09d6160","bspline_B","B-spline","Overall",-0.00157115329457603
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","bspline_B","B-spline","Overall",-0.282417978111882
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","bspline_B","B-spline","Overall",0.256249133834308
+12,1012,"05f564b562cd69afde749fbba393d734","bspline_B","B-spline","Overall",-0.362028328456753
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","bspline_B","B-spline","Overall",-0.358260722709081
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","bspline_B","B-spline","Overall",0.200367518063941
+15,1015,"ae056eafb87645cec401ccb46346269b","bspline_B","B-spline","Overall",-0.0236551663354458
+16,1016,"a714e996eac59ec21285ac81b9fb5223","bspline_B","B-spline","Overall",-0.265865235283749
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","bspline_B","B-spline","Overall",-0.302815817633728
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","bspline_B","B-spline","Overall",-0.499564516218791
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","bspline_B","B-spline","Overall",-0.672222007226978
+20,1020,"714f6bb12c5d63009433470452ca002b","bspline_B","B-spline","Overall",-0.0648680081425898
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","bspline_B","B-spline","Overall",-0.365833469751545
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","bspline_B","B-spline","Overall",-0.439723591557923
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","bspline_B","B-spline","Overall",-0.470706468348399
+24,1024,"f17101a77a91a5858651ca092461a15e","bspline_B","B-spline","Overall",-0.202661058663596
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","bspline_B","B-spline","Overall",-0.635071087558548
+26,1026,"7d638818fac5c183766d7bd337251990","bspline_B","B-spline","Overall",-0.472556388250586
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","bspline_B","B-spline","Overall",-0.154687614242214
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","bspline_B","B-spline","Overall",-0.213898721755569
+29,1029,"f88e4728f80479179227d46e3ae73be8","bspline_B","B-spline","Overall",-0.115032368088868
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","bspline_B","B-spline","Overall",0.111409708771652
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","bspline_B","B-spline","Overall",-0.840150090855399
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","bspline_B","B-spline","Overall",-0.230013287753432
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","bspline_B","B-spline","Overall",0.178172900430261
+34,1034,"6295649cce30d443915163e1f486574c","bspline_B","B-spline","Overall",-0.291037090479927
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","bspline_B","B-spline","Overall",-0.0767973519879897
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","bspline_B","B-spline","Overall",-0.101221247930506
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","bspline_B","B-spline","Overall",-0.712198077327613
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","bspline_B","B-spline","Overall",-0.485257167371192
+39,1039,"42f80019227937c2a1292d80471ad885","bspline_B","B-spline","Overall",-0.132599996041256
+40,1040,"ab1d08dee64fd498a66e009327aa8634","bspline_B","B-spline","Overall",-0.235266092107991
+41,1041,"287dedf1d0604d7339bf2699355ae974","bspline_B","B-spline","Overall",-0.133940749195035
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","bspline_B","B-spline","Overall",0.084228957100797
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","bspline_B","B-spline","Overall",-0.213297580558437
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","bspline_B","B-spline","Overall",-0.0841703625846801
+45,1045,"ea38700766ed00739f841a67050a1f0f","bspline_B","B-spline","Overall",-0.212828136606499
+46,1046,"9df354b439dcb34c0723dc7a22427817","bspline_B","B-spline","Overall",0.0977115187012728
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","bspline_B","B-spline","Overall",-0.210829702860953
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","bspline_B","B-spline","Overall",-0.623744505112041
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","bspline_B","B-spline","Overall",-0.814889541387617
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","bspline_B","B-spline","Overall",-0.137851028956276
+51,1051,"900920f25b406cb0530e847b193e6c9b","bspline_B","B-spline","Overall",0.0507993008822116
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","bspline_B","B-spline","Overall",-0.378895293296054
+53,1053,"21c503be1bfd17d135902892b999365f","bspline_B","B-spline","Overall",-0.175820678539647
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","bspline_B","B-spline","Overall",-0.446133495357319
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","bspline_B","B-spline","Overall",-0.277743592654902
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","bspline_B","B-spline","Overall",-0.577073120357889
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","bspline_B","B-spline","Overall",-0.713095073903881
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","bspline_B","B-spline","Overall",-0.0270535898724366
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","bspline_B","B-spline","Overall",-0.141029916108974
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","bspline_B","B-spline","Overall",-0.0266714709407709
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","bspline_B","B-spline","Overall",-0.0926633559233412
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","bspline_B","B-spline","Overall",-0.36313040673635
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","bspline_B","B-spline","Overall",-0.413522569794914
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","bspline_B","B-spline","Overall",-0.308557072673557
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","bspline_B","B-spline","Overall",-0.497012934748991
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","bspline_B","B-spline","Overall",0.193770448355525
+67,1067,"a64edf122ea9288d9cc5843d572b4219","bspline_B","B-spline","Overall",-0.591617147138846
+68,1068,"e2dc17973047d198b1f70625999d7313","bspline_B","B-spline","Overall",-0.598757434930154
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","bspline_B","B-spline","Overall",-0.578965684006795
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","bspline_B","B-spline","Overall",-0.176896424699317
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","bspline_B","B-spline","Overall",-0.0181276345755826
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","bspline_B","B-spline","Overall",-0.63562357557139
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","bspline_B","B-spline","Overall",-0.247797593091105
+74,1074,"44fe946085f2400c80cee533d6231e9a","bspline_B","B-spline","Overall",-0.206288504910543
+75,1075,"0d820f5ccbfe13549eea216ee2513074","bspline_B","B-spline","Overall",-0.427133979414504
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","bspline_B","B-spline","Overall",0.0619339569658271
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","bspline_B","B-spline","Overall",-0.376877690898408
+78,1078,"83a908c8ed5455b6c9ef246884162afc","bspline_B","B-spline","Overall",0.149783188855315
+79,1079,"022bd08caeebfca4473b74c3678f71c2","bspline_B","B-spline","Overall",-0.069989942143386
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","bspline_B","B-spline","Overall",-0.39411252764592
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","bspline_B","B-spline","Overall",-0.499260009768551
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","bspline_B","B-spline","Overall",-0.711669374410316
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","bspline_B","B-spline","Overall",-0.759423128368733
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","bspline_B","B-spline","Overall",-0.530018164349538
+85,1085,"f306053231f91c40dca3c621e8419b61","bspline_B","B-spline","Overall",-0.196246861503541
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","bspline_B","B-spline","Overall",-0.988184974399015
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","bspline_B","B-spline","Overall",0.213830987779855
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","bspline_B","B-spline","Overall",-0.0723779631264714
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","bspline_B","B-spline","Overall",-0.413531108659818
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","bspline_B","B-spline","Overall",-0.437581385260689
+91,1091,"ffb0df50d948dd9dad8db95b89578130","bspline_B","B-spline","Overall",-0.450994470492234
+92,1092,"42c5e41b64f024125d08f483c49d5109","bspline_B","B-spline","Overall",-0.145737475448156
+93,1093,"7866b869b011f99e5a6d626fd2b53319","bspline_B","B-spline","Overall",-0.0284599837782953
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","bspline_B","B-spline","Overall",0.188840543535513
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","bspline_B","B-spline","Overall",-0.192539924751739
+96,1096,"dce19abeba3755021094f84a48b227a7","bspline_B","B-spline","Overall",-0.53030642542097
+97,1097,"5f10705eaab893b924c7745af7cbddc2","bspline_B","B-spline","Overall",-0.3645835516117
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","bspline_B","B-spline","Overall",-0.559484308728455
+99,1099,"9d985583339f37fbacb7140d4222662d","bspline_B","B-spline","Overall",-0.287457833956348
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","bspline_B","B-spline","Overall",-0.164185933983818
+101,1101,"51fea122ace66c28fcf6227076a2210d","bspline_B","B-spline","Overall",-0.511971152185058
+102,1102,"87466aaae46506b8e351c34782985403","bspline_B","B-spline","Overall",-0.544662889875364
+103,1103,"e898b26388bd31312b334e141687631d","bspline_B","B-spline","Overall",-0.580939203999749
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","bspline_B","B-spline","Overall",-0.509005430773534
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","bspline_B","B-spline","Overall",-0.533370553892888
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","bspline_B","B-spline","Overall",-0.234902132446332
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","bspline_B","B-spline","Overall",0.194181438421911
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","bspline_B","B-spline","Overall",-0.0484665695883385
+109,1109,"64378d1cf8147aa375c77012a1f6217d","bspline_B","B-spline","Overall",-0.434855746547149
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","bspline_B","B-spline","Overall",-0.396157429629975
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","bspline_B","B-spline","Overall",-0.770850940939396
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","bspline_B","B-spline","Overall",-0.721196320301144
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","bspline_B","B-spline","Overall",0.213955019291605
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","bspline_B","B-spline","Overall",-0.274408196272248
+115,1115,"527c2542099f691a2a03e60fc5521e3b","bspline_B","B-spline","Overall",-0.00614537363567356
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","bspline_B","B-spline","Overall",-0.129631786838638
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","bspline_B","B-spline","Overall",-0.714161846092794
+118,1118,"4fe04592b1bd1b0073226474bda79a17","bspline_B","B-spline","Overall",-0.39245336760403
+119,1119,"53a63bcc974e882529742ef97a8b74d5","bspline_B","B-spline","Overall",-0.132955694982608
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","bspline_B","B-spline","Overall",-0.307414751499886
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","bspline_B","B-spline","Overall",-0.0487011829347021
+122,1122,"2de2afe17b444c1be6ab135102d2e749","bspline_B","B-spline","Overall",-0.703352408070166
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","bspline_B","B-spline","Overall",-0.659491704232905
+124,1124,"fee16d34d4badef781de40b823c932b3","bspline_B","B-spline","Overall",-0.574686279278845
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","bspline_B","B-spline","Overall",-0.138711844429706
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","bspline_B","B-spline","Overall",-0.292044642607067
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","bspline_B","B-spline","Overall",-0.556486244673224
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","bspline_B","B-spline","Overall",-0.28984713953949
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","bspline_B","B-spline","Overall",-0.41209175394151
+130,1130,"bf14545e60a11dc820244df794a9bbde","bspline_B","B-spline","Overall",-0.505423135762119
+131,1131,"f9b4bd3734443873f1d31c98484de516","bspline_B","B-spline","Overall",-0.623434682651624
+132,1132,"b571595faf7cf9bf9fb646335e089636","bspline_B","B-spline","Overall",-0.784577241674495
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","bspline_B","B-spline","Overall",0.0566829978879703
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","bspline_B","B-spline","Overall",-0.539937309749472
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","bspline_B","B-spline","Overall",0.0793693407077356
+136,1136,"75dc159ba49385507004b04106ac29e8","bspline_B","B-spline","Overall",-0.213588799713931
+137,1137,"25af99e573ba8708856ba71f5d31801d","bspline_B","B-spline","Overall",-0.347161088247738
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","bspline_B","B-spline","Overall",-0.546212487066921
+139,1139,"392c573a8d8baf810091dbff34258106","bspline_B","B-spline","Overall",0.159558259091284
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","bspline_B","B-spline","Overall",-0.134040328527051
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","bspline_B","B-spline","Overall",0.188928170238937
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","bspline_B","B-spline","Overall",-0.586813141986777
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","bspline_B","B-spline","Overall",-0.0599214538429972
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","bspline_B","B-spline","Overall",-0.388626546232818
+145,1145,"2db60151e6a71b77be25757b07f7d413","bspline_B","B-spline","Overall",-0.671211323891841
+146,1146,"11b683568a8c7109187e0d518ad44753","bspline_B","B-spline","Overall",-0.509049855666251
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","bspline_B","B-spline","Overall",-0.242053133048832
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","bspline_B","B-spline","Overall",0.389241527697684
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","bspline_B","B-spline","Overall",-1.02568553694105
+150,1150,"4538cec1dfd416909e103d8882091c24","bspline_B","B-spline","Overall",-0.283673697789745
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","bspline_B","B-spline","Overall",-0.235372530155444
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","bspline_B","B-spline","Overall",-0.509870948005122
+153,1153,"442e0ebc852ae02e3200593355a37960","bspline_B","B-spline","Overall",-0.622591579412907
+154,1154,"64361962d8cd28975836ca41ffba829e","bspline_B","B-spline","Overall",0.0367042108375806
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","bspline_B","B-spline","Overall",-0.347551057428307
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","bspline_B","B-spline","Overall",-0.416514039806315
+157,1157,"66c6e6745a642b2c128f396464ab9c36","bspline_B","B-spline","Overall",0.129605868392474
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","bspline_B","B-spline","Overall",0.0416829379471271
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","bspline_B","B-spline","Overall",-0.215497764270331
+160,1160,"6fc5bd4defacec08d522e9606a883766","bspline_B","B-spline","Overall",-0.0195635360192953
+161,1161,"a357237d620a342d728f96dc8aac5757","bspline_B","B-spline","Overall",-0.098831800374841
+162,1162,"4cc160a48b020eb4685997894bf01baf","bspline_B","B-spline","Overall",-0.177090452615404
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","bspline_B","B-spline","Overall",-0.439273976201348
+164,1164,"d690f07a51a75e813d73e446e77eb394","bspline_B","B-spline","Overall",-0.293804452330429
+165,1165,"50366235ff21bfd0a4d01f895b905c92","bspline_B","B-spline","Overall",-0.204371571429852
+166,1166,"495d59eeef0b219751064d03c686254d","bspline_B","B-spline","Overall",-0.134658759500629
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","bspline_B","B-spline","Overall",-0.54426909771614
+168,1168,"d65d84681677642681932395599566ad","bspline_B","B-spline","Overall",-0.340153361259268
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","bspline_B","B-spline","Overall",-0.499779122109937
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","bspline_B","B-spline","Overall",-0.465638041438287
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","bspline_B","B-spline","Overall",-0.629215898169494
+172,1172,"68d41d2891a14e960534c955889a715f","bspline_B","B-spline","Overall",-0.617085421596086
+173,1173,"b998c1e8401789afff3d7d34e1be5997","bspline_B","B-spline","Overall",0.0170880991736798
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","bspline_B","B-spline","Overall",-0.159887276187347
+175,1175,"2744bfdd13475fbe6815e8986de922fa","bspline_B","B-spline","Overall",-0.0103304018119766
+176,1176,"c141df7878a0d44e38a58170b4492543","bspline_B","B-spline","Overall",-0.203356414078708
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","bspline_B","B-spline","Overall",-0.659498552639894
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","bspline_B","B-spline","Overall",-0.208173714243054
+179,1179,"6d4a044da028c76d3fafc003136384eb","bspline_B","B-spline","Overall",-0.349882789330525
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","bspline_B","B-spline","Overall",-0.126361302398496
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","bspline_B","B-spline","Overall",-0.160266363035548
+182,1182,"941f9c48ec56eb19b25786187b006f10","bspline_B","B-spline","Overall",-0.27479135266765
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","bspline_B","B-spline","Overall",-0.740420324782552
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","bspline_B","B-spline","Overall",-0.342831563690222
+185,1185,"52e3986fb55b179cf59e4540a86a982d","bspline_B","B-spline","Overall",-0.323118257064825
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","bspline_B","B-spline","Overall",-0.472864175312731
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","bspline_B","B-spline","Overall",-0.16291056155776
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","bspline_B","B-spline","Overall",-0.212239509855141
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","bspline_B","B-spline","Overall",-0.610382434590639
+190,1190,"e11e338409fdbfff7af641a286a93437","bspline_B","B-spline","Overall",0.065315779530209
+191,1191,"88ccda7d997701880c9d0c636b220b1e","bspline_B","B-spline","Overall",-0.253630993468617
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","bspline_B","B-spline","Overall",-0.222869220801512
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","bspline_B","B-spline","Overall",-0.15661883148717
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","bspline_B","B-spline","Overall",-0.107886727878742
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","bspline_B","B-spline","Overall",-0.424486730505179
+196,1196,"4a7772e1b5862480e3537a3124e41c07","bspline_B","B-spline","Overall",-0.354748033213135
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","bspline_B","B-spline","Overall",-0.203714004943134
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","bspline_B","B-spline","Overall",0.0803984801377831
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","bspline_B","B-spline","Overall",-0.316988353878011
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","bspline_B","B-spline","Overall",-0.0866688576375762
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","constant_B","Constant-B","Overall",1.04534940404491
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","constant_B","Constant-B","Overall",1.58191516227993
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","constant_B","Constant-B","Overall",0.0329426382988304
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","constant_B","Constant-B","Overall",0.6926380302407
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","constant_B","Constant-B","Overall",0.63806776750035
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","constant_B","Constant-B","Overall",0.2234337289018
+7,1007,"c23f10d0daa427c993e4ece1079ed751","constant_B","Constant-B","Overall",1.55514019470827
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","constant_B","Constant-B","Overall",0.76960994631801
+9,1009,"51101219b554b4802624e043f09d6160","constant_B","Constant-B","Overall",0.87703768025838
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","constant_B","Constant-B","Overall",0.1303028921746
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","constant_B","Constant-B","Overall",0.90133404881846
+12,1012,"05f564b562cd69afde749fbba393d734","constant_B","Constant-B","Overall",0.45037145272229
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","constant_B","Constant-B","Overall",1.12176555740855
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","constant_B","Constant-B","Overall",0.59448075497917
+15,1015,"ae056eafb87645cec401ccb46346269b","constant_B","Constant-B","Overall",0.83105156989747
+16,1016,"a714e996eac59ec21285ac81b9fb5223","constant_B","Constant-B","Overall",0.53793011175085
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","constant_B","Constant-B","Overall",0.15016612035079
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","constant_B","Constant-B","Overall",0.18568120010188
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","constant_B","Constant-B","Overall",1.00077600086133
+20,1020,"714f6bb12c5d63009433470452ca002b","constant_B","Constant-B","Overall",0.53923843026414
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","constant_B","Constant-B","Overall",0.50305864407235
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","constant_B","Constant-B","Overall",0.64299691374207
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","constant_B","Constant-B","Overall",0.84133364117703
+24,1024,"f17101a77a91a5858651ca092461a15e","constant_B","Constant-B","Overall",0.35857477392809
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","constant_B","Constant-B","Overall",0.62975884978758
+26,1026,"7d638818fac5c183766d7bd337251990","constant_B","Constant-B","Overall",0.74702146299026
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","constant_B","Constant-B","Overall",0.47995923009101
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","constant_B","Constant-B","Overall",0.89207095808367
+29,1029,"f88e4728f80479179227d46e3ae73be8","constant_B","Constant-B","Overall",0.21958871643066
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","constant_B","Constant-B","Overall",0.62788221044401
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","constant_B","Constant-B","Overall",0.47812417596384
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","constant_B","Constant-B","Overall",0.69542834639333
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","constant_B","Constant-B","Overall",1.06901172255123
+34,1034,"6295649cce30d443915163e1f486574c","constant_B","Constant-B","Overall",0.85115721588948
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","constant_B","Constant-B","Overall",0.41597968379106
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","constant_B","Constant-B","Overall",0.20201017767162
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","constant_B","Constant-B","Overall",0.48078113177875
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","constant_B","Constant-B","Overall",0.11362307709047
+39,1039,"42f80019227937c2a1292d80471ad885","constant_B","Constant-B","Overall",0.54447810288694
+40,1040,"ab1d08dee64fd498a66e009327aa8634","constant_B","Constant-B","Overall",0.48906752663139
+41,1041,"287dedf1d0604d7339bf2699355ae974","constant_B","Constant-B","Overall",0.32871510544742
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","constant_B","Constant-B","Overall",0.46161618736549
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","constant_B","Constant-B","Overall",0.48759088001932
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","constant_B","Constant-B","Overall",0.6174608913823
+45,1045,"ea38700766ed00739f841a67050a1f0f","constant_B","Constant-B","Overall",0.45761123297541
+46,1046,"9df354b439dcb34c0723dc7a22427817","constant_B","Constant-B","Overall",1.50023698758207
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","constant_B","Constant-B","Overall",1.24346087790554
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","constant_B","Constant-B","Overall",0.54002529146257
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","constant_B","Constant-B","Overall",0.250414215247119
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","constant_B","Constant-B","Overall",0.82065203685575
+51,1051,"900920f25b406cb0530e847b193e6c9b","constant_B","Constant-B","Overall",0.52044140521957
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","constant_B","Constant-B","Overall",1.03336989721952
+53,1053,"21c503be1bfd17d135902892b999365f","constant_B","Constant-B","Overall",0.24608942307599
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","constant_B","Constant-B","Overall",0.58533592186518
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","constant_B","Constant-B","Overall",0.1215317564414
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","constant_B","Constant-B","Overall",0.78878640696353
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","constant_B","Constant-B","Overall",-0.12582473439316
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","constant_B","Constant-B","Overall",0.393041952184479
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","constant_B","Constant-B","Overall",0.28949659485557
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","constant_B","Constant-B","Overall",0.59172959338508
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","constant_B","Constant-B","Overall",0.59222150562988
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","constant_B","Constant-B","Overall",0.50080514528646
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","constant_B","Constant-B","Overall",0.6375531434123
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","constant_B","Constant-B","Overall",0.22778369252641
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","constant_B","Constant-B","Overall",0.75527088188311
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","constant_B","Constant-B","Overall",0.7935036309427
+67,1067,"a64edf122ea9288d9cc5843d572b4219","constant_B","Constant-B","Overall",1.16664879407241
+68,1068,"e2dc17973047d198b1f70625999d7313","constant_B","Constant-B","Overall",0.79712945156158
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","constant_B","Constant-B","Overall",0.49196396332452
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","constant_B","Constant-B","Overall",0.23123589329053
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","constant_B","Constant-B","Overall",0.80912316854739
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","constant_B","Constant-B","Overall",0.83407953574125
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","constant_B","Constant-B","Overall",0.63286168371309
+74,1074,"44fe946085f2400c80cee533d6231e9a","constant_B","Constant-B","Overall",0.339028793437219
+75,1075,"0d820f5ccbfe13549eea216ee2513074","constant_B","Constant-B","Overall",0.35347355627389
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","constant_B","Constant-B","Overall",0.72097831676512
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","constant_B","Constant-B","Overall",0.53238341031647
+78,1078,"83a908c8ed5455b6c9ef246884162afc","constant_B","Constant-B","Overall",0.43346677061578
+79,1079,"022bd08caeebfca4473b74c3678f71c2","constant_B","Constant-B","Overall",0.35470663444575
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","constant_B","Constant-B","Overall",0.7721752116519
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","constant_B","Constant-B","Overall",0.99421161090616
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","constant_B","Constant-B","Overall",0.53293867966244
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","constant_B","Constant-B","Overall",0.61837113307206
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","constant_B","Constant-B","Overall",0.31083461446373
+85,1085,"f306053231f91c40dca3c621e8419b61","constant_B","Constant-B","Overall",0.47013164656868
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","constant_B","Constant-B","Overall",0.0592945964374298
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","constant_B","Constant-B","Overall",0.82291929058973
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","constant_B","Constant-B","Overall",0.69289441336375
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","constant_B","Constant-B","Overall",0.4670002412663
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","constant_B","Constant-B","Overall",1.18443021643441
+91,1091,"ffb0df50d948dd9dad8db95b89578130","constant_B","Constant-B","Overall",0.55068479548976
+92,1092,"42c5e41b64f024125d08f483c49d5109","constant_B","Constant-B","Overall",0.29184426002165
+93,1093,"7866b869b011f99e5a6d626fd2b53319","constant_B","Constant-B","Overall",0.39505369161111
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","constant_B","Constant-B","Overall",0.74513173609721
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","constant_B","Constant-B","Overall",0.48722979726757
+96,1096,"dce19abeba3755021094f84a48b227a7","constant_B","Constant-B","Overall",0.68399936694628
+97,1097,"5f10705eaab893b924c7745af7cbddc2","constant_B","Constant-B","Overall",0.81538683133996
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","constant_B","Constant-B","Overall",0.26579689719411
+99,1099,"9d985583339f37fbacb7140d4222662d","constant_B","Constant-B","Overall",0.36281572849347
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","constant_B","Constant-B","Overall",1.34554483933557
+101,1101,"51fea122ace66c28fcf6227076a2210d","constant_B","Constant-B","Overall",0.46586796964066
+102,1102,"87466aaae46506b8e351c34782985403","constant_B","Constant-B","Overall",-0.0814918150072401
+103,1103,"e898b26388bd31312b334e141687631d","constant_B","Constant-B","Overall",0.66513833340993
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","constant_B","Constant-B","Overall",0.45991940210637
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","constant_B","Constant-B","Overall",0.99704237412916
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","constant_B","Constant-B","Overall",1.09606159261628
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","constant_B","Constant-B","Overall",0.90115514601953
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","constant_B","Constant-B","Overall",0.86812257561279
+109,1109,"64378d1cf8147aa375c77012a1f6217d","constant_B","Constant-B","Overall",0.40187597161125
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","constant_B","Constant-B","Overall",1.57461126928035
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","constant_B","Constant-B","Overall",0.71529325045075
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","constant_B","Constant-B","Overall",0.57612799484287
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","constant_B","Constant-B","Overall",0.60575526968089
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","constant_B","Constant-B","Overall",0.45989902761962
+115,1115,"527c2542099f691a2a03e60fc5521e3b","constant_B","Constant-B","Overall",0.5720470539333
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","constant_B","Constant-B","Overall",0.850042512044
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","constant_B","Constant-B","Overall",0.38780993855149
+118,1118,"4fe04592b1bd1b0073226474bda79a17","constant_B","Constant-B","Overall",0.66654331378202
+119,1119,"53a63bcc974e882529742ef97a8b74d5","constant_B","Constant-B","Overall",0.55401402882079
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","constant_B","Constant-B","Overall",0.12977832834471
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","constant_B","Constant-B","Overall",0.61363083001833
+122,1122,"2de2afe17b444c1be6ab135102d2e749","constant_B","Constant-B","Overall",0.47825641789666
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","constant_B","Constant-B","Overall",0.8650500630446
+124,1124,"fee16d34d4badef781de40b823c932b3","constant_B","Constant-B","Overall",0.8445294142124
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","constant_B","Constant-B","Overall",1.41824234537544
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","constant_B","Constant-B","Overall",0.41657346650876
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","constant_B","Constant-B","Overall",0.20421748347378
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","constant_B","Constant-B","Overall",0.0709669702648098
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","constant_B","Constant-B","Overall",0.48456619659801
+130,1130,"bf14545e60a11dc820244df794a9bbde","constant_B","Constant-B","Overall",0.0644260232045502
+131,1131,"f9b4bd3734443873f1d31c98484de516","constant_B","Constant-B","Overall",0.48617975325384
+132,1132,"b571595faf7cf9bf9fb646335e089636","constant_B","Constant-B","Overall",-0.0107581393207396
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","constant_B","Constant-B","Overall",0.68452427894849
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","constant_B","Constant-B","Overall",0.78857079664808
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","constant_B","Constant-B","Overall",0.88927145411185
+136,1136,"75dc159ba49385507004b04106ac29e8","constant_B","Constant-B","Overall",0.80506680946111
+137,1137,"25af99e573ba8708856ba71f5d31801d","constant_B","Constant-B","Overall",0.517275416488019
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","constant_B","Constant-B","Overall",0.56821778157014
+139,1139,"392c573a8d8baf810091dbff34258106","constant_B","Constant-B","Overall",0.89512404417988
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","constant_B","Constant-B","Overall",0.337564820342899
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","constant_B","Constant-B","Overall",0.93835405072088
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","constant_B","Constant-B","Overall",1.10423453480635
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","constant_B","Constant-B","Overall",0.39443155848741
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","constant_B","Constant-B","Overall",0.19967172769648
+145,1145,"2db60151e6a71b77be25757b07f7d413","constant_B","Constant-B","Overall",0.57303587674925
+146,1146,"11b683568a8c7109187e0d518ad44753","constant_B","Constant-B","Overall",0.66791693387675
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","constant_B","Constant-B","Overall",0.5110899835292
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","constant_B","Constant-B","Overall",0.72906773173344
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","constant_B","Constant-B","Overall",-0.04614061546128
+150,1150,"4538cec1dfd416909e103d8882091c24","constant_B","Constant-B","Overall",0.40204771448594
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","constant_B","Constant-B","Overall",0.28458735867331
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","constant_B","Constant-B","Overall",1.46866101561535
+153,1153,"442e0ebc852ae02e3200593355a37960","constant_B","Constant-B","Overall",0.64852387529649
+154,1154,"64361962d8cd28975836ca41ffba829e","constant_B","Constant-B","Overall",0.85794374506831
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","constant_B","Constant-B","Overall",0.856907160211109
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","constant_B","Constant-B","Overall",0.11413834377603
+157,1157,"66c6e6745a642b2c128f396464ab9c36","constant_B","Constant-B","Overall",0.63056162078558
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","constant_B","Constant-B","Overall",0.47171025427573
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","constant_B","Constant-B","Overall",0.54121352786879
+160,1160,"6fc5bd4defacec08d522e9606a883766","constant_B","Constant-B","Overall",0.55655059330401
+161,1161,"a357237d620a342d728f96dc8aac5757","constant_B","Constant-B","Overall",0.50447371978197
+162,1162,"4cc160a48b020eb4685997894bf01baf","constant_B","Constant-B","Overall",0.57101821231828
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","constant_B","Constant-B","Overall",0.85549267461845
+164,1164,"d690f07a51a75e813d73e446e77eb394","constant_B","Constant-B","Overall",0.34714564534042
+165,1165,"50366235ff21bfd0a4d01f895b905c92","constant_B","Constant-B","Overall",0.25034458621817
+166,1166,"495d59eeef0b219751064d03c686254d","constant_B","Constant-B","Overall",0.51303760035219
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","constant_B","Constant-B","Overall",0.7429926414582
+168,1168,"d65d84681677642681932395599566ad","constant_B","Constant-B","Overall",0.40178219956943
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","constant_B","Constant-B","Overall",0.25364472563011
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","constant_B","Constant-B","Overall",0.0261538314767196
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","constant_B","Constant-B","Overall",0.51411410974637
+172,1172,"68d41d2891a14e960534c955889a715f","constant_B","Constant-B","Overall",0.56865028746712
+173,1173,"b998c1e8401789afff3d7d34e1be5997","constant_B","Constant-B","Overall",0.58234932950392
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","constant_B","Constant-B","Overall",0.35286254930132
+175,1175,"2744bfdd13475fbe6815e8986de922fa","constant_B","Constant-B","Overall",0.49043005535968
+176,1176,"c141df7878a0d44e38a58170b4492543","constant_B","Constant-B","Overall",0.20357477680729
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","constant_B","Constant-B","Overall",0.97695491448522
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","constant_B","Constant-B","Overall",0.35216763444396
+179,1179,"6d4a044da028c76d3fafc003136384eb","constant_B","Constant-B","Overall",0.65817636753352
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","constant_B","Constant-B","Overall",0.56155309087283
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","constant_B","Constant-B","Overall",0.50859052613305
+182,1182,"941f9c48ec56eb19b25786187b006f10","constant_B","Constant-B","Overall",0.86733595325964
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","constant_B","Constant-B","Overall",0.230255085907519
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","constant_B","Constant-B","Overall",0.43813314676187
+185,1185,"52e3986fb55b179cf59e4540a86a982d","constant_B","Constant-B","Overall",0.00120307335377939
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","constant_B","Constant-B","Overall",0.50090363359215
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","constant_B","Constant-B","Overall",0.98915102777351
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","constant_B","Constant-B","Overall",0.34794562416894
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","constant_B","Constant-B","Overall",0.280354564451109
+190,1190,"e11e338409fdbfff7af641a286a93437","constant_B","Constant-B","Overall",0.49549240191978
+191,1191,"88ccda7d997701880c9d0c636b220b1e","constant_B","Constant-B","Overall",0.46853535715138
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","constant_B","Constant-B","Overall",0.26944234199487
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","constant_B","Constant-B","Overall",0.7798974052997
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","constant_B","Constant-B","Overall",0.31887010831789
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","constant_B","Constant-B","Overall",0.45516455665178
+196,1196,"4a7772e1b5862480e3537a3124e41c07","constant_B","Constant-B","Overall",-0.0255413342889599
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","constant_B","Constant-B","Overall",0.20888503483755
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","constant_B","Constant-B","Overall",0.3335205297507
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","constant_B","Constant-B","Overall",0.82308864699168
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","constant_B","Constant-B","Overall",0.66890855653427
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","gamma_noise","Gamma-noise","Through week 5",0.198662331705919
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","gamma_noise","Gamma-noise","Through week 5",0.328943002583787
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","gamma_noise","Gamma-noise","Through week 5",-0.622995616973642
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","gamma_noise","Gamma-noise","Through week 5",0.0345616225435907
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","gamma_noise","Gamma-noise","Through week 5",-0.0498666620855599
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","gamma_noise","Gamma-noise","Through week 5",-0.400809106397149
+7,1007,"c23f10d0daa427c993e4ece1079ed751","gamma_noise","Gamma-noise","Through week 5",0.34040035471572
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","gamma_noise","Gamma-noise","Through week 5",0.0334171585179875
+9,1009,"51101219b554b4802624e043f09d6160","gamma_noise","Gamma-noise","Through week 5",0.12958219999328
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","gamma_noise","Gamma-noise","Through week 5",-0.489415764002221
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","gamma_noise","Gamma-noise","Through week 5",0.131670035566688
+12,1012,"05f564b562cd69afde749fbba393d734","gamma_noise","Gamma-noise","Through week 5",-0.0438439510448918
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","gamma_noise","Gamma-noise","Through week 5",0.145985155107459
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","gamma_noise","Gamma-noise","Through week 5",-0.0299826458263337
+15,1015,"ae056eafb87645cec401ccb46346269b","gamma_noise","Gamma-noise","Through week 5",0.0551081460528806
+16,1016,"a714e996eac59ec21285ac81b9fb5223","gamma_noise","Gamma-noise","Through week 5",-0.01209763333947
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","gamma_noise","Gamma-noise","Through week 5",-0.481687676720426
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","gamma_noise","Gamma-noise","Through week 5",-0.410524512957513
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","gamma_noise","Gamma-noise","Through week 5",0.137529236513098
+20,1020,"714f6bb12c5d63009433470452ca002b","gamma_noise","Gamma-noise","Through week 5",-0.0614662515703252
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","gamma_noise","Gamma-noise","Through week 5",-0.0119992465034611
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","gamma_noise","Gamma-noise","Through week 5",0.0066913767597654
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","gamma_noise","Gamma-noise","Through week 5",0.191646802226336
+24,1024,"f17101a77a91a5858651ca092461a15e","gamma_noise","Gamma-noise","Through week 5",-0.232853761292306
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","gamma_noise","Gamma-noise","Through week 5",0.0778717009538005
+26,1026,"7d638818fac5c183766d7bd337251990","gamma_noise","Gamma-noise","Through week 5",0.0531544536258574
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","gamma_noise","Gamma-noise","Through week 5",-0.0686919576214137
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","gamma_noise","Gamma-noise","Through week 5",0.231878418300578
+29,1029,"f88e4728f80479179227d46e3ae73be8","gamma_noise","Gamma-noise","Through week 5",-0.545706526577283
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","gamma_noise","Gamma-noise","Through week 5",0.056037157321908
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","gamma_noise","Gamma-noise","Through week 5",-0.159081186456999
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","gamma_noise","Gamma-noise","Through week 5",0.0466617145898163
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","gamma_noise","Gamma-noise","Through week 5",0.170915220531269
+34,1034,"6295649cce30d443915163e1f486574c","gamma_noise","Gamma-noise","Through week 5",0.0966480742069517
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","gamma_noise","Gamma-noise","Through week 5",-0.235660982230053
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","gamma_noise","Gamma-noise","Through week 5",-0.289842674164503
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","gamma_noise","Gamma-noise","Through week 5",-0.0879692279838071
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","gamma_noise","Gamma-noise","Through week 5",-0.644473906273592
+39,1039,"42f80019227937c2a1292d80471ad885","gamma_noise","Gamma-noise","Through week 5",0.06433138119201
+40,1040,"ab1d08dee64fd498a66e009327aa8634","gamma_noise","Gamma-noise","Through week 5",-0.0774707131660338
+41,1041,"287dedf1d0604d7339bf2699355ae974","gamma_noise","Gamma-noise","Through week 5",-0.445149271252529
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","gamma_noise","Gamma-noise","Through week 5",-0.147780102949746
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","gamma_noise","Gamma-noise","Through week 5",-0.154147591448504
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","gamma_noise","Gamma-noise","Through week 5",0.0354701334836515
+45,1045,"ea38700766ed00739f841a67050a1f0f","gamma_noise","Gamma-noise","Through week 5",-0.0735752574884966
+46,1046,"9df354b439dcb34c0723dc7a22427817","gamma_noise","Gamma-noise","Through week 5",0.29478338564442
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","gamma_noise","Gamma-noise","Through week 5",0.224458746582485
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","gamma_noise","Gamma-noise","Through week 5",-0.0148331554312389
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","gamma_noise","Gamma-noise","Through week 5",-0.403087488058799
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","gamma_noise","Gamma-noise","Through week 5",0.164750198405973
+51,1051,"900920f25b406cb0530e847b193e6c9b","gamma_noise","Gamma-noise","Through week 5",-0.0686329751710794
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","gamma_noise","Gamma-noise","Through week 5",0.291545780026899
+53,1053,"21c503be1bfd17d135902892b999365f","gamma_noise","Gamma-noise","Through week 5",-0.336459372691299
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","gamma_noise","Gamma-noise","Through week 5",0.058360654682852
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","gamma_noise","Gamma-noise","Through week 5",-0.503317065434337
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","gamma_noise","Gamma-noise","Through week 5",0.106189032297325
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","gamma_noise","Gamma-noise","Through week 5",-0.860154923167683
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","gamma_noise","Gamma-noise","Through week 5",-0.32216244783838
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","gamma_noise","Gamma-noise","Through week 5",-0.284708421725202
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","gamma_noise","Gamma-noise","Through week 5",-0.0583213457555269
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","gamma_noise","Gamma-noise","Through week 5",-0.0556599367511471
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","gamma_noise","Gamma-noise","Through week 5",-0.0872407764530883
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","gamma_noise","Gamma-noise","Through week 5",-0.00502886579041769
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","gamma_noise","Gamma-noise","Through week 5",-0.294254149573556
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","gamma_noise","Gamma-noise","Through week 5",0.0428766447205697
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","gamma_noise","Gamma-noise","Through week 5",0.101235817901924
+67,1067,"a64edf122ea9288d9cc5843d572b4219","gamma_noise","Gamma-noise","Through week 5",0.179569223328114
+68,1068,"e2dc17973047d198b1f70625999d7313","gamma_noise","Gamma-noise","Through week 5",0.0979891455580426
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","gamma_noise","Gamma-noise","Through week 5",-0.238359999685728
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","gamma_noise","Gamma-noise","Through week 5",-0.293448503899959
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","gamma_noise","Gamma-noise","Through week 5",0.0956512014577686
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","gamma_noise","Gamma-noise","Through week 5",0.0902877440086955
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","gamma_noise","Gamma-noise","Through week 5",0.0282011505918366
+74,1074,"44fe946085f2400c80cee533d6231e9a","gamma_noise","Gamma-noise","Through week 5",-0.178540430653053
+75,1075,"0d820f5ccbfe13549eea216ee2513074","gamma_noise","Gamma-noise","Through week 5",-0.279481032317405
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","gamma_noise","Gamma-noise","Through week 5",0.0569893431558348
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","gamma_noise","Gamma-noise","Through week 5",-0.0351722584097872
+78,1078,"83a908c8ed5455b6c9ef246884162afc","gamma_noise","Gamma-noise","Through week 5",-0.205586951187223
+79,1079,"022bd08caeebfca4473b74c3678f71c2","gamma_noise","Gamma-noise","Through week 5",-0.155341186638151
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","gamma_noise","Gamma-noise","Through week 5",0.0543935486695537
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","gamma_noise","Gamma-noise","Through week 5",0.126588653393135
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","gamma_noise","Gamma-noise","Through week 5",0.0290278292348211
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","gamma_noise","Gamma-noise","Through week 5",0.0144745238538897
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","gamma_noise","Gamma-noise","Through week 5",-0.384981689119327
+85,1085,"f306053231f91c40dca3c621e8419b61","gamma_noise","Gamma-noise","Through week 5",-0.116894096332883
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","gamma_noise","Gamma-noise","Through week 5",-0.564569646020525
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","gamma_noise","Gamma-noise","Through week 5",0.16575340918053
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","gamma_noise","Gamma-noise","Through week 5",0.0387624318457218
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","gamma_noise","Gamma-noise","Through week 5",-0.099278712331654
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","gamma_noise","Gamma-noise","Through week 5",0.248440110439099
+91,1091,"ffb0df50d948dd9dad8db95b89578130","gamma_noise","Gamma-noise","Through week 5",-0.014546478886948
+92,1092,"42c5e41b64f024125d08f483c49d5109","gamma_noise","Gamma-noise","Through week 5",-0.196405448022668
+93,1093,"7866b869b011f99e5a6d626fd2b53319","gamma_noise","Gamma-noise","Through week 5",-0.107653910484348
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","gamma_noise","Gamma-noise","Through week 5",0.174661436122512
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","gamma_noise","Gamma-noise","Through week 5",-0.0494115595252174
+96,1096,"dce19abeba3755021094f84a48b227a7","gamma_noise","Gamma-noise","Through week 5",-0.0517513469906386
+97,1097,"5f10705eaab893b924c7745af7cbddc2","gamma_noise","Gamma-noise","Through week 5",0.176977147399027
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","gamma_noise","Gamma-noise","Through week 5",-0.322193968679105
+99,1099,"9d985583339f37fbacb7140d4222662d","gamma_noise","Gamma-noise","Through week 5",-0.399196159927729
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","gamma_noise","Gamma-noise","Through week 5",0.306994373283213
+101,1101,"51fea122ace66c28fcf6227076a2210d","gamma_noise","Gamma-noise","Through week 5",-0.196473090712213
+102,1102,"87466aaae46506b8e351c34782985403","gamma_noise","Gamma-noise","Through week 5",-0.789553080736254
+103,1103,"e898b26388bd31312b334e141687631d","gamma_noise","Gamma-noise","Through week 5",0.0418613038578403
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","gamma_noise","Gamma-noise","Through week 5",-0.161264104219054
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","gamma_noise","Gamma-noise","Through week 5",0.142681086934575
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","gamma_noise","Gamma-noise","Through week 5",0.080078585537674
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","gamma_noise","Gamma-noise","Through week 5",0.201917521372467
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","gamma_noise","Gamma-noise","Through week 5",0.209876955065084
+109,1109,"64378d1cf8147aa375c77012a1f6217d","gamma_noise","Gamma-noise","Through week 5",-0.205411406620148
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","gamma_noise","Gamma-noise","Through week 5",0.31612642269197
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","gamma_noise","Gamma-noise","Through week 5",0.0738474904687896
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","gamma_noise","Gamma-noise","Through week 5",0.0276793272561212
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","gamma_noise","Gamma-noise","Through week 5",0.0210096022952214
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","gamma_noise","Gamma-noise","Through week 5",-0.064009594883212
+115,1115,"527c2542099f691a2a03e60fc5521e3b","gamma_noise","Gamma-noise","Through week 5",-0.0360873516781231
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","gamma_noise","Gamma-noise","Through week 5",0.132115794970801
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","gamma_noise","Gamma-noise","Through week 5",-0.135322439633667
+118,1118,"4fe04592b1bd1b0073226474bda79a17","gamma_noise","Gamma-noise","Through week 5",0.00175049258611143
+119,1119,"53a63bcc974e882529742ef97a8b74d5","gamma_noise","Gamma-noise","Through week 5",-0.0106228217005394
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","gamma_noise","Gamma-noise","Through week 5",-0.45192785526705
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","gamma_noise","Gamma-noise","Through week 5",-0.0315254074858074
+122,1122,"2de2afe17b444c1be6ab135102d2e749","gamma_noise","Gamma-noise","Through week 5",-0.0808457962388694
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","gamma_noise","Gamma-noise","Through week 5",0.143882827462516
+124,1124,"fee16d34d4badef781de40b823c932b3","gamma_noise","Gamma-noise","Through week 5",0.167086773426178
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","gamma_noise","Gamma-noise","Through week 5",0.392021872937573
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","gamma_noise","Gamma-noise","Through week 5",-0.135244764472179
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","gamma_noise","Gamma-noise","Through week 5",-0.439868638570365
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","gamma_noise","Gamma-noise","Through week 5",-0.498331987384092
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","gamma_noise","Gamma-noise","Through week 5",0.0264777698253055
+130,1130,"bf14545e60a11dc820244df794a9bbde","gamma_noise","Gamma-noise","Through week 5",-0.705910023124617
+131,1131,"f9b4bd3734443873f1d31c98484de516","gamma_noise","Gamma-noise","Through week 5",-0.0549410400483286
+132,1132,"b571595faf7cf9bf9fb646335e089636","gamma_noise","Gamma-noise","Through week 5",-0.806594957326044
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","gamma_noise","Gamma-noise","Through week 5",0.158234806762417
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","gamma_noise","Gamma-noise","Through week 5",0.113942758415274
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","gamma_noise","Gamma-noise","Through week 5",0.145332791783516
+136,1136,"75dc159ba49385507004b04106ac29e8","gamma_noise","Gamma-noise","Through week 5",0.172494297506206
+137,1137,"25af99e573ba8708856ba71f5d31801d","gamma_noise","Gamma-noise","Through week 5",-0.118382775539383
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","gamma_noise","Gamma-noise","Through week 5",-0.0795590622636683
+139,1139,"392c573a8d8baf810091dbff34258106","gamma_noise","Gamma-noise","Through week 5",0.151624729773996
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","gamma_noise","Gamma-noise","Through week 5",-0.233366321960179
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","gamma_noise","Gamma-noise","Through week 5",0.188207784587962
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","gamma_noise","Gamma-noise","Through week 5",0.239019847277919
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","gamma_noise","Gamma-noise","Through week 5",-0.235025108613138
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","gamma_noise","Gamma-noise","Through week 5",-0.360470367557188
+145,1145,"2db60151e6a71b77be25757b07f7d413","gamma_noise","Gamma-noise","Through week 5",-0.0266960891277312
+146,1146,"11b683568a8c7109187e0d518ad44753","gamma_noise","Gamma-noise","Through week 5",0.105858118862459
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","gamma_noise","Gamma-noise","Through week 5",-0.0983501226000663
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","gamma_noise","Gamma-noise","Through week 5",0.0318225852152928
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","gamma_noise","Gamma-noise","Through week 5",-0.82738721282491
+150,1150,"4538cec1dfd416909e103d8882091c24","gamma_noise","Gamma-noise","Through week 5",-0.217423400451962
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","gamma_noise","Gamma-noise","Through week 5",-0.354743509773763
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","gamma_noise","Gamma-noise","Through week 5",0.304774665762585
+153,1153,"442e0ebc852ae02e3200593355a37960","gamma_noise","Gamma-noise","Through week 5",-0.0271785086289568
+154,1154,"64361962d8cd28975836ca41ffba829e","gamma_noise","Gamma-noise","Through week 5",0.172498245271443
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","gamma_noise","Gamma-noise","Through week 5",0.11561273742298
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","gamma_noise","Gamma-noise","Through week 5",-0.511264592921209
+157,1157,"66c6e6745a642b2c128f396464ab9c36","gamma_noise","Gamma-noise","Through week 5",0.00620891560917279
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","gamma_noise","Gamma-noise","Through week 5",-0.182165469294173
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","gamma_noise","Gamma-noise","Through week 5",-0.0133208654134531
+160,1160,"6fc5bd4defacec08d522e9606a883766","gamma_noise","Gamma-noise","Through week 5",-0.0582122975712651
+161,1161,"a357237d620a342d728f96dc8aac5757","gamma_noise","Gamma-noise","Through week 5",-0.0448434522179731
+162,1162,"4cc160a48b020eb4685997894bf01baf","gamma_noise","Gamma-noise","Through week 5",-0.136980325187613
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","gamma_noise","Gamma-noise","Through week 5",0.104402937912088
+164,1164,"d690f07a51a75e813d73e446e77eb394","gamma_noise","Gamma-noise","Through week 5",-0.234236811924826
+165,1165,"50366235ff21bfd0a4d01f895b905c92","gamma_noise","Gamma-noise","Through week 5",-0.370994971836256
+166,1166,"495d59eeef0b219751064d03c686254d","gamma_noise","Gamma-noise","Through week 5",-0.223235530743904
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","gamma_noise","Gamma-noise","Through week 5",0.109586366204817
+168,1168,"d65d84681677642681932395599566ad","gamma_noise","Gamma-noise","Through week 5",-0.196653957410902
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","gamma_noise","Gamma-noise","Through week 5",-0.161626491244709
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","gamma_noise","Gamma-noise","Through week 5",-0.641501479012027
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","gamma_noise","Gamma-noise","Through week 5",-0.0329492718069754
+172,1172,"68d41d2891a14e960534c955889a715f","gamma_noise","Gamma-noise","Through week 5",0.0357935559743088
+173,1173,"b998c1e8401789afff3d7d34e1be5997","gamma_noise","Gamma-noise","Through week 5",-0.07340903488513
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","gamma_noise","Gamma-noise","Through week 5",-0.287791197662793
+175,1175,"2744bfdd13475fbe6815e8986de922fa","gamma_noise","Gamma-noise","Through week 5",-0.0625674243091534
+176,1176,"c141df7878a0d44e38a58170b4492543","gamma_noise","Gamma-noise","Through week 5",-0.302607613008792
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","gamma_noise","Gamma-noise","Through week 5",0.224795659936411
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","gamma_noise","Gamma-noise","Through week 5",-0.15389069628731
+179,1179,"6d4a044da028c76d3fafc003136384eb","gamma_noise","Gamma-noise","Through week 5",-0.00260296765338799
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","gamma_noise","Gamma-noise","Through week 5",-0.0436810759705494
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","gamma_noise","Gamma-noise","Through week 5",-0.113539606615768
+182,1182,"941f9c48ec56eb19b25786187b006f10","gamma_noise","Gamma-noise","Through week 5",0.0472502435183879
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","gamma_noise","Gamma-noise","Through week 5",-0.233630994602849
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","gamma_noise","Gamma-noise","Through week 5",-0.223053823338627
+185,1185,"52e3986fb55b179cf59e4540a86a982d","gamma_noise","Gamma-noise","Through week 5",-0.621820093418709
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","gamma_noise","Gamma-noise","Through week 5",-0.173657160119415
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","gamma_noise","Gamma-noise","Through week 5",0.210726967808525
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","gamma_noise","Gamma-noise","Through week 5",-0.17592255670313
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","gamma_noise","Gamma-noise","Through week 5",-0.361583549630157
+190,1190,"e11e338409fdbfff7af641a286a93437","gamma_noise","Gamma-noise","Through week 5",-0.0537758756811537
+191,1191,"88ccda7d997701880c9d0c636b220b1e","gamma_noise","Gamma-noise","Through week 5",-0.00831395817137971
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","gamma_noise","Gamma-noise","Through week 5",-0.15145305400781
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","gamma_noise","Gamma-noise","Through week 5",0.0267722124765189
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","gamma_noise","Gamma-noise","Through week 5",-0.331292291384173
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","gamma_noise","Gamma-noise","Through week 5",-0.159726913457026
+196,1196,"4a7772e1b5862480e3537a3124e41c07","gamma_noise","Gamma-noise","Through week 5",-0.715174999941957
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","gamma_noise","Gamma-noise","Through week 5",-0.3841477694553
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","gamma_noise","Gamma-noise","Through week 5",-0.252124046240083
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","gamma_noise","Gamma-noise","Through week 5",0.139166937306445
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","gamma_noise","Gamma-noise","Through week 5",-0.0600545992604869
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","bspline_B","B-spline","Through week 5",0.0925017288023974
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","bspline_B","B-spline","Through week 5",0.210856031406185
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","bspline_B","B-spline","Through week 5",-0.635638685213391
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","bspline_B","B-spline","Through week 5",-0.0737444407596763
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","bspline_B","B-spline","Through week 5",-0.0760890908069945
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","bspline_B","B-spline","Through week 5",-0.426742922209407
+7,1007,"c23f10d0daa427c993e4ece1079ed751","bspline_B","B-spline","Through week 5",0.227527598481174
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","bspline_B","B-spline","Through week 5",-0.109047913066423
+9,1009,"51101219b554b4802624e043f09d6160","bspline_B","B-spline","Through week 5",0.0102732425388563
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","bspline_B","B-spline","Through week 5",-0.477050085220669
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","bspline_B","B-spline","Through week 5",0.00514118143660087
+12,1012,"05f564b562cd69afde749fbba393d734","bspline_B","B-spline","Through week 5",-0.107928775521807
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","bspline_B","B-spline","Through week 5",0.0846533140253094
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","bspline_B","B-spline","Through week 5",-0.160349807439051
+15,1015,"ae056eafb87645cec401ccb46346269b","bspline_B","B-spline","Through week 5",-0.0458630441889378
+16,1016,"a714e996eac59ec21285ac81b9fb5223","bspline_B","B-spline","Through week 5",-0.162418434211719
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","bspline_B","B-spline","Through week 5",-0.543517156959066
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","bspline_B","B-spline","Through week 5",-0.447299581479146
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","bspline_B","B-spline","Through week 5",0.0756461120263446
+20,1020,"714f6bb12c5d63009433470452ca002b","bspline_B","B-spline","Through week 5",-0.187746243858326
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","bspline_B","B-spline","Through week 5",-0.165701852470433
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","bspline_B","B-spline","Through week 5",-0.104671527271226
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","bspline_B","B-spline","Through week 5",0.0120223142755657
+24,1024,"f17101a77a91a5858651ca092461a15e","bspline_B","B-spline","Through week 5",-0.291260704184848
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","bspline_B","B-spline","Through week 5",-0.0594708933278019
+26,1026,"7d638818fac5c183766d7bd337251990","bspline_B","B-spline","Through week 5",-0.0647667488664895
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","bspline_B","B-spline","Through week 5",-0.173815974638993
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","bspline_B","B-spline","Through week 5",0.0399207313650139
+29,1029,"f88e4728f80479179227d46e3ae73be8","bspline_B","B-spline","Through week 5",-0.40329215133609
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","bspline_B","B-spline","Through week 5",-0.121539552157531
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","bspline_B","B-spline","Through week 5",-0.137520070696111
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","bspline_B","B-spline","Through week 5",-0.0987830881814081
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","bspline_B","B-spline","Through week 5",0.0297087573900157
+34,1034,"6295649cce30d443915163e1f486574c","bspline_B","B-spline","Through week 5",-0.0278830291300363
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","bspline_B","B-spline","Through week 5",-0.295339388772883
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","bspline_B","B-spline","Through week 5",-0.372693934734889
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","bspline_B","B-spline","Through week 5",-0.160615161771431
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","bspline_B","B-spline","Through week 5",-0.548132538402374
+39,1039,"42f80019227937c2a1292d80471ad885","bspline_B","B-spline","Through week 5",-0.10772368403307
+40,1040,"ab1d08dee64fd498a66e009327aa8634","bspline_B","B-spline","Through week 5",-0.186607417024639
+41,1041,"287dedf1d0604d7339bf2699355ae974","bspline_B","B-spline","Through week 5",-0.45028398885741
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","bspline_B","B-spline","Through week 5",-0.250777806959485
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","bspline_B","B-spline","Through week 5",-0.227993338773151
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","bspline_B","B-spline","Through week 5",-0.0817925313864629
+45,1045,"ea38700766ed00739f841a67050a1f0f","bspline_B","B-spline","Through week 5",-0.188691887010196
+46,1046,"9df354b439dcb34c0723dc7a22427817","bspline_B","B-spline","Through week 5",0.18098121083061
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","bspline_B","B-spline","Through week 5",0.132031623435285
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","bspline_B","B-spline","Through week 5",-0.142478946855391
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","bspline_B","B-spline","Through week 5",-0.433352830424974
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","bspline_B","B-spline","Through week 5",0.000932835872583951
+51,1051,"900920f25b406cb0530e847b193e6c9b","bspline_B","B-spline","Through week 5",-0.166764260628449
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","bspline_B","B-spline","Through week 5",0.115326489154415
+53,1053,"21c503be1bfd17d135902892b999365f","bspline_B","B-spline","Through week 5",-0.403604150529289
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","bspline_B","B-spline","Through week 5",-0.0986167784667989
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","bspline_B","B-spline","Through week 5",-0.544182290489867
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","bspline_B","B-spline","Through week 5",0.0298033708138868
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","bspline_B","B-spline","Through week 5",-0.887187947143685
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","bspline_B","B-spline","Through week 5",-0.332179518907261
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","bspline_B","B-spline","Through week 5",-0.344639433137674
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","bspline_B","B-spline","Through week 5",-0.156893710506105
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","bspline_B","B-spline","Through week 5",-0.146286116397627
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","bspline_B","B-spline","Through week 5",-0.177783991489444
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","bspline_B","B-spline","Through week 5",-0.145220866206913
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","bspline_B","B-spline","Through week 5",-0.395211666306448
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","bspline_B","B-spline","Through week 5",-0.0552068192842502
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","bspline_B","B-spline","Through week 5",-0.0298468254203615
+67,1067,"a64edf122ea9288d9cc5843d572b4219","bspline_B","B-spline","Through week 5",0.0798237818868615
+68,1068,"e2dc17973047d198b1f70625999d7313","bspline_B","B-spline","Through week 5",-0.0310124583377915
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","bspline_B","B-spline","Through week 5",-0.172014876387106
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","bspline_B","B-spline","Through week 5",-0.362953353380246
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","bspline_B","B-spline","Through week 5",-0.0346041865937051
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","bspline_B","B-spline","Through week 5",-0.0181177994091345
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","bspline_B","B-spline","Through week 5",-0.0943611082153014
+74,1074,"44fe946085f2400c80cee533d6231e9a","bspline_B","B-spline","Through week 5",-0.250484893225705
+75,1075,"0d820f5ccbfe13549eea216ee2513074","bspline_B","B-spline","Through week 5",-0.303357633099732
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","bspline_B","B-spline","Through week 5",-0.0844683278830451
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","bspline_B","B-spline","Through week 5",-0.160738435305614
+78,1078,"83a908c8ed5455b6c9ef246884162afc","bspline_B","B-spline","Through week 5",-0.234221457171773
+79,1079,"022bd08caeebfca4473b74c3678f71c2","bspline_B","B-spline","Through week 5",-0.317726291766798
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","bspline_B","B-spline","Through week 5",0.0252696628814028
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","bspline_B","B-spline","Through week 5",0.0485463736906571
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","bspline_B","B-spline","Through week 5",-0.0788450771379628
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","bspline_B","B-spline","Through week 5",-0.0537117576534871
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","bspline_B","B-spline","Through week 5",-0.409466168618709
+85,1085,"f306053231f91c40dca3c621e8419b61","bspline_B","B-spline","Through week 5",-0.212035409871484
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","bspline_B","B-spline","Through week 5",-0.66046647269368
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","bspline_B","B-spline","Through week 5",0.0144728965674676
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","bspline_B","B-spline","Through week 5",-0.0701172265408014
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","bspline_B","B-spline","Through week 5",-0.162728224951325
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","bspline_B","B-spline","Through week 5",0.172842216080312
+91,1091,"ffb0df50d948dd9dad8db95b89578130","bspline_B","B-spline","Through week 5",-0.130485109187351
+92,1092,"42c5e41b64f024125d08f483c49d5109","bspline_B","B-spline","Through week 5",-0.20850018381197
+93,1093,"7866b869b011f99e5a6d626fd2b53319","bspline_B","B-spline","Through week 5",-0.232528133997852
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","bspline_B","B-spline","Through week 5",-0.0163202966099008
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","bspline_B","B-spline","Through week 5",-0.161189475895089
+96,1096,"dce19abeba3755021094f84a48b227a7","bspline_B","B-spline","Through week 5",-0.125474461616347
+97,1097,"5f10705eaab893b924c7745af7cbddc2","bspline_B","B-spline","Through week 5",0.026601634686156
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","bspline_B","B-spline","Through week 5",-0.353242695076717
+99,1099,"9d985583339f37fbacb7140d4222662d","bspline_B","B-spline","Through week 5",-0.331397320637984
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","bspline_B","B-spline","Through week 5",0.220910999279166
+101,1101,"51fea122ace66c28fcf6227076a2210d","bspline_B","B-spline","Through week 5",-0.272602197875722
+102,1102,"87466aaae46506b8e351c34782985403","bspline_B","B-spline","Through week 5",-0.83016880412357
+103,1103,"e898b26388bd31312b334e141687631d","bspline_B","B-spline","Through week 5",-0.0920967083419145
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","bspline_B","B-spline","Through week 5",-0.224210415775237
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","bspline_B","B-spline","Through week 5",0.129817759476953
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","bspline_B","B-spline","Through week 5",0.0779286720465134
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","bspline_B","B-spline","Through week 5",0.0536259818692865
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","bspline_B","B-spline","Through week 5",0.0347025216851932
+109,1109,"64378d1cf8147aa375c77012a1f6217d","bspline_B","B-spline","Through week 5",-0.271679833911343
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","bspline_B","B-spline","Through week 5",0.291450137904428
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","bspline_B","B-spline","Through week 5",-0.0498395465026918
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","bspline_B","B-spline","Through week 5",-0.0353735193511429
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","bspline_B","B-spline","Through week 5",-0.0909294235765468
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","bspline_B","B-spline","Through week 5",-0.186804712866686
+115,1115,"527c2542099f691a2a03e60fc5521e3b","bspline_B","B-spline","Through week 5",-0.180402276922766
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","bspline_B","B-spline","Through week 5",0.0208494620044201
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","bspline_B","B-spline","Through week 5",-0.243252161701372
+118,1118,"4fe04592b1bd1b0073226474bda79a17","bspline_B","B-spline","Through week 5",-0.092734416410398
+119,1119,"53a63bcc974e882529742ef97a8b74d5","bspline_B","B-spline","Through week 5",-0.104071728330233
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","bspline_B","B-spline","Through week 5",-0.471361581962451
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","bspline_B","B-spline","Through week 5",-0.086101459977474
+122,1122,"2de2afe17b444c1be6ab135102d2e749","bspline_B","B-spline","Through week 5",-0.145662545394692
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","bspline_B","B-spline","Through week 5",0.0810391560129915
+124,1124,"fee16d34d4badef781de40b823c932b3","bspline_B","B-spline","Through week 5",0.0610785483892352
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","bspline_B","B-spline","Through week 5",0.18935457966582
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","bspline_B","B-spline","Through week 5",-0.227188608787276
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","bspline_B","B-spline","Through week 5",-0.530203468226543
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","bspline_B","B-spline","Through week 5",-0.50996719854552
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","bspline_B","B-spline","Through week 5",-0.161857260212995
+130,1130,"bf14545e60a11dc820244df794a9bbde","bspline_B","B-spline","Through week 5",-0.520390442494484
+131,1131,"f9b4bd3734443873f1d31c98484de516","bspline_B","B-spline","Through week 5",-0.17473088912567
+132,1132,"b571595faf7cf9bf9fb646335e089636","bspline_B","B-spline","Through week 5",-0.653212675027202
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","bspline_B","B-spline","Through week 5",-0.0307676970490371
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","bspline_B","B-spline","Through week 5",-0.0162958938924641
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","bspline_B","B-spline","Through week 5",0.0373539478122828
+136,1136,"75dc159ba49385507004b04106ac29e8","bspline_B","B-spline","Through week 5",0.0073342864342265
+137,1137,"25af99e573ba8708856ba71f5d31801d","bspline_B","B-spline","Through week 5",-0.155292324615805
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","bspline_B","B-spline","Through week 5",-0.0910503651525739
+139,1139,"392c573a8d8baf810091dbff34258106","bspline_B","B-spline","Through week 5",0.0119812415292437
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","bspline_B","B-spline","Through week 5",-0.324012716143745
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","bspline_B","B-spline","Through week 5",0.0126236543271212
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","bspline_B","B-spline","Through week 5",0.127687719664918
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","bspline_B","B-spline","Through week 5",-0.273162564045154
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","bspline_B","B-spline","Through week 5",-0.458485180597928
+145,1145,"2db60151e6a71b77be25757b07f7d413","bspline_B","B-spline","Through week 5",-0.110882334838397
+146,1146,"11b683568a8c7109187e0d518ad44753","bspline_B","B-spline","Through week 5",-0.0611343238890377
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","bspline_B","B-spline","Through week 5",-0.15520816532035
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","bspline_B","B-spline","Through week 5",-0.038410085231108
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","bspline_B","B-spline","Through week 5",-0.786865813371185
+150,1150,"4538cec1dfd416909e103d8882091c24","bspline_B","B-spline","Through week 5",-0.278905982109158
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","bspline_B","B-spline","Through week 5",-0.36298978138229
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","bspline_B","B-spline","Through week 5",0.207461971533058
+153,1153,"442e0ebc852ae02e3200593355a37960","bspline_B","B-spline","Through week 5",-0.0908028751979811
+154,1154,"64361962d8cd28975836ca41ffba829e","bspline_B","B-spline","Through week 5",0.0374782684959007
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","bspline_B","B-spline","Through week 5",-0.0429721918293972
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","bspline_B","B-spline","Through week 5",-0.569591059718183
+157,1157,"66c6e6745a642b2c128f396464ab9c36","bspline_B","B-spline","Through week 5",-0.113544216289436
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","bspline_B","B-spline","Through week 5",-0.189078129643195
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","bspline_B","B-spline","Through week 5",-0.165094619912698
+160,1160,"6fc5bd4defacec08d522e9606a883766","bspline_B","B-spline","Through week 5",-0.131245305420818
+161,1161,"a357237d620a342d728f96dc8aac5757","bspline_B","B-spline","Through week 5",-0.201589306598158
+162,1162,"4cc160a48b020eb4685997894bf01baf","bspline_B","B-spline","Through week 5",-0.179813870645144
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","bspline_B","B-spline","Through week 5",-0.00960997161602331
+164,1164,"d690f07a51a75e813d73e446e77eb394","bspline_B","B-spline","Through week 5",-0.299619622092314
+165,1165,"50366235ff21bfd0a4d01f895b905c92","bspline_B","B-spline","Through week 5",-0.396287885437858
+166,1166,"495d59eeef0b219751064d03c686254d","bspline_B","B-spline","Through week 5",-0.28779902112483
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","bspline_B","B-spline","Through week 5",-0.0174257450591794
+168,1168,"d65d84681677642681932395599566ad","bspline_B","B-spline","Through week 5",-0.255520754891871
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","bspline_B","B-spline","Through week 5",-0.322063583119587
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","bspline_B","B-spline","Through week 5",-0.712180890837036
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","bspline_B","B-spline","Through week 5",-0.13875649140217
+172,1172,"68d41d2891a14e960534c955889a715f","bspline_B","B-spline","Through week 5",-0.0988038383516623
+173,1173,"b998c1e8401789afff3d7d34e1be5997","bspline_B","B-spline","Through week 5",-0.203831463961313
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","bspline_B","B-spline","Through week 5",-0.268017878944902
+175,1175,"2744bfdd13475fbe6815e8986de922fa","bspline_B","B-spline","Through week 5",-0.184004842534008
+176,1176,"c141df7878a0d44e38a58170b4492543","bspline_B","B-spline","Through week 5",-0.421359681278676
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","bspline_B","B-spline","Through week 5",0.113187375765458
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","bspline_B","B-spline","Through week 5",-0.306351471678017
+179,1179,"6d4a044da028c76d3fafc003136384eb","bspline_B","B-spline","Through week 5",-0.0984009383009349
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","bspline_B","B-spline","Through week 5",-0.116478127620369
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","bspline_B","B-spline","Through week 5",-0.206255397456439
+182,1182,"941f9c48ec56eb19b25786187b006f10","bspline_B","B-spline","Through week 5",-0.0722156515129777
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","bspline_B","B-spline","Through week 5",-0.304951564935331
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","bspline_B","B-spline","Through week 5",-0.256125215618705
+185,1185,"52e3986fb55b179cf59e4540a86a982d","bspline_B","B-spline","Through week 5",-0.638658244440983
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","bspline_B","B-spline","Through week 5",-0.256333799048113
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","bspline_B","B-spline","Through week 5",0.045897745020871
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","bspline_B","B-spline","Through week 5",-0.174454920291582
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","bspline_B","B-spline","Through week 5",-0.242923892868435
+190,1190,"e11e338409fdbfff7af641a286a93437","bspline_B","B-spline","Through week 5",-0.163167875961742
+191,1191,"88ccda7d997701880c9d0c636b220b1e","bspline_B","B-spline","Through week 5",-0.174696649744969
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","bspline_B","B-spline","Through week 5",-0.250123200536394
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","bspline_B","B-spline","Through week 5",-0.0892508906462825
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","bspline_B","B-spline","Through week 5",-0.36148052394186
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","bspline_B","B-spline","Through week 5",-0.219586541751725
+196,1196,"4a7772e1b5862480e3537a3124e41c07","bspline_B","B-spline","Through week 5",-0.72111628952037
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","bspline_B","B-spline","Through week 5",-0.423617008459957
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","bspline_B","B-spline","Through week 5",-0.324767535494111
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","bspline_B","B-spline","Through week 5",0.00657794515107968
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","bspline_B","B-spline","Through week 5",-0.156280905364752
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","constant_B","Constant-B","Through week 5",0.0453494040449103
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","constant_B","Constant-B","Through week 5",0.58191516227993
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","constant_B","Constant-B","Through week 5",-0.96705736170117
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","constant_B","Constant-B","Through week 5",-0.3073619697593
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","constant_B","Constant-B","Through week 5",-0.36193223249965
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","constant_B","Constant-B","Through week 5",-0.7765662710982
+7,1007,"c23f10d0daa427c993e4ece1079ed751","constant_B","Constant-B","Through week 5",0.55514019470827
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","constant_B","Constant-B","Through week 5",-0.23039005368199
+9,1009,"51101219b554b4802624e043f09d6160","constant_B","Constant-B","Through week 5",-0.12296231974162
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","constant_B","Constant-B","Through week 5",-0.8696971078254
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","constant_B","Constant-B","Through week 5",-0.0986659511815402
+12,1012,"05f564b562cd69afde749fbba393d734","constant_B","Constant-B","Through week 5",-0.54962854727771
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","constant_B","Constant-B","Through week 5",0.12176555740855
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","constant_B","Constant-B","Through week 5",-0.40551924502083
+15,1015,"ae056eafb87645cec401ccb46346269b","constant_B","Constant-B","Through week 5",-0.16894843010253
+16,1016,"a714e996eac59ec21285ac81b9fb5223","constant_B","Constant-B","Through week 5",-0.46206988824915
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","constant_B","Constant-B","Through week 5",-0.84983387964921
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","constant_B","Constant-B","Through week 5",-0.81431879989812
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","constant_B","Constant-B","Through week 5",0.000776000861329784
+20,1020,"714f6bb12c5d63009433470452ca002b","constant_B","Constant-B","Through week 5",-0.46076156973586
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","constant_B","Constant-B","Through week 5",-0.49694135592765
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","constant_B","Constant-B","Through week 5",-0.35700308625793
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","constant_B","Constant-B","Through week 5",-0.15866635882297
+24,1024,"f17101a77a91a5858651ca092461a15e","constant_B","Constant-B","Through week 5",-0.64142522607191
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","constant_B","Constant-B","Through week 5",-0.37024115021242
+26,1026,"7d638818fac5c183766d7bd337251990","constant_B","Constant-B","Through week 5",-0.25297853700974
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","constant_B","Constant-B","Through week 5",-0.52004076990899
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","constant_B","Constant-B","Through week 5",-0.10792904191633
+29,1029,"f88e4728f80479179227d46e3ae73be8","constant_B","Constant-B","Through week 5",-0.78041128356934
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","constant_B","Constant-B","Through week 5",-0.37211778955599
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","constant_B","Constant-B","Through week 5",-0.52187582403616
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","constant_B","Constant-B","Through week 5",-0.30457165360667
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","constant_B","Constant-B","Through week 5",0.0690117225512301
+34,1034,"6295649cce30d443915163e1f486574c","constant_B","Constant-B","Through week 5",-0.14884278411052
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","constant_B","Constant-B","Through week 5",-0.58402031620894
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","constant_B","Constant-B","Through week 5",-0.79798982232838
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","constant_B","Constant-B","Through week 5",-0.51921886822125
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","constant_B","Constant-B","Through week 5",-0.88637692290953
+39,1039,"42f80019227937c2a1292d80471ad885","constant_B","Constant-B","Through week 5",-0.45552189711306
+40,1040,"ab1d08dee64fd498a66e009327aa8634","constant_B","Constant-B","Through week 5",-0.51093247336861
+41,1041,"287dedf1d0604d7339bf2699355ae974","constant_B","Constant-B","Through week 5",-0.67128489455258
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","constant_B","Constant-B","Through week 5",-0.53838381263451
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","constant_B","Constant-B","Through week 5",-0.51240911998068
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","constant_B","Constant-B","Through week 5",-0.3825391086177
+45,1045,"ea38700766ed00739f841a67050a1f0f","constant_B","Constant-B","Through week 5",-0.54238876702459
+46,1046,"9df354b439dcb34c0723dc7a22427817","constant_B","Constant-B","Through week 5",0.50023698758207
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","constant_B","Constant-B","Through week 5",0.24346087790554
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","constant_B","Constant-B","Through week 5",-0.45997470853743
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","constant_B","Constant-B","Through week 5",-0.74958578475288
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","constant_B","Constant-B","Through week 5",-0.17934796314425
+51,1051,"900920f25b406cb0530e847b193e6c9b","constant_B","Constant-B","Through week 5",-0.47955859478043
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","constant_B","Constant-B","Through week 5",0.0333698972195204
+53,1053,"21c503be1bfd17d135902892b999365f","constant_B","Constant-B","Through week 5",-0.75391057692401
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","constant_B","Constant-B","Through week 5",-0.41466407813482
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","constant_B","Constant-B","Through week 5",-0.8784682435586
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","constant_B","Constant-B","Through week 5",-0.21121359303647
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","constant_B","Constant-B","Through week 5",-1.12582473439316
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","constant_B","Constant-B","Through week 5",-0.60695804781552
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","constant_B","Constant-B","Through week 5",-0.71050340514443
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","constant_B","Constant-B","Through week 5",-0.40827040661492
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","constant_B","Constant-B","Through week 5",-0.40777849437012
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","constant_B","Constant-B","Through week 5",-0.49919485471354
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","constant_B","Constant-B","Through week 5",-0.3624468565877
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","constant_B","Constant-B","Through week 5",-0.77221630747359
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","constant_B","Constant-B","Through week 5",-0.24472911811689
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","constant_B","Constant-B","Through week 5",-0.2064963690573
+67,1067,"a64edf122ea9288d9cc5843d572b4219","constant_B","Constant-B","Through week 5",0.16664879407241
+68,1068,"e2dc17973047d198b1f70625999d7313","constant_B","Constant-B","Through week 5",-0.20287054843842
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","constant_B","Constant-B","Through week 5",-0.50803603667548
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","constant_B","Constant-B","Through week 5",-0.76876410670947
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","constant_B","Constant-B","Through week 5",-0.19087683145261
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","constant_B","Constant-B","Through week 5",-0.16592046425875
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","constant_B","Constant-B","Through week 5",-0.36713831628691
+74,1074,"44fe946085f2400c80cee533d6231e9a","constant_B","Constant-B","Through week 5",-0.66097120656278
+75,1075,"0d820f5ccbfe13549eea216ee2513074","constant_B","Constant-B","Through week 5",-0.64652644372611
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","constant_B","Constant-B","Through week 5",-0.27902168323488
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","constant_B","Constant-B","Through week 5",-0.46761658968353
+78,1078,"83a908c8ed5455b6c9ef246884162afc","constant_B","Constant-B","Through week 5",-0.56653322938422
+79,1079,"022bd08caeebfca4473b74c3678f71c2","constant_B","Constant-B","Through week 5",-0.64529336555425
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","constant_B","Constant-B","Through week 5",-0.2278247883481
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","constant_B","Constant-B","Through week 5",-0.00578838909384016
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","constant_B","Constant-B","Through week 5",-0.46706132033756
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","constant_B","Constant-B","Through week 5",-0.38162886692794
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","constant_B","Constant-B","Through week 5",-0.68916538553627
+85,1085,"f306053231f91c40dca3c621e8419b61","constant_B","Constant-B","Through week 5",-0.52986835343132
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","constant_B","Constant-B","Through week 5",-0.94070540356257
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","constant_B","Constant-B","Through week 5",-0.17708070941027
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","constant_B","Constant-B","Through week 5",-0.30710558663625
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","constant_B","Constant-B","Through week 5",-0.5329997587337
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","constant_B","Constant-B","Through week 5",0.18443021643441
+91,1091,"ffb0df50d948dd9dad8db95b89578130","constant_B","Constant-B","Through week 5",-0.44931520451024
+92,1092,"42c5e41b64f024125d08f483c49d5109","constant_B","Constant-B","Through week 5",-0.70815573997835
+93,1093,"7866b869b011f99e5a6d626fd2b53319","constant_B","Constant-B","Through week 5",-0.60494630838889
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","constant_B","Constant-B","Through week 5",-0.25486826390279
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","constant_B","Constant-B","Through week 5",-0.51277020273243
+96,1096,"dce19abeba3755021094f84a48b227a7","constant_B","Constant-B","Through week 5",-0.31600063305372
+97,1097,"5f10705eaab893b924c7745af7cbddc2","constant_B","Constant-B","Through week 5",-0.18461316866004
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","constant_B","Constant-B","Through week 5",-0.73420310280589
+99,1099,"9d985583339f37fbacb7140d4222662d","constant_B","Constant-B","Through week 5",-0.63718427150653
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","constant_B","Constant-B","Through week 5",0.34554483933557
+101,1101,"51fea122ace66c28fcf6227076a2210d","constant_B","Constant-B","Through week 5",-0.53413203035934
+102,1102,"87466aaae46506b8e351c34782985403","constant_B","Constant-B","Through week 5",-1.08149181500724
+103,1103,"e898b26388bd31312b334e141687631d","constant_B","Constant-B","Through week 5",-0.33486166659007
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","constant_B","Constant-B","Through week 5",-0.54008059789363
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","constant_B","Constant-B","Through week 5",-0.00295762587083992
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","constant_B","Constant-B","Through week 5",0.0960615926162802
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","constant_B","Constant-B","Through week 5",-0.09884485398047
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","constant_B","Constant-B","Through week 5",-0.13187742438721
+109,1109,"64378d1cf8147aa375c77012a1f6217d","constant_B","Constant-B","Through week 5",-0.59812402838875
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","constant_B","Constant-B","Through week 5",0.57461126928035
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","constant_B","Constant-B","Through week 5",-0.28470674954925
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","constant_B","Constant-B","Through week 5",-0.42387200515713
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","constant_B","Constant-B","Through week 5",-0.39424473031911
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","constant_B","Constant-B","Through week 5",-0.54010097238038
+115,1115,"527c2542099f691a2a03e60fc5521e3b","constant_B","Constant-B","Through week 5",-0.4279529460667
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","constant_B","Constant-B","Through week 5",-0.149957487956
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","constant_B","Constant-B","Through week 5",-0.61219006144851
+118,1118,"4fe04592b1bd1b0073226474bda79a17","constant_B","Constant-B","Through week 5",-0.33345668621798
+119,1119,"53a63bcc974e882529742ef97a8b74d5","constant_B","Constant-B","Through week 5",-0.44598597117921
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","constant_B","Constant-B","Through week 5",-0.87022167165529
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","constant_B","Constant-B","Through week 5",-0.38636916998167
+122,1122,"2de2afe17b444c1be6ab135102d2e749","constant_B","Constant-B","Through week 5",-0.52174358210334
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","constant_B","Constant-B","Through week 5",-0.1349499369554
+124,1124,"fee16d34d4badef781de40b823c932b3","constant_B","Constant-B","Through week 5",-0.1554705857876
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","constant_B","Constant-B","Through week 5",0.41824234537544
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","constant_B","Constant-B","Through week 5",-0.58342653349124
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","constant_B","Constant-B","Through week 5",-0.79578251652622
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","constant_B","Constant-B","Through week 5",-0.92903302973519
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","constant_B","Constant-B","Through week 5",-0.51543380340199
+130,1130,"bf14545e60a11dc820244df794a9bbde","constant_B","Constant-B","Through week 5",-0.93557397679545
+131,1131,"f9b4bd3734443873f1d31c98484de516","constant_B","Constant-B","Through week 5",-0.51382024674616
+132,1132,"b571595faf7cf9bf9fb646335e089636","constant_B","Constant-B","Through week 5",-1.01075813932074
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","constant_B","Constant-B","Through week 5",-0.31547572105151
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","constant_B","Constant-B","Through week 5",-0.21142920335192
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","constant_B","Constant-B","Through week 5",-0.11072854588815
+136,1136,"75dc159ba49385507004b04106ac29e8","constant_B","Constant-B","Through week 5",-0.19493319053889
+137,1137,"25af99e573ba8708856ba71f5d31801d","constant_B","Constant-B","Through week 5",-0.48272458351198
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","constant_B","Constant-B","Through week 5",-0.43178221842986
+139,1139,"392c573a8d8baf810091dbff34258106","constant_B","Constant-B","Through week 5",-0.10487595582012
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","constant_B","Constant-B","Through week 5",-0.6624351796571
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","constant_B","Constant-B","Through week 5",-0.0616459492791201
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","constant_B","Constant-B","Through week 5",0.10423453480635
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","constant_B","Constant-B","Through week 5",-0.60556844151259
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","constant_B","Constant-B","Through week 5",-0.80032827230352
+145,1145,"2db60151e6a71b77be25757b07f7d413","constant_B","Constant-B","Through week 5",-0.42696412325075
+146,1146,"11b683568a8c7109187e0d518ad44753","constant_B","Constant-B","Through week 5",-0.33208306612325
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","constant_B","Constant-B","Through week 5",-0.4889100164708
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","constant_B","Constant-B","Through week 5",-0.27093226826656
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","constant_B","Constant-B","Through week 5",-1.04614061546128
+150,1150,"4538cec1dfd416909e103d8882091c24","constant_B","Constant-B","Through week 5",-0.59795228551406
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","constant_B","Constant-B","Through week 5",-0.71541264132669
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","constant_B","Constant-B","Through week 5",0.46866101561535
+153,1153,"442e0ebc852ae02e3200593355a37960","constant_B","Constant-B","Through week 5",-0.35147612470351
+154,1154,"64361962d8cd28975836ca41ffba829e","constant_B","Constant-B","Through week 5",-0.14205625493169
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","constant_B","Constant-B","Through week 5",-0.14309283978889
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","constant_B","Constant-B","Through week 5",-0.88586165622397
+157,1157,"66c6e6745a642b2c128f396464ab9c36","constant_B","Constant-B","Through week 5",-0.36943837921442
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","constant_B","Constant-B","Through week 5",-0.52828974572427
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","constant_B","Constant-B","Through week 5",-0.45878647213121
+160,1160,"6fc5bd4defacec08d522e9606a883766","constant_B","Constant-B","Through week 5",-0.44344940669599
+161,1161,"a357237d620a342d728f96dc8aac5757","constant_B","Constant-B","Through week 5",-0.49552628021803
+162,1162,"4cc160a48b020eb4685997894bf01baf","constant_B","Constant-B","Through week 5",-0.42898178768172
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","constant_B","Constant-B","Through week 5",-0.14450732538155
+164,1164,"d690f07a51a75e813d73e446e77eb394","constant_B","Constant-B","Through week 5",-0.65285435465958
+165,1165,"50366235ff21bfd0a4d01f895b905c92","constant_B","Constant-B","Through week 5",-0.74965541378183
+166,1166,"495d59eeef0b219751064d03c686254d","constant_B","Constant-B","Through week 5",-0.48696239964781
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","constant_B","Constant-B","Through week 5",-0.2570073585418
+168,1168,"d65d84681677642681932395599566ad","constant_B","Constant-B","Through week 5",-0.59821780043057
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","constant_B","Constant-B","Through week 5",-0.74635527436989
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","constant_B","Constant-B","Through week 5",-0.97384616852328
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","constant_B","Constant-B","Through week 5",-0.48588589025363
+172,1172,"68d41d2891a14e960534c955889a715f","constant_B","Constant-B","Through week 5",-0.43134971253288
+173,1173,"b998c1e8401789afff3d7d34e1be5997","constant_B","Constant-B","Through week 5",-0.41765067049608
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","constant_B","Constant-B","Through week 5",-0.64713745069868
+175,1175,"2744bfdd13475fbe6815e8986de922fa","constant_B","Constant-B","Through week 5",-0.50956994464032
+176,1176,"c141df7878a0d44e38a58170b4492543","constant_B","Constant-B","Through week 5",-0.79642522319271
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","constant_B","Constant-B","Through week 5",-0.0230450855147799
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","constant_B","Constant-B","Through week 5",-0.64783236555604
+179,1179,"6d4a044da028c76d3fafc003136384eb","constant_B","Constant-B","Through week 5",-0.34182363246648
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","constant_B","Constant-B","Through week 5",-0.43844690912717
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","constant_B","Constant-B","Through week 5",-0.49140947386695
+182,1182,"941f9c48ec56eb19b25786187b006f10","constant_B","Constant-B","Through week 5",-0.13266404674036
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","constant_B","Constant-B","Through week 5",-0.76974491409248
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","constant_B","Constant-B","Through week 5",-0.56186685323813
+185,1185,"52e3986fb55b179cf59e4540a86a982d","constant_B","Constant-B","Through week 5",-0.99879692664622
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","constant_B","Constant-B","Through week 5",-0.49909636640785
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","constant_B","Constant-B","Through week 5",-0.0108489722264902
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","constant_B","Constant-B","Through week 5",-0.65205437583106
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","constant_B","Constant-B","Through week 5",-0.71964543554889
+190,1190,"e11e338409fdbfff7af641a286a93437","constant_B","Constant-B","Through week 5",-0.50450759808022
+191,1191,"88ccda7d997701880c9d0c636b220b1e","constant_B","Constant-B","Through week 5",-0.53146464284862
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","constant_B","Constant-B","Through week 5",-0.73055765800513
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","constant_B","Constant-B","Through week 5",-0.2201025947003
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","constant_B","Constant-B","Through week 5",-0.68112989168211
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","constant_B","Constant-B","Through week 5",-0.54483544334822
+196,1196,"4a7772e1b5862480e3537a3124e41c07","constant_B","Constant-B","Through week 5",-1.02554133428896
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","constant_B","Constant-B","Through week 5",-0.79111496516245
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","constant_B","Constant-B","Through week 5",-0.6664794702493
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","constant_B","Constant-B","Through week 5",-0.17691135300832
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","constant_B","Constant-B","Through week 5",-0.33109144346573
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","gamma_noise","Gamma-noise","After week 5",0.34842533999419
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","gamma_noise","Gamma-noise","After week 5",0.304793475031078
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","gamma_noise","Gamma-noise","After week 5",-0.534315104540092
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","gamma_noise","Gamma-noise","After week 5",0.525954963612433
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","gamma_noise","Gamma-noise","After week 5",-0.0814942781246574
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","gamma_noise","Gamma-noise","After week 5",0.297162820709717
+7,1007,"c23f10d0daa427c993e4ece1079ed751","gamma_noise","Gamma-noise","After week 5",0.520287328144302
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","gamma_noise","Gamma-noise","After week 5",0.282274969032934
+9,1009,"51101219b554b4802624e043f09d6160","gamma_noise","Gamma-noise","After week 5",0.374222434702366
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","gamma_noise","Gamma-noise","After week 5",0.318729222099437
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","gamma_noise","Gamma-noise","After week 5",0.51732160323045
+12,1012,"05f564b562cd69afde749fbba393d734","gamma_noise","Gamma-noise","After week 5",-0.336434562304967
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","gamma_noise","Gamma-noise","After week 5",0.499587565092147
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","gamma_noise","Gamma-noise","After week 5",0.491898323844438
+15,1015,"ae056eafb87645cec401ccb46346269b","gamma_noise","Gamma-noise","After week 5",0.126652925141555
+16,1016,"a714e996eac59ec21285ac81b9fb5223","gamma_noise","Gamma-noise","After week 5",0.33131507042684
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","gamma_noise","Gamma-noise","After week 5",-0.0784993314445243
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","gamma_noise","Gamma-noise","After week 5",0.278159842417263
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","gamma_noise","Gamma-noise","After week 5",-0.385023056146203
+20,1020,"714f6bb12c5d63009433470452ca002b","gamma_noise","Gamma-noise","After week 5",0.301805108376172
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","gamma_noise","Gamma-noise","After week 5",-0.084608411302674
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","gamma_noise","Gamma-noise","After week 5",0.173344211474638
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","gamma_noise","Gamma-noise","After week 5",0.15121578254816
+24,1024,"f17101a77a91a5858651ca092461a15e","gamma_noise","Gamma-noise","After week 5",0.0995210020638577
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","gamma_noise","Gamma-noise","After week 5",-0.286764455973504
+26,1026,"7d638818fac5c183766d7bd337251990","gamma_noise","Gamma-noise","After week 5",0.123604543605259
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","gamma_noise","Gamma-noise","After week 5",0.278177826194426
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","gamma_noise","Gamma-noise","After week 5",0.0741404038854357
+29,1029,"f88e4728f80479179227d46e3ae73be8","gamma_noise","Gamma-noise","After week 5",0.137182044886337
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","gamma_noise","Gamma-noise","After week 5",0.224293776876399
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","gamma_noise","Gamma-noise","After week 5",-0.903426373161584
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","gamma_noise","Gamma-noise","After week 5",0.222256279926195
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","gamma_noise","Gamma-noise","After week 5",0.606511427546818
+34,1034,"6295649cce30d443915163e1f486574c","gamma_noise","Gamma-noise","After week 5",0.15721305653054
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","gamma_noise","Gamma-noise","After week 5",0.228064900020789
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","gamma_noise","Gamma-noise","After week 5",0.232967747548911
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","gamma_noise","Gamma-noise","After week 5",-0.367533907014631
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","gamma_noise","Gamma-noise","After week 5",0.122505031794951
+39,1039,"42f80019227937c2a1292d80471ad885","gamma_noise","Gamma-noise","After week 5",0.13914126813667
+40,1040,"ab1d08dee64fd498a66e009327aa8634","gamma_noise","Gamma-noise","After week 5",0.0501156689996617
+41,1041,"287dedf1d0604d7339bf2699355ae974","gamma_noise","Gamma-noise","After week 5",0.189697544627459
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","gamma_noise","Gamma-noise","After week 5",0.327814940908864
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","gamma_noise","Gamma-noise","After week 5",0.00649724644236914
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","gamma_noise","Gamma-noise","After week 5",0.320314064591753
+45,1045,"ea38700766ed00739f841a67050a1f0f","gamma_noise","Gamma-noise","After week 5",-0.0497890883553291
+46,1046,"9df354b439dcb34c0723dc7a22427817","gamma_noise","Gamma-noise","After week 5",0.476241682073956
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","gamma_noise","Gamma-noise","After week 5",0.4597416418938
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","gamma_noise","Gamma-noise","After week 5",-0.0932235459195151
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","gamma_noise","Gamma-noise","After week 5",-0.354437477782206
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","gamma_noise","Gamma-noise","After week 5",0.576145564842447
+51,1051,"900920f25b406cb0530e847b193e6c9b","gamma_noise","Gamma-noise","After week 5",0.22175650601492
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","gamma_noise","Gamma-noise","After week 5",0.00420370537747173
+53,1053,"21c503be1bfd17d135902892b999365f","gamma_noise","Gamma-noise","After week 5",0.237997081757443
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","gamma_noise","Gamma-noise","After week 5",-0.103776352774057
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","gamma_noise","Gamma-noise","After week 5",0.339989831758542
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","gamma_noise","Gamma-noise","After week 5",-0.0035057696971166
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","gamma_noise","Gamma-noise","After week 5",0.457288560218876
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","gamma_noise","Gamma-noise","After week 5",0.221921955457026
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","gamma_noise","Gamma-noise","After week 5",0.147624222820494
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","gamma_noise","Gamma-noise","After week 5",0.3751359733798
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","gamma_noise","Gamma-noise","After week 5",0.286679661563627
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","gamma_noise","Gamma-noise","After week 5",0.0244617299825089
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","gamma_noise","Gamma-noise","After week 5",-0.139294168892385
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","gamma_noise","Gamma-noise","After week 5",0.410786503853259
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","gamma_noise","Gamma-noise","After week 5",-0.173392664058096
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","gamma_noise","Gamma-noise","After week 5",0.24379491893273
+67,1067,"a64edf122ea9288d9cc5843d572b4219","gamma_noise","Gamma-noise","After week 5",-0.00275202258311177
+68,1068,"e2dc17973047d198b1f70625999d7313","gamma_noise","Gamma-noise","After week 5",-0.163023176737506
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","gamma_noise","Gamma-noise","After week 5",-0.419362434693107
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","gamma_noise","Gamma-noise","After week 5",-0.0397406670475683
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","gamma_noise","Gamma-noise","After week 5",0.119593312284064
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","gamma_noise","Gamma-noise","After week 5",-0.198259262280271
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","gamma_noise","Gamma-noise","After week 5",0.288795642513751
+74,1074,"44fe946085f2400c80cee533d6231e9a","gamma_noise","Gamma-noise","After week 5",0.24207558100392
+75,1075,"0d820f5ccbfe13549eea216ee2513074","gamma_noise","Gamma-noise","After week 5",-0.103247976580854
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","gamma_noise","Gamma-noise","After week 5",0.390430388414192
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","gamma_noise","Gamma-noise","After week 5",0.0670606734563586
+78,1078,"83a908c8ed5455b6c9ef246884162afc","gamma_noise","Gamma-noise","After week 5",0.404048623610712
+79,1079,"022bd08caeebfca4473b74c3678f71c2","gamma_noise","Gamma-noise","After week 5",0.240042663510982
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","gamma_noise","Gamma-noise","After week 5",-0.129190582174034
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","gamma_noise","Gamma-noise","After week 5",0.083861173694161
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","gamma_noise","Gamma-noise","After week 5",-0.498351072514331
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","gamma_noise","Gamma-noise","After week 5",-0.584840030501641
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","gamma_noise","Gamma-noise","After week 5",-0.189785289503115
+85,1085,"f306053231f91c40dca3c621e8419b61","gamma_noise","Gamma-noise","After week 5",0.174749571427032
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","gamma_noise","Gamma-noise","After week 5",-0.399039362292247
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","gamma_noise","Gamma-noise","After week 5",0.684339870676204
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","gamma_noise","Gamma-noise","After week 5",0.250279037397539
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","gamma_noise","Gamma-noise","After week 5",-0.167057422830479
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","gamma_noise","Gamma-noise","After week 5",0.433928399009834
+91,1091,"ffb0df50d948dd9dad8db95b89578130","gamma_noise","Gamma-noise","After week 5",0.00711823712915283
+92,1092,"42c5e41b64f024125d08f483c49d5109","gamma_noise","Gamma-noise","After week 5",-0.210863109581753
+93,1093,"7866b869b011f99e5a6d626fd2b53319","gamma_noise","Gamma-noise","After week 5",0.109030831478403
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","gamma_noise","Gamma-noise","After week 5",0.216811746333787
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","gamma_noise","Gamma-noise","After week 5",0.186627551314353
+96,1096,"dce19abeba3755021094f84a48b227a7","gamma_noise","Gamma-noise","After week 5",-0.198681697173012
+97,1097,"5f10705eaab893b924c7745af7cbddc2","gamma_noise","Gamma-noise","After week 5",0.132420580498755
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","gamma_noise","Gamma-noise","After week 5",-0.384615431662387
+99,1099,"9d985583339f37fbacb7140d4222662d","gamma_noise","Gamma-noise","After week 5",0.0912280696112345
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","gamma_noise","Gamma-noise","After week 5",0.861957664959128
+101,1101,"51fea122ace66c28fcf6227076a2210d","gamma_noise","Gamma-noise","After week 5",-0.0306931834231274
+102,1102,"87466aaae46506b8e351c34782985403","gamma_noise","Gamma-noise","After week 5",0.451505484090874
+103,1103,"e898b26388bd31312b334e141687631d","gamma_noise","Gamma-noise","After week 5",-0.205755317537453
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","gamma_noise","Gamma-noise","After week 5",-0.269391219985907
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","gamma_noise","Gamma-noise","After week 5",-0.28676177595131
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","gamma_noise","Gamma-noise","After week 5",-0.04368292158745
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","gamma_noise","Gamma-noise","After week 5",0.2705666589533
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","gamma_noise","Gamma-noise","After week 5",0.0352246698441785
+109,1109,"64378d1cf8147aa375c77012a1f6217d","gamma_noise","Gamma-noise","After week 5",0.0329911283725551
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","gamma_noise","Gamma-noise","After week 5",0.373319927404898
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","gamma_noise","Gamma-noise","After week 5",-0.383091237402172
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","gamma_noise","Gamma-noise","After week 5",-0.581508274952325
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","gamma_noise","Gamma-noise","After week 5",0.266437835869705
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","gamma_noise","Gamma-noise","After week 5",-0.109369260635183
+115,1115,"527c2542099f691a2a03e60fc5521e3b","gamma_noise","Gamma-noise","After week 5",0.365372718794842
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","gamma_noise","Gamma-noise","After week 5",0.68636557357616
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","gamma_noise","Gamma-noise","After week 5",-0.425795522894079
+118,1118,"4fe04592b1bd1b0073226474bda79a17","gamma_noise","Gamma-noise","After week 5",0.185386245882279
+119,1119,"53a63bcc974e882529742ef97a8b74d5","gamma_noise","Gamma-noise","After week 5",0.314355520634569
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","gamma_noise","Gamma-noise","After week 5",0.325997202060597
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","gamma_noise","Gamma-noise","After week 5",0.275202991805
+122,1122,"2de2afe17b444c1be6ab135102d2e749","gamma_noise","Gamma-noise","After week 5",-0.102830194485533
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","gamma_noise","Gamma-noise","After week 5",-0.58852782819746
+124,1124,"fee16d34d4badef781de40b823c932b3","gamma_noise","Gamma-noise","After week 5",-0.11198332376598
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","gamma_noise","Gamma-noise","After week 5",0.753104263628685
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","gamma_noise","Gamma-noise","After week 5",0.174685925927295
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","gamma_noise","Gamma-noise","After week 5",-0.390963038102562
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","gamma_noise","Gamma-noise","After week 5",-0.0596303556160817
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","gamma_noise","Gamma-noise","After week 5",-0.0389089260914654
+130,1130,"bf14545e60a11dc820244df794a9bbde","gamma_noise","Gamma-noise","After week 5",-0.153174661538589
+131,1131,"f9b4bd3734443873f1d31c98484de516","gamma_noise","Gamma-noise","After week 5",-0.0718963288240697
+132,1132,"b571595faf7cf9bf9fb646335e089636","gamma_noise","Gamma-noise","After week 5",-0.198480339167144
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","gamma_noise","Gamma-noise","After week 5",-0.0399417266001574
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","gamma_noise","Gamma-noise","After week 5",0.208218025850527
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","gamma_noise","Gamma-noise","After week 5",0.0822336764585317
+136,1136,"75dc159ba49385507004b04106ac29e8","gamma_noise","Gamma-noise","After week 5",0.106707677913942
+137,1137,"25af99e573ba8708856ba71f5d31801d","gamma_noise","Gamma-noise","After week 5",0.0380248234388878
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","gamma_noise","Gamma-noise","After week 5",-0.0795204117769268
+139,1139,"392c573a8d8baf810091dbff34258106","gamma_noise","Gamma-noise","After week 5",-0.00496179697275659
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","gamma_noise","Gamma-noise","After week 5",0.139537556627141
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","gamma_noise","Gamma-noise","After week 5",0.635029322399369
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","gamma_noise","Gamma-noise","After week 5",-0.0549552546840757
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","gamma_noise","Gamma-noise","After week 5",0.234549313612295
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","gamma_noise","Gamma-noise","After week 5",0.0755093208745777
+145,1145,"2db60151e6a71b77be25757b07f7d413","gamma_noise","Gamma-noise","After week 5",-0.33702326443256
+146,1146,"11b683568a8c7109187e0d518ad44753","gamma_noise","Gamma-noise","After week 5",-0.198363237693068
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","gamma_noise","Gamma-noise","After week 5",0.101694513146292
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","gamma_noise","Gamma-noise","After week 5",0.806607168846413
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","gamma_noise","Gamma-noise","After week 5",0.0293858818926669
+150,1150,"4538cec1dfd416909e103d8882091c24","gamma_noise","Gamma-noise","After week 5",-0.134527214419302
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","gamma_noise","Gamma-noise","After week 5",0.350220208349445
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","gamma_noise","Gamma-noise","After week 5",0.211913971353249
+153,1153,"442e0ebc852ae02e3200593355a37960","gamma_noise","Gamma-noise","After week 5",-0.0419618445292022
+154,1154,"64361962d8cd28975836ca41ffba829e","gamma_noise","Gamma-noise","After week 5",0.572902430951252
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","gamma_noise","Gamma-noise","After week 5",-0.215603272399605
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","gamma_noise","Gamma-noise","After week 5",-0.0562023549073086
+157,1157,"66c6e6745a642b2c128f396464ab9c36","gamma_noise","Gamma-noise","After week 5",0.383557220694152
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","gamma_noise","Gamma-noise","After week 5",0.210770458541079
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","gamma_noise","Gamma-noise","After week 5",0.209627181481533
+160,1160,"6fc5bd4defacec08d522e9606a883766","gamma_noise","Gamma-noise","After week 5",0.262677541796069
+161,1161,"a357237d620a342d728f96dc8aac5757","gamma_noise","Gamma-noise","After week 5",0.132023268962718
+162,1162,"4cc160a48b020eb4685997894bf01baf","gamma_noise","Gamma-noise","After week 5",0.0671176034115386
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","gamma_noise","Gamma-noise","After week 5",0.0104417828611172
+164,1164,"d690f07a51a75e813d73e446e77eb394","gamma_noise","Gamma-noise","After week 5",0.0808344102637285
+165,1165,"50366235ff21bfd0a4d01f895b905c92","gamma_noise","Gamma-noise","After week 5",0.240829329831195
+166,1166,"495d59eeef0b219751064d03c686254d","gamma_noise","Gamma-noise","After week 5",-0.113514085974821
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","gamma_noise","Gamma-noise","After week 5",0.00349658374201656
+168,1168,"d65d84681677642681932395599566ad","gamma_noise","Gamma-noise","After week 5",-0.136843464875059
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","gamma_noise","Gamma-noise","After week 5",-0.279751710818504
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","gamma_noise","Gamma-noise","After week 5",0.00705363137946144
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","gamma_noise","Gamma-noise","After week 5",-0.29521579625133
+172,1172,"68d41d2891a14e960534c955889a715f","gamma_noise","Gamma-noise","After week 5",-0.335358602521361
+173,1173,"b998c1e8401789afff3d7d34e1be5997","gamma_noise","Gamma-noise","After week 5",0.101938114960045
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","gamma_noise","Gamma-noise","After week 5",0.169219448516479
+175,1175,"2744bfdd13475fbe6815e8986de922fa","gamma_noise","Gamma-noise","After week 5",0.579226526055896
+176,1176,"c141df7878a0d44e38a58170b4492543","gamma_noise","Gamma-noise","After week 5",0.129192906334139
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","gamma_noise","Gamma-noise","After week 5",-0.403143077967997
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","gamma_noise","Gamma-noise","After week 5",0.0456011976422195
+179,1179,"6d4a044da028c76d3fafc003136384eb","gamma_noise","Gamma-noise","After week 5",0.0720732509046022
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","gamma_noise","Gamma-noise","After week 5",0.0705912654093774
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","gamma_noise","Gamma-noise","After week 5",0.396816868901809
+182,1182,"941f9c48ec56eb19b25786187b006f10","gamma_noise","Gamma-noise","After week 5",-0.162919541771911
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","gamma_noise","Gamma-noise","After week 5",-0.525500031965653
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","gamma_noise","Gamma-noise","After week 5",-0.120890472730264
+185,1185,"52e3986fb55b179cf59e4540a86a982d","gamma_noise","Gamma-noise","After week 5",0.0710966335643348
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","gamma_noise","Gamma-noise","After week 5",-0.134187503342089
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","gamma_noise","Gamma-noise","After week 5",0.600500715200025
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","gamma_noise","Gamma-noise","After week 5",-0.0115232786194042
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","gamma_noise","Gamma-noise","After week 5",-0.328380879745223
+190,1190,"e11e338409fdbfff7af641a286a93437","gamma_noise","Gamma-noise","After week 5",0.352957461552747
+191,1191,"88ccda7d997701880c9d0c636b220b1e","gamma_noise","Gamma-noise","After week 5",0.00616420969436877
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","gamma_noise","Gamma-noise","After week 5",-0.179238033566418
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","gamma_noise","Gamma-noise","After week 5",0.454335330682924
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","gamma_noise","Gamma-noise","After week 5",0.200959903669325
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","gamma_noise","Gamma-noise","After week 5",0.115296654799978
+196,1196,"4a7772e1b5862480e3537a3124e41c07","gamma_noise","Gamma-noise","After week 5",0.36316896491044
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","gamma_noise","Gamma-noise","After week 5",0.204290283495486
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","gamma_noise","Gamma-noise","After week 5",0.476472452279747
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","gamma_noise","Gamma-noise","After week 5",-0.0169882488145452
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","gamma_noise","Gamma-noise","After week 5",0.142361370888469
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","bspline_B","B-spline","After week 5",-0.882785124440181
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","bspline_B","B-spline","After week 5",-0.787672885699221
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","bspline_B","B-spline","After week 5",-0.997242560163511
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","bspline_B","B-spline","After week 5",0.109809659906865
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","bspline_B","B-spline","After week 5",-0.924386564528549
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","bspline_B","B-spline","After week 5",0.23373980523323
+7,1007,"c23f10d0daa427c993e4ece1079ed751","bspline_B","B-spline","After week 5",-0.109770807928867
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","bspline_B","B-spline","After week 5",0.688723114332792
+9,1009,"51101219b554b4802624e043f09d6160","bspline_B","B-spline","After week 5",-0.0134155491280084
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","bspline_B","B-spline","After week 5",-0.0877858710030942
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","bspline_B","B-spline","After week 5",0.507357086232014
+12,1012,"05f564b562cd69afde749fbba393d734","bspline_B","B-spline","After week 5",-0.616127881391699
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","bspline_B","B-spline","After week 5",-0.801174759443472
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","bspline_B","B-spline","After week 5",0.561084843566932
+15,1015,"ae056eafb87645cec401ccb46346269b","bspline_B","B-spline","After week 5",-0.00144728848195372
+16,1016,"a714e996eac59ec21285ac81b9fb5223","bspline_B","B-spline","After week 5",-0.36931203635578
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","bspline_B","B-spline","After week 5",-0.0621144783083903
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","bspline_B","B-spline","After week 5",-0.551829450958435
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","bspline_B","B-spline","After week 5",-1.4200901264803
+20,1020,"714f6bb12c5d63009433470452ca002b","bspline_B","B-spline","After week 5",0.0580102275731462
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","bspline_B","B-spline","After week 5",-0.565965087032656
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","bspline_B","B-spline","After week 5",-0.77477565584462
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","bspline_B","B-spline","After week 5",-0.953435250972363
+24,1024,"f17101a77a91a5858651ca092461a15e","bspline_B","B-spline","After week 5",-0.114061413142344
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","bspline_B","B-spline","After week 5",-1.21067128178929
+26,1026,"7d638818fac5c183766d7bd337251990","bspline_B","B-spline","After week 5",-0.880346027634682
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","bspline_B","B-spline","After week 5",-0.135559253845435
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","bspline_B","B-spline","After week 5",-0.467718174876153
+29,1029,"f88e4728f80479179227d46e3ae73be8","bspline_B","B-spline","After week 5",0.173227415158353
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","bspline_B","B-spline","After week 5",0.344358969700835
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","bspline_B","B-spline","After week 5",-1.54278011101469
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","bspline_B","B-spline","After week 5",-0.361243487325456
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","bspline_B","B-spline","After week 5",0.326637043470507
+34,1034,"6295649cce30d443915163e1f486574c","bspline_B","B-spline","After week 5",-0.554191151829817
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","bspline_B","B-spline","After week 5",0.141744684796903
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","bspline_B","B-spline","After week 5",0.170251438873877
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","bspline_B","B-spline","After week 5",-1.26378099288379
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","bspline_B","B-spline","After week 5",-0.42238179634001
+39,1039,"42f80019227937c2a1292d80471ad885","bspline_B","B-spline","After week 5",-0.157476308049442
+40,1040,"ab1d08dee64fd498a66e009327aa8634","bspline_B","B-spline","After week 5",-0.283924767191344
+41,1041,"287dedf1d0604d7339bf2699355ae974","bspline_B","B-spline","After week 5",0.182402490467339
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","bspline_B","B-spline","After week 5",0.419235721161079
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","bspline_B","B-spline","After week 5",-0.198601822343722
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","bspline_B","B-spline","After week 5",-0.0865481937828974
+45,1045,"ea38700766ed00739f841a67050a1f0f","bspline_B","B-spline","After week 5",-0.236964386202801
+46,1046,"9df354b439dcb34c0723dc7a22427817","bspline_B","B-spline","After week 5",0.0144418265719352
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","bspline_B","B-spline","After week 5",-0.55369102915719
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","bspline_B","B-spline","After week 5",-1.10501006336869
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","bspline_B","B-spline","After week 5",-1.19642625235026
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","bspline_B","B-spline","After week 5",-0.276634893785136
+51,1051,"900920f25b406cb0530e847b193e6c9b","bspline_B","B-spline","After week 5",0.268362862392873
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","bspline_B","B-spline","After week 5",-0.873117075746523
+53,1053,"21c503be1bfd17d135902892b999365f","bspline_B","B-spline","After week 5",0.0519627934499942
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","bspline_B","B-spline","After week 5",-0.793650212247839
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","bspline_B","B-spline","After week 5",-0.0113048948199363
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","bspline_B","B-spline","After week 5",-1.18394961152966
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","bspline_B","B-spline","After week 5",-0.539002200664077
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","bspline_B","B-spline","After week 5",0.278072339162388
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","bspline_B","B-spline","After week 5",0.0625796009197269
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","bspline_B","B-spline","After week 5",0.103550768624563
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","bspline_B","B-spline","After week 5",-0.0390405954490556
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","bspline_B","B-spline","After week 5",-0.548476821983256
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","bspline_B","B-spline","After week 5",-0.681824273382916
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","bspline_B","B-spline","After week 5",-0.221902479040666
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","bspline_B","B-spline","After week 5",-0.938819050213731
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","bspline_B","B-spline","After week 5",0.417387722131412
+67,1067,"a64edf122ea9288d9cc5843d572b4219","bspline_B","B-spline","After week 5",-1.26305807616455
+68,1068,"e2dc17973047d198b1f70625999d7313","bspline_B","B-spline","After week 5",-1.16650241152252
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","bspline_B","B-spline","After week 5",-0.985916491626483
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","bspline_B","B-spline","After week 5",0.00916050398161259
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","bspline_B","B-spline","After week 5",-0.00165108255745999
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","bspline_B","B-spline","After week 5",-1.25312935173365
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","bspline_B","B-spline","After week 5",-0.401234077966908
+74,1074,"44fe946085f2400c80cee533d6231e9a","bspline_B","B-spline","After week 5",-0.162092116595381
+75,1075,"0d820f5ccbfe13549eea216ee2513074","bspline_B","B-spline","After week 5",-0.550910325729277
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","bspline_B","B-spline","After week 5",0.208336241814699
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","bspline_B","B-spline","After week 5",-0.593016946491202
+78,1078,"83a908c8ed5455b6c9ef246884162afc","bspline_B","B-spline","After week 5",0.533787834882402
+79,1079,"022bd08caeebfca4473b74c3678f71c2","bspline_B","B-spline","After week 5",0.177746407480026
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","bspline_B","B-spline","After week 5",-0.813494718173244
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","bspline_B","B-spline","After week 5",-1.04706639322776
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","bspline_B","B-spline","After week 5",-1.34449367168267
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","bspline_B","B-spline","After week 5",-1.46513449908398
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","bspline_B","B-spline","After week 5",-0.650570160080366
+85,1085,"f306053231f91c40dca3c621e8419b61","bspline_B","B-spline","After week 5",-0.180458313135598
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","bspline_B","B-spline","After week 5",-1.31590347610435
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","bspline_B","B-spline","After week 5",0.413189078992242
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","bspline_B","B-spline","After week 5",-0.0746386997121414
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","bspline_B","B-spline","After week 5",-0.664333992368311
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","bspline_B","B-spline","After week 5",-1.04800498660169
+91,1091,"ffb0df50d948dd9dad8db95b89578130","bspline_B","B-spline","After week 5",-0.771503831797117
+92,1092,"42c5e41b64f024125d08f483c49d5109","bspline_B","B-spline","After week 5",-0.082974767084342
+93,1093,"7866b869b011f99e5a6d626fd2b53319","bspline_B","B-spline","After week 5",0.175608166441262
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","bspline_B","B-spline","After week 5",0.394001383680928
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","bspline_B","B-spline","After week 5",-0.223890373608389
+96,1096,"dce19abeba3755021094f84a48b227a7","bspline_B","B-spline","After week 5",-0.935138389225593
+97,1097,"5f10705eaab893b924c7745af7cbddc2","bspline_B","B-spline","After week 5",-0.755768737909556
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","bspline_B","B-spline","After week 5",-0.765725922380195
+99,1099,"9d985583339f37fbacb7140d4222662d","bspline_B","B-spline","After week 5",-0.243518347274712
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","bspline_B","B-spline","After week 5",-0.549282867246801
+101,1101,"51fea122ace66c28fcf6227076a2210d","bspline_B","B-spline","After week 5",-0.751340106494394
+102,1102,"87466aaae46506b8e351c34782985403","bspline_B","B-spline","After week 5",-0.259156975627159
+103,1103,"e898b26388bd31312b334e141687631d","bspline_B","B-spline","After week 5",-1.06978169965758
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","bspline_B","B-spline","After week 5",-0.793800445771831
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","bspline_B","B-spline","After week 5",-1.19655886726273
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","bspline_B","B-spline","After week 5",-0.547732936939178
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","bspline_B","B-spline","After week 5",0.334736894974536
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","bspline_B","B-spline","After week 5",-0.13163566086187
+109,1109,"64378d1cf8147aa375c77012a1f6217d","bspline_B","B-spline","After week 5",-0.598031659182955
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","bspline_B","B-spline","After week 5",-1.08376499716438
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","bspline_B","B-spline","After week 5",-1.4918623353761
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","bspline_B","B-spline","After week 5",-1.40701912125115
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","bspline_B","B-spline","After week 5",0.518839462159756
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","bspline_B","B-spline","After week 5",-0.362011679677809
+115,1115,"527c2542099f691a2a03e60fc5521e3b","bspline_B","B-spline","After week 5",0.168111529651419
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","bspline_B","B-spline","After week 5",-0.280113035681695
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","bspline_B","B-spline","After week 5",-1.18507153048422
+118,1118,"4fe04592b1bd1b0073226474bda79a17","bspline_B","B-spline","After week 5",-0.692172318797662
+119,1119,"53a63bcc974e882529742ef97a8b74d5","bspline_B","B-spline","After week 5",-0.161839661634984
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","bspline_B","B-spline","After week 5",-0.143467921037321
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","bspline_B","B-spline","After week 5",-0.0113009058919303
+122,1122,"2de2afe17b444c1be6ab135102d2e749","bspline_B","B-spline","After week 5",-1.26104227074564
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","bspline_B","B-spline","After week 5",-1.4000225644788
+124,1124,"fee16d34d4badef781de40b823c932b3","bspline_B","B-spline","After week 5",-1.21045110694693
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","bspline_B","B-spline","After week 5",-0.466778268525233
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","bspline_B","B-spline","After week 5",-0.356900676426859
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","bspline_B","B-spline","After week 5",-0.582769021119906
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","bspline_B","B-spline","After week 5",-0.0697270805334586
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","bspline_B","B-spline","After week 5",-0.662326247670026
+130,1130,"bf14545e60a11dc820244df794a9bbde","bspline_B","B-spline","After week 5",-0.490455829029754
+131,1131,"f9b4bd3734443873f1d31c98484de516","bspline_B","B-spline","After week 5",-1.07213847617758
+132,1132,"b571595faf7cf9bf9fb646335e089636","bspline_B","B-spline","After week 5",-0.915941808321789
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","bspline_B","B-spline","After week 5",0.144133692824978
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","bspline_B","B-spline","After week 5",-1.06357872560648
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","bspline_B","B-spline","After week 5",0.121384733603188
+136,1136,"75dc159ba49385507004b04106ac29e8","bspline_B","B-spline","After week 5",-0.434511885862089
+137,1137,"25af99e573ba8708856ba71f5d31801d","bspline_B","B-spline","After week 5",-0.53902985187967
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","bspline_B","B-spline","After week 5",-1.00137460898127
+139,1139,"392c573a8d8baf810091dbff34258106","bspline_B","B-spline","After week 5",0.307135276653325
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","bspline_B","B-spline","After week 5",0.0559320590896429
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","bspline_B","B-spline","After week 5",0.365232686150753
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","bspline_B","B-spline","After week 5",-1.30131400363847
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","bspline_B","B-spline","After week 5",0.15331965635916
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","bspline_B","B-spline","After week 5",-0.318767911867709
+145,1145,"2db60151e6a71b77be25757b07f7d413","bspline_B","B-spline","After week 5",-1.23154031294528
+146,1146,"11b683568a8c7109187e0d518ad44753","bspline_B","B-spline","After week 5",-0.956965387443465
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","bspline_B","B-spline","After week 5",-0.328898100777313
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","bspline_B","B-spline","After week 5",0.816893140626477
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","bspline_B","B-spline","After week 5",-1.26450526051092
+150,1150,"4538cec1dfd416909e103d8882091c24","bspline_B","B-spline","After week 5",-0.288441413470332
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","bspline_B","B-spline","After week 5",-0.107755278928598
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","bspline_B","B-spline","After week 5",-1.2272038675433
+153,1153,"442e0ebc852ae02e3200593355a37960","bspline_B","B-spline","After week 5",-1.15438028362783
+154,1154,"64361962d8cd28975836ca41ffba829e","bspline_B","B-spline","After week 5",0.0359301531792605
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","bspline_B","B-spline","After week 5",-0.652129923027217
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","bspline_B","B-spline","After week 5",-0.263437019894447
+157,1157,"66c6e6745a642b2c128f396464ab9c36","bspline_B","B-spline","After week 5",0.372755953074385
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","bspline_B","B-spline","After week 5",0.272444005537449
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","bspline_B","B-spline","After week 5",-0.265900908627964
+160,1160,"6fc5bd4defacec08d522e9606a883766","bspline_B","B-spline","After week 5",0.0921182333822281
+161,1161,"a357237d620a342d728f96dc8aac5757","bspline_B","B-spline","After week 5",0.00392570584847599
+162,1162,"4cc160a48b020eb4685997894bf01baf","bspline_B","B-spline","After week 5",-0.174367034585664
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","bspline_B","B-spline","After week 5",-0.868937980786672
+164,1164,"d690f07a51a75e813d73e446e77eb394","bspline_B","B-spline","After week 5",-0.287989282568545
+165,1165,"50366235ff21bfd0a4d01f895b905c92","bspline_B","B-spline","After week 5",-0.0124552574218457
+166,1166,"495d59eeef0b219751064d03c686254d","bspline_B","B-spline","After week 5",0.018481502123572
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","bspline_B","B-spline","After week 5",-1.0711124503731
+168,1168,"d65d84681677642681932395599566ad","bspline_B","B-spline","After week 5",-0.424785967626664
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","bspline_B","B-spline","After week 5",-0.677494661100286
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","bspline_B","B-spline","After week 5",-0.219095192039539
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","bspline_B","B-spline","After week 5",-1.11967530493682
+172,1172,"68d41d2891a14e960534c955889a715f","bspline_B","B-spline","After week 5",-1.13536700484051
+173,1173,"b998c1e8401789afff3d7d34e1be5997","bspline_B","B-spline","After week 5",0.238007662308673
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","bspline_B","B-spline","After week 5",-0.051756673429792
+175,1175,"2744bfdd13475fbe6815e8986de922fa","bspline_B","B-spline","After week 5",0.163344038910055
+176,1176,"c141df7878a0d44e38a58170b4492543","bspline_B","B-spline","After week 5",0.0146468531212606
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","bspline_B","B-spline","After week 5",-1.43218448104525
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","bspline_B","B-spline","After week 5",-0.109995956808091
+179,1179,"6d4a044da028c76d3fafc003136384eb","bspline_B","B-spline","After week 5",-0.601364640360115
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","bspline_B","B-spline","After week 5",-0.136244477176624
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","bspline_B","B-spline","After week 5",-0.114277328614657
+182,1182,"941f9c48ec56eb19b25786187b006f10","bspline_B","B-spline","After week 5",-0.477367053822322
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","bspline_B","B-spline","After week 5",-1.17588908462977
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","bspline_B","B-spline","After week 5",-0.42953791176174
+185,1185,"52e3986fb55b179cf59e4540a86a982d","bspline_B","B-spline","After week 5",-0.00757826968866688
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","bspline_B","B-spline","After week 5",-0.689394551577349
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","bspline_B","B-spline","After week 5",-0.371718868136391
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","bspline_B","B-spline","After week 5",-0.250024099418699
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","bspline_B","B-spline","After week 5",-0.977840976312843
+190,1190,"e11e338409fdbfff7af641a286a93437","bspline_B","B-spline","After week 5",0.293799435022161
+191,1191,"88ccda7d997701880c9d0c636b220b1e","bspline_B","B-spline","After week 5",-0.332565337192265
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","bspline_B","B-spline","After week 5",-0.19561524106663
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","bspline_B","B-spline","After week 5",-0.223986772328057
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","bspline_B","B-spline","After week 5",0.145707068184377
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","bspline_B","B-spline","After week 5",-0.629386919258632
+196,1196,"4a7772e1b5862480e3537a3124e41c07","bspline_B","B-spline","After week 5",0.0116202230940994
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","bspline_B","B-spline","After week 5",0.016188998573689
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","bspline_B","B-spline","After week 5",0.485564495769677
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","bspline_B","B-spline","After week 5",-0.640554652907101
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","bspline_B","B-spline","After week 5",-0.0170568099104009
+1,1001,"64a1b5c02bdecc100b37ee56029391d3","constant_B","Constant-B","After week 5",2.04534940404491
+2,1002,"e4e6b4250fb680a6bc44a4c1f239d72e","constant_B","Constant-B","After week 5",2.58191516227993
+3,1003,"18b73531d17fff4bf85fd3b8b65c91d6","constant_B","Constant-B","After week 5",1.03294263829883
+4,1004,"bf8dcbec52b9c4d08f0b3a8b4e1b1840","constant_B","Constant-B","After week 5",1.6926380302407
+5,1005,"cb7e05dbf4c135d548daa37faf8888a1","constant_B","Constant-B","After week 5",1.63806776750035
+6,1006,"83a6fae95545d773b4ac09416fd8a73d","constant_B","Constant-B","After week 5",1.2234337289018
+7,1007,"c23f10d0daa427c993e4ece1079ed751","constant_B","Constant-B","After week 5",2.55514019470827
+8,1008,"a0af209d0cf0d730b8b3834e0360ae95","constant_B","Constant-B","After week 5",1.76960994631801
+9,1009,"51101219b554b4802624e043f09d6160","constant_B","Constant-B","After week 5",1.87703768025838
+10,1010,"3658851b68a2ae24c2e8e9838200e49c","constant_B","Constant-B","After week 5",1.1303028921746
+11,1011,"b0091463d341b4712ff6e9dd82a58abf","constant_B","Constant-B","After week 5",1.90133404881846
+12,1012,"05f564b562cd69afde749fbba393d734","constant_B","Constant-B","After week 5",1.45037145272229
+13,1013,"628dd9f33d5358ee7d358fcbbb9e1ec7","constant_B","Constant-B","After week 5",2.12176555740855
+14,1014,"3ee86b29e7e61ffc7287cc8f5b47aeca","constant_B","Constant-B","After week 5",1.59448075497917
+15,1015,"ae056eafb87645cec401ccb46346269b","constant_B","Constant-B","After week 5",1.83105156989747
+16,1016,"a714e996eac59ec21285ac81b9fb5223","constant_B","Constant-B","After week 5",1.53793011175085
+17,1017,"c1dff99001cdd2a71a8c5de229779c6a","constant_B","Constant-B","After week 5",1.15016612035079
+18,1018,"b6d242ccc65d51d758e56f6a2b2246d6","constant_B","Constant-B","After week 5",1.18568120010188
+19,1019,"13d489a8a65aa7a169791da7e2e871a6","constant_B","Constant-B","After week 5",2.00077600086133
+20,1020,"714f6bb12c5d63009433470452ca002b","constant_B","Constant-B","After week 5",1.53923843026414
+21,1021,"c46a7b2a22c4a8bed8a3c2537dbc0243","constant_B","Constant-B","After week 5",1.50305864407235
+22,1022,"37fb1b826b530c406841fb3dc0dd2a19","constant_B","Constant-B","After week 5",1.64299691374207
+23,1023,"5391b651cef3ef3752fc04bfb4f6d8ab","constant_B","Constant-B","After week 5",1.84133364117703
+24,1024,"f17101a77a91a5858651ca092461a15e","constant_B","Constant-B","After week 5",1.35857477392809
+25,1025,"5bffd9597ff51651a7b3c018b0060e43","constant_B","Constant-B","After week 5",1.62975884978758
+26,1026,"7d638818fac5c183766d7bd337251990","constant_B","Constant-B","After week 5",1.74702146299026
+27,1027,"febf6d542123ef85142ab3d7c88fd4f9","constant_B","Constant-B","After week 5",1.47995923009101
+28,1028,"fa30cb31cb12a8463966a31a9ac1f66d","constant_B","Constant-B","After week 5",1.89207095808367
+29,1029,"f88e4728f80479179227d46e3ae73be8","constant_B","Constant-B","After week 5",1.21958871643066
+30,1030,"6d8fcd9da06daac4afecfcdf2af73043","constant_B","Constant-B","After week 5",1.62788221044401
+31,1031,"1f4f623a1599fc68865ccca5c8e38092","constant_B","Constant-B","After week 5",1.47812417596384
+32,1032,"8b18f38744449f8e8c5016a5c62a9db0","constant_B","Constant-B","After week 5",1.69542834639333
+33,1033,"1c656b251cec47b7f90e7590d6f84c85","constant_B","Constant-B","After week 5",2.06901172255123
+34,1034,"6295649cce30d443915163e1f486574c","constant_B","Constant-B","After week 5",1.85115721588948
+35,1035,"05c8b3ee0cc2e85807ddffab0af38be8","constant_B","Constant-B","After week 5",1.41597968379106
+36,1036,"12e163742e3ae8e7eef3194a703ebcdb","constant_B","Constant-B","After week 5",1.20201017767162
+37,1037,"129fa3be8b0ee7a384bf1d0e5525258e","constant_B","Constant-B","After week 5",1.48078113177875
+38,1038,"2cb84ae4bd553be0419d1e71639da95a","constant_B","Constant-B","After week 5",1.11362307709047
+39,1039,"42f80019227937c2a1292d80471ad885","constant_B","Constant-B","After week 5",1.54447810288694
+40,1040,"ab1d08dee64fd498a66e009327aa8634","constant_B","Constant-B","After week 5",1.48906752663139
+41,1041,"287dedf1d0604d7339bf2699355ae974","constant_B","Constant-B","After week 5",1.32871510544742
+42,1042,"a0f4bf165f246f2d852e7cb15677c6d0","constant_B","Constant-B","After week 5",1.46161618736549
+43,1043,"98bd9bf2f837f4d00af88dbb60b77b5c","constant_B","Constant-B","After week 5",1.48759088001932
+44,1044,"7fc16f6007b4caa0fad7b388de798f61","constant_B","Constant-B","After week 5",1.6174608913823
+45,1045,"ea38700766ed00739f841a67050a1f0f","constant_B","Constant-B","After week 5",1.45761123297541
+46,1046,"9df354b439dcb34c0723dc7a22427817","constant_B","Constant-B","After week 5",2.50023698758207
+47,1047,"a27592b2dc2d1f22ae7b3b7d52d6c6e8","constant_B","Constant-B","After week 5",2.24346087790554
+48,1048,"e149dfe63fefba3d9450d8ebe55e2be8","constant_B","Constant-B","After week 5",1.54002529146257
+49,1049,"c24fd9ec2467b6f39b42b31426dcbff7","constant_B","Constant-B","After week 5",1.25041421524712
+50,1050,"7dc1a3b5ba09f2ddcb65bf5b7422a9ed","constant_B","Constant-B","After week 5",1.82065203685575
+51,1051,"900920f25b406cb0530e847b193e6c9b","constant_B","Constant-B","After week 5",1.52044140521957
+52,1052,"94c869cc26cd44cd9de1033132a41b1b","constant_B","Constant-B","After week 5",2.03336989721952
+53,1053,"21c503be1bfd17d135902892b999365f","constant_B","Constant-B","After week 5",1.24608942307599
+54,1054,"bb6ab35a8708f3f23940941298b79dbc","constant_B","Constant-B","After week 5",1.58533592186518
+55,1055,"7481513b9e19d7a30b033ad1490d6f16","constant_B","Constant-B","After week 5",1.1215317564414
+56,1056,"08c1962e5f9bd4d5168d1afa7314d508","constant_B","Constant-B","After week 5",1.78878640696353
+57,1057,"0fa2ff4b3c51077ca4a85e846724b31e","constant_B","Constant-B","After week 5",0.87417526560684
+58,1058,"fb197f5caf6d73b93cf36910dcf5bd62","constant_B","Constant-B","After week 5",1.39304195218448
+59,1059,"85c4aca3511ef3a6574f147464f1b8a6","constant_B","Constant-B","After week 5",1.28949659485557
+60,1060,"0f9b10d21fc1c74a53d447b4ab6c4a76","constant_B","Constant-B","After week 5",1.59172959338508
+61,1061,"ef64f00e9a05074fb3305ee8fb186803","constant_B","Constant-B","After week 5",1.59222150562988
+62,1062,"a04acf843bb2ea72629f7c891c0bc0d1","constant_B","Constant-B","After week 5",1.50080514528646
+63,1063,"0b8692e4c4282eea08c84c3a7521bdca","constant_B","Constant-B","After week 5",1.6375531434123
+64,1064,"65224e6e0078d6ba21ee5d2bd4a6c743","constant_B","Constant-B","After week 5",1.22778369252641
+65,1065,"d23c93587fac0bd4c1fffe812bf746e2","constant_B","Constant-B","After week 5",1.75527088188311
+66,1066,"b503c7aa16489912e1de4bcf79bdc277","constant_B","Constant-B","After week 5",1.7935036309427
+67,1067,"a64edf122ea9288d9cc5843d572b4219","constant_B","Constant-B","After week 5",2.16664879407241
+68,1068,"e2dc17973047d198b1f70625999d7313","constant_B","Constant-B","After week 5",1.79712945156158
+69,1069,"8e4ff1513256eaffe3731b1dbc82ec29","constant_B","Constant-B","After week 5",1.49196396332452
+70,1070,"3f39c2020f727aeaa01ef9ba099939bb","constant_B","Constant-B","After week 5",1.23123589329053
+71,1071,"f8a2941f2630be877dd64b0b25a3e9dd","constant_B","Constant-B","After week 5",1.80912316854739
+72,1072,"4ef60d1f950055935545ba4d8849c6a4","constant_B","Constant-B","After week 5",1.83407953574125
+73,1073,"23ed6d0e534e19ffc952e0a9519e96fd","constant_B","Constant-B","After week 5",1.63286168371309
+74,1074,"44fe946085f2400c80cee533d6231e9a","constant_B","Constant-B","After week 5",1.33902879343722
+75,1075,"0d820f5ccbfe13549eea216ee2513074","constant_B","Constant-B","After week 5",1.35347355627389
+76,1076,"91d5e8bc67046e3d44e7a47924bb3404","constant_B","Constant-B","After week 5",1.72097831676512
+77,1077,"4fe16663f3cfd5b374d35dd29d9cdca8","constant_B","Constant-B","After week 5",1.53238341031647
+78,1078,"83a908c8ed5455b6c9ef246884162afc","constant_B","Constant-B","After week 5",1.43346677061578
+79,1079,"022bd08caeebfca4473b74c3678f71c2","constant_B","Constant-B","After week 5",1.35470663444575
+80,1080,"0bfd2bd8ee2ddc3923c9cef719215e45","constant_B","Constant-B","After week 5",1.7721752116519
+81,1081,"b3ce4c9c57f114ee806b5ede899e654c","constant_B","Constant-B","After week 5",1.99421161090616
+82,1082,"345f145ce6e49d5527737547b7d7bcc9","constant_B","Constant-B","After week 5",1.53293867966244
+83,1083,"5cd6b677ff91eaefd7913f277989cb3a","constant_B","Constant-B","After week 5",1.61837113307206
+84,1084,"ec4eb27a1b0dc4aef15289699a23db33","constant_B","Constant-B","After week 5",1.31083461446373
+85,1085,"f306053231f91c40dca3c621e8419b61","constant_B","Constant-B","After week 5",1.47013164656868
+86,1086,"e89799bf4fcfc5e7d882e1a15e433b0c","constant_B","Constant-B","After week 5",1.05929459643743
+87,1087,"83d5cd04167b4c25b941369e1cd89c12","constant_B","Constant-B","After week 5",1.82291929058973
+88,1088,"e68e6eddaef14b8f6833f1889cb09727","constant_B","Constant-B","After week 5",1.69289441336375
+89,1089,"aa9cc98baf1a333684a7dcc3407aadc4","constant_B","Constant-B","After week 5",1.4670002412663
+90,1090,"3b62c1a3abbc8f8d77b3f0094d799c08","constant_B","Constant-B","After week 5",2.18443021643441
+91,1091,"ffb0df50d948dd9dad8db95b89578130","constant_B","Constant-B","After week 5",1.55068479548976
+92,1092,"42c5e41b64f024125d08f483c49d5109","constant_B","Constant-B","After week 5",1.29184426002165
+93,1093,"7866b869b011f99e5a6d626fd2b53319","constant_B","Constant-B","After week 5",1.39505369161111
+94,1094,"cb6e4431d9ef11ffbb0c3c60fc93a658","constant_B","Constant-B","After week 5",1.74513173609721
+95,1095,"e2c94ae6df04e9da8177ab346fbd245e","constant_B","Constant-B","After week 5",1.48722979726757
+96,1096,"dce19abeba3755021094f84a48b227a7","constant_B","Constant-B","After week 5",1.68399936694628
+97,1097,"5f10705eaab893b924c7745af7cbddc2","constant_B","Constant-B","After week 5",1.81538683133996
+98,1098,"a0c73b07405f66c422d099e5a3c08c54","constant_B","Constant-B","After week 5",1.26579689719411
+99,1099,"9d985583339f37fbacb7140d4222662d","constant_B","Constant-B","After week 5",1.36281572849347
+100,1100,"8ea86fffc296b32f99e63ed723d89d90","constant_B","Constant-B","After week 5",2.34554483933557
+101,1101,"51fea122ace66c28fcf6227076a2210d","constant_B","Constant-B","After week 5",1.46586796964066
+102,1102,"87466aaae46506b8e351c34782985403","constant_B","Constant-B","After week 5",0.91850818499276
+103,1103,"e898b26388bd31312b334e141687631d","constant_B","Constant-B","After week 5",1.66513833340993
+104,1104,"f7b481c3a4568173c9a99c1b4d8c5521","constant_B","Constant-B","After week 5",1.45991940210637
+105,1105,"fda815e14a2797f663c51a8c3fc66eeb","constant_B","Constant-B","After week 5",1.99704237412916
+106,1106,"2ace1767dd5349b12ef5f3a5bd831ab8","constant_B","Constant-B","After week 5",2.09606159261628
+107,1107,"d3c22607503e5f474a3f5ebe80ebdf3d","constant_B","Constant-B","After week 5",1.90115514601953
+108,1108,"68aa1cfbcec0e4ea336983e4d1e49773","constant_B","Constant-B","After week 5",1.86812257561279
+109,1109,"64378d1cf8147aa375c77012a1f6217d","constant_B","Constant-B","After week 5",1.40187597161125
+110,1110,"4c9bdb3191d72e532b9af0440b61821e","constant_B","Constant-B","After week 5",2.57461126928035
+111,1111,"90bc4d41e3adeb7ca6a265e34199593d","constant_B","Constant-B","After week 5",1.71529325045075
+112,1112,"2de6dbe92e20217bcb1faa713be3c7e9","constant_B","Constant-B","After week 5",1.57612799484287
+113,1113,"62d44f5b5cf3a1a10474477b2836ac7c","constant_B","Constant-B","After week 5",1.60575526968089
+114,1114,"e8aa5c36f38132f5ccc9683b131a520e","constant_B","Constant-B","After week 5",1.45989902761962
+115,1115,"527c2542099f691a2a03e60fc5521e3b","constant_B","Constant-B","After week 5",1.5720470539333
+116,1116,"493ff3d28fe2680d1b7fc1f343262be6","constant_B","Constant-B","After week 5",1.850042512044
+117,1117,"64dffb15867fda5ef262e2caf0e46bbf","constant_B","Constant-B","After week 5",1.38780993855149
+118,1118,"4fe04592b1bd1b0073226474bda79a17","constant_B","Constant-B","After week 5",1.66654331378202
+119,1119,"53a63bcc974e882529742ef97a8b74d5","constant_B","Constant-B","After week 5",1.55401402882079
+120,1120,"4d64fbb86d0c71298cfafd74891b1601","constant_B","Constant-B","After week 5",1.12977832834471
+121,1121,"fc119966f9fa86c9beb582f612bc73ec","constant_B","Constant-B","After week 5",1.61363083001833
+122,1122,"2de2afe17b444c1be6ab135102d2e749","constant_B","Constant-B","After week 5",1.47825641789666
+123,1123,"8b49cbb9e926a62a502c208b4a74393a","constant_B","Constant-B","After week 5",1.8650500630446
+124,1124,"fee16d34d4badef781de40b823c932b3","constant_B","Constant-B","After week 5",1.8445294142124
+125,1125,"49b1406d1f09cf7ccfb97517eb1d686b","constant_B","Constant-B","After week 5",2.41824234537544
+126,1126,"89c12c0c7af03e2dcd492d20daed2fb8","constant_B","Constant-B","After week 5",1.41657346650876
+127,1127,"d6cf87e625366c1649bd82f3bda75a50","constant_B","Constant-B","After week 5",1.20421748347378
+128,1128,"e7c98f0c8ff03fc89b23b860ab6e055c","constant_B","Constant-B","After week 5",1.07096697026481
+129,1129,"89bab4fa545504e51f4b5b765fa2b9ae","constant_B","Constant-B","After week 5",1.48456619659801
+130,1130,"bf14545e60a11dc820244df794a9bbde","constant_B","Constant-B","After week 5",1.06442602320455
+131,1131,"f9b4bd3734443873f1d31c98484de516","constant_B","Constant-B","After week 5",1.48617975325384
+132,1132,"b571595faf7cf9bf9fb646335e089636","constant_B","Constant-B","After week 5",0.98924186067926
+133,1133,"0a62c14ca9858effb08a88d2cabe1673","constant_B","Constant-B","After week 5",1.68452427894849
+134,1134,"6cdb8dae15bac319b768e307416ee6b2","constant_B","Constant-B","After week 5",1.78857079664808
+135,1135,"f5fbe5bac9e630e09a5f83fdcd75b932","constant_B","Constant-B","After week 5",1.88927145411185
+136,1136,"75dc159ba49385507004b04106ac29e8","constant_B","Constant-B","After week 5",1.80506680946111
+137,1137,"25af99e573ba8708856ba71f5d31801d","constant_B","Constant-B","After week 5",1.51727541648802
+138,1138,"24ce0d2a3efbc542f5ad5931cbdb79aa","constant_B","Constant-B","After week 5",1.56821778157014
+139,1139,"392c573a8d8baf810091dbff34258106","constant_B","Constant-B","After week 5",1.89512404417988
+140,1140,"9af7f4bb9f26f77c38c192936cf0be33","constant_B","Constant-B","After week 5",1.3375648203429
+141,1141,"bd55561900b24ec7c3c7ac64a514ac02","constant_B","Constant-B","After week 5",1.93835405072088
+142,1142,"d1a06c9101d2c0ee727ae600038327ba","constant_B","Constant-B","After week 5",2.10423453480635
+143,1143,"5e8bbd223a147392f54cce5f77c7b52e","constant_B","Constant-B","After week 5",1.39443155848741
+144,1144,"a7c2af9704a9238a0ba07d099939a75d","constant_B","Constant-B","After week 5",1.19967172769648
+145,1145,"2db60151e6a71b77be25757b07f7d413","constant_B","Constant-B","After week 5",1.57303587674925
+146,1146,"11b683568a8c7109187e0d518ad44753","constant_B","Constant-B","After week 5",1.66791693387675
+147,1147,"39e27a57bdf2c1c57e6c23b743348818","constant_B","Constant-B","After week 5",1.5110899835292
+148,1148,"08f76d2a0f0fd7c0c65c77a4e3db66f5","constant_B","Constant-B","After week 5",1.72906773173344
+149,1149,"73fb1389d38e28b1daab2d44d648d7dc","constant_B","Constant-B","After week 5",0.95385938453872
+150,1150,"4538cec1dfd416909e103d8882091c24","constant_B","Constant-B","After week 5",1.40204771448594
+151,1151,"c30a72bbd9994edc5a6a1c2aed4242b1","constant_B","Constant-B","After week 5",1.28458735867331
+152,1152,"6a9c86481f4a2482e1b37d74f117071e","constant_B","Constant-B","After week 5",2.46866101561535
+153,1153,"442e0ebc852ae02e3200593355a37960","constant_B","Constant-B","After week 5",1.64852387529649
+154,1154,"64361962d8cd28975836ca41ffba829e","constant_B","Constant-B","After week 5",1.85794374506831
+155,1155,"af7b6609489cc20efa3782fad07fa0d9","constant_B","Constant-B","After week 5",1.85690716021111
+156,1156,"9d0dfa99ebb269242e3d64e8a5fe517c","constant_B","Constant-B","After week 5",1.11413834377603
+157,1157,"66c6e6745a642b2c128f396464ab9c36","constant_B","Constant-B","After week 5",1.63056162078558
+158,1158,"8f8136ef754c0743bae4dd275c47bf9b","constant_B","Constant-B","After week 5",1.47171025427573
+159,1159,"6eeed27f9e2c16bae4fa14c32548d476","constant_B","Constant-B","After week 5",1.54121352786879
+160,1160,"6fc5bd4defacec08d522e9606a883766","constant_B","Constant-B","After week 5",1.55655059330401
+161,1161,"a357237d620a342d728f96dc8aac5757","constant_B","Constant-B","After week 5",1.50447371978197
+162,1162,"4cc160a48b020eb4685997894bf01baf","constant_B","Constant-B","After week 5",1.57101821231828
+163,1163,"e67c4eaea4e2842baa2a758c4beb2e82","constant_B","Constant-B","After week 5",1.85549267461845
+164,1164,"d690f07a51a75e813d73e446e77eb394","constant_B","Constant-B","After week 5",1.34714564534042
+165,1165,"50366235ff21bfd0a4d01f895b905c92","constant_B","Constant-B","After week 5",1.25034458621817
+166,1166,"495d59eeef0b219751064d03c686254d","constant_B","Constant-B","After week 5",1.51303760035219
+167,1167,"b8bc66b5036c4f6bd977937ad6e2a29d","constant_B","Constant-B","After week 5",1.7429926414582
+168,1168,"d65d84681677642681932395599566ad","constant_B","Constant-B","After week 5",1.40178219956943
+169,1169,"4b517b06b20afe2ab6f16f327d16edef","constant_B","Constant-B","After week 5",1.25364472563011
+170,1170,"f32af8f5828cad3f276263ef3b9502fb","constant_B","Constant-B","After week 5",1.02615383147672
+171,1171,"2ec9a3cf6058379814f756d7b9f93ea9","constant_B","Constant-B","After week 5",1.51411410974637
+172,1172,"68d41d2891a14e960534c955889a715f","constant_B","Constant-B","After week 5",1.56865028746712
+173,1173,"b998c1e8401789afff3d7d34e1be5997","constant_B","Constant-B","After week 5",1.58234932950392
+174,1174,"7a6ced56beec68835d7a03f46b6af6e8","constant_B","Constant-B","After week 5",1.35286254930132
+175,1175,"2744bfdd13475fbe6815e8986de922fa","constant_B","Constant-B","After week 5",1.49043005535968
+176,1176,"c141df7878a0d44e38a58170b4492543","constant_B","Constant-B","After week 5",1.20357477680729
+177,1177,"c17f97d975a2e6794ea31e8367d83e40","constant_B","Constant-B","After week 5",1.97695491448522
+178,1178,"4f3cc0d975b486260ecd02e9ed831df5","constant_B","Constant-B","After week 5",1.35216763444396
+179,1179,"6d4a044da028c76d3fafc003136384eb","constant_B","Constant-B","After week 5",1.65817636753352
+180,1180,"ff3b24bb3a95e7b5178276b17e2c0dad","constant_B","Constant-B","After week 5",1.56155309087283
+181,1181,"80dfab2294dc854a8695d1c1ce6265d9","constant_B","Constant-B","After week 5",1.50859052613305
+182,1182,"941f9c48ec56eb19b25786187b006f10","constant_B","Constant-B","After week 5",1.86733595325964
+183,1183,"2dc5d7e9b3e15c740d490d788211573a","constant_B","Constant-B","After week 5",1.23025508590752
+184,1184,"77c6e00a79e8c3b3df80e1c4b0ff8023","constant_B","Constant-B","After week 5",1.43813314676187
+185,1185,"52e3986fb55b179cf59e4540a86a982d","constant_B","Constant-B","After week 5",1.00120307335378
+186,1186,"ccc0636a72fb6ba022578cc100c8cb7c","constant_B","Constant-B","After week 5",1.50090363359215
+187,1187,"7409506000aab5f15ec58cc3dd3fb72e","constant_B","Constant-B","After week 5",1.98915102777351
+188,1188,"0e1b1e567b5a85241d50f71772de9be1","constant_B","Constant-B","After week 5",1.34794562416894
+189,1189,"02453cd2773e7494e1a4738ba6f3c7a1","constant_B","Constant-B","After week 5",1.28035456445111
+190,1190,"e11e338409fdbfff7af641a286a93437","constant_B","Constant-B","After week 5",1.49549240191978
+191,1191,"88ccda7d997701880c9d0c636b220b1e","constant_B","Constant-B","After week 5",1.46853535715138
+192,1192,"9a5e00955ca9971800073dd3e4c28ad7","constant_B","Constant-B","After week 5",1.26944234199487
+193,1193,"50b5e6cbc49ffa79634e56edd10b8bf0","constant_B","Constant-B","After week 5",1.7798974052997
+194,1194,"1f0b118441ef88f9f7e1c86a5d22c593","constant_B","Constant-B","After week 5",1.31887010831789
+195,1195,"4b29886fa0376b89caa9cc697a80dc98","constant_B","Constant-B","After week 5",1.45516455665178
+196,1196,"4a7772e1b5862480e3537a3124e41c07","constant_B","Constant-B","After week 5",0.97445866571104
+197,1197,"80e2caf0dbc5ddb7f96d7faf9fa1bf49","constant_B","Constant-B","After week 5",1.20888503483755
+198,1198,"9cf5a39df21d5a234b9a57056ebe1360","constant_B","Constant-B","After week 5",1.3335205297507
+199,1199,"f24eafb51b8268645a90a1a9cbcc2a5c","constant_B","Constant-B","After week 5",1.82308864699168
+200,1200,"2276182a83b89b4d2f8bfc96d14895ca","constant_B","Constant-B","After week 5",1.66890855653427

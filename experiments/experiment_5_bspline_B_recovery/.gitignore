@@ -1,0 +1,33 @@
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Temporary editor files
+*~
+*.swp
+
+# Regenerable fitted objects
+results/**/*.rds
+results/bspline/task_*/
+results_pilot/bspline/task_*/
+results_raw/bspline/task_*/
+
+# Legacy single-data-set development artifacts; these are not inputs to the
+# paired 200-replicate production analysis documented in README.md.
+data/
+results/debug/
+results/formal/
+figures/debug/
+figures/formal/
+figures/hpc_nmif600/
+figures/smoke_recovered_*/
+
+# HPC runtime files
+logs/**/*
+results/full_job_ids.env

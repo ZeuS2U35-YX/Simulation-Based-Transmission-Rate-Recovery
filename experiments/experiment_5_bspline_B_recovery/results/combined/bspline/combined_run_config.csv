@@ -1,0 +1,4401 @@
+"setting","value","task_id"
+"experiment_id","experiment_5_bspline_B_recovery",1
+"source_experiment_id","experiment_4_nmif600_model_comparison",1
+"model","bspline_B",1
+"task_id","1",1
+"simulation_seed","1001",1
+"observed_data_md5","64a1b5c02bdecc100b37ee56029391d3",1
+"Nmif","600",1
+"Np_mif","5000",1
+"n_internal_starts","10",1
+"Np_eval","50000",1
+"n_pf_evals_per_start","5",1
+"selected_run","9",1
+"selection_rule","maximum_independently_evaluated_logLik",1
+"start_seed","21261100",1
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",1
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",1
+"R_version","R version 4.1.2 (2021-11-01)",1
+"pomp_version","6.4",1
+"hostname","frnt066.frontenac.local",1
+"slurm_job_id","12086267",1
+"slurm_array_task_id","local",1
+"written_at_utc","2026-08-18 23:31:48 UTC",1
+"experiment_id","experiment_5_bspline_B_recovery",2
+"source_experiment_id","experiment_4_nmif600_model_comparison",2
+"model","bspline_B",2
+"task_id","2",2
+"simulation_seed","1002",2
+"observed_data_md5","e4e6b4250fb680a6bc44a4c1f239d72e",2
+"Nmif","600",2
+"Np_mif","5000",2
+"n_internal_starts","10",2
+"Np_eval","50000",2
+"n_pf_evals_per_start","5",2
+"selected_run","4",2
+"selection_rule","maximum_independently_evaluated_logLik",2
+"start_seed","22261100",2
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",2
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",2
+"R_version","R version 4.1.2 (2021-11-01)",2
+"pomp_version","6.4",2
+"hostname","frnt121.frontenac.local",2
+"slurm_job_id","12089696",2
+"slurm_array_task_id","2",2
+"written_at_utc","2026-08-19 02:21:52 UTC",2
+"experiment_id","experiment_5_bspline_B_recovery",3
+"source_experiment_id","experiment_4_nmif600_model_comparison",3
+"model","bspline_B",3
+"task_id","3",3
+"simulation_seed","1003",3
+"observed_data_md5","18b73531d17fff4bf85fd3b8b65c91d6",3
+"Nmif","600",3
+"Np_mif","5000",3
+"n_internal_starts","10",3
+"Np_eval","50000",3
+"n_pf_evals_per_start","5",3
+"selected_run","4",3
+"selection_rule","maximum_independently_evaluated_logLik",3
+"start_seed","23261100",3
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",3
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",3
+"R_version","R version 4.1.2 (2021-11-01)",3
+"pomp_version","6.4",3
+"hostname","frnt121.frontenac.local",3
+"slurm_job_id","12089697",3
+"slurm_array_task_id","3",3
+"written_at_utc","2026-08-19 02:13:45 UTC",3
+"experiment_id","experiment_5_bspline_B_recovery",4
+"source_experiment_id","experiment_4_nmif600_model_comparison",4
+"model","bspline_B",4
+"task_id","4",4
+"simulation_seed","1004",4
+"observed_data_md5","bf8dcbec52b9c4d08f0b3a8b4e1b1840",4
+"Nmif","600",4
+"Np_mif","5000",4
+"n_internal_starts","10",4
+"Np_eval","50000",4
+"n_pf_evals_per_start","5",4
+"selected_run","8",4
+"selection_rule","maximum_independently_evaluated_logLik",4
+"start_seed","24261100",4
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",4
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",4
+"R_version","R version 4.1.2 (2021-11-01)",4
+"pomp_version","6.4",4
+"hostname","frnt121.frontenac.local",4
+"slurm_job_id","12089698",4
+"slurm_array_task_id","4",4
+"written_at_utc","2026-08-19 02:26:50 UTC",4
+"experiment_id","experiment_5_bspline_B_recovery",5
+"source_experiment_id","experiment_4_nmif600_model_comparison",5
+"model","bspline_B",5
+"task_id","5",5
+"simulation_seed","1005",5
+"observed_data_md5","cb7e05dbf4c135d548daa37faf8888a1",5
+"Nmif","600",5
+"Np_mif","5000",5
+"n_internal_starts","10",5
+"Np_eval","50000",5
+"n_pf_evals_per_start","5",5
+"selected_run","8",5
+"selection_rule","maximum_independently_evaluated_logLik",5
+"start_seed","25261100",5
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",5
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",5
+"R_version","R version 4.1.2 (2021-11-01)",5
+"pomp_version","6.4",5
+"hostname","frnt121.frontenac.local",5
+"slurm_job_id","12089699",5
+"slurm_array_task_id","5",5
+"written_at_utc","2026-08-19 02:23:16 UTC",5
+"experiment_id","experiment_5_bspline_B_recovery",6
+"source_experiment_id","experiment_4_nmif600_model_comparison",6
+"model","bspline_B",6
+"task_id","6",6
+"simulation_seed","1006",6
+"observed_data_md5","83a6fae95545d773b4ac09416fd8a73d",6
+"Nmif","600",6
+"Np_mif","5000",6
+"n_internal_starts","10",6
+"Np_eval","50000",6
+"n_pf_evals_per_start","5",6
+"selected_run","10",6
+"selection_rule","maximum_independently_evaluated_logLik",6
+"start_seed","26261100",6
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",6
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",6
+"R_version","R version 4.1.2 (2021-11-01)",6
+"pomp_version","6.4",6
+"hostname","frnt121.frontenac.local",6
+"slurm_job_id","12089700",6
+"slurm_array_task_id","6",6
+"written_at_utc","2026-08-19 02:23:49 UTC",6
+"experiment_id","experiment_5_bspline_B_recovery",7
+"source_experiment_id","experiment_4_nmif600_model_comparison",7
+"model","bspline_B",7
+"task_id","7",7
+"simulation_seed","1007",7
+"observed_data_md5","c23f10d0daa427c993e4ece1079ed751",7
+"Nmif","600",7
+"Np_mif","5000",7
+"n_internal_starts","10",7
+"Np_eval","50000",7
+"n_pf_evals_per_start","5",7
+"selected_run","10",7
+"selection_rule","maximum_independently_evaluated_logLik",7
+"start_seed","27261100",7
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",7
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",7
+"R_version","R version 4.1.2 (2021-11-01)",7
+"pomp_version","6.4",7
+"hostname","frnt121.frontenac.local",7
+"slurm_job_id","12089701",7
+"slurm_array_task_id","7",7
+"written_at_utc","2026-08-19 02:23:32 UTC",7
+"experiment_id","experiment_5_bspline_B_recovery",8
+"source_experiment_id","experiment_4_nmif600_model_comparison",8
+"model","bspline_B",8
+"task_id","8",8
+"simulation_seed","1008",8
+"observed_data_md5","a0af209d0cf0d730b8b3834e0360ae95",8
+"Nmif","600",8
+"Np_mif","5000",8
+"n_internal_starts","10",8
+"Np_eval","50000",8
+"n_pf_evals_per_start","5",8
+"selected_run","1",8
+"selection_rule","maximum_independently_evaluated_logLik",8
+"start_seed","28261100",8
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",8
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",8
+"R_version","R version 4.1.2 (2021-11-01)",8
+"pomp_version","6.4",8
+"hostname","frnt121.frontenac.local",8
+"slurm_job_id","12089702",8
+"slurm_array_task_id","8",8
+"written_at_utc","2026-08-19 02:26:17 UTC",8
+"experiment_id","experiment_5_bspline_B_recovery",9
+"source_experiment_id","experiment_4_nmif600_model_comparison",9
+"model","bspline_B",9
+"task_id","9",9
+"simulation_seed","1009",9
+"observed_data_md5","51101219b554b4802624e043f09d6160",9
+"Nmif","600",9
+"Np_mif","5000",9
+"n_internal_starts","10",9
+"Np_eval","50000",9
+"n_pf_evals_per_start","5",9
+"selected_run","3",9
+"selection_rule","maximum_independently_evaluated_logLik",9
+"start_seed","29261100",9
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",9
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",9
+"R_version","R version 4.1.2 (2021-11-01)",9
+"pomp_version","6.4",9
+"hostname","frnt136.frontenac.local",9
+"slurm_job_id","12089703",9
+"slurm_array_task_id","9",9
+"written_at_utc","2026-08-19 02:29:22 UTC",9
+"experiment_id","experiment_5_bspline_B_recovery",10
+"source_experiment_id","experiment_4_nmif600_model_comparison",10
+"model","bspline_B",10
+"task_id","10",10
+"simulation_seed","1010",10
+"observed_data_md5","3658851b68a2ae24c2e8e9838200e49c",10
+"Nmif","600",10
+"Np_mif","5000",10
+"n_internal_starts","10",10
+"Np_eval","50000",10
+"n_pf_evals_per_start","5",10
+"selected_run","6",10
+"selection_rule","maximum_independently_evaluated_logLik",10
+"start_seed","30261100",10
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",10
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",10
+"R_version","R version 4.1.2 (2021-11-01)",10
+"pomp_version","6.4",10
+"hostname","frnt136.frontenac.local",10
+"slurm_job_id","12089704",10
+"slurm_array_task_id","10",10
+"written_at_utc","2026-08-19 02:27:56 UTC",10
+"experiment_id","experiment_5_bspline_B_recovery",11
+"source_experiment_id","experiment_4_nmif600_model_comparison",11
+"model","bspline_B",11
+"task_id","11",11
+"simulation_seed","1011",11
+"observed_data_md5","b0091463d341b4712ff6e9dd82a58abf",11
+"Nmif","600",11
+"Np_mif","5000",11
+"n_internal_starts","10",11
+"Np_eval","50000",11
+"n_pf_evals_per_start","5",11
+"selected_run","1",11
+"selection_rule","maximum_independently_evaluated_logLik",11
+"start_seed","31261100",11
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",11
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",11
+"R_version","R version 4.1.2 (2021-11-01)",11
+"pomp_version","6.4",11
+"hostname","frnt136.frontenac.local",11
+"slurm_job_id","12089705",11
+"slurm_array_task_id","11",11
+"written_at_utc","2026-08-19 02:32:15 UTC",11
+"experiment_id","experiment_5_bspline_B_recovery",12
+"source_experiment_id","experiment_4_nmif600_model_comparison",12
+"model","bspline_B",12
+"task_id","12",12
+"simulation_seed","1012",12
+"observed_data_md5","05f564b562cd69afde749fbba393d734",12
+"Nmif","600",12
+"Np_mif","5000",12
+"n_internal_starts","10",12
+"Np_eval","50000",12
+"n_pf_evals_per_start","5",12
+"selected_run","1",12
+"selection_rule","maximum_independently_evaluated_logLik",12
+"start_seed","32261100",12
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",12
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",12
+"R_version","R version 4.1.2 (2021-11-01)",12
+"pomp_version","6.4",12
+"hostname","frnt136.frontenac.local",12
+"slurm_job_id","12089706",12
+"slurm_array_task_id","12",12
+"written_at_utc","2026-08-19 02:27:41 UTC",12
+"experiment_id","experiment_5_bspline_B_recovery",13
+"source_experiment_id","experiment_4_nmif600_model_comparison",13
+"model","bspline_B",13
+"task_id","13",13
+"simulation_seed","1013",13
+"observed_data_md5","628dd9f33d5358ee7d358fcbbb9e1ec7",13
+"Nmif","600",13
+"Np_mif","5000",13
+"n_internal_starts","10",13
+"Np_eval","50000",13
+"n_pf_evals_per_start","5",13
+"selected_run","6",13
+"selection_rule","maximum_independently_evaluated_logLik",13
+"start_seed","33261100",13
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",13
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",13
+"R_version","R version 4.1.2 (2021-11-01)",13
+"pomp_version","6.4",13
+"hostname","frnt136.frontenac.local",13
+"slurm_job_id","12089707",13
+"slurm_array_task_id","13",13
+"written_at_utc","2026-08-19 02:27:37 UTC",13
+"experiment_id","experiment_5_bspline_B_recovery",14
+"source_experiment_id","experiment_4_nmif600_model_comparison",14
+"model","bspline_B",14
+"task_id","14",14
+"simulation_seed","1014",14
+"observed_data_md5","3ee86b29e7e61ffc7287cc8f5b47aeca",14
+"Nmif","600",14
+"Np_mif","5000",14
+"n_internal_starts","10",14
+"Np_eval","50000",14
+"n_pf_evals_per_start","5",14
+"selected_run","8",14
+"selection_rule","maximum_independently_evaluated_logLik",14
+"start_seed","34261100",14
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",14
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",14
+"R_version","R version 4.1.2 (2021-11-01)",14
+"pomp_version","6.4",14
+"hostname","frnt072.frontenac.local",14
+"slurm_job_id","12089708",14
+"slurm_array_task_id","14",14
+"written_at_utc","2026-08-19 02:38:33 UTC",14
+"experiment_id","experiment_5_bspline_B_recovery",15
+"source_experiment_id","experiment_4_nmif600_model_comparison",15
+"model","bspline_B",15
+"task_id","15",15
+"simulation_seed","1015",15
+"observed_data_md5","ae056eafb87645cec401ccb46346269b",15
+"Nmif","600",15
+"Np_mif","5000",15
+"n_internal_starts","10",15
+"Np_eval","50000",15
+"n_pf_evals_per_start","5",15
+"selected_run","5",15
+"selection_rule","maximum_independently_evaluated_logLik",15
+"start_seed","35261100",15
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",15
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",15
+"R_version","R version 4.1.2 (2021-11-01)",15
+"pomp_version","6.4",15
+"hostname","frnt072.frontenac.local",15
+"slurm_job_id","12089709",15
+"slurm_array_task_id","15",15
+"written_at_utc","2026-08-19 02:35:55 UTC",15
+"experiment_id","experiment_5_bspline_B_recovery",16
+"source_experiment_id","experiment_4_nmif600_model_comparison",16
+"model","bspline_B",16
+"task_id","16",16
+"simulation_seed","1016",16
+"observed_data_md5","a714e996eac59ec21285ac81b9fb5223",16
+"Nmif","600",16
+"Np_mif","5000",16
+"n_internal_starts","10",16
+"Np_eval","50000",16
+"n_pf_evals_per_start","5",16
+"selected_run","2",16
+"selection_rule","maximum_independently_evaluated_logLik",16
+"start_seed","36261100",16
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",16
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",16
+"R_version","R version 4.1.2 (2021-11-01)",16
+"pomp_version","6.4",16
+"hostname","frnt072.frontenac.local",16
+"slurm_job_id","12089710",16
+"slurm_array_task_id","16",16
+"written_at_utc","2026-08-19 02:35:42 UTC",16
+"experiment_id","experiment_5_bspline_B_recovery",17
+"source_experiment_id","experiment_4_nmif600_model_comparison",17
+"model","bspline_B",17
+"task_id","17",17
+"simulation_seed","1017",17
+"observed_data_md5","c1dff99001cdd2a71a8c5de229779c6a",17
+"Nmif","600",17
+"Np_mif","5000",17
+"n_internal_starts","10",17
+"Np_eval","50000",17
+"n_pf_evals_per_start","5",17
+"selected_run","6",17
+"selection_rule","maximum_independently_evaluated_logLik",17
+"start_seed","37261100",17
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",17
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",17
+"R_version","R version 4.1.2 (2021-11-01)",17
+"pomp_version","6.4",17
+"hostname","frnt148.frontenac.local",17
+"slurm_job_id","12089731",17
+"slurm_array_task_id","17",17
+"written_at_utc","2026-08-19 02:22:01 UTC",17
+"experiment_id","experiment_5_bspline_B_recovery",18
+"source_experiment_id","experiment_4_nmif600_model_comparison",18
+"model","bspline_B",18
+"task_id","18",18
+"simulation_seed","1018",18
+"observed_data_md5","b6d242ccc65d51d758e56f6a2b2246d6",18
+"Nmif","600",18
+"Np_mif","5000",18
+"n_internal_starts","10",18
+"Np_eval","50000",18
+"n_pf_evals_per_start","5",18
+"selected_run","6",18
+"selection_rule","maximum_independently_evaluated_logLik",18
+"start_seed","38261100",18
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",18
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",18
+"R_version","R version 4.1.2 (2021-11-01)",18
+"pomp_version","6.4",18
+"hostname","frnt148.frontenac.local",18
+"slurm_job_id","12089732",18
+"slurm_array_task_id","18",18
+"written_at_utc","2026-08-19 02:24:19 UTC",18
+"experiment_id","experiment_5_bspline_B_recovery",19
+"source_experiment_id","experiment_4_nmif600_model_comparison",19
+"model","bspline_B",19
+"task_id","19",19
+"simulation_seed","1019",19
+"observed_data_md5","13d489a8a65aa7a169791da7e2e871a6",19
+"Nmif","600",19
+"Np_mif","5000",19
+"n_internal_starts","10",19
+"Np_eval","50000",19
+"n_pf_evals_per_start","5",19
+"selected_run","8",19
+"selection_rule","maximum_independently_evaluated_logLik",19
+"start_seed","39261100",19
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",19
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",19
+"R_version","R version 4.1.2 (2021-11-01)",19
+"pomp_version","6.4",19
+"hostname","frnt148.frontenac.local",19
+"slurm_job_id","12089733",19
+"slurm_array_task_id","19",19
+"written_at_utc","2026-08-19 02:23:45 UTC",19
+"experiment_id","experiment_5_bspline_B_recovery",20
+"source_experiment_id","experiment_4_nmif600_model_comparison",20
+"model","bspline_B",20
+"task_id","20",20
+"simulation_seed","1020",20
+"observed_data_md5","714f6bb12c5d63009433470452ca002b",20
+"Nmif","600",20
+"Np_mif","5000",20
+"n_internal_starts","10",20
+"Np_eval","50000",20
+"n_pf_evals_per_start","5",20
+"selected_run","2",20
+"selection_rule","maximum_independently_evaluated_logLik",20
+"start_seed","40261100",20
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",20
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",20
+"R_version","R version 4.1.2 (2021-11-01)",20
+"pomp_version","6.4",20
+"hostname","frnt148.frontenac.local",20
+"slurm_job_id","12089734",20
+"slurm_array_task_id","20",20
+"written_at_utc","2026-08-19 02:28:20 UTC",20
+"experiment_id","experiment_5_bspline_B_recovery",21
+"source_experiment_id","experiment_4_nmif600_model_comparison",21
+"model","bspline_B",21
+"task_id","21",21
+"simulation_seed","1021",21
+"observed_data_md5","c46a7b2a22c4a8bed8a3c2537dbc0243",21
+"Nmif","600",21
+"Np_mif","5000",21
+"n_internal_starts","10",21
+"Np_eval","50000",21
+"n_pf_evals_per_start","5",21
+"selected_run","5",21
+"selection_rule","maximum_independently_evaluated_logLik",21
+"start_seed","41261100",21
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",21
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",21
+"R_version","R version 4.1.2 (2021-11-01)",21
+"pomp_version","6.4",21
+"hostname","frnt149.frontenac.local",21
+"slurm_job_id","12089735",21
+"slurm_array_task_id","21",21
+"written_at_utc","2026-08-19 02:25:49 UTC",21
+"experiment_id","experiment_5_bspline_B_recovery",22
+"source_experiment_id","experiment_4_nmif600_model_comparison",22
+"model","bspline_B",22
+"task_id","22",22
+"simulation_seed","1022",22
+"observed_data_md5","37fb1b826b530c406841fb3dc0dd2a19",22
+"Nmif","600",22
+"Np_mif","5000",22
+"n_internal_starts","10",22
+"Np_eval","50000",22
+"n_pf_evals_per_start","5",22
+"selected_run","3",22
+"selection_rule","maximum_independently_evaluated_logLik",22
+"start_seed","42261100",22
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",22
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",22
+"R_version","R version 4.1.2 (2021-11-01)",22
+"pomp_version","6.4",22
+"hostname","frnt132.frontenac.local",22
+"slurm_job_id","12091772",22
+"slurm_array_task_id","22",22
+"written_at_utc","2026-08-19 03:07:23 UTC",22
+"experiment_id","experiment_5_bspline_B_recovery",23
+"source_experiment_id","experiment_4_nmif600_model_comparison",23
+"model","bspline_B",23
+"task_id","23",23
+"simulation_seed","1023",23
+"observed_data_md5","5391b651cef3ef3752fc04bfb4f6d8ab",23
+"Nmif","600",23
+"Np_mif","5000",23
+"n_internal_starts","10",23
+"Np_eval","50000",23
+"n_pf_evals_per_start","5",23
+"selected_run","9",23
+"selection_rule","maximum_independently_evaluated_logLik",23
+"start_seed","43261100",23
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",23
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",23
+"R_version","R version 4.1.2 (2021-11-01)",23
+"pomp_version","6.4",23
+"hostname","frnt121.frontenac.local",23
+"slurm_job_id","12091980",23
+"slurm_array_task_id","23",23
+"written_at_utc","2026-08-19 03:28:27 UTC",23
+"experiment_id","experiment_5_bspline_B_recovery",24
+"source_experiment_id","experiment_4_nmif600_model_comparison",24
+"model","bspline_B",24
+"task_id","24",24
+"simulation_seed","1024",24
+"observed_data_md5","f17101a77a91a5858651ca092461a15e",24
+"Nmif","600",24
+"Np_mif","5000",24
+"n_internal_starts","10",24
+"Np_eval","50000",24
+"n_pf_evals_per_start","5",24
+"selected_run","6",24
+"selection_rule","maximum_independently_evaluated_logLik",24
+"start_seed","44261100",24
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",24
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",24
+"R_version","R version 4.1.2 (2021-11-01)",24
+"pomp_version","6.4",24
+"hostname","frnt121.frontenac.local",24
+"slurm_job_id","12091981",24
+"slurm_array_task_id","24",24
+"written_at_utc","2026-08-19 03:28:43 UTC",24
+"experiment_id","experiment_5_bspline_B_recovery",25
+"source_experiment_id","experiment_4_nmif600_model_comparison",25
+"model","bspline_B",25
+"task_id","25",25
+"simulation_seed","1025",25
+"observed_data_md5","5bffd9597ff51651a7b3c018b0060e43",25
+"Nmif","600",25
+"Np_mif","5000",25
+"n_internal_starts","10",25
+"Np_eval","50000",25
+"n_pf_evals_per_start","5",25
+"selected_run","8",25
+"selection_rule","maximum_independently_evaluated_logLik",25
+"start_seed","45261100",25
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",25
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",25
+"R_version","R version 4.1.2 (2021-11-01)",25
+"pomp_version","6.4",25
+"hostname","frnt121.frontenac.local",25
+"slurm_job_id","12091982",25
+"slurm_array_task_id","25",25
+"written_at_utc","2026-08-19 03:29:25 UTC",25
+"experiment_id","experiment_5_bspline_B_recovery",26
+"source_experiment_id","experiment_4_nmif600_model_comparison",26
+"model","bspline_B",26
+"task_id","26",26
+"simulation_seed","1026",26
+"observed_data_md5","7d638818fac5c183766d7bd337251990",26
+"Nmif","600",26
+"Np_mif","5000",26
+"n_internal_starts","10",26
+"Np_eval","50000",26
+"n_pf_evals_per_start","5",26
+"selected_run","6",26
+"selection_rule","maximum_independently_evaluated_logLik",26
+"start_seed","46261100",26
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",26
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",26
+"R_version","R version 4.1.2 (2021-11-01)",26
+"pomp_version","6.4",26
+"hostname","frnt121.frontenac.local",26
+"slurm_job_id","12091983",26
+"slurm_array_task_id","26",26
+"written_at_utc","2026-08-19 03:29:53 UTC",26
+"experiment_id","experiment_5_bspline_B_recovery",27
+"source_experiment_id","experiment_4_nmif600_model_comparison",27
+"model","bspline_B",27
+"task_id","27",27
+"simulation_seed","1027",27
+"observed_data_md5","febf6d542123ef85142ab3d7c88fd4f9",27
+"Nmif","600",27
+"Np_mif","5000",27
+"n_internal_starts","10",27
+"Np_eval","50000",27
+"n_pf_evals_per_start","5",27
+"selected_run","7",27
+"selection_rule","maximum_independently_evaluated_logLik",27
+"start_seed","47261100",27
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",27
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",27
+"R_version","R version 4.1.2 (2021-11-01)",27
+"pomp_version","6.4",27
+"hostname","frnt121.frontenac.local",27
+"slurm_job_id","12091984",27
+"slurm_array_task_id","27",27
+"written_at_utc","2026-08-19 03:30:22 UTC",27
+"experiment_id","experiment_5_bspline_B_recovery",28
+"source_experiment_id","experiment_4_nmif600_model_comparison",28
+"model","bspline_B",28
+"task_id","28",28
+"simulation_seed","1028",28
+"observed_data_md5","fa30cb31cb12a8463966a31a9ac1f66d",28
+"Nmif","600",28
+"Np_mif","5000",28
+"n_internal_starts","10",28
+"Np_eval","50000",28
+"n_pf_evals_per_start","5",28
+"selected_run","8",28
+"selection_rule","maximum_independently_evaluated_logLik",28
+"start_seed","48261100",28
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",28
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",28
+"R_version","R version 4.1.2 (2021-11-01)",28
+"pomp_version","6.4",28
+"hostname","frnt121.frontenac.local",28
+"slurm_job_id","12091985",28
+"slurm_array_task_id","28",28
+"written_at_utc","2026-08-19 03:31:51 UTC",28
+"experiment_id","experiment_5_bspline_B_recovery",29
+"source_experiment_id","experiment_4_nmif600_model_comparison",29
+"model","bspline_B",29
+"task_id","29",29
+"simulation_seed","1029",29
+"observed_data_md5","f88e4728f80479179227d46e3ae73be8",29
+"Nmif","600",29
+"Np_mif","5000",29
+"n_internal_starts","10",29
+"Np_eval","50000",29
+"n_pf_evals_per_start","5",29
+"selected_run","2",29
+"selection_rule","maximum_independently_evaluated_logLik",29
+"start_seed","49261100",29
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",29
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",29
+"R_version","R version 4.1.2 (2021-11-01)",29
+"pomp_version","6.4",29
+"hostname","frnt066.frontenac.local",29
+"slurm_job_id","12091988",29
+"slurm_array_task_id","29",29
+"written_at_utc","2026-08-19 03:38:47 UTC",29
+"experiment_id","experiment_5_bspline_B_recovery",30
+"source_experiment_id","experiment_4_nmif600_model_comparison",30
+"model","bspline_B",30
+"task_id","30",30
+"simulation_seed","1030",30
+"observed_data_md5","6d8fcd9da06daac4afecfcdf2af73043",30
+"Nmif","600",30
+"Np_mif","5000",30
+"n_internal_starts","10",30
+"Np_eval","50000",30
+"n_pf_evals_per_start","5",30
+"selected_run","5",30
+"selection_rule","maximum_independently_evaluated_logLik",30
+"start_seed","50261100",30
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",30
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",30
+"R_version","R version 4.1.2 (2021-11-01)",30
+"pomp_version","6.4",30
+"hostname","frnt066.frontenac.local",30
+"slurm_job_id","12091989",30
+"slurm_array_task_id","30",30
+"written_at_utc","2026-08-19 03:42:08 UTC",30
+"experiment_id","experiment_5_bspline_B_recovery",31
+"source_experiment_id","experiment_4_nmif600_model_comparison",31
+"model","bspline_B",31
+"task_id","31",31
+"simulation_seed","1031",31
+"observed_data_md5","1f4f623a1599fc68865ccca5c8e38092",31
+"Nmif","600",31
+"Np_mif","5000",31
+"n_internal_starts","10",31
+"Np_eval","50000",31
+"n_pf_evals_per_start","5",31
+"selected_run","9",31
+"selection_rule","maximum_independently_evaluated_logLik",31
+"start_seed","51261100",31
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",31
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",31
+"R_version","R version 4.1.2 (2021-11-01)",31
+"pomp_version","6.4",31
+"hostname","frnt121.frontenac.local",31
+"slurm_job_id","12091990",31
+"slurm_array_task_id","31",31
+"written_at_utc","2026-08-19 03:29:04 UTC",31
+"experiment_id","experiment_5_bspline_B_recovery",32
+"source_experiment_id","experiment_4_nmif600_model_comparison",32
+"model","bspline_B",32
+"task_id","32",32
+"simulation_seed","1032",32
+"observed_data_md5","8b18f38744449f8e8c5016a5c62a9db0",32
+"Nmif","600",32
+"Np_mif","5000",32
+"n_internal_starts","10",32
+"Np_eval","50000",32
+"n_pf_evals_per_start","5",32
+"selected_run","10",32
+"selection_rule","maximum_independently_evaluated_logLik",32
+"start_seed","52261100",32
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",32
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",32
+"R_version","R version 4.1.2 (2021-11-01)",32
+"pomp_version","6.4",32
+"hostname","frnt121.frontenac.local",32
+"slurm_job_id","12091991",32
+"slurm_array_task_id","32",32
+"written_at_utc","2026-08-19 03:34:32 UTC",32
+"experiment_id","experiment_5_bspline_B_recovery",33
+"source_experiment_id","experiment_4_nmif600_model_comparison",33
+"model","bspline_B",33
+"task_id","33",33
+"simulation_seed","1033",33
+"observed_data_md5","1c656b251cec47b7f90e7590d6f84c85",33
+"Nmif","600",33
+"Np_mif","5000",33
+"n_internal_starts","10",33
+"Np_eval","50000",33
+"n_pf_evals_per_start","5",33
+"selected_run","9",33
+"selection_rule","maximum_independently_evaluated_logLik",33
+"start_seed","53261100",33
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",33
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",33
+"R_version","R version 4.1.2 (2021-11-01)",33
+"pomp_version","6.4",33
+"hostname","frnt066.frontenac.local",33
+"slurm_job_id","12091994",33
+"slurm_array_task_id","33",33
+"written_at_utc","2026-08-19 03:44:04 UTC",33
+"experiment_id","experiment_5_bspline_B_recovery",34
+"source_experiment_id","experiment_4_nmif600_model_comparison",34
+"model","bspline_B",34
+"task_id","34",34
+"simulation_seed","1034",34
+"observed_data_md5","6295649cce30d443915163e1f486574c",34
+"Nmif","600",34
+"Np_mif","5000",34
+"n_internal_starts","10",34
+"Np_eval","50000",34
+"n_pf_evals_per_start","5",34
+"selected_run","1",34
+"selection_rule","maximum_independently_evaluated_logLik",34
+"start_seed","54261100",34
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",34
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",34
+"R_version","R version 4.1.2 (2021-11-01)",34
+"pomp_version","6.4",34
+"hostname","frnt066.frontenac.local",34
+"slurm_job_id","12091995",34
+"slurm_array_task_id","34",34
+"written_at_utc","2026-08-19 03:41:41 UTC",34
+"experiment_id","experiment_5_bspline_B_recovery",35
+"source_experiment_id","experiment_4_nmif600_model_comparison",35
+"model","bspline_B",35
+"task_id","35",35
+"simulation_seed","1035",35
+"observed_data_md5","05c8b3ee0cc2e85807ddffab0af38be8",35
+"Nmif","600",35
+"Np_mif","5000",35
+"n_internal_starts","10",35
+"Np_eval","50000",35
+"n_pf_evals_per_start","5",35
+"selected_run","9",35
+"selection_rule","maximum_independently_evaluated_logLik",35
+"start_seed","55261100",35
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",35
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",35
+"R_version","R version 4.1.2 (2021-11-01)",35
+"pomp_version","6.4",35
+"hostname","frnt066.frontenac.local",35
+"slurm_job_id","12091996",35
+"slurm_array_task_id","35",35
+"written_at_utc","2026-08-19 03:44:10 UTC",35
+"experiment_id","experiment_5_bspline_B_recovery",36
+"source_experiment_id","experiment_4_nmif600_model_comparison",36
+"model","bspline_B",36
+"task_id","36",36
+"simulation_seed","1036",36
+"observed_data_md5","12e163742e3ae8e7eef3194a703ebcdb",36
+"Nmif","600",36
+"Np_mif","5000",36
+"n_internal_starts","10",36
+"Np_eval","50000",36
+"n_pf_evals_per_start","5",36
+"selected_run","7",36
+"selection_rule","maximum_independently_evaluated_logLik",36
+"start_seed","56261100",36
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",36
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",36
+"R_version","R version 4.1.2 (2021-11-01)",36
+"pomp_version","6.4",36
+"hostname","frnt066.frontenac.local",36
+"slurm_job_id","12091997",36
+"slurm_array_task_id","36",36
+"written_at_utc","2026-08-19 03:44:06 UTC",36
+"experiment_id","experiment_5_bspline_B_recovery",37
+"source_experiment_id","experiment_4_nmif600_model_comparison",37
+"model","bspline_B",37
+"task_id","37",37
+"simulation_seed","1037",37
+"observed_data_md5","129fa3be8b0ee7a384bf1d0e5525258e",37
+"Nmif","600",37
+"Np_mif","5000",37
+"n_internal_starts","10",37
+"Np_eval","50000",37
+"n_pf_evals_per_start","5",37
+"selected_run","2",37
+"selection_rule","maximum_independently_evaluated_logLik",37
+"start_seed","57261100",37
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",37
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",37
+"R_version","R version 4.1.2 (2021-11-01)",37
+"pomp_version","6.4",37
+"hostname","frnt072.frontenac.local",37
+"slurm_job_id","12091998",37
+"slurm_array_task_id","37",37
+"written_at_utc","2026-08-19 03:44:31 UTC",37
+"experiment_id","experiment_5_bspline_B_recovery",38
+"source_experiment_id","experiment_4_nmif600_model_comparison",38
+"model","bspline_B",38
+"task_id","38",38
+"simulation_seed","1038",38
+"observed_data_md5","2cb84ae4bd553be0419d1e71639da95a",38
+"Nmif","600",38
+"Np_mif","5000",38
+"n_internal_starts","10",38
+"Np_eval","50000",38
+"n_pf_evals_per_start","5",38
+"selected_run","3",38
+"selection_rule","maximum_independently_evaluated_logLik",38
+"start_seed","58261100",38
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",38
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",38
+"R_version","R version 4.1.2 (2021-11-01)",38
+"pomp_version","6.4",38
+"hostname","frnt072.frontenac.local",38
+"slurm_job_id","12092000",38
+"slurm_array_task_id","38",38
+"written_at_utc","2026-08-19 03:45:07 UTC",38
+"experiment_id","experiment_5_bspline_B_recovery",39
+"source_experiment_id","experiment_4_nmif600_model_comparison",39
+"model","bspline_B",39
+"task_id","39",39
+"simulation_seed","1039",39
+"observed_data_md5","42f80019227937c2a1292d80471ad885",39
+"Nmif","600",39
+"Np_mif","5000",39
+"n_internal_starts","10",39
+"Np_eval","50000",39
+"n_pf_evals_per_start","5",39
+"selected_run","9",39
+"selection_rule","maximum_independently_evaluated_logLik",39
+"start_seed","59261100",39
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",39
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",39
+"R_version","R version 4.1.2 (2021-11-01)",39
+"pomp_version","6.4",39
+"hostname","frnt072.frontenac.local",39
+"slurm_job_id","12092002",39
+"slurm_array_task_id","39",39
+"written_at_utc","2026-08-19 03:54:07 UTC",39
+"experiment_id","experiment_5_bspline_B_recovery",40
+"source_experiment_id","experiment_4_nmif600_model_comparison",40
+"model","bspline_B",40
+"task_id","40",40
+"simulation_seed","1040",40
+"observed_data_md5","ab1d08dee64fd498a66e009327aa8634",40
+"Nmif","600",40
+"Np_mif","5000",40
+"n_internal_starts","10",40
+"Np_eval","50000",40
+"n_pf_evals_per_start","5",40
+"selected_run","2",40
+"selection_rule","maximum_independently_evaluated_logLik",40
+"start_seed","60261100",40
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",40
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",40
+"R_version","R version 4.1.2 (2021-11-01)",40
+"pomp_version","6.4",40
+"hostname","frnt072.frontenac.local",40
+"slurm_job_id","12092003",40
+"slurm_array_task_id","40",40
+"written_at_utc","2026-08-19 03:52:44 UTC",40
+"experiment_id","experiment_5_bspline_B_recovery",41
+"source_experiment_id","experiment_4_nmif600_model_comparison",41
+"model","bspline_B",41
+"task_id","41",41
+"simulation_seed","1041",41
+"observed_data_md5","287dedf1d0604d7339bf2699355ae974",41
+"Nmif","600",41
+"Np_mif","5000",41
+"n_internal_starts","10",41
+"Np_eval","50000",41
+"n_pf_evals_per_start","5",41
+"selected_run","5",41
+"selection_rule","maximum_independently_evaluated_logLik",41
+"start_seed","61261100",41
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",41
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",41
+"R_version","R version 4.1.2 (2021-11-01)",41
+"pomp_version","6.4",41
+"hostname","frnt072.frontenac.local",41
+"slurm_job_id","12092004",41
+"slurm_array_task_id","41",41
+"written_at_utc","2026-08-19 03:55:31 UTC",41
+"experiment_id","experiment_5_bspline_B_recovery",42
+"source_experiment_id","experiment_4_nmif600_model_comparison",42
+"model","bspline_B",42
+"task_id","42",42
+"simulation_seed","1042",42
+"observed_data_md5","a0f4bf165f246f2d852e7cb15677c6d0",42
+"Nmif","600",42
+"Np_mif","5000",42
+"n_internal_starts","10",42
+"Np_eval","50000",42
+"n_pf_evals_per_start","5",42
+"selected_run","9",42
+"selection_rule","maximum_independently_evaluated_logLik",42
+"start_seed","62261100",42
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",42
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",42
+"R_version","R version 4.1.2 (2021-11-01)",42
+"pomp_version","6.4",42
+"hostname","frnt072.frontenac.local",42
+"slurm_job_id","12092062",42
+"slurm_array_task_id","42",42
+"written_at_utc","2026-08-19 04:22:09 UTC",42
+"experiment_id","experiment_5_bspline_B_recovery",43
+"source_experiment_id","experiment_4_nmif600_model_comparison",43
+"model","bspline_B",43
+"task_id","43",43
+"simulation_seed","1043",43
+"observed_data_md5","98bd9bf2f837f4d00af88dbb60b77b5c",43
+"Nmif","600",43
+"Np_mif","5000",43
+"n_internal_starts","10",43
+"Np_eval","50000",43
+"n_pf_evals_per_start","5",43
+"selected_run","10",43
+"selection_rule","maximum_independently_evaluated_logLik",43
+"start_seed","63261100",43
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",43
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",43
+"R_version","R version 4.1.2 (2021-11-01)",43
+"pomp_version","6.4",43
+"hostname","frnt132.frontenac.local",43
+"slurm_job_id","12092466",43
+"slurm_array_task_id","43",43
+"written_at_utc","2026-08-19 04:31:25 UTC",43
+"experiment_id","experiment_5_bspline_B_recovery",44
+"source_experiment_id","experiment_4_nmif600_model_comparison",44
+"model","bspline_B",44
+"task_id","44",44
+"simulation_seed","1044",44
+"observed_data_md5","7fc16f6007b4caa0fad7b388de798f61",44
+"Nmif","600",44
+"Np_mif","5000",44
+"n_internal_starts","10",44
+"Np_eval","50000",44
+"n_pf_evals_per_start","5",44
+"selected_run","5",44
+"selection_rule","maximum_independently_evaluated_logLik",44
+"start_seed","64261100",44
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",44
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",44
+"R_version","R version 4.1.2 (2021-11-01)",44
+"pomp_version","6.4",44
+"hostname","frnt132.frontenac.local",44
+"slurm_job_id","12092467",44
+"slurm_array_task_id","44",44
+"written_at_utc","2026-08-19 04:31:38 UTC",44
+"experiment_id","experiment_5_bspline_B_recovery",45
+"source_experiment_id","experiment_4_nmif600_model_comparison",45
+"model","bspline_B",45
+"task_id","45",45
+"simulation_seed","1045",45
+"observed_data_md5","ea38700766ed00739f841a67050a1f0f",45
+"Nmif","600",45
+"Np_mif","5000",45
+"n_internal_starts","10",45
+"Np_eval","50000",45
+"n_pf_evals_per_start","5",45
+"selected_run","4",45
+"selection_rule","maximum_independently_evaluated_logLik",45
+"start_seed","65261100",45
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",45
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",45
+"R_version","R version 4.1.2 (2021-11-01)",45
+"pomp_version","6.4",45
+"hostname","frnt148.frontenac.local",45
+"slurm_job_id","12092468",45
+"slurm_array_task_id","45",45
+"written_at_utc","2026-08-19 04:49:57 UTC",45
+"experiment_id","experiment_5_bspline_B_recovery",46
+"source_experiment_id","experiment_4_nmif600_model_comparison",46
+"model","bspline_B",46
+"task_id","46",46
+"simulation_seed","1046",46
+"observed_data_md5","9df354b439dcb34c0723dc7a22427817",46
+"Nmif","600",46
+"Np_mif","5000",46
+"n_internal_starts","10",46
+"Np_eval","50000",46
+"n_pf_evals_per_start","5",46
+"selected_run","1",46
+"selection_rule","maximum_independently_evaluated_logLik",46
+"start_seed","66261100",46
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",46
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",46
+"R_version","R version 4.1.2 (2021-11-01)",46
+"pomp_version","6.4",46
+"hostname","frnt148.frontenac.local",46
+"slurm_job_id","12092469",46
+"slurm_array_task_id","46",46
+"written_at_utc","2026-08-19 04:48:44 UTC",46
+"experiment_id","experiment_5_bspline_B_recovery",47
+"source_experiment_id","experiment_4_nmif600_model_comparison",47
+"model","bspline_B",47
+"task_id","47",47
+"simulation_seed","1047",47
+"observed_data_md5","a27592b2dc2d1f22ae7b3b7d52d6c6e8",47
+"Nmif","600",47
+"Np_mif","5000",47
+"n_internal_starts","10",47
+"Np_eval","50000",47
+"n_pf_evals_per_start","5",47
+"selected_run","9",47
+"selection_rule","maximum_independently_evaluated_logLik",47
+"start_seed","67261100",47
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",47
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",47
+"R_version","R version 4.1.2 (2021-11-01)",47
+"pomp_version","6.4",47
+"hostname","frnt148.frontenac.local",47
+"slurm_job_id","12092470",47
+"slurm_array_task_id","47",47
+"written_at_utc","2026-08-19 04:49:01 UTC",47
+"experiment_id","experiment_5_bspline_B_recovery",48
+"source_experiment_id","experiment_4_nmif600_model_comparison",48
+"model","bspline_B",48
+"task_id","48",48
+"simulation_seed","1048",48
+"observed_data_md5","e149dfe63fefba3d9450d8ebe55e2be8",48
+"Nmif","600",48
+"Np_mif","5000",48
+"n_internal_starts","10",48
+"Np_eval","50000",48
+"n_pf_evals_per_start","5",48
+"selected_run","3",48
+"selection_rule","maximum_independently_evaluated_logLik",48
+"start_seed","68261100",48
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",48
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",48
+"R_version","R version 4.1.2 (2021-11-01)",48
+"pomp_version","6.4",48
+"hostname","frnt148.frontenac.local",48
+"slurm_job_id","12092471",48
+"slurm_array_task_id","48",48
+"written_at_utc","2026-08-19 04:48:47 UTC",48
+"experiment_id","experiment_5_bspline_B_recovery",49
+"source_experiment_id","experiment_4_nmif600_model_comparison",49
+"model","bspline_B",49
+"task_id","49",49
+"simulation_seed","1049",49
+"observed_data_md5","c24fd9ec2467b6f39b42b31426dcbff7",49
+"Nmif","600",49
+"Np_mif","5000",49
+"n_internal_starts","10",49
+"Np_eval","50000",49
+"n_pf_evals_per_start","5",49
+"selected_run","7",49
+"selection_rule","maximum_independently_evaluated_logLik",49
+"start_seed","69261100",49
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",49
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",49
+"R_version","R version 4.1.2 (2021-11-01)",49
+"pomp_version","6.4",49
+"hostname","frnt149.frontenac.local",49
+"slurm_job_id","12092472",49
+"slurm_array_task_id","49",49
+"written_at_utc","2026-08-19 04:45:05 UTC",49
+"experiment_id","experiment_5_bspline_B_recovery",50
+"source_experiment_id","experiment_4_nmif600_model_comparison",50
+"model","bspline_B",50
+"task_id","50",50
+"simulation_seed","1050",50
+"observed_data_md5","7dc1a3b5ba09f2ddcb65bf5b7422a9ed",50
+"Nmif","600",50
+"Np_mif","5000",50
+"n_internal_starts","10",50
+"Np_eval","50000",50
+"n_pf_evals_per_start","5",50
+"selected_run","2",50
+"selection_rule","maximum_independently_evaluated_logLik",50
+"start_seed","70261100",50
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",50
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",50
+"R_version","R version 4.1.2 (2021-11-01)",50
+"pomp_version","6.4",50
+"hostname","frnt149.frontenac.local",50
+"slurm_job_id","12092473",50
+"slurm_array_task_id","50",50
+"written_at_utc","2026-08-19 04:55:51 UTC",50
+"experiment_id","experiment_5_bspline_B_recovery",51
+"source_experiment_id","experiment_4_nmif600_model_comparison",51
+"model","bspline_B",51
+"task_id","51",51
+"simulation_seed","1051",51
+"observed_data_md5","900920f25b406cb0530e847b193e6c9b",51
+"Nmif","600",51
+"Np_mif","5000",51
+"n_internal_starts","10",51
+"Np_eval","50000",51
+"n_pf_evals_per_start","5",51
+"selected_run","9",51
+"selection_rule","maximum_independently_evaluated_logLik",51
+"start_seed","71261100",51
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",51
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",51
+"R_version","R version 4.1.2 (2021-11-01)",51
+"pomp_version","6.4",51
+"hostname","frnt149.frontenac.local",51
+"slurm_job_id","12092474",51
+"slurm_array_task_id","51",51
+"written_at_utc","2026-08-19 05:07:24 UTC",51
+"experiment_id","experiment_5_bspline_B_recovery",52
+"source_experiment_id","experiment_4_nmif600_model_comparison",52
+"model","bspline_B",52
+"task_id","52",52
+"simulation_seed","1052",52
+"observed_data_md5","94c869cc26cd44cd9de1033132a41b1b",52
+"Nmif","600",52
+"Np_mif","5000",52
+"n_internal_starts","10",52
+"Np_eval","50000",52
+"n_pf_evals_per_start","5",52
+"selected_run","9",52
+"selection_rule","maximum_independently_evaluated_logLik",52
+"start_seed","72261100",52
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",52
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",52
+"R_version","R version 4.1.2 (2021-11-01)",52
+"pomp_version","6.4",52
+"hostname","frnt149.frontenac.local",52
+"slurm_job_id","12092475",52
+"slurm_array_task_id","52",52
+"written_at_utc","2026-08-19 05:04:30 UTC",52
+"experiment_id","experiment_5_bspline_B_recovery",53
+"source_experiment_id","experiment_4_nmif600_model_comparison",53
+"model","bspline_B",53
+"task_id","53",53
+"simulation_seed","1053",53
+"observed_data_md5","21c503be1bfd17d135902892b999365f",53
+"Nmif","600",53
+"Np_mif","5000",53
+"n_internal_starts","10",53
+"Np_eval","50000",53
+"n_pf_evals_per_start","5",53
+"selected_run","6",53
+"selection_rule","maximum_independently_evaluated_logLik",53
+"start_seed","73261100",53
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",53
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",53
+"R_version","R version 4.1.2 (2021-11-01)",53
+"pomp_version","6.4",53
+"hostname","frnt132.frontenac.local",53
+"slurm_job_id","12092476",53
+"slurm_array_task_id","53",53
+"written_at_utc","2026-08-19 05:27:58 UTC",53
+"experiment_id","experiment_5_bspline_B_recovery",54
+"source_experiment_id","experiment_4_nmif600_model_comparison",54
+"model","bspline_B",54
+"task_id","54",54
+"simulation_seed","1054",54
+"observed_data_md5","bb6ab35a8708f3f23940941298b79dbc",54
+"Nmif","600",54
+"Np_mif","5000",54
+"n_internal_starts","10",54
+"Np_eval","50000",54
+"n_pf_evals_per_start","5",54
+"selected_run","4",54
+"selection_rule","maximum_independently_evaluated_logLik",54
+"start_seed","74261100",54
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",54
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",54
+"R_version","R version 4.1.2 (2021-11-01)",54
+"pomp_version","6.4",54
+"hostname","frnt132.frontenac.local",54
+"slurm_job_id","12092477",54
+"slurm_array_task_id","54",54
+"written_at_utc","2026-08-19 05:28:04 UTC",54
+"experiment_id","experiment_5_bspline_B_recovery",55
+"source_experiment_id","experiment_4_nmif600_model_comparison",55
+"model","bspline_B",55
+"task_id","55",55
+"simulation_seed","1055",55
+"observed_data_md5","7481513b9e19d7a30b033ad1490d6f16",55
+"Nmif","600",55
+"Np_mif","5000",55
+"n_internal_starts","10",55
+"Np_eval","50000",55
+"n_pf_evals_per_start","5",55
+"selected_run","2",55
+"selection_rule","maximum_independently_evaluated_logLik",55
+"start_seed","75261100",55
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",55
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",55
+"R_version","R version 4.1.2 (2021-11-01)",55
+"pomp_version","6.4",55
+"hostname","frnt132.frontenac.local",55
+"slurm_job_id","12092478",55
+"slurm_array_task_id","55",55
+"written_at_utc","2026-08-19 05:25:54 UTC",55
+"experiment_id","experiment_5_bspline_B_recovery",56
+"source_experiment_id","experiment_4_nmif600_model_comparison",56
+"model","bspline_B",56
+"task_id","56",56
+"simulation_seed","1056",56
+"observed_data_md5","08c1962e5f9bd4d5168d1afa7314d508",56
+"Nmif","600",56
+"Np_mif","5000",56
+"n_internal_starts","10",56
+"Np_eval","50000",56
+"n_pf_evals_per_start","5",56
+"selected_run","6",56
+"selection_rule","maximum_independently_evaluated_logLik",56
+"start_seed","76261100",56
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",56
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",56
+"R_version","R version 4.1.2 (2021-11-01)",56
+"pomp_version","6.4",56
+"hostname","frnt132.frontenac.local",56
+"slurm_job_id","12092479",56
+"slurm_array_task_id","56",56
+"written_at_utc","2026-08-19 05:26:35 UTC",56
+"experiment_id","experiment_5_bspline_B_recovery",57
+"source_experiment_id","experiment_4_nmif600_model_comparison",57
+"model","bspline_B",57
+"task_id","57",57
+"simulation_seed","1057",57
+"observed_data_md5","0fa2ff4b3c51077ca4a85e846724b31e",57
+"Nmif","600",57
+"Np_mif","5000",57
+"n_internal_starts","10",57
+"Np_eval","50000",57
+"n_pf_evals_per_start","5",57
+"selected_run","1",57
+"selection_rule","maximum_independently_evaluated_logLik",57
+"start_seed","77261100",57
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",57
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",57
+"R_version","R version 4.1.2 (2021-11-01)",57
+"pomp_version","6.4",57
+"hostname","frnt132.frontenac.local",57
+"slurm_job_id","12092480",57
+"slurm_array_task_id","57",57
+"written_at_utc","2026-08-19 05:18:39 UTC",57
+"experiment_id","experiment_5_bspline_B_recovery",58
+"source_experiment_id","experiment_4_nmif600_model_comparison",58
+"model","bspline_B",58
+"task_id","58",58
+"simulation_seed","1058",58
+"observed_data_md5","fb197f5caf6d73b93cf36910dcf5bd62",58
+"Nmif","600",58
+"Np_mif","5000",58
+"n_internal_starts","10",58
+"Np_eval","50000",58
+"n_pf_evals_per_start","5",58
+"selected_run","8",58
+"selection_rule","maximum_independently_evaluated_logLik",58
+"start_seed","78261100",58
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",58
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",58
+"R_version","R version 4.1.2 (2021-11-01)",58
+"pomp_version","6.4",58
+"hostname","frnt132.frontenac.local",58
+"slurm_job_id","12092481",58
+"slurm_array_task_id","58",58
+"written_at_utc","2026-08-19 05:28:11 UTC",58
+"experiment_id","experiment_5_bspline_B_recovery",59
+"source_experiment_id","experiment_4_nmif600_model_comparison",59
+"model","bspline_B",59
+"task_id","59",59
+"simulation_seed","1059",59
+"observed_data_md5","85c4aca3511ef3a6574f147464f1b8a6",59
+"Nmif","600",59
+"Np_mif","5000",59
+"n_internal_starts","10",59
+"Np_eval","50000",59
+"n_pf_evals_per_start","5",59
+"selected_run","2",59
+"selection_rule","maximum_independently_evaluated_logLik",59
+"start_seed","79261100",59
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",59
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",59
+"R_version","R version 4.1.2 (2021-11-01)",59
+"pomp_version","6.4",59
+"hostname","frnt132.frontenac.local",59
+"slurm_job_id","12092482",59
+"slurm_array_task_id","59",59
+"written_at_utc","2026-08-19 05:28:02 UTC",59
+"experiment_id","experiment_5_bspline_B_recovery",60
+"source_experiment_id","experiment_4_nmif600_model_comparison",60
+"model","bspline_B",60
+"task_id","60",60
+"simulation_seed","1060",60
+"observed_data_md5","0f9b10d21fc1c74a53d447b4ab6c4a76",60
+"Nmif","600",60
+"Np_mif","5000",60
+"n_internal_starts","10",60
+"Np_eval","50000",60
+"n_pf_evals_per_start","5",60
+"selected_run","4",60
+"selection_rule","maximum_independently_evaluated_logLik",60
+"start_seed","80261100",60
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",60
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",60
+"R_version","R version 4.1.2 (2021-11-01)",60
+"pomp_version","6.4",60
+"hostname","frnt132.frontenac.local",60
+"slurm_job_id","12092483",60
+"slurm_array_task_id","60",60
+"written_at_utc","2026-08-19 05:29:04 UTC",60
+"experiment_id","experiment_5_bspline_B_recovery",61
+"source_experiment_id","experiment_4_nmif600_model_comparison",61
+"model","bspline_B",61
+"task_id","61",61
+"simulation_seed","1061",61
+"observed_data_md5","ef64f00e9a05074fb3305ee8fb186803",61
+"Nmif","600",61
+"Np_mif","5000",61
+"n_internal_starts","10",61
+"Np_eval","50000",61
+"n_pf_evals_per_start","5",61
+"selected_run","4",61
+"selection_rule","maximum_independently_evaluated_logLik",61
+"start_seed","81261100",61
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",61
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",61
+"R_version","R version 4.1.2 (2021-11-01)",61
+"pomp_version","6.4",61
+"hostname","frnt132.frontenac.local",61
+"slurm_job_id","12092484",61
+"slurm_array_task_id","61",61
+"written_at_utc","2026-08-19 05:28:38 UTC",61
+"experiment_id","experiment_5_bspline_B_recovery",62
+"source_experiment_id","experiment_4_nmif600_model_comparison",62
+"model","bspline_B",62
+"task_id","62",62
+"simulation_seed","1062",62
+"observed_data_md5","a04acf843bb2ea72629f7c891c0bc0d1",62
+"Nmif","600",62
+"Np_mif","5000",62
+"n_internal_starts","10",62
+"Np_eval","50000",62
+"n_pf_evals_per_start","5",62
+"selected_run","3",62
+"selection_rule","maximum_independently_evaluated_logLik",62
+"start_seed","82261100",62
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",62
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",62
+"R_version","R version 4.1.2 (2021-11-01)",62
+"pomp_version","6.4",62
+"hostname","frnt132.frontenac.local",62
+"slurm_job_id","12092485",62
+"slurm_array_task_id","62",62
+"written_at_utc","2026-08-19 05:27:25 UTC",62
+"experiment_id","experiment_5_bspline_B_recovery",63
+"source_experiment_id","experiment_4_nmif600_model_comparison",63
+"model","bspline_B",63
+"task_id","63",63
+"simulation_seed","1063",63
+"observed_data_md5","0b8692e4c4282eea08c84c3a7521bdca",63
+"Nmif","600",63
+"Np_mif","5000",63
+"n_internal_starts","10",63
+"Np_eval","50000",63
+"n_pf_evals_per_start","5",63
+"selected_run","6",63
+"selection_rule","maximum_independently_evaluated_logLik",63
+"start_seed","83261100",63
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",63
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",63
+"R_version","R version 4.1.2 (2021-11-01)",63
+"pomp_version","6.4",63
+"hostname","frnt133.frontenac.local",63
+"slurm_job_id","12092486",63
+"slurm_array_task_id","63",63
+"written_at_utc","2026-08-19 05:31:53 UTC",63
+"experiment_id","experiment_5_bspline_B_recovery",64
+"source_experiment_id","experiment_4_nmif600_model_comparison",64
+"model","bspline_B",64
+"task_id","64",64
+"simulation_seed","1064",64
+"observed_data_md5","65224e6e0078d6ba21ee5d2bd4a6c743",64
+"Nmif","600",64
+"Np_mif","5000",64
+"n_internal_starts","10",64
+"Np_eval","50000",64
+"n_pf_evals_per_start","5",64
+"selected_run","8",64
+"selection_rule","maximum_independently_evaluated_logLik",64
+"start_seed","84261100",64
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",64
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",64
+"R_version","R version 4.1.2 (2021-11-01)",64
+"pomp_version","6.4",64
+"hostname","frnt133.frontenac.local",64
+"slurm_job_id","12092487",64
+"slurm_array_task_id","64",64
+"written_at_utc","2026-08-19 05:32:49 UTC",64
+"experiment_id","experiment_5_bspline_B_recovery",65
+"source_experiment_id","experiment_4_nmif600_model_comparison",65
+"model","bspline_B",65
+"task_id","65",65
+"simulation_seed","1065",65
+"observed_data_md5","d23c93587fac0bd4c1fffe812bf746e2",65
+"Nmif","600",65
+"Np_mif","5000",65
+"n_internal_starts","10",65
+"Np_eval","50000",65
+"n_pf_evals_per_start","5",65
+"selected_run","9",65
+"selection_rule","maximum_independently_evaluated_logLik",65
+"start_seed","85261100",65
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",65
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",65
+"R_version","R version 4.1.2 (2021-11-01)",65
+"pomp_version","6.4",65
+"hostname","frnt121.frontenac.local",65
+"slurm_job_id","12092510",65
+"slurm_array_task_id","65",65
+"written_at_utc","2026-08-19 05:44:56 UTC",65
+"experiment_id","experiment_5_bspline_B_recovery",66
+"source_experiment_id","experiment_4_nmif600_model_comparison",66
+"model","bspline_B",66
+"task_id","66",66
+"simulation_seed","1066",66
+"observed_data_md5","b503c7aa16489912e1de4bcf79bdc277",66
+"Nmif","600",66
+"Np_mif","5000",66
+"n_internal_starts","10",66
+"Np_eval","50000",66
+"n_pf_evals_per_start","5",66
+"selected_run","1",66
+"selection_rule","maximum_independently_evaluated_logLik",66
+"start_seed","86261100",66
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",66
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",66
+"R_version","R version 4.1.2 (2021-11-01)",66
+"pomp_version","6.4",66
+"hostname","frnt121.frontenac.local",66
+"slurm_job_id","12092813",66
+"slurm_array_task_id","66",66
+"written_at_utc","2026-08-19 05:51:52 UTC",66
+"experiment_id","experiment_5_bspline_B_recovery",67
+"source_experiment_id","experiment_4_nmif600_model_comparison",67
+"model","bspline_B",67
+"task_id","67",67
+"simulation_seed","1067",67
+"observed_data_md5","a64edf122ea9288d9cc5843d572b4219",67
+"Nmif","600",67
+"Np_mif","5000",67
+"n_internal_starts","10",67
+"Np_eval","50000",67
+"n_pf_evals_per_start","5",67
+"selected_run","2",67
+"selection_rule","maximum_independently_evaluated_logLik",67
+"start_seed","87261100",67
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",67
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",67
+"R_version","R version 4.1.2 (2021-11-01)",67
+"pomp_version","6.4",67
+"hostname","frnt121.frontenac.local",67
+"slurm_job_id","12092814",67
+"slurm_array_task_id","67",67
+"written_at_utc","2026-08-19 05:46:45 UTC",67
+"experiment_id","experiment_5_bspline_B_recovery",68
+"source_experiment_id","experiment_4_nmif600_model_comparison",68
+"model","bspline_B",68
+"task_id","68",68
+"simulation_seed","1068",68
+"observed_data_md5","e2dc17973047d198b1f70625999d7313",68
+"Nmif","600",68
+"Np_mif","5000",68
+"n_internal_starts","10",68
+"Np_eval","50000",68
+"n_pf_evals_per_start","5",68
+"selected_run","9",68
+"selection_rule","maximum_independently_evaluated_logLik",68
+"start_seed","88261100",68
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",68
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",68
+"R_version","R version 4.1.2 (2021-11-01)",68
+"pomp_version","6.4",68
+"hostname","frnt121.frontenac.local",68
+"slurm_job_id","12092840",68
+"slurm_array_task_id","68",68
+"written_at_utc","2026-08-19 05:48:07 UTC",68
+"experiment_id","experiment_5_bspline_B_recovery",69
+"source_experiment_id","experiment_4_nmif600_model_comparison",69
+"model","bspline_B",69
+"task_id","69",69
+"simulation_seed","1069",69
+"observed_data_md5","8e4ff1513256eaffe3731b1dbc82ec29",69
+"Nmif","600",69
+"Np_mif","5000",69
+"n_internal_starts","10",69
+"Np_eval","50000",69
+"n_pf_evals_per_start","5",69
+"selected_run","10",69
+"selection_rule","maximum_independently_evaluated_logLik",69
+"start_seed","89261100",69
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",69
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",69
+"R_version","R version 4.1.2 (2021-11-01)",69
+"pomp_version","6.4",69
+"hostname","frnt121.frontenac.local",69
+"slurm_job_id","12092986",69
+"slurm_array_task_id","69",69
+"written_at_utc","2026-08-19 05:47:02 UTC",69
+"experiment_id","experiment_5_bspline_B_recovery",70
+"source_experiment_id","experiment_4_nmif600_model_comparison",70
+"model","bspline_B",70
+"task_id","70",70
+"simulation_seed","1070",70
+"observed_data_md5","3f39c2020f727aeaa01ef9ba099939bb",70
+"Nmif","600",70
+"Np_mif","5000",70
+"n_internal_starts","10",70
+"Np_eval","50000",70
+"n_pf_evals_per_start","5",70
+"selected_run","8",70
+"selection_rule","maximum_independently_evaluated_logLik",70
+"start_seed","90261100",70
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",70
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",70
+"R_version","R version 4.1.2 (2021-11-01)",70
+"pomp_version","6.4",70
+"hostname","frnt121.frontenac.local",70
+"slurm_job_id","12093067",70
+"slurm_array_task_id","70",70
+"written_at_utc","2026-08-19 06:09:45 UTC",70
+"experiment_id","experiment_5_bspline_B_recovery",71
+"source_experiment_id","experiment_4_nmif600_model_comparison",71
+"model","bspline_B",71
+"task_id","71",71
+"simulation_seed","1071",71
+"observed_data_md5","f8a2941f2630be877dd64b0b25a3e9dd",71
+"Nmif","600",71
+"Np_mif","5000",71
+"n_internal_starts","10",71
+"Np_eval","50000",71
+"n_pf_evals_per_start","5",71
+"selected_run","3",71
+"selection_rule","maximum_independently_evaluated_logLik",71
+"start_seed","91261100",71
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",71
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",71
+"R_version","R version 4.1.2 (2021-11-01)",71
+"pomp_version","6.4",71
+"hostname","frnt121.frontenac.local",71
+"slurm_job_id","12093068",71
+"slurm_array_task_id","71",71
+"written_at_utc","2026-08-19 06:15:55 UTC",71
+"experiment_id","experiment_5_bspline_B_recovery",72
+"source_experiment_id","experiment_4_nmif600_model_comparison",72
+"model","bspline_B",72
+"task_id","72",72
+"simulation_seed","1072",72
+"observed_data_md5","4ef60d1f950055935545ba4d8849c6a4",72
+"Nmif","600",72
+"Np_mif","5000",72
+"n_internal_starts","10",72
+"Np_eval","50000",72
+"n_pf_evals_per_start","5",72
+"selected_run","4",72
+"selection_rule","maximum_independently_evaluated_logLik",72
+"start_seed","92261100",72
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",72
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",72
+"R_version","R version 4.1.2 (2021-11-01)",72
+"pomp_version","6.4",72
+"hostname","frnt121.frontenac.local",72
+"slurm_job_id","12093069",72
+"slurm_array_task_id","72",72
+"written_at_utc","2026-08-19 06:13:07 UTC",72
+"experiment_id","experiment_5_bspline_B_recovery",73
+"source_experiment_id","experiment_4_nmif600_model_comparison",73
+"model","bspline_B",73
+"task_id","73",73
+"simulation_seed","1073",73
+"observed_data_md5","23ed6d0e534e19ffc952e0a9519e96fd",73
+"Nmif","600",73
+"Np_mif","5000",73
+"n_internal_starts","10",73
+"Np_eval","50000",73
+"n_pf_evals_per_start","5",73
+"selected_run","10",73
+"selection_rule","maximum_independently_evaluated_logLik",73
+"start_seed","93261100",73
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",73
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",73
+"R_version","R version 4.1.2 (2021-11-01)",73
+"pomp_version","6.4",73
+"hostname","frnt121.frontenac.local",73
+"slurm_job_id","12093070",73
+"slurm_array_task_id","73",73
+"written_at_utc","2026-08-19 06:29:43 UTC",73
+"experiment_id","experiment_5_bspline_B_recovery",74
+"source_experiment_id","experiment_4_nmif600_model_comparison",74
+"model","bspline_B",74
+"task_id","74",74
+"simulation_seed","1074",74
+"observed_data_md5","44fe946085f2400c80cee533d6231e9a",74
+"Nmif","600",74
+"Np_mif","5000",74
+"n_internal_starts","10",74
+"Np_eval","50000",74
+"n_pf_evals_per_start","5",74
+"selected_run","10",74
+"selection_rule","maximum_independently_evaluated_logLik",74
+"start_seed","94261100",74
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",74
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",74
+"R_version","R version 4.1.2 (2021-11-01)",74
+"pomp_version","6.4",74
+"hostname","frnt121.frontenac.local",74
+"slurm_job_id","12093071",74
+"slurm_array_task_id","74",74
+"written_at_utc","2026-08-19 06:39:41 UTC",74
+"experiment_id","experiment_5_bspline_B_recovery",75
+"source_experiment_id","experiment_4_nmif600_model_comparison",75
+"model","bspline_B",75
+"task_id","75",75
+"simulation_seed","1075",75
+"observed_data_md5","0d820f5ccbfe13549eea216ee2513074",75
+"Nmif","600",75
+"Np_mif","5000",75
+"n_internal_starts","10",75
+"Np_eval","50000",75
+"n_pf_evals_per_start","5",75
+"selected_run","4",75
+"selection_rule","maximum_independently_evaluated_logLik",75
+"start_seed","95261100",75
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",75
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",75
+"R_version","R version 4.1.2 (2021-11-01)",75
+"pomp_version","6.4",75
+"hostname","frnt121.frontenac.local",75
+"slurm_job_id","12093072",75
+"slurm_array_task_id","75",75
+"written_at_utc","2026-08-19 06:37:45 UTC",75
+"experiment_id","experiment_5_bspline_B_recovery",76
+"source_experiment_id","experiment_4_nmif600_model_comparison",76
+"model","bspline_B",76
+"task_id","76",76
+"simulation_seed","1076",76
+"observed_data_md5","91d5e8bc67046e3d44e7a47924bb3404",76
+"Nmif","600",76
+"Np_mif","5000",76
+"n_internal_starts","10",76
+"Np_eval","50000",76
+"n_pf_evals_per_start","5",76
+"selected_run","5",76
+"selection_rule","maximum_independently_evaluated_logLik",76
+"start_seed","96261100",76
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",76
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",76
+"R_version","R version 4.1.2 (2021-11-01)",76
+"pomp_version","6.4",76
+"hostname","frnt121.frontenac.local",76
+"slurm_job_id","12093073",76
+"slurm_array_task_id","76",76
+"written_at_utc","2026-08-19 06:42:11 UTC",76
+"experiment_id","experiment_5_bspline_B_recovery",77
+"source_experiment_id","experiment_4_nmif600_model_comparison",77
+"model","bspline_B",77
+"task_id","77",77
+"simulation_seed","1077",77
+"observed_data_md5","4fe16663f3cfd5b374d35dd29d9cdca8",77
+"Nmif","600",77
+"Np_mif","5000",77
+"n_internal_starts","10",77
+"Np_eval","50000",77
+"n_pf_evals_per_start","5",77
+"selected_run","2",77
+"selection_rule","maximum_independently_evaluated_logLik",77
+"start_seed","97261100",77
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",77
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",77
+"R_version","R version 4.1.2 (2021-11-01)",77
+"pomp_version","6.4",77
+"hostname","frnt121.frontenac.local",77
+"slurm_job_id","12093074",77
+"slurm_array_task_id","77",77
+"written_at_utc","2026-08-19 06:40:41 UTC",77
+"experiment_id","experiment_5_bspline_B_recovery",78
+"source_experiment_id","experiment_4_nmif600_model_comparison",78
+"model","bspline_B",78
+"task_id","78",78
+"simulation_seed","1078",78
+"observed_data_md5","83a908c8ed5455b6c9ef246884162afc",78
+"Nmif","600",78
+"Np_mif","5000",78
+"n_internal_starts","10",78
+"Np_eval","50000",78
+"n_pf_evals_per_start","5",78
+"selected_run","5",78
+"selection_rule","maximum_independently_evaluated_logLik",78
+"start_seed","98261100",78
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",78
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",78
+"R_version","R version 4.1.2 (2021-11-01)",78
+"pomp_version","6.4",78
+"hostname","frnt121.frontenac.local",78
+"slurm_job_id","12093075",78
+"slurm_array_task_id","78",78
+"written_at_utc","2026-08-19 06:42:29 UTC",78
+"experiment_id","experiment_5_bspline_B_recovery",79
+"source_experiment_id","experiment_4_nmif600_model_comparison",79
+"model","bspline_B",79
+"task_id","79",79
+"simulation_seed","1079",79
+"observed_data_md5","022bd08caeebfca4473b74c3678f71c2",79
+"Nmif","600",79
+"Np_mif","5000",79
+"n_internal_starts","10",79
+"Np_eval","50000",79
+"n_pf_evals_per_start","5",79
+"selected_run","8",79
+"selection_rule","maximum_independently_evaluated_logLik",79
+"start_seed","99261100",79
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",79
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",79
+"R_version","R version 4.1.2 (2021-11-01)",79
+"pomp_version","6.4",79
+"hostname","frnt121.frontenac.local",79
+"slurm_job_id","12093076",79
+"slurm_array_task_id","79",79
+"written_at_utc","2026-08-19 06:42:00 UTC",79
+"experiment_id","experiment_5_bspline_B_recovery",80
+"source_experiment_id","experiment_4_nmif600_model_comparison",80
+"model","bspline_B",80
+"task_id","80",80
+"simulation_seed","1080",80
+"observed_data_md5","0bfd2bd8ee2ddc3923c9cef719215e45",80
+"Nmif","600",80
+"Np_mif","5000",80
+"n_internal_starts","10",80
+"Np_eval","50000",80
+"n_pf_evals_per_start","5",80
+"selected_run","1",80
+"selection_rule","maximum_independently_evaluated_logLik",80
+"start_seed","100261100",80
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",80
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",80
+"R_version","R version 4.1.2 (2021-11-01)",80
+"pomp_version","6.4",80
+"hostname","frnt121.frontenac.local",80
+"slurm_job_id","12093077",80
+"slurm_array_task_id","80",80
+"written_at_utc","2026-08-19 06:39:22 UTC",80
+"experiment_id","experiment_5_bspline_B_recovery",81
+"source_experiment_id","experiment_4_nmif600_model_comparison",81
+"model","bspline_B",81
+"task_id","81",81
+"simulation_seed","1081",81
+"observed_data_md5","b3ce4c9c57f114ee806b5ede899e654c",81
+"Nmif","600",81
+"Np_mif","5000",81
+"n_internal_starts","10",81
+"Np_eval","50000",81
+"n_pf_evals_per_start","5",81
+"selected_run","6",81
+"selection_rule","maximum_independently_evaluated_logLik",81
+"start_seed","101261100",81
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",81
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",81
+"R_version","R version 4.1.2 (2021-11-01)",81
+"pomp_version","6.4",81
+"hostname","frnt121.frontenac.local",81
+"slurm_job_id","12093078",81
+"slurm_array_task_id","81",81
+"written_at_utc","2026-08-19 06:40:04 UTC",81
+"experiment_id","experiment_5_bspline_B_recovery",82
+"source_experiment_id","experiment_4_nmif600_model_comparison",82
+"model","bspline_B",82
+"task_id","82",82
+"simulation_seed","1082",82
+"observed_data_md5","345f145ce6e49d5527737547b7d7bcc9",82
+"Nmif","600",82
+"Np_mif","5000",82
+"n_internal_starts","10",82
+"Np_eval","50000",82
+"n_pf_evals_per_start","5",82
+"selected_run","10",82
+"selection_rule","maximum_independently_evaluated_logLik",82
+"start_seed","102261100",82
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",82
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",82
+"R_version","R version 4.1.2 (2021-11-01)",82
+"pomp_version","6.4",82
+"hostname","frnt121.frontenac.local",82
+"slurm_job_id","12093079",82
+"slurm_array_task_id","82",82
+"written_at_utc","2026-08-19 06:38:57 UTC",82
+"experiment_id","experiment_5_bspline_B_recovery",83
+"source_experiment_id","experiment_4_nmif600_model_comparison",83
+"model","bspline_B",83
+"task_id","83",83
+"simulation_seed","1083",83
+"observed_data_md5","5cd6b677ff91eaefd7913f277989cb3a",83
+"Nmif","600",83
+"Np_mif","5000",83
+"n_internal_starts","10",83
+"Np_eval","50000",83
+"n_pf_evals_per_start","5",83
+"selected_run","9",83
+"selection_rule","maximum_independently_evaluated_logLik",83
+"start_seed","103261100",83
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",83
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",83
+"R_version","R version 4.1.2 (2021-11-01)",83
+"pomp_version","6.4",83
+"hostname","frnt121.frontenac.local",83
+"slurm_job_id","12093080",83
+"slurm_array_task_id","83",83
+"written_at_utc","2026-08-19 06:38:50 UTC",83
+"experiment_id","experiment_5_bspline_B_recovery",84
+"source_experiment_id","experiment_4_nmif600_model_comparison",84
+"model","bspline_B",84
+"task_id","84",84
+"simulation_seed","1084",84
+"observed_data_md5","ec4eb27a1b0dc4aef15289699a23db33",84
+"Nmif","600",84
+"Np_mif","5000",84
+"n_internal_starts","10",84
+"Np_eval","50000",84
+"n_pf_evals_per_start","5",84
+"selected_run","9",84
+"selection_rule","maximum_independently_evaluated_logLik",84
+"start_seed","104261100",84
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",84
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",84
+"R_version","R version 4.1.2 (2021-11-01)",84
+"pomp_version","6.4",84
+"hostname","frnt121.frontenac.local",84
+"slurm_job_id","12093081",84
+"slurm_array_task_id","84",84
+"written_at_utc","2026-08-19 06:40:24 UTC",84
+"experiment_id","experiment_5_bspline_B_recovery",85
+"source_experiment_id","experiment_4_nmif600_model_comparison",85
+"model","bspline_B",85
+"task_id","85",85
+"simulation_seed","1085",85
+"observed_data_md5","f306053231f91c40dca3c621e8419b61",85
+"Nmif","600",85
+"Np_mif","5000",85
+"n_internal_starts","10",85
+"Np_eval","50000",85
+"n_pf_evals_per_start","5",85
+"selected_run","5",85
+"selection_rule","maximum_independently_evaluated_logLik",85
+"start_seed","105261100",85
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",85
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",85
+"R_version","R version 4.1.2 (2021-11-01)",85
+"pomp_version","6.4",85
+"hostname","frnt140.frontenac.local",85
+"slurm_job_id","12093082",85
+"slurm_array_task_id","85",85
+"written_at_utc","2026-08-19 06:40:33 UTC",85
+"experiment_id","experiment_5_bspline_B_recovery",86
+"source_experiment_id","experiment_4_nmif600_model_comparison",86
+"model","bspline_B",86
+"task_id","86",86
+"simulation_seed","1086",86
+"observed_data_md5","e89799bf4fcfc5e7d882e1a15e433b0c",86
+"Nmif","600",86
+"Np_mif","5000",86
+"n_internal_starts","10",86
+"Np_eval","50000",86
+"n_pf_evals_per_start","5",86
+"selected_run","4",86
+"selection_rule","maximum_independently_evaluated_logLik",86
+"start_seed","106261100",86
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",86
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",86
+"R_version","R version 4.1.2 (2021-11-01)",86
+"pomp_version","6.4",86
+"hostname","frnt140.frontenac.local",86
+"slurm_job_id","12093083",86
+"slurm_array_task_id","86",86
+"written_at_utc","2026-08-19 06:34:30 UTC",86
+"experiment_id","experiment_5_bspline_B_recovery",87
+"source_experiment_id","experiment_4_nmif600_model_comparison",87
+"model","bspline_B",87
+"task_id","87",87
+"simulation_seed","1087",87
+"observed_data_md5","83d5cd04167b4c25b941369e1cd89c12",87
+"Nmif","600",87
+"Np_mif","5000",87
+"n_internal_starts","10",87
+"Np_eval","50000",87
+"n_pf_evals_per_start","5",87
+"selected_run","6",87
+"selection_rule","maximum_independently_evaluated_logLik",87
+"start_seed","107261100",87
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",87
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",87
+"R_version","R version 4.1.2 (2021-11-01)",87
+"pomp_version","6.4",87
+"hostname","frnt140.frontenac.local",87
+"slurm_job_id","12093084",87
+"slurm_array_task_id","87",87
+"written_at_utc","2026-08-19 06:42:31 UTC",87
+"experiment_id","experiment_5_bspline_B_recovery",88
+"source_experiment_id","experiment_4_nmif600_model_comparison",88
+"model","bspline_B",88
+"task_id","88",88
+"simulation_seed","1088",88
+"observed_data_md5","e68e6eddaef14b8f6833f1889cb09727",88
+"Nmif","600",88
+"Np_mif","5000",88
+"n_internal_starts","10",88
+"Np_eval","50000",88
+"n_pf_evals_per_start","5",88
+"selected_run","6",88
+"selection_rule","maximum_independently_evaluated_logLik",88
+"start_seed","108261100",88
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",88
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",88
+"R_version","R version 4.1.2 (2021-11-01)",88
+"pomp_version","6.4",88
+"hostname","frnt140.frontenac.local",88
+"slurm_job_id","12093085",88
+"slurm_array_task_id","88",88
+"written_at_utc","2026-08-19 06:43:24 UTC",88
+"experiment_id","experiment_5_bspline_B_recovery",89
+"source_experiment_id","experiment_4_nmif600_model_comparison",89
+"model","bspline_B",89
+"task_id","89",89
+"simulation_seed","1089",89
+"observed_data_md5","aa9cc98baf1a333684a7dcc3407aadc4",89
+"Nmif","600",89
+"Np_mif","5000",89
+"n_internal_starts","10",89
+"Np_eval","50000",89
+"n_pf_evals_per_start","5",89
+"selected_run","7",89
+"selection_rule","maximum_independently_evaluated_logLik",89
+"start_seed","109261100",89
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",89
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",89
+"R_version","R version 4.1.2 (2021-11-01)",89
+"pomp_version","6.4",89
+"hostname","frnt140.frontenac.local",89
+"slurm_job_id","12093086",89
+"slurm_array_task_id","89",89
+"written_at_utc","2026-08-19 06:41:37 UTC",89
+"experiment_id","experiment_5_bspline_B_recovery",90
+"source_experiment_id","experiment_4_nmif600_model_comparison",90
+"model","bspline_B",90
+"task_id","90",90
+"simulation_seed","1090",90
+"observed_data_md5","3b62c1a3abbc8f8d77b3f0094d799c08",90
+"Nmif","600",90
+"Np_mif","5000",90
+"n_internal_starts","10",90
+"Np_eval","50000",90
+"n_pf_evals_per_start","5",90
+"selected_run","9",90
+"selection_rule","maximum_independently_evaluated_logLik",90
+"start_seed","110261100",90
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",90
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",90
+"R_version","R version 4.1.2 (2021-11-01)",90
+"pomp_version","6.4",90
+"hostname","frnt140.frontenac.local",90
+"slurm_job_id","12093087",90
+"slurm_array_task_id","90",90
+"written_at_utc","2026-08-19 06:56:19 UTC",90
+"experiment_id","experiment_5_bspline_B_recovery",91
+"source_experiment_id","experiment_4_nmif600_model_comparison",91
+"model","bspline_B",91
+"task_id","91",91
+"simulation_seed","1091",91
+"observed_data_md5","ffb0df50d948dd9dad8db95b89578130",91
+"Nmif","600",91
+"Np_mif","5000",91
+"n_internal_starts","10",91
+"Np_eval","50000",91
+"n_pf_evals_per_start","5",91
+"selected_run","4",91
+"selection_rule","maximum_independently_evaluated_logLik",91
+"start_seed","111261100",91
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",91
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",91
+"R_version","R version 4.1.2 (2021-11-01)",91
+"pomp_version","6.4",91
+"hostname","frnt140.frontenac.local",91
+"slurm_job_id","12093088",91
+"slurm_array_task_id","91",91
+"written_at_utc","2026-08-19 06:55:23 UTC",91
+"experiment_id","experiment_5_bspline_B_recovery",92
+"source_experiment_id","experiment_4_nmif600_model_comparison",92
+"model","bspline_B",92
+"task_id","92",92
+"simulation_seed","1092",92
+"observed_data_md5","42c5e41b64f024125d08f483c49d5109",92
+"Nmif","600",92
+"Np_mif","5000",92
+"n_internal_starts","10",92
+"Np_eval","50000",92
+"n_pf_evals_per_start","5",92
+"selected_run","1",92
+"selection_rule","maximum_independently_evaluated_logLik",92
+"start_seed","112261100",92
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",92
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",92
+"R_version","R version 4.1.2 (2021-11-01)",92
+"pomp_version","6.4",92
+"hostname","frnt121.frontenac.local",92
+"slurm_job_id","12093098",92
+"slurm_array_task_id","92",92
+"written_at_utc","2026-08-19 07:13:17 UTC",92
+"experiment_id","experiment_5_bspline_B_recovery",93
+"source_experiment_id","experiment_4_nmif600_model_comparison",93
+"model","bspline_B",93
+"task_id","93",93
+"simulation_seed","1093",93
+"observed_data_md5","7866b869b011f99e5a6d626fd2b53319",93
+"Nmif","600",93
+"Np_mif","5000",93
+"n_internal_starts","10",93
+"Np_eval","50000",93
+"n_pf_evals_per_start","5",93
+"selected_run","6",93
+"selection_rule","maximum_independently_evaluated_logLik",93
+"start_seed","113261100",93
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",93
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",93
+"R_version","R version 4.1.2 (2021-11-01)",93
+"pomp_version","6.4",93
+"hostname","frnt121.frontenac.local",93
+"slurm_job_id","12093112",93
+"slurm_array_task_id","93",93
+"written_at_utc","2026-08-19 07:30:47 UTC",93
+"experiment_id","experiment_5_bspline_B_recovery",94
+"source_experiment_id","experiment_4_nmif600_model_comparison",94
+"model","bspline_B",94
+"task_id","94",94
+"simulation_seed","1094",94
+"observed_data_md5","cb6e4431d9ef11ffbb0c3c60fc93a658",94
+"Nmif","600",94
+"Np_mif","5000",94
+"n_internal_starts","10",94
+"Np_eval","50000",94
+"n_pf_evals_per_start","5",94
+"selected_run","1",94
+"selection_rule","maximum_independently_evaluated_logLik",94
+"start_seed","114261100",94
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",94
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",94
+"R_version","R version 4.1.2 (2021-11-01)",94
+"pomp_version","6.4",94
+"hostname","frnt121.frontenac.local",94
+"slurm_job_id","12093114",94
+"slurm_array_task_id","94",94
+"written_at_utc","2026-08-19 07:35:39 UTC",94
+"experiment_id","experiment_5_bspline_B_recovery",95
+"source_experiment_id","experiment_4_nmif600_model_comparison",95
+"model","bspline_B",95
+"task_id","95",95
+"simulation_seed","1095",95
+"observed_data_md5","e2c94ae6df04e9da8177ab346fbd245e",95
+"Nmif","600",95
+"Np_mif","5000",95
+"n_internal_starts","10",95
+"Np_eval","50000",95
+"n_pf_evals_per_start","5",95
+"selected_run","10",95
+"selection_rule","maximum_independently_evaluated_logLik",95
+"start_seed","115261100",95
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",95
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",95
+"R_version","R version 4.1.2 (2021-11-01)",95
+"pomp_version","6.4",95
+"hostname","frnt121.frontenac.local",95
+"slurm_job_id","12093116",95
+"slurm_array_task_id","95",95
+"written_at_utc","2026-08-19 07:38:09 UTC",95
+"experiment_id","experiment_5_bspline_B_recovery",96
+"source_experiment_id","experiment_4_nmif600_model_comparison",96
+"model","bspline_B",96
+"task_id","96",96
+"simulation_seed","1096",96
+"observed_data_md5","dce19abeba3755021094f84a48b227a7",96
+"Nmif","600",96
+"Np_mif","5000",96
+"n_internal_starts","10",96
+"Np_eval","50000",96
+"n_pf_evals_per_start","5",96
+"selected_run","1",96
+"selection_rule","maximum_independently_evaluated_logLik",96
+"start_seed","116261100",96
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",96
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",96
+"R_version","R version 4.1.2 (2021-11-01)",96
+"pomp_version","6.4",96
+"hostname","frnt140.frontenac.local",96
+"slurm_job_id","12093117",96
+"slurm_array_task_id","96",96
+"written_at_utc","2026-08-19 07:20:57 UTC",96
+"experiment_id","experiment_5_bspline_B_recovery",97
+"source_experiment_id","experiment_4_nmif600_model_comparison",97
+"model","bspline_B",97
+"task_id","97",97
+"simulation_seed","1097",97
+"observed_data_md5","5f10705eaab893b924c7745af7cbddc2",97
+"Nmif","600",97
+"Np_mif","5000",97
+"n_internal_starts","10",97
+"Np_eval","50000",97
+"n_pf_evals_per_start","5",97
+"selected_run","5",97
+"selection_rule","maximum_independently_evaluated_logLik",97
+"start_seed","117261100",97
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",97
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",97
+"R_version","R version 4.1.2 (2021-11-01)",97
+"pomp_version","6.4",97
+"hostname","frnt121.frontenac.local",97
+"slurm_job_id","12093118",97
+"slurm_array_task_id","97",97
+"written_at_utc","2026-08-19 07:40:01 UTC",97
+"experiment_id","experiment_5_bspline_B_recovery",98
+"source_experiment_id","experiment_4_nmif600_model_comparison",98
+"model","bspline_B",98
+"task_id","98",98
+"simulation_seed","1098",98
+"observed_data_md5","a0c73b07405f66c422d099e5a3c08c54",98
+"Nmif","600",98
+"Np_mif","5000",98
+"n_internal_starts","10",98
+"Np_eval","50000",98
+"n_pf_evals_per_start","5",98
+"selected_run","5",98
+"selection_rule","maximum_independently_evaluated_logLik",98
+"start_seed","118261100",98
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",98
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",98
+"R_version","R version 4.1.2 (2021-11-01)",98
+"pomp_version","6.4",98
+"hostname","frnt121.frontenac.local",98
+"slurm_job_id","12093119",98
+"slurm_array_task_id","98",98
+"written_at_utc","2026-08-19 07:35:51 UTC",98
+"experiment_id","experiment_5_bspline_B_recovery",99
+"source_experiment_id","experiment_4_nmif600_model_comparison",99
+"model","bspline_B",99
+"task_id","99",99
+"simulation_seed","1099",99
+"observed_data_md5","9d985583339f37fbacb7140d4222662d",99
+"Nmif","600",99
+"Np_mif","5000",99
+"n_internal_starts","10",99
+"Np_eval","50000",99
+"n_pf_evals_per_start","5",99
+"selected_run","5",99
+"selection_rule","maximum_independently_evaluated_logLik",99
+"start_seed","119261100",99
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",99
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",99
+"R_version","R version 4.1.2 (2021-11-01)",99
+"pomp_version","6.4",99
+"hostname","frnt121.frontenac.local",99
+"slurm_job_id","12093120",99
+"slurm_array_task_id","99",99
+"written_at_utc","2026-08-19 07:38:18 UTC",99
+"experiment_id","experiment_5_bspline_B_recovery",100
+"source_experiment_id","experiment_4_nmif600_model_comparison",100
+"model","bspline_B",100
+"task_id","100",100
+"simulation_seed","1100",100
+"observed_data_md5","8ea86fffc296b32f99e63ed723d89d90",100
+"Nmif","600",100
+"Np_mif","5000",100
+"n_internal_starts","10",100
+"Np_eval","50000",100
+"n_pf_evals_per_start","5",100
+"selected_run","1",100
+"selection_rule","maximum_independently_evaluated_logLik",100
+"start_seed","120261100",100
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",100
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",100
+"R_version","R version 4.1.2 (2021-11-01)",100
+"pomp_version","6.4",100
+"hostname","frnt121.frontenac.local",100
+"slurm_job_id","12093121",100
+"slurm_array_task_id","100",100
+"written_at_utc","2026-08-19 07:40:14 UTC",100
+"experiment_id","experiment_5_bspline_B_recovery",101
+"source_experiment_id","experiment_4_nmif600_model_comparison",101
+"model","bspline_B",101
+"task_id","101",101
+"simulation_seed","1101",101
+"observed_data_md5","51fea122ace66c28fcf6227076a2210d",101
+"Nmif","600",101
+"Np_mif","5000",101
+"n_internal_starts","10",101
+"Np_eval","50000",101
+"n_pf_evals_per_start","5",101
+"selected_run","10",101
+"selection_rule","maximum_independently_evaluated_logLik",101
+"start_seed","121261100",101
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",101
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",101
+"R_version","R version 4.1.2 (2021-11-01)",101
+"pomp_version","6.4",101
+"hostname","frnt121.frontenac.local",101
+"slurm_job_id","12093122",101
+"slurm_array_task_id","101",101
+"written_at_utc","2026-08-19 07:38:51 UTC",101
+"experiment_id","experiment_5_bspline_B_recovery",102
+"source_experiment_id","experiment_4_nmif600_model_comparison",102
+"model","bspline_B",102
+"task_id","102",102
+"simulation_seed","1102",102
+"observed_data_md5","87466aaae46506b8e351c34782985403",102
+"Nmif","600",102
+"Np_mif","5000",102
+"n_internal_starts","10",102
+"Np_eval","50000",102
+"n_pf_evals_per_start","5",102
+"selected_run","10",102
+"selection_rule","maximum_independently_evaluated_logLik",102
+"start_seed","122261100",102
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",102
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",102
+"R_version","R version 4.1.2 (2021-11-01)",102
+"pomp_version","6.4",102
+"hostname","frnt121.frontenac.local",102
+"slurm_job_id","12093123",102
+"slurm_array_task_id","102",102
+"written_at_utc","2026-08-19 07:33:00 UTC",102
+"experiment_id","experiment_5_bspline_B_recovery",103
+"source_experiment_id","experiment_4_nmif600_model_comparison",103
+"model","bspline_B",103
+"task_id","103",103
+"simulation_seed","1103",103
+"observed_data_md5","e898b26388bd31312b334e141687631d",103
+"Nmif","600",103
+"Np_mif","5000",103
+"n_internal_starts","10",103
+"Np_eval","50000",103
+"n_pf_evals_per_start","5",103
+"selected_run","9",103
+"selection_rule","maximum_independently_evaluated_logLik",103
+"start_seed","123261100",103
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",103
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",103
+"R_version","R version 4.1.2 (2021-11-01)",103
+"pomp_version","6.4",103
+"hostname","frnt121.frontenac.local",103
+"slurm_job_id","12093124",103
+"slurm_array_task_id","103",103
+"written_at_utc","2026-08-19 07:40:06 UTC",103
+"experiment_id","experiment_5_bspline_B_recovery",104
+"source_experiment_id","experiment_4_nmif600_model_comparison",104
+"model","bspline_B",104
+"task_id","104",104
+"simulation_seed","1104",104
+"observed_data_md5","f7b481c3a4568173c9a99c1b4d8c5521",104
+"Nmif","600",104
+"Np_mif","5000",104
+"n_internal_starts","10",104
+"Np_eval","50000",104
+"n_pf_evals_per_start","5",104
+"selected_run","2",104
+"selection_rule","maximum_independently_evaluated_logLik",104
+"start_seed","124261100",104
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",104
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",104
+"R_version","R version 4.1.2 (2021-11-01)",104
+"pomp_version","6.4",104
+"hostname","frnt121.frontenac.local",104
+"slurm_job_id","12093126",104
+"slurm_array_task_id","104",104
+"written_at_utc","2026-08-19 07:40:19 UTC",104
+"experiment_id","experiment_5_bspline_B_recovery",105
+"source_experiment_id","experiment_4_nmif600_model_comparison",105
+"model","bspline_B",105
+"task_id","105",105
+"simulation_seed","1105",105
+"observed_data_md5","fda815e14a2797f663c51a8c3fc66eeb",105
+"Nmif","600",105
+"Np_mif","5000",105
+"n_internal_starts","10",105
+"Np_eval","50000",105
+"n_pf_evals_per_start","5",105
+"selected_run","6",105
+"selection_rule","maximum_independently_evaluated_logLik",105
+"start_seed","125261100",105
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",105
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",105
+"R_version","R version 4.1.2 (2021-11-01)",105
+"pomp_version","6.4",105
+"hostname","frnt121.frontenac.local",105
+"slurm_job_id","12093127",105
+"slurm_array_task_id","105",105
+"written_at_utc","2026-08-19 07:34:45 UTC",105
+"experiment_id","experiment_5_bspline_B_recovery",106
+"source_experiment_id","experiment_4_nmif600_model_comparison",106
+"model","bspline_B",106
+"task_id","106",106
+"simulation_seed","1106",106
+"observed_data_md5","2ace1767dd5349b12ef5f3a5bd831ab8",106
+"Nmif","600",106
+"Np_mif","5000",106
+"n_internal_starts","10",106
+"Np_eval","50000",106
+"n_pf_evals_per_start","5",106
+"selected_run","7",106
+"selection_rule","maximum_independently_evaluated_logLik",106
+"start_seed","126261100",106
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",106
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",106
+"R_version","R version 4.1.2 (2021-11-01)",106
+"pomp_version","6.4",106
+"hostname","frnt121.frontenac.local",106
+"slurm_job_id","12093128",106
+"slurm_array_task_id","106",106
+"written_at_utc","2026-08-19 07:35:25 UTC",106
+"experiment_id","experiment_5_bspline_B_recovery",107
+"source_experiment_id","experiment_4_nmif600_model_comparison",107
+"model","bspline_B",107
+"task_id","107",107
+"simulation_seed","1107",107
+"observed_data_md5","d3c22607503e5f474a3f5ebe80ebdf3d",107
+"Nmif","600",107
+"Np_mif","5000",107
+"n_internal_starts","10",107
+"Np_eval","50000",107
+"n_pf_evals_per_start","5",107
+"selected_run","4",107
+"selection_rule","maximum_independently_evaluated_logLik",107
+"start_seed","127261100",107
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",107
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",107
+"R_version","R version 4.1.2 (2021-11-01)",107
+"pomp_version","6.4",107
+"hostname","frnt121.frontenac.local",107
+"slurm_job_id","12093129",107
+"slurm_array_task_id","107",107
+"written_at_utc","2026-08-19 07:39:28 UTC",107
+"experiment_id","experiment_5_bspline_B_recovery",108
+"source_experiment_id","experiment_4_nmif600_model_comparison",108
+"model","bspline_B",108
+"task_id","108",108
+"simulation_seed","1108",108
+"observed_data_md5","68aa1cfbcec0e4ea336983e4d1e49773",108
+"Nmif","600",108
+"Np_mif","5000",108
+"n_internal_starts","10",108
+"Np_eval","50000",108
+"n_pf_evals_per_start","5",108
+"selected_run","2",108
+"selection_rule","maximum_independently_evaluated_logLik",108
+"start_seed","128261100",108
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",108
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",108
+"R_version","R version 4.1.2 (2021-11-01)",108
+"pomp_version","6.4",108
+"hostname","frnt121.frontenac.local",108
+"slurm_job_id","12093130",108
+"slurm_array_task_id","108",108
+"written_at_utc","2026-08-19 07:36:35 UTC",108
+"experiment_id","experiment_5_bspline_B_recovery",109
+"source_experiment_id","experiment_4_nmif600_model_comparison",109
+"model","bspline_B",109
+"task_id","109",109
+"simulation_seed","1109",109
+"observed_data_md5","64378d1cf8147aa375c77012a1f6217d",109
+"Nmif","600",109
+"Np_mif","5000",109
+"n_internal_starts","10",109
+"Np_eval","50000",109
+"n_pf_evals_per_start","5",109
+"selected_run","6",109
+"selection_rule","maximum_independently_evaluated_logLik",109
+"start_seed","129261100",109
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",109
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",109
+"R_version","R version 4.1.2 (2021-11-01)",109
+"pomp_version","6.4",109
+"hostname","frnt121.frontenac.local",109
+"slurm_job_id","12093131",109
+"slurm_array_task_id","109",109
+"written_at_utc","2026-08-19 07:36:42 UTC",109
+"experiment_id","experiment_5_bspline_B_recovery",110
+"source_experiment_id","experiment_4_nmif600_model_comparison",110
+"model","bspline_B",110
+"task_id","110",110
+"simulation_seed","1110",110
+"observed_data_md5","4c9bdb3191d72e532b9af0440b61821e",110
+"Nmif","600",110
+"Np_mif","5000",110
+"n_internal_starts","10",110
+"Np_eval","50000",110
+"n_pf_evals_per_start","5",110
+"selected_run","1",110
+"selection_rule","maximum_independently_evaluated_logLik",110
+"start_seed","130261100",110
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",110
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",110
+"R_version","R version 4.1.2 (2021-11-01)",110
+"pomp_version","6.4",110
+"hostname","frnt121.frontenac.local",110
+"slurm_job_id","12093132",110
+"slurm_array_task_id","110",110
+"written_at_utc","2026-08-19 07:48:06 UTC",110
+"experiment_id","experiment_5_bspline_B_recovery",111
+"source_experiment_id","experiment_4_nmif600_model_comparison",111
+"model","bspline_B",111
+"task_id","111",111
+"simulation_seed","1111",111
+"observed_data_md5","90bc4d41e3adeb7ca6a265e34199593d",111
+"Nmif","600",111
+"Np_mif","5000",111
+"n_internal_starts","10",111
+"Np_eval","50000",111
+"n_pf_evals_per_start","5",111
+"selected_run","9",111
+"selection_rule","maximum_independently_evaluated_logLik",111
+"start_seed","131261100",111
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",111
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",111
+"R_version","R version 4.1.2 (2021-11-01)",111
+"pomp_version","6.4",111
+"hostname","frnt121.frontenac.local",111
+"slurm_job_id","12093135",111
+"slurm_array_task_id","111",111
+"written_at_utc","2026-08-19 07:48:35 UTC",111
+"experiment_id","experiment_5_bspline_B_recovery",112
+"source_experiment_id","experiment_4_nmif600_model_comparison",112
+"model","bspline_B",112
+"task_id","112",112
+"simulation_seed","1112",112
+"observed_data_md5","2de6dbe92e20217bcb1faa713be3c7e9",112
+"Nmif","600",112
+"Np_mif","5000",112
+"n_internal_starts","10",112
+"Np_eval","50000",112
+"n_pf_evals_per_start","5",112
+"selected_run","1",112
+"selection_rule","maximum_independently_evaluated_logLik",112
+"start_seed","132261100",112
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",112
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",112
+"R_version","R version 4.1.2 (2021-11-01)",112
+"pomp_version","6.4",112
+"hostname","frnt121.frontenac.local",112
+"slurm_job_id","12093146",112
+"slurm_array_task_id","112",112
+"written_at_utc","2026-08-19 08:12:16 UTC",112
+"experiment_id","experiment_5_bspline_B_recovery",113
+"source_experiment_id","experiment_4_nmif600_model_comparison",113
+"model","bspline_B",113
+"task_id","113",113
+"simulation_seed","1113",113
+"observed_data_md5","62d44f5b5cf3a1a10474477b2836ac7c",113
+"Nmif","600",113
+"Np_mif","5000",113
+"n_internal_starts","10",113
+"Np_eval","50000",113
+"n_pf_evals_per_start","5",113
+"selected_run","7",113
+"selection_rule","maximum_independently_evaluated_logLik",113
+"start_seed","133261100",113
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",113
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",113
+"R_version","R version 4.1.2 (2021-11-01)",113
+"pomp_version","6.4",113
+"hostname","frnt121.frontenac.local",113
+"slurm_job_id","12093147",113
+"slurm_array_task_id","113",113
+"written_at_utc","2026-08-19 08:25:10 UTC",113
+"experiment_id","experiment_5_bspline_B_recovery",114
+"source_experiment_id","experiment_4_nmif600_model_comparison",114
+"model","bspline_B",114
+"task_id","114",114
+"simulation_seed","1114",114
+"observed_data_md5","e8aa5c36f38132f5ccc9683b131a520e",114
+"Nmif","600",114
+"Np_mif","5000",114
+"n_internal_starts","10",114
+"Np_eval","50000",114
+"n_pf_evals_per_start","5",114
+"selected_run","2",114
+"selection_rule","maximum_independently_evaluated_logLik",114
+"start_seed","134261100",114
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",114
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",114
+"R_version","R version 4.1.2 (2021-11-01)",114
+"pomp_version","6.4",114
+"hostname","frnt121.frontenac.local",114
+"slurm_job_id","12093151",114
+"slurm_array_task_id","114",114
+"written_at_utc","2026-08-19 08:33:19 UTC",114
+"experiment_id","experiment_5_bspline_B_recovery",115
+"source_experiment_id","experiment_4_nmif600_model_comparison",115
+"model","bspline_B",115
+"task_id","115",115
+"simulation_seed","1115",115
+"observed_data_md5","527c2542099f691a2a03e60fc5521e3b",115
+"Nmif","600",115
+"Np_mif","5000",115
+"n_internal_starts","10",115
+"Np_eval","50000",115
+"n_pf_evals_per_start","5",115
+"selected_run","4",115
+"selection_rule","maximum_independently_evaluated_logLik",115
+"start_seed","135261100",115
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",115
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",115
+"R_version","R version 4.1.2 (2021-11-01)",115
+"pomp_version","6.4",115
+"hostname","frnt121.frontenac.local",115
+"slurm_job_id","12093153",115
+"slurm_array_task_id","115",115
+"written_at_utc","2026-08-19 08:37:45 UTC",115
+"experiment_id","experiment_5_bspline_B_recovery",116
+"source_experiment_id","experiment_4_nmif600_model_comparison",116
+"model","bspline_B",116
+"task_id","116",116
+"simulation_seed","1116",116
+"observed_data_md5","493ff3d28fe2680d1b7fc1f343262be6",116
+"Nmif","600",116
+"Np_mif","5000",116
+"n_internal_starts","10",116
+"Np_eval","50000",116
+"n_pf_evals_per_start","5",116
+"selected_run","7",116
+"selection_rule","maximum_independently_evaluated_logLik",116
+"start_seed","136261100",116
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",116
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",116
+"R_version","R version 4.1.2 (2021-11-01)",116
+"pomp_version","6.4",116
+"hostname","frnt121.frontenac.local",116
+"slurm_job_id","12093154",116
+"slurm_array_task_id","116",116
+"written_at_utc","2026-08-19 08:39:45 UTC",116
+"experiment_id","experiment_5_bspline_B_recovery",117
+"source_experiment_id","experiment_4_nmif600_model_comparison",117
+"model","bspline_B",117
+"task_id","117",117
+"simulation_seed","1117",117
+"observed_data_md5","64dffb15867fda5ef262e2caf0e46bbf",117
+"Nmif","600",117
+"Np_mif","5000",117
+"n_internal_starts","10",117
+"Np_eval","50000",117
+"n_pf_evals_per_start","5",117
+"selected_run","8",117
+"selection_rule","maximum_independently_evaluated_logLik",117
+"start_seed","137261100",117
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",117
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",117
+"R_version","R version 4.1.2 (2021-11-01)",117
+"pomp_version","6.4",117
+"hostname","frnt121.frontenac.local",117
+"slurm_job_id","12093156",117
+"slurm_array_task_id","117",117
+"written_at_utc","2026-08-19 08:35:19 UTC",117
+"experiment_id","experiment_5_bspline_B_recovery",118
+"source_experiment_id","experiment_4_nmif600_model_comparison",118
+"model","bspline_B",118
+"task_id","118",118
+"simulation_seed","1118",118
+"observed_data_md5","4fe04592b1bd1b0073226474bda79a17",118
+"Nmif","600",118
+"Np_mif","5000",118
+"n_internal_starts","10",118
+"Np_eval","50000",118
+"n_pf_evals_per_start","5",118
+"selected_run","3",118
+"selection_rule","maximum_independently_evaluated_logLik",118
+"start_seed","138261100",118
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",118
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",118
+"R_version","R version 4.1.2 (2021-11-01)",118
+"pomp_version","6.4",118
+"hostname","frnt121.frontenac.local",118
+"slurm_job_id","12093157",118
+"slurm_array_task_id","118",118
+"written_at_utc","2026-08-19 08:38:21 UTC",118
+"experiment_id","experiment_5_bspline_B_recovery",119
+"source_experiment_id","experiment_4_nmif600_model_comparison",119
+"model","bspline_B",119
+"task_id","119",119
+"simulation_seed","1119",119
+"observed_data_md5","53a63bcc974e882529742ef97a8b74d5",119
+"Nmif","600",119
+"Np_mif","5000",119
+"n_internal_starts","10",119
+"Np_eval","50000",119
+"n_pf_evals_per_start","5",119
+"selected_run","4",119
+"selection_rule","maximum_independently_evaluated_logLik",119
+"start_seed","139261100",119
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",119
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",119
+"R_version","R version 4.1.2 (2021-11-01)",119
+"pomp_version","6.4",119
+"hostname","frnt121.frontenac.local",119
+"slurm_job_id","12093158",119
+"slurm_array_task_id","119",119
+"written_at_utc","2026-08-19 08:40:19 UTC",119
+"experiment_id","experiment_5_bspline_B_recovery",120
+"source_experiment_id","experiment_4_nmif600_model_comparison",120
+"model","bspline_B",120
+"task_id","120",120
+"simulation_seed","1120",120
+"observed_data_md5","4d64fbb86d0c71298cfafd74891b1601",120
+"Nmif","600",120
+"Np_mif","5000",120
+"n_internal_starts","10",120
+"Np_eval","50000",120
+"n_pf_evals_per_start","5",120
+"selected_run","5",120
+"selection_rule","maximum_independently_evaluated_logLik",120
+"start_seed","140261100",120
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",120
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",120
+"R_version","R version 4.1.2 (2021-11-01)",120
+"pomp_version","6.4",120
+"hostname","frnt121.frontenac.local",120
+"slurm_job_id","12093159",120
+"slurm_array_task_id","120",120
+"written_at_utc","2026-08-19 08:37:46 UTC",120
+"experiment_id","experiment_5_bspline_B_recovery",121
+"source_experiment_id","experiment_4_nmif600_model_comparison",121
+"model","bspline_B",121
+"task_id","121",121
+"simulation_seed","1121",121
+"observed_data_md5","fc119966f9fa86c9beb582f612bc73ec",121
+"Nmif","600",121
+"Np_mif","5000",121
+"n_internal_starts","10",121
+"Np_eval","50000",121
+"n_pf_evals_per_start","5",121
+"selected_run","3",121
+"selection_rule","maximum_independently_evaluated_logLik",121
+"start_seed","141261100",121
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",121
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",121
+"R_version","R version 4.1.2 (2021-11-01)",121
+"pomp_version","6.4",121
+"hostname","frnt121.frontenac.local",121
+"slurm_job_id","12093160",121
+"slurm_array_task_id","121",121
+"written_at_utc","2026-08-19 08:40:54 UTC",121
+"experiment_id","experiment_5_bspline_B_recovery",122
+"source_experiment_id","experiment_4_nmif600_model_comparison",122
+"model","bspline_B",122
+"task_id","122",122
+"simulation_seed","1122",122
+"observed_data_md5","2de2afe17b444c1be6ab135102d2e749",122
+"Nmif","600",122
+"Np_mif","5000",122
+"n_internal_starts","10",122
+"Np_eval","50000",122
+"n_pf_evals_per_start","5",122
+"selected_run","8",122
+"selection_rule","maximum_independently_evaluated_logLik",122
+"start_seed","142261100",122
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",122
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",122
+"R_version","R version 4.1.2 (2021-11-01)",122
+"pomp_version","6.4",122
+"hostname","frnt121.frontenac.local",122
+"slurm_job_id","12093161",122
+"slurm_array_task_id","122",122
+"written_at_utc","2026-08-19 08:39:11 UTC",122
+"experiment_id","experiment_5_bspline_B_recovery",123
+"source_experiment_id","experiment_4_nmif600_model_comparison",123
+"model","bspline_B",123
+"task_id","123",123
+"simulation_seed","1123",123
+"observed_data_md5","8b49cbb9e926a62a502c208b4a74393a",123
+"Nmif","600",123
+"Np_mif","5000",123
+"n_internal_starts","10",123
+"Np_eval","50000",123
+"n_pf_evals_per_start","5",123
+"selected_run","8",123
+"selection_rule","maximum_independently_evaluated_logLik",123
+"start_seed","143261100",123
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",123
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",123
+"R_version","R version 4.1.2 (2021-11-01)",123
+"pomp_version","6.4",123
+"hostname","frnt121.frontenac.local",123
+"slurm_job_id","12093162",123
+"slurm_array_task_id","123",123
+"written_at_utc","2026-08-19 08:39:17 UTC",123
+"experiment_id","experiment_5_bspline_B_recovery",124
+"source_experiment_id","experiment_4_nmif600_model_comparison",124
+"model","bspline_B",124
+"task_id","124",124
+"simulation_seed","1124",124
+"observed_data_md5","fee16d34d4badef781de40b823c932b3",124
+"Nmif","600",124
+"Np_mif","5000",124
+"n_internal_starts","10",124
+"Np_eval","50000",124
+"n_pf_evals_per_start","5",124
+"selected_run","10",124
+"selection_rule","maximum_independently_evaluated_logLik",124
+"start_seed","144261100",124
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",124
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",124
+"R_version","R version 4.1.2 (2021-11-01)",124
+"pomp_version","6.4",124
+"hostname","frnt140.frontenac.local",124
+"slurm_job_id","12093163",124
+"slurm_array_task_id","124",124
+"written_at_utc","2026-08-19 08:21:14 UTC",124
+"experiment_id","experiment_5_bspline_B_recovery",125
+"source_experiment_id","experiment_4_nmif600_model_comparison",125
+"model","bspline_B",125
+"task_id","125",125
+"simulation_seed","1125",125
+"observed_data_md5","49b1406d1f09cf7ccfb97517eb1d686b",125
+"Nmif","600",125
+"Np_mif","5000",125
+"n_internal_starts","10",125
+"Np_eval","50000",125
+"n_pf_evals_per_start","5",125
+"selected_run","8",125
+"selection_rule","maximum_independently_evaluated_logLik",125
+"start_seed","145261100",125
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",125
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",125
+"R_version","R version 4.1.2 (2021-11-01)",125
+"pomp_version","6.4",125
+"hostname","frnt121.frontenac.local",125
+"slurm_job_id","12093164",125
+"slurm_array_task_id","125",125
+"written_at_utc","2026-08-19 08:41:26 UTC",125
+"experiment_id","experiment_5_bspline_B_recovery",126
+"source_experiment_id","experiment_4_nmif600_model_comparison",126
+"model","bspline_B",126
+"task_id","126",126
+"simulation_seed","1126",126
+"observed_data_md5","89c12c0c7af03e2dcd492d20daed2fb8",126
+"Nmif","600",126
+"Np_mif","5000",126
+"n_internal_starts","10",126
+"Np_eval","50000",126
+"n_pf_evals_per_start","5",126
+"selected_run","1",126
+"selection_rule","maximum_independently_evaluated_logLik",126
+"start_seed","146261100",126
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",126
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",126
+"R_version","R version 4.1.2 (2021-11-01)",126
+"pomp_version","6.4",126
+"hostname","frnt121.frontenac.local",126
+"slurm_job_id","12093165",126
+"slurm_array_task_id","126",126
+"written_at_utc","2026-08-19 08:43:22 UTC",126
+"experiment_id","experiment_5_bspline_B_recovery",127
+"source_experiment_id","experiment_4_nmif600_model_comparison",127
+"model","bspline_B",127
+"task_id","127",127
+"simulation_seed","1127",127
+"observed_data_md5","d6cf87e625366c1649bd82f3bda75a50",127
+"Nmif","600",127
+"Np_mif","5000",127
+"n_internal_starts","10",127
+"Np_eval","50000",127
+"n_pf_evals_per_start","5",127
+"selected_run","3",127
+"selection_rule","maximum_independently_evaluated_logLik",127
+"start_seed","147261100",127
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",127
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",127
+"R_version","R version 4.1.2 (2021-11-01)",127
+"pomp_version","6.4",127
+"hostname","frnt121.frontenac.local",127
+"slurm_job_id","12093166",127
+"slurm_array_task_id","127",127
+"written_at_utc","2026-08-19 08:37:22 UTC",127
+"experiment_id","experiment_5_bspline_B_recovery",128
+"source_experiment_id","experiment_4_nmif600_model_comparison",128
+"model","bspline_B",128
+"task_id","128",128
+"simulation_seed","1128",128
+"observed_data_md5","e7c98f0c8ff03fc89b23b860ab6e055c",128
+"Nmif","600",128
+"Np_mif","5000",128
+"n_internal_starts","10",128
+"Np_eval","50000",128
+"n_pf_evals_per_start","5",128
+"selected_run","3",128
+"selection_rule","maximum_independently_evaluated_logLik",128
+"start_seed","148261100",128
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",128
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",128
+"R_version","R version 4.1.2 (2021-11-01)",128
+"pomp_version","6.4",128
+"hostname","frnt121.frontenac.local",128
+"slurm_job_id","12093167",128
+"slurm_array_task_id","128",128
+"written_at_utc","2026-08-19 08:37:57 UTC",128
+"experiment_id","experiment_5_bspline_B_recovery",129
+"source_experiment_id","experiment_4_nmif600_model_comparison",129
+"model","bspline_B",129
+"task_id","129",129
+"simulation_seed","1129",129
+"observed_data_md5","89bab4fa545504e51f4b5b765fa2b9ae",129
+"Nmif","600",129
+"Np_mif","5000",129
+"n_internal_starts","10",129
+"Np_eval","50000",129
+"n_pf_evals_per_start","5",129
+"selected_run","3",129
+"selection_rule","maximum_independently_evaluated_logLik",129
+"start_seed","149261100",129
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",129
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",129
+"R_version","R version 4.1.2 (2021-11-01)",129
+"pomp_version","6.4",129
+"hostname","frnt121.frontenac.local",129
+"slurm_job_id","12093168",129
+"slurm_array_task_id","129",129
+"written_at_utc","2026-08-19 08:42:49 UTC",129
+"experiment_id","experiment_5_bspline_B_recovery",130
+"source_experiment_id","experiment_4_nmif600_model_comparison",130
+"model","bspline_B",130
+"task_id","130",130
+"simulation_seed","1130",130
+"observed_data_md5","bf14545e60a11dc820244df794a9bbde",130
+"Nmif","600",130
+"Np_mif","5000",130
+"n_internal_starts","10",130
+"Np_eval","50000",130
+"n_pf_evals_per_start","5",130
+"selected_run","8",130
+"selection_rule","maximum_independently_evaluated_logLik",130
+"start_seed","150261100",130
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",130
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",130
+"R_version","R version 4.1.2 (2021-11-01)",130
+"pomp_version","6.4",130
+"hostname","frnt121.frontenac.local",130
+"slurm_job_id","12093170",130
+"slurm_array_task_id","130",130
+"written_at_utc","2026-08-19 08:44:09 UTC",130
+"experiment_id","experiment_5_bspline_B_recovery",131
+"source_experiment_id","experiment_4_nmif600_model_comparison",131
+"model","bspline_B",131
+"task_id","131",131
+"simulation_seed","1131",131
+"observed_data_md5","f9b4bd3734443873f1d31c98484de516",131
+"Nmif","600",131
+"Np_mif","5000",131
+"n_internal_starts","10",131
+"Np_eval","50000",131
+"n_pf_evals_per_start","5",131
+"selected_run","2",131
+"selection_rule","maximum_independently_evaluated_logLik",131
+"start_seed","151261100",131
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",131
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",131
+"R_version","R version 4.1.2 (2021-11-01)",131
+"pomp_version","6.4",131
+"hostname","frnt121.frontenac.local",131
+"slurm_job_id","12093171",131
+"slurm_array_task_id","131",131
+"written_at_utc","2026-08-19 08:49:50 UTC",131
+"experiment_id","experiment_5_bspline_B_recovery",132
+"source_experiment_id","experiment_4_nmif600_model_comparison",132
+"model","bspline_B",132
+"task_id","132",132
+"simulation_seed","1132",132
+"observed_data_md5","b571595faf7cf9bf9fb646335e089636",132
+"Nmif","600",132
+"Np_mif","5000",132
+"n_internal_starts","10",132
+"Np_eval","50000",132
+"n_pf_evals_per_start","5",132
+"selected_run","10",132
+"selection_rule","maximum_independently_evaluated_logLik",132
+"start_seed","152261100",132
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",132
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",132
+"R_version","R version 4.1.2 (2021-11-01)",132
+"pomp_version","6.4",132
+"hostname","frnt121.frontenac.local",132
+"slurm_job_id","12093175",132
+"slurm_array_task_id","132",132
+"written_at_utc","2026-08-19 09:05:55 UTC",132
+"experiment_id","experiment_5_bspline_B_recovery",133
+"source_experiment_id","experiment_4_nmif600_model_comparison",133
+"model","bspline_B",133
+"task_id","133",133
+"simulation_seed","1133",133
+"observed_data_md5","0a62c14ca9858effb08a88d2cabe1673",133
+"Nmif","600",133
+"Np_mif","5000",133
+"n_internal_starts","10",133
+"Np_eval","50000",133
+"n_pf_evals_per_start","5",133
+"selected_run","7",133
+"selection_rule","maximum_independently_evaluated_logLik",133
+"start_seed","153261100",133
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",133
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",133
+"R_version","R version 4.1.2 (2021-11-01)",133
+"pomp_version","6.4",133
+"hostname","frnt121.frontenac.local",133
+"slurm_job_id","12093177",133
+"slurm_array_task_id","133",133
+"written_at_utc","2026-08-19 09:24:59 UTC",133
+"experiment_id","experiment_5_bspline_B_recovery",134
+"source_experiment_id","experiment_4_nmif600_model_comparison",134
+"model","bspline_B",134
+"task_id","134",134
+"simulation_seed","1134",134
+"observed_data_md5","6cdb8dae15bac319b768e307416ee6b2",134
+"Nmif","600",134
+"Np_mif","5000",134
+"n_internal_starts","10",134
+"Np_eval","50000",134
+"n_pf_evals_per_start","5",134
+"selected_run","5",134
+"selection_rule","maximum_independently_evaluated_logLik",134
+"start_seed","154261100",134
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",134
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",134
+"R_version","R version 4.1.2 (2021-11-01)",134
+"pomp_version","6.4",134
+"hostname","frnt121.frontenac.local",134
+"slurm_job_id","12093179",134
+"slurm_array_task_id","134",134
+"written_at_utc","2026-08-19 09:27:00 UTC",134
+"experiment_id","experiment_5_bspline_B_recovery",135
+"source_experiment_id","experiment_4_nmif600_model_comparison",135
+"model","bspline_B",135
+"task_id","135",135
+"simulation_seed","1135",135
+"observed_data_md5","f5fbe5bac9e630e09a5f83fdcd75b932",135
+"Nmif","600",135
+"Np_mif","5000",135
+"n_internal_starts","10",135
+"Np_eval","50000",135
+"n_pf_evals_per_start","5",135
+"selected_run","9",135
+"selection_rule","maximum_independently_evaluated_logLik",135
+"start_seed","155261100",135
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",135
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",135
+"R_version","R version 4.1.2 (2021-11-01)",135
+"pomp_version","6.4",135
+"hostname","frnt121.frontenac.local",135
+"slurm_job_id","12093180",135
+"slurm_array_task_id","135",135
+"written_at_utc","2026-08-19 09:36:03 UTC",135
+"experiment_id","experiment_5_bspline_B_recovery",136
+"source_experiment_id","experiment_4_nmif600_model_comparison",136
+"model","bspline_B",136
+"task_id","136",136
+"simulation_seed","1136",136
+"observed_data_md5","75dc159ba49385507004b04106ac29e8",136
+"Nmif","600",136
+"Np_mif","5000",136
+"n_internal_starts","10",136
+"Np_eval","50000",136
+"n_pf_evals_per_start","5",136
+"selected_run","3",136
+"selection_rule","maximum_independently_evaluated_logLik",136
+"start_seed","156261100",136
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",136
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",136
+"R_version","R version 4.1.2 (2021-11-01)",136
+"pomp_version","6.4",136
+"hostname","frnt121.frontenac.local",136
+"slurm_job_id","12093182",136
+"slurm_array_task_id","136",136
+"written_at_utc","2026-08-19 09:39:03 UTC",136
+"experiment_id","experiment_5_bspline_B_recovery",137
+"source_experiment_id","experiment_4_nmif600_model_comparison",137
+"model","bspline_B",137
+"task_id","137",137
+"simulation_seed","1137",137
+"observed_data_md5","25af99e573ba8708856ba71f5d31801d",137
+"Nmif","600",137
+"Np_mif","5000",137
+"n_internal_starts","10",137
+"Np_eval","50000",137
+"n_pf_evals_per_start","5",137
+"selected_run","1",137
+"selection_rule","maximum_independently_evaluated_logLik",137
+"start_seed","157261100",137
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",137
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",137
+"R_version","R version 4.1.2 (2021-11-01)",137
+"pomp_version","6.4",137
+"hostname","frnt121.frontenac.local",137
+"slurm_job_id","12093183",137
+"slurm_array_task_id","137",137
+"written_at_utc","2026-08-19 09:40:14 UTC",137
+"experiment_id","experiment_5_bspline_B_recovery",138
+"source_experiment_id","experiment_4_nmif600_model_comparison",138
+"model","bspline_B",138
+"task_id","138",138
+"simulation_seed","1138",138
+"observed_data_md5","24ce0d2a3efbc542f5ad5931cbdb79aa",138
+"Nmif","600",138
+"Np_mif","5000",138
+"n_internal_starts","10",138
+"Np_eval","50000",138
+"n_pf_evals_per_start","5",138
+"selected_run","1",138
+"selection_rule","maximum_independently_evaluated_logLik",138
+"start_seed","158261100",138
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",138
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",138
+"R_version","R version 4.1.2 (2021-11-01)",138
+"pomp_version","6.4",138
+"hostname","frnt121.frontenac.local",138
+"slurm_job_id","12093184",138
+"slurm_array_task_id","138",138
+"written_at_utc","2026-08-19 09:39:37 UTC",138
+"experiment_id","experiment_5_bspline_B_recovery",139
+"source_experiment_id","experiment_4_nmif600_model_comparison",139
+"model","bspline_B",139
+"task_id","139",139
+"simulation_seed","1139",139
+"observed_data_md5","392c573a8d8baf810091dbff34258106",139
+"Nmif","600",139
+"Np_mif","5000",139
+"n_internal_starts","10",139
+"Np_eval","50000",139
+"n_pf_evals_per_start","5",139
+"selected_run","1",139
+"selection_rule","maximum_independently_evaluated_logLik",139
+"start_seed","159261100",139
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",139
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",139
+"R_version","R version 4.1.2 (2021-11-01)",139
+"pomp_version","6.4",139
+"hostname","frnt121.frontenac.local",139
+"slurm_job_id","12093185",139
+"slurm_array_task_id","139",139
+"written_at_utc","2026-08-19 09:41:30 UTC",139
+"experiment_id","experiment_5_bspline_B_recovery",140
+"source_experiment_id","experiment_4_nmif600_model_comparison",140
+"model","bspline_B",140
+"task_id","140",140
+"simulation_seed","1140",140
+"observed_data_md5","9af7f4bb9f26f77c38c192936cf0be33",140
+"Nmif","600",140
+"Np_mif","5000",140
+"n_internal_starts","10",140
+"Np_eval","50000",140
+"n_pf_evals_per_start","5",140
+"selected_run","4",140
+"selection_rule","maximum_independently_evaluated_logLik",140
+"start_seed","160261100",140
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",140
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",140
+"R_version","R version 4.1.2 (2021-11-01)",140
+"pomp_version","6.4",140
+"hostname","frnt121.frontenac.local",140
+"slurm_job_id","12093186",140
+"slurm_array_task_id","140",140
+"written_at_utc","2026-08-19 09:41:12 UTC",140
+"experiment_id","experiment_5_bspline_B_recovery",141
+"source_experiment_id","experiment_4_nmif600_model_comparison",141
+"model","bspline_B",141
+"task_id","141",141
+"simulation_seed","1141",141
+"observed_data_md5","bd55561900b24ec7c3c7ac64a514ac02",141
+"Nmif","600",141
+"Np_mif","5000",141
+"n_internal_starts","10",141
+"Np_eval","50000",141
+"n_pf_evals_per_start","5",141
+"selected_run","5",141
+"selection_rule","maximum_independently_evaluated_logLik",141
+"start_seed","161261100",141
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",141
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",141
+"R_version","R version 4.1.2 (2021-11-01)",141
+"pomp_version","6.4",141
+"hostname","frnt121.frontenac.local",141
+"slurm_job_id","12093187",141
+"slurm_array_task_id","141",141
+"written_at_utc","2026-08-19 09:43:11 UTC",141
+"experiment_id","experiment_5_bspline_B_recovery",142
+"source_experiment_id","experiment_4_nmif600_model_comparison",142
+"model","bspline_B",142
+"task_id","142",142
+"simulation_seed","1142",142
+"observed_data_md5","d1a06c9101d2c0ee727ae600038327ba",142
+"Nmif","600",142
+"Np_mif","5000",142
+"n_internal_starts","10",142
+"Np_eval","50000",142
+"n_pf_evals_per_start","5",142
+"selected_run","1",142
+"selection_rule","maximum_independently_evaluated_logLik",142
+"start_seed","162261100",142
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",142
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",142
+"R_version","R version 4.1.2 (2021-11-01)",142
+"pomp_version","6.4",142
+"hostname","frnt121.frontenac.local",142
+"slurm_job_id","12093188",142
+"slurm_array_task_id","142",142
+"written_at_utc","2026-08-19 09:40:10 UTC",142
+"experiment_id","experiment_5_bspline_B_recovery",143
+"source_experiment_id","experiment_4_nmif600_model_comparison",143
+"model","bspline_B",143
+"task_id","143",143
+"simulation_seed","1143",143
+"observed_data_md5","5e8bbd223a147392f54cce5f77c7b52e",143
+"Nmif","600",143
+"Np_mif","5000",143
+"n_internal_starts","10",143
+"Np_eval","50000",143
+"n_pf_evals_per_start","5",143
+"selected_run","10",143
+"selection_rule","maximum_independently_evaluated_logLik",143
+"start_seed","163261100",143
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",143
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",143
+"R_version","R version 4.1.2 (2021-11-01)",143
+"pomp_version","6.4",143
+"hostname","frnt121.frontenac.local",143
+"slurm_job_id","12093189",143
+"slurm_array_task_id","143",143
+"written_at_utc","2026-08-19 09:43:10 UTC",143
+"experiment_id","experiment_5_bspline_B_recovery",144
+"source_experiment_id","experiment_4_nmif600_model_comparison",144
+"model","bspline_B",144
+"task_id","144",144
+"simulation_seed","1144",144
+"observed_data_md5","a7c2af9704a9238a0ba07d099939a75d",144
+"Nmif","600",144
+"Np_mif","5000",144
+"n_internal_starts","10",144
+"Np_eval","50000",144
+"n_pf_evals_per_start","5",144
+"selected_run","4",144
+"selection_rule","maximum_independently_evaluated_logLik",144
+"start_seed","164261100",144
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",144
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",144
+"R_version","R version 4.1.2 (2021-11-01)",144
+"pomp_version","6.4",144
+"hostname","frnt121.frontenac.local",144
+"slurm_job_id","12093190",144
+"slurm_array_task_id","144",144
+"written_at_utc","2026-08-19 09:41:09 UTC",144
+"experiment_id","experiment_5_bspline_B_recovery",145
+"source_experiment_id","experiment_4_nmif600_model_comparison",145
+"model","bspline_B",145
+"task_id","145",145
+"simulation_seed","1145",145
+"observed_data_md5","2db60151e6a71b77be25757b07f7d413",145
+"Nmif","600",145
+"Np_mif","5000",145
+"n_internal_starts","10",145
+"Np_eval","50000",145
+"n_pf_evals_per_start","5",145
+"selected_run","4",145
+"selection_rule","maximum_independently_evaluated_logLik",145
+"start_seed","165261100",145
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",145
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",145
+"R_version","R version 4.1.2 (2021-11-01)",145
+"pomp_version","6.4",145
+"hostname","frnt121.frontenac.local",145
+"slurm_job_id","12093191",145
+"slurm_array_task_id","145",145
+"written_at_utc","2026-08-19 09:41:56 UTC",145
+"experiment_id","experiment_5_bspline_B_recovery",146
+"source_experiment_id","experiment_4_nmif600_model_comparison",146
+"model","bspline_B",146
+"task_id","146",146
+"simulation_seed","1146",146
+"observed_data_md5","11b683568a8c7109187e0d518ad44753",146
+"Nmif","600",146
+"Np_mif","5000",146
+"n_internal_starts","10",146
+"Np_eval","50000",146
+"n_pf_evals_per_start","5",146
+"selected_run","6",146
+"selection_rule","maximum_independently_evaluated_logLik",146
+"start_seed","166261100",146
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",146
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",146
+"R_version","R version 4.1.2 (2021-11-01)",146
+"pomp_version","6.4",146
+"hostname","frnt121.frontenac.local",146
+"slurm_job_id","12093192",146
+"slurm_array_task_id","146",146
+"written_at_utc","2026-08-19 09:43:30 UTC",146
+"experiment_id","experiment_5_bspline_B_recovery",147
+"source_experiment_id","experiment_4_nmif600_model_comparison",147
+"model","bspline_B",147
+"task_id","147",147
+"simulation_seed","1147",147
+"observed_data_md5","39e27a57bdf2c1c57e6c23b743348818",147
+"Nmif","600",147
+"Np_mif","5000",147
+"n_internal_starts","10",147
+"Np_eval","50000",147
+"n_pf_evals_per_start","5",147
+"selected_run","7",147
+"selection_rule","maximum_independently_evaluated_logLik",147
+"start_seed","167261100",147
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",147
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",147
+"R_version","R version 4.1.2 (2021-11-01)",147
+"pomp_version","6.4",147
+"hostname","frnt121.frontenac.local",147
+"slurm_job_id","12093193",147
+"slurm_array_task_id","147",147
+"written_at_utc","2026-08-19 09:45:08 UTC",147
+"experiment_id","experiment_5_bspline_B_recovery",148
+"source_experiment_id","experiment_4_nmif600_model_comparison",148
+"model","bspline_B",148
+"task_id","148",148
+"simulation_seed","1148",148
+"observed_data_md5","08f76d2a0f0fd7c0c65c77a4e3db66f5",148
+"Nmif","600",148
+"Np_mif","5000",148
+"n_internal_starts","10",148
+"Np_eval","50000",148
+"n_pf_evals_per_start","5",148
+"selected_run","1",148
+"selection_rule","maximum_independently_evaluated_logLik",148
+"start_seed","168261100",148
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",148
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",148
+"R_version","R version 4.1.2 (2021-11-01)",148
+"pomp_version","6.4",148
+"hostname","frnt121.frontenac.local",148
+"slurm_job_id","12093194",148
+"slurm_array_task_id","148",148
+"written_at_utc","2026-08-19 09:49:35 UTC",148
+"experiment_id","experiment_5_bspline_B_recovery",149
+"source_experiment_id","experiment_4_nmif600_model_comparison",149
+"model","bspline_B",149
+"task_id","149",149
+"simulation_seed","1149",149
+"observed_data_md5","73fb1389d38e28b1daab2d44d648d7dc",149
+"Nmif","600",149
+"Np_mif","5000",149
+"n_internal_starts","10",149
+"Np_eval","50000",149
+"n_pf_evals_per_start","5",149
+"selected_run","6",149
+"selection_rule","maximum_independently_evaluated_logLik",149
+"start_seed","169261100",149
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",149
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",149
+"R_version","R version 4.1.2 (2021-11-01)",149
+"pomp_version","6.4",149
+"hostname","frnt121.frontenac.local",149
+"slurm_job_id","12093195",149
+"slurm_array_task_id","149",149
+"written_at_utc","2026-08-19 09:36:40 UTC",149
+"experiment_id","experiment_5_bspline_B_recovery",150
+"source_experiment_id","experiment_4_nmif600_model_comparison",150
+"model","bspline_B",150
+"task_id","150",150
+"simulation_seed","1150",150
+"observed_data_md5","4538cec1dfd416909e103d8882091c24",150
+"Nmif","600",150
+"Np_mif","5000",150
+"n_internal_starts","10",150
+"Np_eval","50000",150
+"n_pf_evals_per_start","5",150
+"selected_run","4",150
+"selection_rule","maximum_independently_evaluated_logLik",150
+"start_seed","170261100",150
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",150
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",150
+"R_version","R version 4.1.2 (2021-11-01)",150
+"pomp_version","6.4",150
+"hostname","frnt121.frontenac.local",150
+"slurm_job_id","12093196",150
+"slurm_array_task_id","150",150
+"written_at_utc","2026-08-19 09:46:58 UTC",150
+"experiment_id","experiment_5_bspline_B_recovery",151
+"source_experiment_id","experiment_4_nmif600_model_comparison",151
+"model","bspline_B",151
+"task_id","151",151
+"simulation_seed","1151",151
+"observed_data_md5","c30a72bbd9994edc5a6a1c2aed4242b1",151
+"Nmif","600",151
+"Np_mif","5000",151
+"n_internal_starts","10",151
+"Np_eval","50000",151
+"n_pf_evals_per_start","5",151
+"selected_run","3",151
+"selection_rule","maximum_independently_evaluated_logLik",151
+"start_seed","171261100",151
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",151
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",151
+"R_version","R version 4.1.2 (2021-11-01)",151
+"pomp_version","6.4",151
+"hostname","frnt121.frontenac.local",151
+"slurm_job_id","12093198",151
+"slurm_array_task_id","151",151
+"written_at_utc","2026-08-19 09:53:10 UTC",151
+"experiment_id","experiment_5_bspline_B_recovery",152
+"source_experiment_id","experiment_4_nmif600_model_comparison",152
+"model","bspline_B",152
+"task_id","152",152
+"simulation_seed","1152",152
+"observed_data_md5","6a9c86481f4a2482e1b37d74f117071e",152
+"Nmif","600",152
+"Np_mif","5000",152
+"n_internal_starts","10",152
+"Np_eval","50000",152
+"n_pf_evals_per_start","5",152
+"selected_run","4",152
+"selection_rule","maximum_independently_evaluated_logLik",152
+"start_seed","172261100",152
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",152
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",152
+"R_version","R version 4.1.2 (2021-11-01)",152
+"pomp_version","6.4",152
+"hostname","frnt121.frontenac.local",152
+"slurm_job_id","12093200",152
+"slurm_array_task_id","152",152
+"written_at_utc","2026-08-19 10:06:50 UTC",152
+"experiment_id","experiment_5_bspline_B_recovery",153
+"source_experiment_id","experiment_4_nmif600_model_comparison",153
+"model","bspline_B",153
+"task_id","153",153
+"simulation_seed","1153",153
+"observed_data_md5","442e0ebc852ae02e3200593355a37960",153
+"Nmif","600",153
+"Np_mif","5000",153
+"n_internal_starts","10",153
+"Np_eval","50000",153
+"n_pf_evals_per_start","5",153
+"selected_run","8",153
+"selection_rule","maximum_independently_evaluated_logLik",153
+"start_seed","173261100",153
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",153
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",153
+"R_version","R version 4.1.2 (2021-11-01)",153
+"pomp_version","6.4",153
+"hostname","frnt121.frontenac.local",153
+"slurm_job_id","12093206",153
+"slurm_array_task_id","153",153
+"written_at_utc","2026-08-19 10:27:11 UTC",153
+"experiment_id","experiment_5_bspline_B_recovery",154
+"source_experiment_id","experiment_4_nmif600_model_comparison",154
+"model","bspline_B",154
+"task_id","154",154
+"simulation_seed","1154",154
+"observed_data_md5","64361962d8cd28975836ca41ffba829e",154
+"Nmif","600",154
+"Np_mif","5000",154
+"n_internal_starts","10",154
+"Np_eval","50000",154
+"n_pf_evals_per_start","5",154
+"selected_run","6",154
+"selection_rule","maximum_independently_evaluated_logLik",154
+"start_seed","174261100",154
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",154
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",154
+"R_version","R version 4.1.2 (2021-11-01)",154
+"pomp_version","6.4",154
+"hostname","frnt121.frontenac.local",154
+"slurm_job_id","12093207",154
+"slurm_array_task_id","154",154
+"written_at_utc","2026-08-19 10:31:00 UTC",154
+"experiment_id","experiment_5_bspline_B_recovery",155
+"source_experiment_id","experiment_4_nmif600_model_comparison",155
+"model","bspline_B",155
+"task_id","155",155
+"simulation_seed","1155",155
+"observed_data_md5","af7b6609489cc20efa3782fad07fa0d9",155
+"Nmif","600",155
+"Np_mif","5000",155
+"n_internal_starts","10",155
+"Np_eval","50000",155
+"n_pf_evals_per_start","5",155
+"selected_run","7",155
+"selection_rule","maximum_independently_evaluated_logLik",155
+"start_seed","175261100",155
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",155
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",155
+"R_version","R version 4.1.2 (2021-11-01)",155
+"pomp_version","6.4",155
+"hostname","frnt121.frontenac.local",155
+"slurm_job_id","12093210",155
+"slurm_array_task_id","155",155
+"written_at_utc","2026-08-19 10:38:05 UTC",155
+"experiment_id","experiment_5_bspline_B_recovery",156
+"source_experiment_id","experiment_4_nmif600_model_comparison",156
+"model","bspline_B",156
+"task_id","156",156
+"simulation_seed","1156",156
+"observed_data_md5","9d0dfa99ebb269242e3d64e8a5fe517c",156
+"Nmif","600",156
+"Np_mif","5000",156
+"n_internal_starts","10",156
+"Np_eval","50000",156
+"n_pf_evals_per_start","5",156
+"selected_run","8",156
+"selection_rule","maximum_independently_evaluated_logLik",156
+"start_seed","176261100",156
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",156
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",156
+"R_version","R version 4.1.2 (2021-11-01)",156
+"pomp_version","6.4",156
+"hostname","frnt121.frontenac.local",156
+"slurm_job_id","12093211",156
+"slurm_array_task_id","156",156
+"written_at_utc","2026-08-19 10:35:34 UTC",156
+"experiment_id","experiment_5_bspline_B_recovery",157
+"source_experiment_id","experiment_4_nmif600_model_comparison",157
+"model","bspline_B",157
+"task_id","157",157
+"simulation_seed","1157",157
+"observed_data_md5","66c6e6745a642b2c128f396464ab9c36",157
+"Nmif","600",157
+"Np_mif","5000",157
+"n_internal_starts","10",157
+"Np_eval","50000",157
+"n_pf_evals_per_start","5",157
+"selected_run","10",157
+"selection_rule","maximum_independently_evaluated_logLik",157
+"start_seed","177261100",157
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",157
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",157
+"R_version","R version 4.1.2 (2021-11-01)",157
+"pomp_version","6.4",157
+"hostname","frnt121.frontenac.local",157
+"slurm_job_id","12093214",157
+"slurm_array_task_id","157",157
+"written_at_utc","2026-08-19 10:44:20 UTC",157
+"experiment_id","experiment_5_bspline_B_recovery",158
+"source_experiment_id","experiment_4_nmif600_model_comparison",158
+"model","bspline_B",158
+"task_id","158",158
+"simulation_seed","1158",158
+"observed_data_md5","8f8136ef754c0743bae4dd275c47bf9b",158
+"Nmif","600",158
+"Np_mif","5000",158
+"n_internal_starts","10",158
+"Np_eval","50000",158
+"n_pf_evals_per_start","5",158
+"selected_run","1",158
+"selection_rule","maximum_independently_evaluated_logLik",158
+"start_seed","178261100",158
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",158
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",158
+"R_version","R version 4.1.2 (2021-11-01)",158
+"pomp_version","6.4",158
+"hostname","frnt121.frontenac.local",158
+"slurm_job_id","12093215",158
+"slurm_array_task_id","158",158
+"written_at_utc","2026-08-19 10:44:03 UTC",158
+"experiment_id","experiment_5_bspline_B_recovery",159
+"source_experiment_id","experiment_4_nmif600_model_comparison",159
+"model","bspline_B",159
+"task_id","159",159
+"simulation_seed","1159",159
+"observed_data_md5","6eeed27f9e2c16bae4fa14c32548d476",159
+"Nmif","600",159
+"Np_mif","5000",159
+"n_internal_starts","10",159
+"Np_eval","50000",159
+"n_pf_evals_per_start","5",159
+"selected_run","8",159
+"selection_rule","maximum_independently_evaluated_logLik",159
+"start_seed","179261100",159
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",159
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",159
+"R_version","R version 4.1.2 (2021-11-01)",159
+"pomp_version","6.4",159
+"hostname","frnt121.frontenac.local",159
+"slurm_job_id","12093216",159
+"slurm_array_task_id","159",159
+"written_at_utc","2026-08-19 10:43:32 UTC",159
+"experiment_id","experiment_5_bspline_B_recovery",160
+"source_experiment_id","experiment_4_nmif600_model_comparison",160
+"model","bspline_B",160
+"task_id","160",160
+"simulation_seed","1160",160
+"observed_data_md5","6fc5bd4defacec08d522e9606a883766",160
+"Nmif","600",160
+"Np_mif","5000",160
+"n_internal_starts","10",160
+"Np_eval","50000",160
+"n_pf_evals_per_start","5",160
+"selected_run","10",160
+"selection_rule","maximum_independently_evaluated_logLik",160
+"start_seed","180261100",160
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",160
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",160
+"R_version","R version 4.1.2 (2021-11-01)",160
+"pomp_version","6.4",160
+"hostname","frnt121.frontenac.local",160
+"slurm_job_id","12093217",160
+"slurm_array_task_id","160",160
+"written_at_utc","2026-08-19 10:45:06 UTC",160
+"experiment_id","experiment_5_bspline_B_recovery",161
+"source_experiment_id","experiment_4_nmif600_model_comparison",161
+"model","bspline_B",161
+"task_id","161",161
+"simulation_seed","1161",161
+"observed_data_md5","a357237d620a342d728f96dc8aac5757",161
+"Nmif","600",161
+"Np_mif","5000",161
+"n_internal_starts","10",161
+"Np_eval","50000",161
+"n_pf_evals_per_start","5",161
+"selected_run","5",161
+"selection_rule","maximum_independently_evaluated_logLik",161
+"start_seed","181261100",161
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",161
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",161
+"R_version","R version 4.1.2 (2021-11-01)",161
+"pomp_version","6.4",161
+"hostname","frnt121.frontenac.local",161
+"slurm_job_id","12093221",161
+"slurm_array_task_id","161",161
+"written_at_utc","2026-08-19 10:45:39 UTC",161
+"experiment_id","experiment_5_bspline_B_recovery",162
+"source_experiment_id","experiment_4_nmif600_model_comparison",162
+"model","bspline_B",162
+"task_id","162",162
+"simulation_seed","1162",162
+"observed_data_md5","4cc160a48b020eb4685997894bf01baf",162
+"Nmif","600",162
+"Np_mif","5000",162
+"n_internal_starts","10",162
+"Np_eval","50000",162
+"n_pf_evals_per_start","5",162
+"selected_run","3",162
+"selection_rule","maximum_independently_evaluated_logLik",162
+"start_seed","182261100",162
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",162
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",162
+"R_version","R version 4.1.2 (2021-11-01)",162
+"pomp_version","6.4",162
+"hostname","frnt121.frontenac.local",162
+"slurm_job_id","12093222",162
+"slurm_array_task_id","162",162
+"written_at_utc","2026-08-19 10:44:16 UTC",162
+"experiment_id","experiment_5_bspline_B_recovery",163
+"source_experiment_id","experiment_4_nmif600_model_comparison",163
+"model","bspline_B",163
+"task_id","163",163
+"simulation_seed","1163",163
+"observed_data_md5","e67c4eaea4e2842baa2a758c4beb2e82",163
+"Nmif","600",163
+"Np_mif","5000",163
+"n_internal_starts","10",163
+"Np_eval","50000",163
+"n_pf_evals_per_start","5",163
+"selected_run","5",163
+"selection_rule","maximum_independently_evaluated_logLik",163
+"start_seed","183261100",163
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",163
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",163
+"R_version","R version 4.1.2 (2021-11-01)",163
+"pomp_version","6.4",163
+"hostname","frnt121.frontenac.local",163
+"slurm_job_id","12093223",163
+"slurm_array_task_id","163",163
+"written_at_utc","2026-08-19 10:44:13 UTC",163
+"experiment_id","experiment_5_bspline_B_recovery",164
+"source_experiment_id","experiment_4_nmif600_model_comparison",164
+"model","bspline_B",164
+"task_id","164",164
+"simulation_seed","1164",164
+"observed_data_md5","d690f07a51a75e813d73e446e77eb394",164
+"Nmif","600",164
+"Np_mif","5000",164
+"n_internal_starts","10",164
+"Np_eval","50000",164
+"n_pf_evals_per_start","5",164
+"selected_run","7",164
+"selection_rule","maximum_independently_evaluated_logLik",164
+"start_seed","184261100",164
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",164
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",164
+"R_version","R version 4.1.2 (2021-11-01)",164
+"pomp_version","6.4",164
+"hostname","frnt121.frontenac.local",164
+"slurm_job_id","12093224",164
+"slurm_array_task_id","164",164
+"written_at_utc","2026-08-19 10:43:46 UTC",164
+"experiment_id","experiment_5_bspline_B_recovery",165
+"source_experiment_id","experiment_4_nmif600_model_comparison",165
+"model","bspline_B",165
+"task_id","165",165
+"simulation_seed","1165",165
+"observed_data_md5","50366235ff21bfd0a4d01f895b905c92",165
+"Nmif","600",165
+"Np_mif","5000",165
+"n_internal_starts","10",165
+"Np_eval","50000",165
+"n_pf_evals_per_start","5",165
+"selected_run","9",165
+"selection_rule","maximum_independently_evaluated_logLik",165
+"start_seed","185261100",165
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",165
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",165
+"R_version","R version 4.1.2 (2021-11-01)",165
+"pomp_version","6.4",165
+"hostname","frnt121.frontenac.local",165
+"slurm_job_id","12093225",165
+"slurm_array_task_id","165",165
+"written_at_utc","2026-08-19 10:45:38 UTC",165
+"experiment_id","experiment_5_bspline_B_recovery",166
+"source_experiment_id","experiment_4_nmif600_model_comparison",166
+"model","bspline_B",166
+"task_id","166",166
+"simulation_seed","1166",166
+"observed_data_md5","495d59eeef0b219751064d03c686254d",166
+"Nmif","600",166
+"Np_mif","5000",166
+"n_internal_starts","10",166
+"Np_eval","50000",166
+"n_pf_evals_per_start","5",166
+"selected_run","2",166
+"selection_rule","maximum_independently_evaluated_logLik",166
+"start_seed","186261100",166
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",166
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",166
+"R_version","R version 4.1.2 (2021-11-01)",166
+"pomp_version","6.4",166
+"hostname","frnt121.frontenac.local",166
+"slurm_job_id","12093226",166
+"slurm_array_task_id","166",166
+"written_at_utc","2026-08-19 10:46:18 UTC",166
+"experiment_id","experiment_5_bspline_B_recovery",167
+"source_experiment_id","experiment_4_nmif600_model_comparison",167
+"model","bspline_B",167
+"task_id","167",167
+"simulation_seed","1167",167
+"observed_data_md5","b8bc66b5036c4f6bd977937ad6e2a29d",167
+"Nmif","600",167
+"Np_mif","5000",167
+"n_internal_starts","10",167
+"Np_eval","50000",167
+"n_pf_evals_per_start","5",167
+"selected_run","5",167
+"selection_rule","maximum_independently_evaluated_logLik",167
+"start_seed","187261100",167
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",167
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",167
+"R_version","R version 4.1.2 (2021-11-01)",167
+"pomp_version","6.4",167
+"hostname","frnt121.frontenac.local",167
+"slurm_job_id","12093227",167
+"slurm_array_task_id","167",167
+"written_at_utc","2026-08-19 10:45:22 UTC",167
+"experiment_id","experiment_5_bspline_B_recovery",168
+"source_experiment_id","experiment_4_nmif600_model_comparison",168
+"model","bspline_B",168
+"task_id","168",168
+"simulation_seed","1168",168
+"observed_data_md5","d65d84681677642681932395599566ad",168
+"Nmif","600",168
+"Np_mif","5000",168
+"n_internal_starts","10",168
+"Np_eval","50000",168
+"n_pf_evals_per_start","5",168
+"selected_run","3",168
+"selection_rule","maximum_independently_evaluated_logLik",168
+"start_seed","188261100",168
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",168
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",168
+"R_version","R version 4.1.2 (2021-11-01)",168
+"pomp_version","6.4",168
+"hostname","frnt121.frontenac.local",168
+"slurm_job_id","12093229",168
+"slurm_array_task_id","168",168
+"written_at_utc","2026-08-19 10:46:38 UTC",168
+"experiment_id","experiment_5_bspline_B_recovery",169
+"source_experiment_id","experiment_4_nmif600_model_comparison",169
+"model","bspline_B",169
+"task_id","169",169
+"simulation_seed","1169",169
+"observed_data_md5","4b517b06b20afe2ab6f16f327d16edef",169
+"Nmif","600",169
+"Np_mif","5000",169
+"n_internal_starts","10",169
+"Np_eval","50000",169
+"n_pf_evals_per_start","5",169
+"selected_run","7",169
+"selection_rule","maximum_independently_evaluated_logLik",169
+"start_seed","189261100",169
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",169
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",169
+"R_version","R version 4.1.2 (2021-11-01)",169
+"pomp_version","6.4",169
+"hostname","frnt121.frontenac.local",169
+"slurm_job_id","12093232",169
+"slurm_array_task_id","169",169
+"written_at_utc","2026-08-19 10:47:57 UTC",169
+"experiment_id","experiment_5_bspline_B_recovery",170
+"source_experiment_id","experiment_4_nmif600_model_comparison",170
+"model","bspline_B",170
+"task_id","170",170
+"simulation_seed","1170",170
+"observed_data_md5","f32af8f5828cad3f276263ef3b9502fb",170
+"Nmif","600",170
+"Np_mif","5000",170
+"n_internal_starts","10",170
+"Np_eval","50000",170
+"n_pf_evals_per_start","5",170
+"selected_run","5",170
+"selection_rule","maximum_independently_evaluated_logLik",170
+"start_seed","190261100",170
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",170
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",170
+"R_version","R version 4.1.2 (2021-11-01)",170
+"pomp_version","6.4",170
+"hostname","frnt121.frontenac.local",170
+"slurm_job_id","12093233",170
+"slurm_array_task_id","170",170
+"written_at_utc","2026-08-19 10:46:02 UTC",170
+"experiment_id","experiment_5_bspline_B_recovery",171
+"source_experiment_id","experiment_4_nmif600_model_comparison",171
+"model","bspline_B",171
+"task_id","171",171
+"simulation_seed","1171",171
+"observed_data_md5","2ec9a3cf6058379814f756d7b9f93ea9",171
+"Nmif","600",171
+"Np_mif","5000",171
+"n_internal_starts","10",171
+"Np_eval","50000",171
+"n_pf_evals_per_start","5",171
+"selected_run","6",171
+"selection_rule","maximum_independently_evaluated_logLik",171
+"start_seed","191261100",171
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",171
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",171
+"R_version","R version 4.1.2 (2021-11-01)",171
+"pomp_version","6.4",171
+"hostname","frnt121.frontenac.local",171
+"slurm_job_id","12093235",171
+"slurm_array_task_id","171",171
+"written_at_utc","2026-08-19 10:55:21 UTC",171
+"experiment_id","experiment_5_bspline_B_recovery",172
+"source_experiment_id","experiment_4_nmif600_model_comparison",172
+"model","bspline_B",172
+"task_id","172",172
+"simulation_seed","1172",172
+"observed_data_md5","68d41d2891a14e960534c955889a715f",172
+"Nmif","600",172
+"Np_mif","5000",172
+"n_internal_starts","10",172
+"Np_eval","50000",172
+"n_pf_evals_per_start","5",172
+"selected_run","2",172
+"selection_rule","maximum_independently_evaluated_logLik",172
+"start_seed","192261100",172
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",172
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",172
+"R_version","R version 4.1.2 (2021-11-01)",172
+"pomp_version","6.4",172
+"hostname","frnt121.frontenac.local",172
+"slurm_job_id","12093241",172
+"slurm_array_task_id","172",172
+"written_at_utc","2026-08-19 11:09:01 UTC",172
+"experiment_id","experiment_5_bspline_B_recovery",173
+"source_experiment_id","experiment_4_nmif600_model_comparison",173
+"model","bspline_B",173
+"task_id","173",173
+"simulation_seed","1173",173
+"observed_data_md5","b998c1e8401789afff3d7d34e1be5997",173
+"Nmif","600",173
+"Np_mif","5000",173
+"n_internal_starts","10",173
+"Np_eval","50000",173
+"n_pf_evals_per_start","5",173
+"selected_run","5",173
+"selection_rule","maximum_independently_evaluated_logLik",173
+"start_seed","193261100",173
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",173
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",173
+"R_version","R version 4.1.2 (2021-11-01)",173
+"pomp_version","6.4",173
+"hostname","frnt121.frontenac.local",173
+"slurm_job_id","12093247",173
+"slurm_array_task_id","173",173
+"written_at_utc","2026-08-19 11:32:19 UTC",173
+"experiment_id","experiment_5_bspline_B_recovery",174
+"source_experiment_id","experiment_4_nmif600_model_comparison",174
+"model","bspline_B",174
+"task_id","174",174
+"simulation_seed","1174",174
+"observed_data_md5","7a6ced56beec68835d7a03f46b6af6e8",174
+"Nmif","600",174
+"Np_mif","5000",174
+"n_internal_starts","10",174
+"Np_eval","50000",174
+"n_pf_evals_per_start","5",174
+"selected_run","3",174
+"selection_rule","maximum_independently_evaluated_logLik",174
+"start_seed","194261100",174
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",174
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",174
+"R_version","R version 4.1.2 (2021-11-01)",174
+"pomp_version","6.4",174
+"hostname","frnt121.frontenac.local",174
+"slurm_job_id","12093248",174
+"slurm_array_task_id","174",174
+"written_at_utc","2026-08-19 11:34:24 UTC",174
+"experiment_id","experiment_5_bspline_B_recovery",175
+"source_experiment_id","experiment_4_nmif600_model_comparison",175
+"model","bspline_B",175
+"task_id","175",175
+"simulation_seed","1175",175
+"observed_data_md5","2744bfdd13475fbe6815e8986de922fa",175
+"Nmif","600",175
+"Np_mif","5000",175
+"n_internal_starts","10",175
+"Np_eval","50000",175
+"n_pf_evals_per_start","5",175
+"selected_run","5",175
+"selection_rule","maximum_independently_evaluated_logLik",175
+"start_seed","195261100",175
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",175
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",175
+"R_version","R version 4.1.2 (2021-11-01)",175
+"pomp_version","6.4",175
+"hostname","frnt121.frontenac.local",175
+"slurm_job_id","12093252",175
+"slurm_array_task_id","175",175
+"written_at_utc","2026-08-19 11:41:28 UTC",175
+"experiment_id","experiment_5_bspline_B_recovery",176
+"source_experiment_id","experiment_4_nmif600_model_comparison",176
+"model","bspline_B",176
+"task_id","176",176
+"simulation_seed","1176",176
+"observed_data_md5","c141df7878a0d44e38a58170b4492543",176
+"Nmif","600",176
+"Np_mif","5000",176
+"n_internal_starts","10",176
+"Np_eval","50000",176
+"n_pf_evals_per_start","5",176
+"selected_run","9",176
+"selection_rule","maximum_independently_evaluated_logLik",176
+"start_seed","196261100",176
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",176
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",176
+"R_version","R version 4.1.2 (2021-11-01)",176
+"pomp_version","6.4",176
+"hostname","frnt121.frontenac.local",176
+"slurm_job_id","12093253",176
+"slurm_array_task_id","176",176
+"written_at_utc","2026-08-19 11:41:10 UTC",176
+"experiment_id","experiment_5_bspline_B_recovery",177
+"source_experiment_id","experiment_4_nmif600_model_comparison",177
+"model","bspline_B",177
+"task_id","177",177
+"simulation_seed","1177",177
+"observed_data_md5","c17f97d975a2e6794ea31e8367d83e40",177
+"Nmif","600",177
+"Np_mif","5000",177
+"n_internal_starts","10",177
+"Np_eval","50000",177
+"n_pf_evals_per_start","5",177
+"selected_run","9",177
+"selection_rule","maximum_independently_evaluated_logLik",177
+"start_seed","197261100",177
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",177
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",177
+"R_version","R version 4.1.2 (2021-11-01)",177
+"pomp_version","6.4",177
+"hostname","frnt121.frontenac.local",177
+"slurm_job_id","12093255",177
+"slurm_array_task_id","177",177
+"written_at_utc","2026-08-19 11:44:49 UTC",177
+"experiment_id","experiment_5_bspline_B_recovery",178
+"source_experiment_id","experiment_4_nmif600_model_comparison",178
+"model","bspline_B",178
+"task_id","178",178
+"simulation_seed","1178",178
+"observed_data_md5","4f3cc0d975b486260ecd02e9ed831df5",178
+"Nmif","600",178
+"Np_mif","5000",178
+"n_internal_starts","10",178
+"Np_eval","50000",178
+"n_pf_evals_per_start","5",178
+"selected_run","9",178
+"selection_rule","maximum_independently_evaluated_logLik",178
+"start_seed","198261100",178
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",178
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",178
+"R_version","R version 4.1.2 (2021-11-01)",178
+"pomp_version","6.4",178
+"hostname","frnt121.frontenac.local",178
+"slurm_job_id","12093256",178
+"slurm_array_task_id","178",178
+"written_at_utc","2026-08-19 11:47:04 UTC",178
+"experiment_id","experiment_5_bspline_B_recovery",179
+"source_experiment_id","experiment_4_nmif600_model_comparison",179
+"model","bspline_B",179
+"task_id","179",179
+"simulation_seed","1179",179
+"observed_data_md5","6d4a044da028c76d3fafc003136384eb",179
+"Nmif","600",179
+"Np_mif","5000",179
+"n_internal_starts","10",179
+"Np_eval","50000",179
+"n_pf_evals_per_start","5",179
+"selected_run","1",179
+"selection_rule","maximum_independently_evaluated_logLik",179
+"start_seed","199261100",179
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",179
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",179
+"R_version","R version 4.1.2 (2021-11-01)",179
+"pomp_version","6.4",179
+"hostname","frnt121.frontenac.local",179
+"slurm_job_id","12093261",179
+"slurm_array_task_id","179",179
+"written_at_utc","2026-08-19 11:47:23 UTC",179
+"experiment_id","experiment_5_bspline_B_recovery",180
+"source_experiment_id","experiment_4_nmif600_model_comparison",180
+"model","bspline_B",180
+"task_id","180",180
+"simulation_seed","1180",180
+"observed_data_md5","ff3b24bb3a95e7b5178276b17e2c0dad",180
+"Nmif","600",180
+"Np_mif","5000",180
+"n_internal_starts","10",180
+"Np_eval","50000",180
+"n_pf_evals_per_start","5",180
+"selected_run","2",180
+"selection_rule","maximum_independently_evaluated_logLik",180
+"start_seed","200261100",180
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",180
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",180
+"R_version","R version 4.1.2 (2021-11-01)",180
+"pomp_version","6.4",180
+"hostname","frnt121.frontenac.local",180
+"slurm_job_id","12093262",180
+"slurm_array_task_id","180",180
+"written_at_utc","2026-08-19 11:47:55 UTC",180
+"experiment_id","experiment_5_bspline_B_recovery",181
+"source_experiment_id","experiment_4_nmif600_model_comparison",181
+"model","bspline_B",181
+"task_id","181",181
+"simulation_seed","1181",181
+"observed_data_md5","80dfab2294dc854a8695d1c1ce6265d9",181
+"Nmif","600",181
+"Np_mif","5000",181
+"n_internal_starts","10",181
+"Np_eval","50000",181
+"n_pf_evals_per_start","5",181
+"selected_run","9",181
+"selection_rule","maximum_independently_evaluated_logLik",181
+"start_seed","201261100",181
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",181
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",181
+"R_version","R version 4.1.2 (2021-11-01)",181
+"pomp_version","6.4",181
+"hostname","frnt121.frontenac.local",181
+"slurm_job_id","12093263",181
+"slurm_array_task_id","181",181
+"written_at_utc","2026-08-19 11:48:28 UTC",181
+"experiment_id","experiment_5_bspline_B_recovery",182
+"source_experiment_id","experiment_4_nmif600_model_comparison",182
+"model","bspline_B",182
+"task_id","182",182
+"simulation_seed","1182",182
+"observed_data_md5","941f9c48ec56eb19b25786187b006f10",182
+"Nmif","600",182
+"Np_mif","5000",182
+"n_internal_starts","10",182
+"Np_eval","50000",182
+"n_pf_evals_per_start","5",182
+"selected_run","6",182
+"selection_rule","maximum_independently_evaluated_logLik",182
+"start_seed","202261100",182
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",182
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",182
+"R_version","R version 4.1.2 (2021-11-01)",182
+"pomp_version","6.4",182
+"hostname","frnt121.frontenac.local",182
+"slurm_job_id","12093264",182
+"slurm_array_task_id","182",182
+"written_at_utc","2026-08-19 11:46:15 UTC",182
+"experiment_id","experiment_5_bspline_B_recovery",183
+"source_experiment_id","experiment_4_nmif600_model_comparison",183
+"model","bspline_B",183
+"task_id","183",183
+"simulation_seed","1183",183
+"observed_data_md5","2dc5d7e9b3e15c740d490d788211573a",183
+"Nmif","600",183
+"Np_mif","5000",183
+"n_internal_starts","10",183
+"Np_eval","50000",183
+"n_pf_evals_per_start","5",183
+"selected_run","8",183
+"selection_rule","maximum_independently_evaluated_logLik",183
+"start_seed","203261100",183
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",183
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",183
+"R_version","R version 4.1.2 (2021-11-01)",183
+"pomp_version","6.4",183
+"hostname","frnt121.frontenac.local",183
+"slurm_job_id","12093265",183
+"slurm_array_task_id","183",183
+"written_at_utc","2026-08-19 11:44:24 UTC",183
+"experiment_id","experiment_5_bspline_B_recovery",184
+"source_experiment_id","experiment_4_nmif600_model_comparison",184
+"model","bspline_B",184
+"task_id","184",184
+"simulation_seed","1184",184
+"observed_data_md5","77c6e00a79e8c3b3df80e1c4b0ff8023",184
+"Nmif","600",184
+"Np_mif","5000",184
+"n_internal_starts","10",184
+"Np_eval","50000",184
+"n_pf_evals_per_start","5",184
+"selected_run","5",184
+"selection_rule","maximum_independently_evaluated_logLik",184
+"start_seed","204261100",184
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",184
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",184
+"R_version","R version 4.1.2 (2021-11-01)",184
+"pomp_version","6.4",184
+"hostname","frnt121.frontenac.local",184
+"slurm_job_id","12093266",184
+"slurm_array_task_id","184",184
+"written_at_utc","2026-08-19 11:47:55 UTC",184
+"experiment_id","experiment_5_bspline_B_recovery",185
+"source_experiment_id","experiment_4_nmif600_model_comparison",185
+"model","bspline_B",185
+"task_id","185",185
+"simulation_seed","1185",185
+"observed_data_md5","52e3986fb55b179cf59e4540a86a982d",185
+"Nmif","600",185
+"Np_mif","5000",185
+"n_internal_starts","10",185
+"Np_eval","50000",185
+"n_pf_evals_per_start","5",185
+"selected_run","5",185
+"selection_rule","maximum_independently_evaluated_logLik",185
+"start_seed","205261100",185
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",185
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",185
+"R_version","R version 4.1.2 (2021-11-01)",185
+"pomp_version","6.4",185
+"hostname","frnt140.frontenac.local",185
+"slurm_job_id","12093267",185
+"slurm_array_task_id","185",185
+"written_at_utc","2026-08-19 11:24:09 UTC",185
+"experiment_id","experiment_5_bspline_B_recovery",186
+"source_experiment_id","experiment_4_nmif600_model_comparison",186
+"model","bspline_B",186
+"task_id","186",186
+"simulation_seed","1186",186
+"observed_data_md5","ccc0636a72fb6ba022578cc100c8cb7c",186
+"Nmif","600",186
+"Np_mif","5000",186
+"n_internal_starts","10",186
+"Np_eval","50000",186
+"n_pf_evals_per_start","5",186
+"selected_run","7",186
+"selection_rule","maximum_independently_evaluated_logLik",186
+"start_seed","206261100",186
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",186
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",186
+"R_version","R version 4.1.2 (2021-11-01)",186
+"pomp_version","6.4",186
+"hostname","frnt140.frontenac.local",186
+"slurm_job_id","12093268",186
+"slurm_array_task_id","186",186
+"written_at_utc","2026-08-19 11:27:29 UTC",186
+"experiment_id","experiment_5_bspline_B_recovery",187
+"source_experiment_id","experiment_4_nmif600_model_comparison",187
+"model","bspline_B",187
+"task_id","187",187
+"simulation_seed","1187",187
+"observed_data_md5","7409506000aab5f15ec58cc3dd3fb72e",187
+"Nmif","600",187
+"Np_mif","5000",187
+"n_internal_starts","10",187
+"Np_eval","50000",187
+"n_pf_evals_per_start","5",187
+"selected_run","6",187
+"selection_rule","maximum_independently_evaluated_logLik",187
+"start_seed","207261100",187
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",187
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",187
+"R_version","R version 4.1.2 (2021-11-01)",187
+"pomp_version","6.4",187
+"hostname","frnt121.frontenac.local",187
+"slurm_job_id","12093269",187
+"slurm_array_task_id","187",187
+"written_at_utc","2026-08-19 11:48:56 UTC",187
+"experiment_id","experiment_5_bspline_B_recovery",188
+"source_experiment_id","experiment_4_nmif600_model_comparison",188
+"model","bspline_B",188
+"task_id","188",188
+"simulation_seed","1188",188
+"observed_data_md5","0e1b1e567b5a85241d50f71772de9be1",188
+"Nmif","600",188
+"Np_mif","5000",188
+"n_internal_starts","10",188
+"Np_eval","50000",188
+"n_pf_evals_per_start","5",188
+"selected_run","5",188
+"selection_rule","maximum_independently_evaluated_logLik",188
+"start_seed","208261100",188
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",188
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",188
+"R_version","R version 4.1.2 (2021-11-01)",188
+"pomp_version","6.4",188
+"hostname","frnt121.frontenac.local",188
+"slurm_job_id","12093270",188
+"slurm_array_task_id","188",188
+"written_at_utc","2026-08-19 11:49:28 UTC",188
+"experiment_id","experiment_5_bspline_B_recovery",189
+"source_experiment_id","experiment_4_nmif600_model_comparison",189
+"model","bspline_B",189
+"task_id","189",189
+"simulation_seed","1189",189
+"observed_data_md5","02453cd2773e7494e1a4738ba6f3c7a1",189
+"Nmif","600",189
+"Np_mif","5000",189
+"n_internal_starts","10",189
+"Np_eval","50000",189
+"n_pf_evals_per_start","5",189
+"selected_run","9",189
+"selection_rule","maximum_independently_evaluated_logLik",189
+"start_seed","209261100",189
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",189
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",189
+"R_version","R version 4.1.2 (2021-11-01)",189
+"pomp_version","6.4",189
+"hostname","frnt121.frontenac.local",189
+"slurm_job_id","12093271",189
+"slurm_array_task_id","189",189
+"written_at_utc","2026-08-19 11:45:51 UTC",189
+"experiment_id","experiment_5_bspline_B_recovery",190
+"source_experiment_id","experiment_4_nmif600_model_comparison",190
+"model","bspline_B",190
+"task_id","190",190
+"simulation_seed","1190",190
+"observed_data_md5","e11e338409fdbfff7af641a286a93437",190
+"Nmif","600",190
+"Np_mif","5000",190
+"n_internal_starts","10",190
+"Np_eval","50000",190
+"n_pf_evals_per_start","5",190
+"selected_run","7",190
+"selection_rule","maximum_independently_evaluated_logLik",190
+"start_seed","210261100",190
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",190
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",190
+"R_version","R version 4.1.2 (2021-11-01)",190
+"pomp_version","6.4",190
+"hostname","frnt121.frontenac.local",190
+"slurm_job_id","12093272",190
+"slurm_array_task_id","190",190
+"written_at_utc","2026-08-19 11:52:34 UTC",190
+"experiment_id","experiment_5_bspline_B_recovery",191
+"source_experiment_id","experiment_4_nmif600_model_comparison",191
+"model","bspline_B",191
+"task_id","191",191
+"simulation_seed","1191",191
+"observed_data_md5","88ccda7d997701880c9d0c636b220b1e",191
+"Nmif","600",191
+"Np_mif","5000",191
+"n_internal_starts","10",191
+"Np_eval","50000",191
+"n_pf_evals_per_start","5",191
+"selected_run","4",191
+"selection_rule","maximum_independently_evaluated_logLik",191
+"start_seed","211261100",191
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",191
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",191
+"R_version","R version 4.1.2 (2021-11-01)",191
+"pomp_version","6.4",191
+"hostname","frnt121.frontenac.local",191
+"slurm_job_id","12093276",191
+"slurm_array_task_id","191",191
+"written_at_utc","2026-08-19 11:58:10 UTC",191
+"experiment_id","experiment_5_bspline_B_recovery",192
+"source_experiment_id","experiment_4_nmif600_model_comparison",192
+"model","bspline_B",192
+"task_id","192",192
+"simulation_seed","1192",192
+"observed_data_md5","9a5e00955ca9971800073dd3e4c28ad7",192
+"Nmif","600",192
+"Np_mif","5000",192
+"n_internal_starts","10",192
+"Np_eval","50000",192
+"n_pf_evals_per_start","5",192
+"selected_run","6",192
+"selection_rule","maximum_independently_evaluated_logLik",192
+"start_seed","212261100",192
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",192
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",192
+"R_version","R version 4.1.2 (2021-11-01)",192
+"pomp_version","6.4",192
+"hostname","frnt121.frontenac.local",192
+"slurm_job_id","12093280",192
+"slurm_array_task_id","192",192
+"written_at_utc","2026-08-19 12:08:34 UTC",192
+"experiment_id","experiment_5_bspline_B_recovery",193
+"source_experiment_id","experiment_4_nmif600_model_comparison",193
+"model","bspline_B",193
+"task_id","193",193
+"simulation_seed","1193",193
+"observed_data_md5","50b5e6cbc49ffa79634e56edd10b8bf0",193
+"Nmif","600",193
+"Np_mif","5000",193
+"n_internal_starts","10",193
+"Np_eval","50000",193
+"n_pf_evals_per_start","5",193
+"selected_run","2",193
+"selection_rule","maximum_independently_evaluated_logLik",193
+"start_seed","213261100",193
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",193
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",193
+"R_version","R version 4.1.2 (2021-11-01)",193
+"pomp_version","6.4",193
+"hostname","frnt121.frontenac.local",193
+"slurm_job_id","12093285",193
+"slurm_array_task_id","193",193
+"written_at_utc","2026-08-19 12:23:50 UTC",193
+"experiment_id","experiment_5_bspline_B_recovery",194
+"source_experiment_id","experiment_4_nmif600_model_comparison",194
+"model","bspline_B",194
+"task_id","194",194
+"simulation_seed","1194",194
+"observed_data_md5","1f0b118441ef88f9f7e1c86a5d22c593",194
+"Nmif","600",194
+"Np_mif","5000",194
+"n_internal_starts","10",194
+"Np_eval","50000",194
+"n_pf_evals_per_start","5",194
+"selected_run","2",194
+"selection_rule","maximum_independently_evaluated_logLik",194
+"start_seed","214261100",194
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",194
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",194
+"R_version","R version 4.1.2 (2021-11-01)",194
+"pomp_version","6.4",194
+"hostname","frnt121.frontenac.local",194
+"slurm_job_id","12093286",194
+"slurm_array_task_id","194",194
+"written_at_utc","2026-08-19 12:26:23 UTC",194
+"experiment_id","experiment_5_bspline_B_recovery",195
+"source_experiment_id","experiment_4_nmif600_model_comparison",195
+"model","bspline_B",195
+"task_id","195",195
+"simulation_seed","1195",195
+"observed_data_md5","4b29886fa0376b89caa9cc697a80dc98",195
+"Nmif","600",195
+"Np_mif","5000",195
+"n_internal_starts","10",195
+"Np_eval","50000",195
+"n_pf_evals_per_start","5",195
+"selected_run","6",195
+"selection_rule","maximum_independently_evaluated_logLik",195
+"start_seed","215261100",195
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",195
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",195
+"R_version","R version 4.1.2 (2021-11-01)",195
+"pomp_version","6.4",195
+"hostname","frnt121.frontenac.local",195
+"slurm_job_id","12093287",195
+"slurm_array_task_id","195",195
+"written_at_utc","2026-08-19 12:29:18 UTC",195
+"experiment_id","experiment_5_bspline_B_recovery",196
+"source_experiment_id","experiment_4_nmif600_model_comparison",196
+"model","bspline_B",196
+"task_id","196",196
+"simulation_seed","1196",196
+"observed_data_md5","4a7772e1b5862480e3537a3124e41c07",196
+"Nmif","600",196
+"Np_mif","5000",196
+"n_internal_starts","10",196
+"Np_eval","50000",196
+"n_pf_evals_per_start","5",196
+"selected_run","1",196
+"selection_rule","maximum_independently_evaluated_logLik",196
+"start_seed","216261100",196
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",196
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",196
+"R_version","R version 4.1.2 (2021-11-01)",196
+"pomp_version","6.4",196
+"hostname","frnt121.frontenac.local",196
+"slurm_job_id","12093288",196
+"slurm_array_task_id","196",196
+"written_at_utc","2026-08-19 12:26:56 UTC",196
+"experiment_id","experiment_5_bspline_B_recovery",197
+"source_experiment_id","experiment_4_nmif600_model_comparison",197
+"model","bspline_B",197
+"task_id","197",197
+"simulation_seed","1197",197
+"observed_data_md5","80e2caf0dbc5ddb7f96d7faf9fa1bf49",197
+"Nmif","600",197
+"Np_mif","5000",197
+"n_internal_starts","10",197
+"Np_eval","50000",197
+"n_pf_evals_per_start","5",197
+"selected_run","7",197
+"selection_rule","maximum_independently_evaluated_logLik",197
+"start_seed","217261100",197
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",197
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",197
+"R_version","R version 4.1.2 (2021-11-01)",197
+"pomp_version","6.4",197
+"hostname","frnt121.frontenac.local",197
+"slurm_job_id","12093290",197
+"slurm_array_task_id","197",197
+"written_at_utc","2026-08-19 12:37:11 UTC",197
+"experiment_id","experiment_5_bspline_B_recovery",198
+"source_experiment_id","experiment_4_nmif600_model_comparison",198
+"model","bspline_B",198
+"task_id","198",198
+"simulation_seed","1198",198
+"observed_data_md5","9cf5a39df21d5a234b9a57056ebe1360",198
+"Nmif","600",198
+"Np_mif","5000",198
+"n_internal_starts","10",198
+"Np_eval","50000",198
+"n_pf_evals_per_start","5",198
+"selected_run","9",198
+"selection_rule","maximum_independently_evaluated_logLik",198
+"start_seed","218261100",198
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",198
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",198
+"R_version","R version 4.1.2 (2021-11-01)",198
+"pomp_version","6.4",198
+"hostname","frnt121.frontenac.local",198
+"slurm_job_id","12093291",198
+"slurm_array_task_id","198",198
+"written_at_utc","2026-08-19 12:39:48 UTC",198
+"experiment_id","experiment_5_bspline_B_recovery",199
+"source_experiment_id","experiment_4_nmif600_model_comparison",199
+"model","bspline_B",199
+"task_id","199",199
+"simulation_seed","1199",199
+"observed_data_md5","f24eafb51b8268645a90a1a9cbcc2a5c",199
+"Nmif","600",199
+"Np_mif","5000",199
+"n_internal_starts","10",199
+"Np_eval","50000",199
+"n_pf_evals_per_start","5",199
+"selected_run","1",199
+"selection_rule","maximum_independently_evaluated_logLik",199
+"start_seed","219261100",199
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",199
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",199
+"R_version","R version 4.1.2 (2021-11-01)",199
+"pomp_version","6.4",199
+"hostname","frnt121.frontenac.local",199
+"slurm_job_id","12093292",199
+"slurm_array_task_id","199",199
+"written_at_utc","2026-08-19 12:39:13 UTC",199
+"experiment_id","experiment_5_bspline_B_recovery",200
+"source_experiment_id","experiment_4_nmif600_model_comparison",200
+"model","bspline_B",200
+"task_id","200",200
+"simulation_seed","1200",200
+"observed_data_md5","2276182a83b89b4d2f8bfc96d14895ca",200
+"Nmif","600",200
+"Np_mif","5000",200
+"n_internal_starts","10",200
+"Np_eval","50000",200
+"n_pf_evals_per_start","5",200
+"selected_run","2",200
+"selection_rule","maximum_independently_evaluated_logLik",200
+"start_seed","220261100",200
+"mif_seed_formula","base + 1000000*task_id + 1000*start_id",200
+"evaluation_seed_formula","base + 1000000*task_id + 1000*start_id + evaluation_rep",200
+"R_version","R version 4.1.2 (2021-11-01)",200
+"pomp_version","6.4",200
+"hostname","frnt121.frontenac.local",200
+"slurm_job_id","12089695",200
+"slurm_array_task_id","200",200
+"written_at_utc","2026-08-19 12:41:47 UTC",200
