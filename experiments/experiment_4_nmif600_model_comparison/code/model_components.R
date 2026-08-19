@@ -210,3 +210,17 @@ true_B_at_times <- function(times, config) {
     config$true_parameters[["Beta_low"]]
   )
 }
+
+# Observation-time recovery estimates are endpoint states. In the implemented
+# update-before-events Gamma process, B(t_n) is the value that drove events in
+# the final Euler substep ending at t_n. The matching truth is therefore the
+# left limit B_true(t_n-), not the right-continuous path value B_true(t_n).
+# For the present step change, the endpoint target remains Beta_high at the
+# switch itself and becomes Beta_low only after the switch.
+true_B_driver_at_endpoints <- function(times, config) {
+  ifelse(
+    times <= config$true_parameters[["t_switch"]],
+    config$true_parameters[["Beta_high"]],
+    config$true_parameters[["Beta_low"]]
+  )
+}

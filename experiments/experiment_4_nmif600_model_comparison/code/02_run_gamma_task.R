@@ -304,7 +304,10 @@ if (nrow(valid) == 0L) {
       B_path <- data.frame(
         week = as.numeric(sampled_observation_times$time),
         B_estimate = as.numeric(sampled_observation_times$value),
-        B_true = true_B_at_times(sampled_observation_times$time, config),
+        B_true = true_B_driver_at_endpoints(
+          sampled_observation_times$time,
+          config
+        ),
         trajectory_seed = final_pf_seed,
         path_semantics = "ancestry_preserving_sampled_latent_trajectory",
         stringsAsFactors = FALSE

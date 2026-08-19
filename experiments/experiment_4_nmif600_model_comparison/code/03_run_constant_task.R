@@ -253,7 +253,7 @@ if (nrow(valid) == 0L) {
       week = observed_data$week,
       B_estimate = rep(theta_best[["Beta"]], nrow(observed_data))
     )
-    B_path$B_true <- true_B_at_times(B_path$week, config)
+    B_path$B_true <- true_B_driver_at_endpoints(B_path$week, config)
     final_pf_logLik <- as.numeric(logLik(pf_best))
     final_pf_success <- TRUE
     final_status <- "success"
