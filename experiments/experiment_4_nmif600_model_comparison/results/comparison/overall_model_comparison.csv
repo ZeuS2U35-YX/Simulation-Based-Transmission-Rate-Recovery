@@ -1,10 +1,10 @@
 "quantity","gamma_mean_or_proportion","constant_mean","median_paired_difference_gamma_minus_constant"
-"RSS",33.0541919369296,102.833056846228,-65.3890885122473
-"RMSE",0.653385841676475,1.19892369846335,-0.553373401197337
-"AOB (absolute task-level mean error)",0.228762150185119,0.606471360835161,-0.373382933424703
-"mean error before week 5",-0.0857470993692152,-0.423777496527741,0.353491405915283
-"mean error from week 5",0.00795831683471456,1.57622250347226,-1.57078485442509
+"RSS",20.0546262940652,100.528166832339,-76.2265757030671
+"RMSE",0.521755255106023,1.18583153801711,-0.669321044137013
+"AOB (absolute task-level mean error)",0.160384238818698,0.579120069856973,-0.437623672489258
+"mean error through week 5",-0.0869071099337938,-0.423777496527741,0.360807704874962
+"mean error after week 5",0.0859589731325871,1.57622250347226,-1.48112535073835
 "independent log-likelihood",-191.083372379125,-209.2276659701,17.797998077017
-"Gamma-noise model win proportion by RSS",0.975,NA,NA
-"Gamma-noise model win proportion by RMSE",0.975,NA,NA
-"Gamma-noise model win proportion by AOB",0.885,NA,NA
+"Gamma-noise model win proportion by RSS",1,NA,NA
+"Gamma-noise model win proportion by RMSE",1,NA,NA
+"Gamma-noise model win proportion by AOB",0.9,NA,NA

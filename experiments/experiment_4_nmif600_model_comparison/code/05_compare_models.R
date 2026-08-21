@@ -9,6 +9,14 @@
 options(stringsAsFactors = FALSE)
 source("config/experiment_config.R")
 
+true_B_driver_at_endpoints <- function(times, config) {
+  ifelse(
+    times <= config$true_parameters[["t_switch"]],
+    config$true_parameters[["Beta_high"]],
+    config$true_parameters[["Beta_low"]]
+  )
+}
+
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 4L) {
   stop("Usage: Rscript code/05_compare_models.R <gamma_combined_dir> <constant_combined_dir> <output_dir> <figures_dir> [include_selected_trajectory_figure]")
@@ -26,16 +34,33 @@ include_selected_trajectory_figure <- if (length(args) >= 5L) {
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(figures_dir, recursive = TRUE, showWarnings = FALSE)
 
-read_combined <- function(dir) {
+read_combined <- function(dir, path_file) {
   list(
     best = read.csv(file.path(dir, "combined_best_fit_summary.csv"), check.names = FALSE),
-    paths = read.csv(file.path(dir, "combined_B_paths.csv"), check.names = FALSE),
+    paths = read.csv(path_file, check.names = FALSE),
     runs = read.csv(file.path(dir, "combined_mif2_results.csv"), check.names = FALSE)
   )
 }
 
-gamma <- read_combined(gamma_dir)
-constant <- read_combined(constant_dir)
+gamma_metric_path <- Sys.getenv(
+  "EXP4_GAMMA_METRIC_PATH",
+  unset = file.path(gamma_dir, "combined_B_filtering_means.csv")
+)
+constant_metric_path <- file.path(constant_dir, "combined_B_paths.csv")
+if (!file.exists(gamma_metric_path)) {
+  stop(
+    "Missing primary Gamma recovery input: ", gamma_metric_path, ". ",
+    "Run code/10_regenerate_filtering_mean_B_paths.R first."
+  )
+}
+
+gamma <- read_combined(gamma_dir, gamma_metric_path)
+constant <- read_combined(constant_dir, constant_metric_path)
+
+if (!("estimate_semantics" %in% names(gamma$paths)) ||
+    !all(gamma$paths$estimate_semantics == "particle_filtering_mean")) {
+  stop("Primary Gamma recovery input is not labelled as particle filtering means.")
+}
 
 gamma_tasks <- sort(unique(gamma$best$task_id))
 constant_tasks <- sort(unique(constant$best$task_id))
@@ -67,11 +92,32 @@ if (!all(pair_check$same_simulation_seed) || !all(pair_check$same_observed_data_
 # Recovery metrics.
 # ------------------------------------------------------------
 
-calculate_metrics <- function(paths, model_name) {
+# B_true in older retained path tables used the right-continuous path value.
+# Recovery estimates at t_n are endpoint states that drove the final Euler
+# substep ending at t_n, so derive the aligned interval-driving target from the
+# time column here. This changes only the evaluation target and does not rerun
+# a particle filter or alter any stored B estimate.
+align_endpoint_driver_truth <- function(paths) {
+  paths$B_true <- true_B_driver_at_endpoints(
+    paths$week,
+    experiment_config
+  )
+  paths
+}
+
+gamma$paths <- align_endpoint_driver_truth(gamma$paths)
+constant$paths <- align_endpoint_driver_truth(constant$paths)
+
+calculate_metrics <- function(paths, model_name, estimate_semantics) {
   required_columns <- c("task_id", "week", "B_estimate", "B_true")
   if (!all(required_columns %in% names(paths))) {
     stop(model_name, " paths lack required recovery-metric columns.")
   }
+  expected_driver_truth <- true_B_driver_at_endpoints(
+    paths$week,
+    experiment_config
+  )
+  stopifnot(all(abs(paths$B_true - expected_driver_truth) <= 1e-12))
   paths$error <- paths$B_estimate - paths$B_true
   paths$squared_error <- paths$error^2
   split_paths <- split(paths, paths$task_id)
@@ -94,15 +140,16 @@ calculate_metrics <- function(paths, model_name) {
     data.frame(
       task_id = x$task_id[[1]],
       model = model_name,
+      estimate_semantics = estimate_semantics,
       RSS = sum(x$squared_error),
       RMSE = sqrt(mean(x$squared_error)),
       mean_error = mean_error,
       AOB = abs(mean_error),
-      mean_error_before_5 = mean(
-        x$error[x$week < experiment_config$true_parameters[["t_switch"]]]
+      mean_error_through_5 = mean(
+        x$error[x$week <= experiment_config$true_parameters[["t_switch"]]]
       ),
       mean_error_after_5 = mean(
-        x$error[x$week >= experiment_config$true_parameters[["t_switch"]]]
+        x$error[x$week > experiment_config$true_parameters[["t_switch"]]]
       ),
       stringsAsFactors = FALSE
     )
@@ -111,8 +158,16 @@ calculate_metrics <- function(paths, model_name) {
   out
 }
 
-gamma_metrics <- calculate_metrics(gamma$paths, "gamma_noise")
-constant_metrics <- calculate_metrics(constant$paths, "constant_B")
+gamma_metrics <- calculate_metrics(
+  gamma$paths,
+  "gamma_noise",
+  "particle_filtering_mean"
+)
+constant_metrics <- calculate_metrics(
+  constant$paths,
+  "constant_B",
+  "repeated_static_estimate"
+)
 model_task_metrics <- rbind(gamma_metrics, constant_metrics)
 write.csv(model_task_metrics, file.path(output_dir, "model_task_metrics.csv"), row.names = FALSE)
 
@@ -206,21 +261,21 @@ write.csv(paired, file.path(output_dir, "paired_model_comparison.csv"), row.name
 overall <- data.frame(
   quantity = c(
     "RSS", "RMSE", "AOB (absolute task-level mean error)",
-    "mean error before week 5", "mean error from week 5",
+    "mean error through week 5", "mean error after week 5",
     "independent log-likelihood", "Gamma-noise model win proportion by RSS",
     "Gamma-noise model win proportion by RMSE",
     "Gamma-noise model win proportion by AOB"
   ),
   gamma_mean_or_proportion = c(
     mean(paired$RSS_gamma), mean(paired$RMSE_gamma), mean(paired$AOB_gamma),
-    mean(paired$mean_error_before_5_gamma),
+    mean(paired$mean_error_through_5_gamma),
     mean(paired$mean_error_after_5_gamma), mean(paired$logLik_gamma),
     mean(paired$gamma_lower_RSS), mean(paired$gamma_lower_RMSE),
     mean(paired$gamma_lower_AOB)
   ),
   constant_mean = c(
     mean(paired$RSS_constant), mean(paired$RMSE_constant), mean(paired$AOB_constant),
-    mean(paired$mean_error_before_5_constant),
+    mean(paired$mean_error_through_5_constant),
     mean(paired$mean_error_after_5_constant), mean(paired$logLik_constant),
     NA_real_, NA_real_, NA_real_
   ),
@@ -228,8 +283,8 @@ overall <- data.frame(
     median(paired$delta_RSS_gamma_minus_constant),
     median(paired$delta_RMSE_gamma_minus_constant),
     median(paired$delta_AOB_gamma_minus_constant),
-    median(paired$mean_error_before_5_gamma -
-           paired$mean_error_before_5_constant),
+    median(paired$mean_error_through_5_gamma -
+           paired$mean_error_through_5_constant),
     median(paired$mean_error_after_5_gamma -
            paired$mean_error_after_5_constant),
     median(paired$delta_logLik_gamma_minus_constant),
@@ -254,7 +309,7 @@ write.csv(overall, file.path(output_dir, "overall_model_comparison.csv"), row.na
 set_figure_par <- function(mar = c(4.2, 4.5, 0.5, 0.5)) {
   par(
     mar = mar,
-    family = "sans",
+    family = "Helvetica",
     las = 1,
     mgp = c(2.5, 0.7, 0),
     tcl = -0.25,
@@ -265,9 +320,10 @@ set_figure_par <- function(mar = c(4.2, 4.5, 0.5, 0.5)) {
 }
 
 # ------------------------------------------------------------
-# Figures 1 and 8 show the sampled Gamma-noise latent trajectories for
-# tasks 1 and 117. This block validates their source data and confirms that
-# the corresponding PDFs exist.
+# Figures 1 and 8 show illustrative sampled Gamma-noise latent trajectories
+# for tasks 1 and 117. They are not inputs to the primary recovery metrics.
+# This block validates their source data and confirms that the corresponding
+# PDFs exist.
 # Pilot post-processing disables this validation because selected-task
 # figures are not part of the five-task pilot summary.
 # ------------------------------------------------------------
@@ -324,7 +380,10 @@ if (include_selected_trajectory_figure) {
 rss_max <- max(260, ceiling(max(c(paired$RSS_gamma, paired$RSS_constant), na.rm = TRUE) / 20) * 20)
 rss_breaks <- seq(0, rss_max, by = 20)
 
-pdf(file.path(figures_dir, "02_RSS_distributions.pdf"), width = 6.15, height = 4.60, useDingbats = FALSE)
+cairo_pdf(
+  file.path(figures_dir, "02_RSS_distributions.pdf"),
+  width = 6.15, height = 4.60, pointsize = 10, family = "Helvetica"
+)
 layout(matrix(1:2, ncol = 1))
 set_figure_par(c(2.0, 4.5, 0.5, 0.5))
 hist(
@@ -356,7 +415,7 @@ dev.off()
 
 # ------------------------------------------------------------
 # Figure 3: signed mean-error distributions in a 2 x 3 panel figure.
-# Columns are overall, before week 5, and from week 5 onward.
+# Columns are overall, through week 5, and after week 5.
 # Rows are Gamma-noise model and constant-B. The dashed vertical
 # line is zero error; the dotted line is the across-task mean error.
 # ------------------------------------------------------------
@@ -368,12 +427,12 @@ mean_error_sets <- list(
     constant = paired$mean_error_constant
   ),
   list(
-    title = "Before week 5",
-    gamma = paired$mean_error_before_5_gamma,
-    constant = paired$mean_error_before_5_constant
+    title = "Through week 5",
+    gamma = paired$mean_error_through_5_gamma,
+    constant = paired$mean_error_through_5_constant
   ),
   list(
-    title = "From week 5",
+    title = "After week 5",
     gamma = paired$mean_error_after_5_gamma,
     constant = paired$mean_error_after_5_constant
   )
@@ -389,7 +448,10 @@ mean_error_max <- max(
 )
 mean_error_breaks <- seq(mean_error_min, mean_error_max, by = 0.25)
 
-pdf(file.path(figures_dir, "03_mean_error_distributions.pdf"), width = 7.15, height = 4.55, useDingbats = FALSE)
+cairo_pdf(
+  file.path(figures_dir, "03_mean_error_distributions.pdf"),
+  width = 7.15, height = 4.55, pointsize = 10, family = "Helvetica"
+)
 par(mfrow = c(2, 3), oma = c(0.5, 0.5, 0.2, 2.0))
 for (row_name in c("gamma", "constant")) {
   for (j in seq_along(mean_error_sets)) {
@@ -433,7 +495,10 @@ rmse_limits <- c(
   floor(min(all_rmse, na.rm = TRUE) * 10) / 10,
   ceiling(max(all_rmse, na.rm = TRUE) * 10) / 10
 )
-pdf(file.path(figures_dir, "04_paired_RMSE_scatter.pdf"), width = 4.85, height = 4.75, useDingbats = FALSE)
+cairo_pdf(
+  file.path(figures_dir, "04_paired_RMSE_scatter.pdf"),
+  width = 4.85, height = 4.75, pointsize = 10, family = "Helvetica"
+)
 set_figure_par(c(4.2, 4.5, 0.5, 0.5))
 plot(
   paired$RMSE_constant,
@@ -446,7 +511,7 @@ plot(
   pch = 1,
   cex = 0.75,
   xlab = "Repeated-static-estimate RMSE",
-  ylab = "Sampled-trajectory RMSE"
+  ylab = "Particle-filtering-mean RMSE"
 )
 abline(0, 1, lty = 2, lwd = 0.9)
 dev.off()
@@ -457,7 +522,10 @@ dev.off()
 # ------------------------------------------------------------
 
 rmse_breaks <- seq(rmse_limits[[1]], rmse_limits[[2]], by = 0.10)
-pdf(file.path(figures_dir, "05_RMSE_distributions.pdf"), width = 6.15, height = 4.60, useDingbats = FALSE)
+cairo_pdf(
+  file.path(figures_dir, "05_RMSE_distributions.pdf"),
+  width = 6.15, height = 4.60, pointsize = 10, family = "Helvetica"
+)
 layout(matrix(1:2, ncol = 1))
 set_figure_par(c(2.0, 4.5, 0.5, 0.5))
 hist(
@@ -504,7 +572,10 @@ lik_breaks <- seq(
   ceiling(max(paired$delta_logLik_gamma_minus_constant, na.rm = TRUE) / 3) * 3,
   by = 3
 )
-pdf(file.path(figures_dir, "06_independent_loglik_difference.pdf"), width = 6.15, height = 4.00, useDingbats = FALSE)
+cairo_pdf(
+  file.path(figures_dir, "06_independent_loglik_difference.pdf"),
+  width = 6.15, height = 4.00, pointsize = 10, family = "Helvetica"
+)
 set_figure_par(c(4.4, 4.5, 0.5, 0.5))
 hist(
   paired$delta_logLik_gamma_minus_constant,

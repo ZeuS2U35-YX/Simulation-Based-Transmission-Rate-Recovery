@@ -1,16 +1,16 @@
 # ============================================================
-# Reconstruct Experiment 4 Gamma-noise recovery paths
-# as sampled latent trajectories
+# Reconstruct Experiment 4 Gamma-noise recovery estimates
+# as particle filtering means
 #
 # This script does not rerun MIF2 or the five independent likelihood
-# evaluations. For each saved best fit, it runs the final particle filter
-# with filter.traj=TRUE and extracts one ancestry-preserving B trajectory.
-# Only the 70 observation-time values are written to the combined path file;
-# t0 is retained in the provenance table for validation.
+# evaluations. For each saved best fit, it reruns only the final particle
+# filter with filter.mean=TRUE and extracts E[B(t_n) | Y_1:n]. The resulting
+# 70 observation-time estimates are the primary inputs for recovery metrics.
 #
 # Usage from the Experiment 4 root:
-#   Rscript code/09_regenerate_sampled_B_trajectories.R \
-#     <combined_B_output.csv> <provenance_output.csv> [workers] [task_spec]
+#   Rscript code/10_regenerate_filtering_mean_B_paths.R \
+#     <combined_B_output.csv> <provenance_output.csv> \
+#     [workers] [task_spec] [shared_data_root]
 # ============================================================
 
 options(stringsAsFactors = FALSE, digits = 17)
@@ -23,8 +23,9 @@ source(file.path("code", "model_components.R"))
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) < 2L) {
   stop(
-    "Usage: Rscript code/09_regenerate_sampled_B_trajectories.R ",
-    "<combined_B_output.csv> <provenance_output.csv> [workers] [task_spec]"
+    "Usage: Rscript code/10_regenerate_filtering_mean_B_paths.R ",
+    "<combined_B_output.csv> <provenance_output.csv> ",
+    "[workers] [task_spec] [shared_data_root]"
   )
 }
 
@@ -32,7 +33,10 @@ output_path <- args[[1]]
 provenance_path <- args[[2]]
 workers <- if (length(args) >= 3L) as.integer(args[[3]]) else 1L
 task_spec <- if (length(args) >= 4L) args[[4]] else "1:200"
-if (!is.finite(workers) || workers < 1L) stop("workers must be a positive integer.")
+shared_data_root <- if (length(args) >= 5L) args[[5]] else "shared_data"
+if (!is.finite(workers) || workers < 1L) {
+  stop("workers must be a positive integer.")
+}
 
 parse_task_spec <- function(x) {
   if (grepl("^[0-9]+:[0-9]+$", x)) {
@@ -49,9 +53,7 @@ if (any(task_ids < 1L | task_ids > experiment_config$n_tasks)) {
   stop("task_spec contains IDs outside 1:", experiment_config$n_tasks, ".")
 }
 
-best_path <- file.path(
-  "results", "combined", "gamma", "combined_best_fit_summary.csv"
-)
+best_path <- file.path(dirname(output_path), "combined_best_fit_summary.csv")
 paramlist_path <- file.path("results", "paramlist.csv")
 best <- read.csv(best_path, check.names = FALSE)
 paramlist <- read.csv(paramlist_path, check.names = FALSE)
@@ -61,7 +63,9 @@ expected_times <- seq(
   to = experiment_config$n_weeks,
   by = experiment_config$observation_interval
 )
-if (length(expected_times) != 70L) stop("Configured observation grid is not length 70.")
+if (length(expected_times) != 70L) {
+  stop("Configured observation grid is not length 70.")
+}
 
 recover_one <- function(task_id) {
   tryCatch({
@@ -75,7 +79,9 @@ recover_one <- function(task_id) {
     }
 
     observed_path <- file.path(
-      "shared_data", sprintf("task_%03d", task_id), "observed_data.csv"
+      shared_data_root,
+      sprintf("task_%03d", task_id),
+      "observed_data.csv"
     )
     observed <- read.csv(observed_path, check.names = FALSE)
     if (!all(c("week", "reports") %in% names(observed))) {
@@ -88,7 +94,10 @@ recover_one <- function(task_id) {
     }
 
     observed_md5 <- unname(tools::md5sum(observed_path))
-    if (!identical(observed_md5, as.character(best_row$observed_data_md5[[1]]))) {
+    if (!identical(
+      observed_md5,
+      as.character(best_row$observed_data_md5[[1]])
+    )) {
       stop("observed-data checksum differs from the best-fit record")
     }
 
@@ -96,33 +105,27 @@ recover_one <- function(task_id) {
     theta <- gamma_baseline_parameters(experiment_config)
     theta[["B0"]] <- best_row$B0_hat[[1]]
     theta[["sigma_beta"]] <- best_row$sigma_beta_hat[[1]]
-    trajectory_seed <- as.integer(seed_row$gamma_final_pf_seed[[1]])
+    filter_seed <- as.integer(seed_row$gamma_final_pf_seed[[1]])
 
-    set.seed(trajectory_seed)
+    set.seed(filter_seed)
     pf <- pfilter(
       model,
       params = theta,
       Np = experiment_config$Np_final,
-      filter.traj = TRUE
+      filter.mean = TRUE
     )
-    sampled <- filter_traj(pf, vars = "B", format = "data.frame")
+    fm <- filter_mean(pf)
+    filter_times <- as.numeric(time(pf))
 
-    if (!all(c("time", "value") %in% names(sampled))) {
-      stop("filter_traj returned an unexpected schema")
+    if (!("B" %in% rownames(fm))) {
+      stop("filter_mean did not return the B state")
     }
-    if ("name" %in% names(sampled) &&
-        !identical(unique(as.character(sampled$name)), "B")) {
-      stop("filter_traj returned a state other than B")
-    }
-    expected_with_t0 <- c(0, expected_times)
-    if (nrow(sampled) != 71L || any(!is.finite(sampled$time)) ||
-        any(!is.finite(sampled$value)) ||
-        max(abs(sampled$time - expected_with_t0)) > 1e-12 ||
-        is.unsorted(sampled$time, strictly = TRUE) || anyDuplicated(sampled$time)) {
-      stop("sampled trajectory failed the 71-time trajectory check")
-    }
-    if (abs(sampled$value[[1]] - best_row$B0_hat[[1]]) > 1e-4) {
-      stop("sampled trajectory does not begin at the fitted B0")
+    B_mean <- as.numeric(fm["B", ])
+    if (length(B_mean) != 70L || any(!is.finite(B_mean)) ||
+        max(abs(filter_times - expected_times)) > 1e-12 ||
+        is.unsorted(filter_times, strictly = TRUE) ||
+        anyDuplicated(filter_times)) {
+      stop("filtering mean failed the 70-time observation-grid check")
     }
 
     final_logLik <- as.numeric(logLik(pf))
@@ -131,7 +134,6 @@ recover_one <- function(task_id) {
       stop("final particle-filter log likelihood was not reproduced")
     }
 
-    observation_path <- sampled[-1L, , drop = FALSE]
     path <- data.frame(
       task_id = task_id,
       simulation_seed = as.integer(best_row$simulation_seed[[1]]),
@@ -139,14 +141,12 @@ recover_one <- function(task_id) {
       observed_data_md5 = observed_md5,
       model = "gamma_noise",
       Nmif = as.integer(best_row$Nmif[[1]]),
-      week = as.numeric(observation_path$time),
-      B_estimate = as.numeric(observation_path$value),
-      B_true = true_B_driver_at_endpoints(
-        observation_path$time,
-        experiment_config
-      ),
-      trajectory_seed = trajectory_seed,
-      path_semantics = "ancestry_preserving_sampled_latent_trajectory",
+      week = filter_times,
+      B_estimate = B_mean,
+      B_true = true_B_driver_at_endpoints(filter_times, experiment_config),
+      filter_seed = filter_seed,
+      estimate_semantics = "particle_filtering_mean",
+      conditioning = "Y_1:n",
       stringsAsFactors = FALSE
     )
 
@@ -155,15 +155,14 @@ recover_one <- function(task_id) {
       best_run = as.integer(best_row$best_run[[1]]),
       B0_hat = best_row$B0_hat[[1]],
       sigma_beta_hat = best_row$sigma_beta_hat[[1]],
-      trajectory_seed = trajectory_seed,
+      filter_seed = filter_seed,
       Np = experiment_config$Np_final,
       final_pf_logLik = final_logLik,
-      t0_B = sampled$value[[1]],
-      n_trajectory_times_including_t0 = nrow(sampled),
-      n_metric_times = nrow(path),
-      path_semantics = "ancestry_preserving_sampled_latent_trajectory",
+      n_filter_times = nrow(path),
+      estimate_semantics = "particle_filtering_mean",
+      conditioning = "Y_1:n",
       parameter_uncertainty_integrated = FALSE,
-      filtering_mean_used_for_metrics = FALSE,
+      sampled_trajectory_used_for_metrics = FALSE,
       stringsAsFactors = FALSE
     )
 
@@ -194,7 +193,7 @@ errors <- vapply(recovered, function(x) x$error, character(1))
 errors <- errors[!is.na(errors)]
 if (length(errors) > 0L) {
   stop(
-    "Sampled-trajectory reconstruction failed:\n",
+    "Filtering-mean reconstruction failed:\n",
     paste(errors, collapse = "\n")
   )
 }
@@ -218,8 +217,8 @@ write.csv(combined_provenance, provenance_path, row.names = FALSE)
 
 cat(
   "Reconstructed ", length(task_ids),
-  " sampled Gamma-noise B trajectories.\n",
-  "Combined observation-time paths: ", output_path, "\n",
-  "Trajectory provenance: ", provenance_path, "\n",
+  " Gamma-noise particle filtering means.\n",
+  "Combined observation-time estimates: ", output_path, "\n",
+  "Filtering-mean provenance: ", provenance_path, "\n",
   sep = ""
 )

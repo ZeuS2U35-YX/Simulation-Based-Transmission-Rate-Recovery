@@ -8,9 +8,12 @@ if (!requireNamespace("digest", quietly = TRUE)) {
 
 source(file.path("config", "experiment_config.R"))
 
+# The plotted observation-time target is the rate that drove the final Euler
+# substep ending at each endpoint. It is the left limit of the prescribed path,
+# so the high rate is retained at the switch endpoint itself.
 true_B_at_times_for_figure <- function(times) {
   ifelse(
-    times < experiment_config$true_parameters[["t_switch"]],
+    times <= experiment_config$true_parameters[["t_switch"]],
     experiment_config$true_parameters[["Beta_high"]],
     experiment_config$true_parameters[["Beta_low"]]
   )
