@@ -48,9 +48,10 @@
 
 ## Reproducibility check
 
-- A clean temporary project was created with only the plotting script, its path
-  helper, the three tracked comparison CSV inputs, the renv configuration and
-  the lockfile.
+- A clean clone of the complete public repository was used. The Experiment 5
+  `.renvignore` file deliberately limits dependency discovery to the final
+  plotting script because this lockfile covers figure reproduction rather than
+  the separate MIF2 and post-processing workflows.
 - renv 1.2.4 restored all 25 locked plotting packages and recursive
   dependencies into an isolated project library under R 4.5.2.
 - Running `Rscript code/06_plot_three_model_comparison.R` in that clean

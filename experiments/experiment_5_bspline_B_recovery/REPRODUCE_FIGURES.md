@@ -12,6 +12,9 @@ any HPC job.
 
 The locked plotting environment contains `ggplot2`, `patchwork`, `scales`,
 `svglite`, and `ragg`, together with their recursive dependencies.
+It is intentionally scoped to `code/06_plot_three_model_comparison.R` through
+`.renvignore`; it is not the dependency environment for the MIF2, particle
+filtering, or other analysis scripts in this directory.
 
 ## 1. Obtain the repository
 
@@ -38,6 +41,13 @@ recommended when matching the archived rendering as closely as possible.
 On first use, the included activation script bootstraps `renv` 1.2.4 and
 creates a project-specific package library. It does not replace packages in the
 user's global R library.
+
+To confirm that the plotting environment is synchronized with the lockfile,
+run:
+
+```bash
+Rscript -e 'renv::status()'
+```
 
 ## 3. Generate the figures
 
