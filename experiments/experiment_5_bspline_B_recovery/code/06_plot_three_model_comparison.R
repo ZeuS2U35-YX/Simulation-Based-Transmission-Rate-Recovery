@@ -336,27 +336,30 @@ figure_2 <- ggplot(
   scale_x_continuous(breaks = error_breaks) +
   coord_cartesian(xlim = error_limit, clip = "on") +
   labs(
-    title = "Mean-error comparison across recovery periods",
-    subtitle = paste0(
-      "n = 200 matched simulation replicates per panel; common bin width = ",
-      format(error_bin_width, nsmall = 2)
-    ),
-    x = "Mean error (estimated B \u2212 true B)",
-    y = "Simulation replicates",
-    caption = paste0(
-      "Dashed line: zero error. Dotted line: model mean. ",
-      "Through week 5 uses week \u2264 5; after week 5 uses week > 5."
-    )
+    x = "Mean error in B (week\u207B\u00B9)",
+    y = "Simulation replicates"
   ) +
-  theme_three_model(base_size = 8) +
+  theme_three_model(base_size = 6.5) +
   theme(
     legend.position = "none",
-    panel.spacing.x = grid::unit(4, "mm"),
-    strip.text.y = element_text(angle = 0),
-    plot.title = element_text(size = 10),
-    plot.subtitle = element_text(size = 7.8),
-    plot.caption = element_text(size = 7.2)
+    axis.text = element_text(size = 6, colour = "#222222"),
+    axis.title = element_text(size = 6.5, colour = "#222222"),
+    strip.text = element_text(size = 7, face = "bold", colour = "#222222"),
+    strip.text.y = element_text(size = 7, face = "bold", angle = 0),
+    panel.spacing.x = grid::unit(3, "mm"),
+    plot.margin = margin(2, 2, 2, 2)
   )
+
+figure_2_legend <- paste0(
+  "Mean-error distributions across recovery periods for three transmission-rate ",
+  "representations. Histograms show mean estimation error in B (estimated minus ",
+  "true B; week\u207B\u00B9) across n = 200 matched simulation replicates. Columns ",
+  "show the overall period, through week 5 (week \u2264 5), and after week 5 ",
+  "(week > 5); rows show the Gamma-noise, B-spline and Constant-B models. All ",
+  "panels use a common bin width of 0.10 and a common x-axis. The grey dashed ",
+  "line marks zero error, and the model-coloured dotted line marks the panel ",
+  "mean. No simulation replicates were excluded."
+)
 
 write.csv(
   error_long,
@@ -367,6 +370,11 @@ write.csv(
   panel_means,
   file.path(source_data_dir, "figure_2_panel_means_source_data.csv"),
   row.names = FALSE
+)
+writeLines(
+  figure_2_legend,
+  file.path(figures_dir, "02_three_model_mean_error_legend.txt"),
+  useBytes = TRUE
 )
 write.csv(
   data.frame(

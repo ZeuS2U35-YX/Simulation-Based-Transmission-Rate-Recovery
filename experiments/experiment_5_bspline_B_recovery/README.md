@@ -218,6 +218,11 @@ combination checks unless they equal the configured production values.
 
 ## Completed local three-model analysis
 
+For a clean, dependency-locked reproduction of the final comparison figures,
+follow [`REPRODUCE_FIGURES.md`](REPRODUCE_FIGURES.md). The accompanying
+`renv.lock` records the exact R package versions used for the archived figure
+exports; reproducing the figures does not require the raw HPC task directories.
+
 The completed production B-spline task tree was copied from the HPC into the
 local, Git-ignored directory `results_raw/bspline/task_001` through
 `task_200`. The downloaded raw task files remain unchanged and are not tracked

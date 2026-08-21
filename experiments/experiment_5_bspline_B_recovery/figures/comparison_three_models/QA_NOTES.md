@@ -26,6 +26,8 @@
   equal axes and a `y = x` reference line.
 - Figure 2 uses common mean-error bins and a common x-axis across all nine
   panels. Dashed lines mark zero and dotted lines mark panel means.
+- The Figure 2 x-axis reports the transmission-rate error in `week^-1`, matching
+  the model time scale; no value is transformed or rescaled for display.
 
 ## Rendered visual checks
 
@@ -33,6 +35,9 @@
 - Model names and capitalization are consistent across figures.
 - Gamma-noise, B-spline and Constant-B retain the same blue, orange and grey
   identities across panels.
+- The Figure 2 production artwork omits the in-figure title, subtitle and
+  explanatory footer. These definitions are supplied in the separate legend
+  file so ordinary artwork text remains between 5 and 7 pt at final size.
 - The plotted source data include all 200 replicates per model and panel.
 - PDF and SVG retain editable text; TIFF is exported at 600 dpi and PNG at
   300 dpi.
@@ -40,6 +45,22 @@
   with no substantive failure. The PDF scanner reports Cairo's transformed
   one-point text operators; visual inspection and the SVG text sizes confirm
   that displayed labels are readable at the declared final dimensions.
+
+## Reproducibility check
+
+- A clean temporary project was created with only the plotting script, its path
+  helper, the three tracked comparison CSV inputs, the renv configuration and
+  the lockfile.
+- renv 1.2.4 restored all 25 locked plotting packages and recursive
+  dependencies into an isolated project library under R 4.5.2.
+- Running `Rscript code/06_plot_three_model_comparison.R` in that clean
+  environment regenerated both figures in PDF, SVG, PNG and TIFF.
+- All five regenerated source-data CSV files matched the archived files
+  byte-for-byte by SHA-256, and `renv::status()` reported a consistent project.
+- The clean restore was executed on macOS arm64. The lockfile uses CRAN package
+  records and is portable, but another operating system may use different
+  binaries or font substitution and therefore need its normal R compilation
+  tools.
 
 ## Interpretation boundary
 

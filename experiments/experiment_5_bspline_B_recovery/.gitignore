@@ -8,6 +8,11 @@
 .Ruserdata
 .Rproj.user/
 
+# Project-local renv package library and transient installation state
+renv/library/
+renv/staging/
+renv/local/
+
 # Temporary editor files
 *~
 *.swp
