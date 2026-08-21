@@ -1,3 +1,7 @@
-.Rprofile
-renv/
-renv.lock
+# This renv project reproduces the final comparison figures only.
+# Ignore the fitting and post-processing workflow so renv does not require
+# packages such as pomp that are not used by the plotting script.
+*
+!code/
+code/*
+!code/06_plot_three_model_comparison.R
