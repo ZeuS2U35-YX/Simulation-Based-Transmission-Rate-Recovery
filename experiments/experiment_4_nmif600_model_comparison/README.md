@@ -9,7 +9,7 @@ This experiment asks which of two fitted partially observed Markov process (POMP
 1. a Gamma-noise model with latent time-varying `B(t)`;
 2. a deliberately restricted constant-B comparator that cannot represent temporal variation in `B(t)`.
 
-Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. These 200 data sets came from 207 simulation attempts (96.6% acceptance). Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each selected Gamma fit, the primary recovery estimate is the particle filtering mean of the latent `B(t)` state at each observation time, conditional on observations through that time and evaluated at the selected plug-in parameter estimate. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from this filtering-mean trajectory and the repeated fitted constant-B estimate. The active selected-task figures show `B(t)` and `I(t)` for the previously designated Tasks 1 and 117. One figure contains filtering means; the other contains one seeded, ancestry-preserving trajectory retained from each model's final observation-conditioned particle filter. Only the filtering-mean `B(t)` values enter the metrics. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
+Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. These 200 data sets came from 207 simulation attempts (96.6% acceptance). Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each selected Gamma fit, the primary recovery estimate is the particle filtering mean of the latent `B(t)` state at each observation time, conditional on observations through that time and evaluated at the selected plug-in parameter estimate. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from this filtering-mean trajectory and the repeated fitted constant-B estimate. The active selected-task figures show `B(t)` and `I(t)` for the previously designated Tasks 1 and 117. One figure contains filtering means; the other contains the first seeded forward simulation from each fitted model, with the selected parameters fixed and no observation conditioning after fitting. Only the filtering-mean `B(t)` values enter the metrics. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
 
 ## Fixed experiment settings
 
@@ -182,7 +182,7 @@ Main figures and their estimands:
 | Figure | Quantity displayed | Scientific role |
 | --- | --- | --- |
 | `01_selected_tasks_particle_filtering_mean_trajectories.pdf` | Task-1 and task-117 truth and fitted-model particle filtering means for `B(t)` and `I(t)` | Active report Figure 6; data-conditioned point summaries for an easier and a more challenging case |
-| `09_selected_tasks_observation_conditioned_trajectories.pdf` | One seeded, ancestry-preserving `B(t)`/`I(t)` particle trajectory from each fitted model for tasks 1 and 117 | Active report Figure 9; coherent observation-conditioned latent-path illustration only |
+| `09_selected_tasks_forward_simulations_at_fitted_parameters.pdf` | One seeded joint forward simulation of `B(t)`/`I(t)` from each fitted model for tasks 1 and 117 | Active report Figure 9; unconditional stochastic illustration at fixed fitted parameters only |
 | `01_selected_task_B_trajectory_comparison.pdf` | Prescribed truth, task-1 Gamma ancestry path, and the task-1 fitted constant-B estimate | Legacy repository provenance; not an active report figure or metric input |
 | `02_RSS_distributions.pdf` | Across-task distributions of filtering-mean RSS and constant repeated-static-estimate RSS | Aggregate recovery comparison |
 | `03_mean_error_distributions.pdf` | Overall, through-week-5, and after-week-5 signed mean errors for both estimators | Direction and timing of recovery error |
@@ -195,15 +195,15 @@ Model-specific convergence diagnostic PDFs are stored in `figures/convergence/`.
 
 The figures use a restrained publication style with a white background, no decorative grid, and color-plus-line-type encoding that remains interpretable in grayscale. Truth is shown as a solid black line, the Gamma-noise result as a blue dashed line, and the constant-B result as an orange dot-dashed line. A light-gray vertical reference marks the week-5 change point.
 
-In the active filtering-mean figure, each observation-time value is a weighted particle average conditional on `Y_1:n`; the week-0 markers are fitted or fixed initial values rather than filtering means. In the conditioned-trajectory figure, the Gamma `B(t)` and `I(t)` curves within a task share one particle genealogy retained from the seeded final filter; the constant-model `I(t)` curve is retained in the same way while `B(t)` is the fitted static parameter. These are finite-particle, observation-conditioned path approximations, not exact smoothing draws. Neither figure integrates parameter uncertainty. RSS, RMSE, mean error, and AOB use only the 70 observation-time `B(t)` filtering means.
+In the active filtering-mean figure, each observation-time value is a weighted particle average conditional on `Y_1:n`; the week-0 markers are fitted or fixed initial values rather than filtering means. In the forward-simulation figure, the Gamma `B(t)` and `I(t)` curves within a task come from one joint simulation initialized at the fitted `B0` and evolved with the fitted `sigma_beta`; the constant-model `I(t)` curve is simulated with the fitted static `B`. No observations are assimilated after the fitted parameters are fixed. Neither figure integrates parameter uncertainty. RSS, RMSE, mean error, and AOB use only the 70 observation-time `B(t)` filtering means.
 
-Figures 02-05 provide the primary recovery summaries. The selected-task filtering-mean and conditioned-trajectory figures provide complementary point-summary and coherent-path views. Task 1 is a comparatively well-recovered case; Task 117 is a more challenging case and was already designated as the second illustration before this figure revision. They are not claimed to be representative of all 200 tasks. The historical B-only ancestry-path Figures 01 and 08 remain repository artifacts, and Figure 06 should be presented only with its stated likelihood-interpretation boundary.
+Figures 02-05 provide the primary recovery summaries. The selected-task filtering-mean and forward-simulation figures provide complementary data-conditioned point-summary and model-generative views. Task 1 is a comparatively well-recovered case; Task 117 is a more challenging case and was already designated as the second illustration before this figure revision. They are not claimed to be representative of all 200 tasks. The historical B-only ancestry-path Figures 01 and 08 remain repository artifacts, and Figure 06 should be presented only with its stated likelihood-interpretation boundary.
 
 ## Canonical lightweight regeneration and input requirements
 
 `code/10_regenerate_filtering_mean_B_paths.R` reconstructs the 200 primary Gamma filtering-mean trajectories from the saved best-fit parameter records. It does not rerun MIF2 or the five independent likelihood evaluations. For each task, it runs the final 50,000-particle filter with `filter.mean = TRUE`, verifies the saved final-filter log likelihood, and writes the 70 observation-time filtering means. The output records that the estimates condition on `Y_1:n`, use plug-in parameter estimates, and do not integrate parameter uncertainty.
 
-`code/11_generate_selected_task_filtering_conditioned_figures.R` builds the two active Task 1/117 manuscript figures and their source-data tables. It uses the retained canonical Gamma `B(t)` filtering means and reruns the seeded final fitted Gamma and constant-model filters with both filtering-mean and genealogy storage enabled. This yields `I(t)` filtering means and one ancestry-preserving observation-conditioned path per model and task. The provenance table records the shared-data checksums, fitted parameters, filter seeds and likelihoods, runtime versions, retained-versus-current `B(t)` differences, empirical recovery-error percentiles, conditioning semantics, and the no-screening trajectory-selection rule.
+`code/11_generate_selected_task_filtering_forward_figures.R` builds the two active Task 1/117 manuscript figures and their source-data tables. It uses the retained canonical Gamma `B(t)` filtering means and reruns the seeded final fitted Gamma and constant-model filters with filtering-mean storage enabled to recover `I(t)` means. It then fixes each model at its selected parameters and uses the first forward realization from a prespecified seed offset, without assimilating observations or screening trajectories. The provenance table records the shared-data checksums, fitted parameters, filter and forward-simulation seeds, filter likelihoods, runtime versions, retained-versus-current `B(t)` differences, empirical recovery-error percentiles, conditioning semantics, and the no-screening selection rule.
 The figure exporter requires `ggplot2`, `patchwork`, `svglite`, `ragg`, and Ghostscript in addition to the experiment's POMP runtime.
 
 `code/09_regenerate_sampled_B_trajectories.R` separately reconstructs the sampled Gamma paths retained for illustration. It runs the final filter with trajectory storage enabled and extracts one path with `filter_traj()`. These sampled paths are not used by `code/05_compare_models.R` for the primary recovery metrics.
@@ -226,7 +226,7 @@ still be used to rebuild the illustration figures.
 The canonical lightweight generators are:
 
 - `code/10_regenerate_filtering_mean_B_paths.R` for the 200 primary Gamma filtering-mean trajectories;
-- `code/11_generate_selected_task_filtering_conditioned_figures.R` for the active Task 1/117 filtering-mean and observation-conditioned trajectory figures;
+- `code/11_generate_selected_task_filtering_forward_figures.R` for the active Task 1/117 filtering-mean and forward-simulation figures;
 - `code/09_regenerate_sampled_B_trajectories.R` for optional sampled Gamma illustrations;
 - `code/07_generate_task1_comparison_figures.R` for Figure 01;
 - `code/08_generate_task117_comparison_figures.R` for Figure 08;
@@ -244,7 +244,7 @@ Rscript code/10_regenerate_filtering_mean_B_paths.R \
   1:200
 
 # Active Task 1/117 manuscript figures and source-data tables.
-Rscript code/11_generate_selected_task_filtering_conditioned_figures.R shared_data
+Rscript code/11_generate_selected_task_filtering_forward_figures.R shared_data
 
 # Optional sampled trajectories used only for illustration.
 Rscript code/09_regenerate_sampled_B_trajectories.R \
@@ -284,7 +284,7 @@ The main recovery summaries from `results/comparison/overall_model_comparison.cs
 - the Gamma-noise model has lower RSS and lower RMSE on all 200 paired tasks;
 - the Gamma-noise model has lower AOB on 180 of 200 paired tasks (90.0%).
 
-The active selected-task figures distinguish observation-time particle filtering means from coherent observation-conditioned particle genealogies. Figures 01 and 08 retain the older B-only task-1 and task-117 ancestry paths as historical repository artifacts. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for this update; only the seeded final plug-in filters were rerun to recover `I(t)` means and joint latent paths.
+The active selected-task figures distinguish observation-time particle filtering means from unconditional stochastic forward simulations at fixed fitted parameters. Figures 01 and 08 retain the older B-only task-1 and task-117 ancestry paths as historical repository artifacts. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for this update; the seeded final plug-in filters were rerun only to recover `I(t)` means, and the displayed forward paths were generated separately from prespecified seeds.
 
 ## Rerunning an incomplete or failed task
 

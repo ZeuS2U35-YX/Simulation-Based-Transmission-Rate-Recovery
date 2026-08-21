@@ -22,7 +22,7 @@ Experiment 4 is therefore the canonical source for final numerical results. Expe
 - The constant-`B` model in Experiment 4 cannot represent temporal variation in `B(t)`; it is intentionally used as a restricted comparator.
 - Recovery and comparison conclusions in Experiments 3 and 4 are conditional on accepted informative outbreaks satisfying `max(H) > 20`. They do not estimate unconditional performance over every attempted epidemic trajectory.
 - Experiment 3 retains its earlier filtering-mean summaries. Experiment 4 likewise uses the particle filtering mean of the latent Gamma state at each of the 70 observation times as its primary recovery estimate. The constant-model estimate is repeated over the same times. These paired point-estimator trajectories are the inputs to the RSS, RMSE, signed mean error, and absolute overall bias tables.
-- For the previously designated Tasks 1 and 117, the report shows particle filtering-mean trajectories for both `B(t)` and `I(t)`, followed by one observation-conditioned ancestry trajectory from each fitted model's seeded final particle filter. Only the observation-time `B(t)` filtering means enter the recovery metrics; the conditioned trajectories are illustrations of coherent latent paths and are not metric inputs. Historical B-only ancestry-path artifacts remain in the repository for provenance but are not active report figures.
+- For the previously designated Tasks 1 and 117, the report shows particle filtering-mean trajectories for both `B(t)` and `I(t)`, followed by one unconditional forward simulation from each fitted model. The fitted parameters are held fixed, and the first realization from each prespecified seed is used without visual or truth-based screening. Only the observation-time `B(t)` filtering means enter the recovery metrics; the forward simulations are illustrations and are not metric inputs. Historical B-only ancestry-path artifacts remain in the repository for provenance but are not active report figures.
 - Endpoint recovery is aligned to the rate that drove the final Euler substep ending at each observation time. The week-5 endpoint therefore has target `B = 4`, although the right-continuous prescribed path has already changed to `B(5) = 2`.
 - Traces from selected Experiment 4 diagnostic tasks 1, 50, 100, 150, and 200 provide empirical support for `Nmif = 600`, but do not establish convergence for all 200 fitted data sets. These tasks are selected diagnostics, not a random sample.
 
@@ -71,7 +71,7 @@ For Experiment 4:
 
 The filtering-mean and selected-task trajectory-figure commands have one additional
 input requirement. `code/10_regenerate_filtering_mean_B_paths.R` and
-`code/11_generate_selected_task_filtering_conditioned_figures.R` read the exact case series from
+`code/11_generate_selected_task_filtering_forward_figures.R` read the exact case series from
 `shared_data/task_###/observed_data.csv`. The full Slurm workflow creates these
 files during its shared-data stage, and the packaged completed-experiment
 archive includes them. They are not committed in this compact repository
@@ -93,9 +93,9 @@ Rscript code/10_regenerate_filtering_mean_B_paths.R \
   1:200
 
 # Build the active Task 1/117 manuscript figures: filtering means for B(t) and
-# I(t), plus seeded observation-conditioned ancestry trajectories.
+# I(t), plus seeded forward simulations at the fitted parameters.
 # Requires the exact Task 1 and Task 117 shared data.
-Rscript code/11_generate_selected_task_filtering_conditioned_figures.R shared_data
+Rscript code/11_generate_selected_task_filtering_forward_figures.R shared_data
 
 # Optional legacy provenance: reconstruct ancestry paths no longer used in the report.
 Rscript code/09_regenerate_sampled_B_trajectories.R \

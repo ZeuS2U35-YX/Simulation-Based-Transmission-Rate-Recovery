@@ -1,13 +1,13 @@
 # ============================================================
-# Generate selected-task filtering-mean and conditioned-trajectory figures
+# Generate selected-task filtering-mean and forward-simulation figures
 #
 # Figure 6: observation-time particle filtering means for B(t) and I(t)
 #           in the previously designated Tasks 1 and 117.
-# Figure 9: one ancestry-preserving, observation-conditioned particle
-#           trajectory for B(t) and I(t) from each fitted model and task.
+# Figure 9: one joint forward simulation for B(t) and I(t) from each fitted
+#           model and task, without observation conditioning after fitting.
 #
 # Run from the Experiment 4 root:
-#   Rscript code/11_generate_selected_task_filtering_conditioned_figures.R \
+#   Rscript code/11_generate_selected_task_filtering_forward_figures.R \
 #     [shared_data_root] [figure_root] [source_data_root]
 # ============================================================
 
@@ -80,37 +80,13 @@ read_task_best <- function(data, model_name, task_id) {
   row
 }
 
-extract_trajectory <- function(pf, states) {
-  trajectory <- filter_traj(pf, vars = states, format = "data.frame")
-  if (!all(c("name", "rep", "time", "value") %in% names(trajectory))) {
-    stop("filter_traj returned an unexpected schema.")
-  }
-  if (!setequal(unique(as.character(trajectory$name)), states) ||
-      !identical(unique(as.integer(trajectory$rep)), 1L)) {
-    stop("filter_traj returned unexpected states or replicate identifiers.")
-  }
-
-  expected_with_t0 <- c(0, expected_times)
-  for (state in states) {
-    state_path <- trajectory[trajectory$name == state, , drop = FALSE]
-    if (nrow(state_path) != 71L || any(!is.finite(state_path$value)) ||
-        max(abs(state_path$time - expected_with_t0)) > 1e-12 ||
-        is.unsorted(state_path$time, strictly = TRUE) ||
-        anyDuplicated(state_path$time)) {
-      stop("Conditioned trajectory failed validation for state ", state, ".")
-    }
-  }
-  trajectory
-}
-
-run_final_filter <- function(model, theta, seed, mean_states, path_states) {
+run_final_filter <- function(model, theta, seed, mean_states) {
   set.seed(seed)
   pf <- pfilter(
     model,
     params = theta,
     Np = experiment_config$Np_final,
-    filter.mean = TRUE,
-    filter.traj = TRUE
+    filter.mean = TRUE
   )
 
   means <- filter_mean(pf)
@@ -137,7 +113,6 @@ run_final_filter <- function(model, theta, seed, mean_states, path_states) {
   list(
     times = filter_times,
     means = mean_values,
-    trajectory = extract_trajectory(pf, path_states),
     loglik = final_loglik
   )
 }
@@ -177,8 +152,9 @@ make_true_B <- function(task_id) {
 }
 
 filtering_parts <- list()
-conditioned_parts <- list()
+forward_parts <- list()
 provenance_parts <- list()
+simulation_template <- make_observation_template(experiment_config)
 
 for (task_id in task_ids) {
   shared <- read_shared_data(shared_data_root, task_id)
@@ -219,16 +195,45 @@ for (task_id in task_ids) {
     make_gamma_model(observed, experiment_config),
     gamma_theta,
     gamma_seed,
-    c("B", "I"),
     c("B", "I")
   )
   constant_filtered <- run_final_filter(
     make_constant_model(observed, experiment_config),
     constant_theta,
     constant_seed,
-    "I",
     "I"
   )
+
+  # Use the first realization from a prespecified seed offset. The fitted
+  # parameters are held fixed, and no observations are used after t = 0.
+  gamma_forward_seed <- gamma_seed + 100000L
+  constant_forward_seed <- constant_seed + 100000L
+
+  set.seed(gamma_forward_seed)
+  gamma_forward <- simulate(
+    make_gamma_model(simulation_template, experiment_config),
+    params = gamma_theta,
+    nsim = 1,
+    format = "data.frame",
+    include.data = FALSE
+  )
+  set.seed(constant_forward_seed)
+  constant_forward <- simulate(
+    make_constant_model(simulation_template, experiment_config),
+    params = constant_theta,
+    nsim = 1,
+    format = "data.frame",
+    include.data = FALSE
+  )
+
+  if (nrow(gamma_forward) != 70L || nrow(constant_forward) != 70L ||
+      max(abs(gamma_forward$week - expected_times)) > 1e-12 ||
+      max(abs(constant_forward$week - expected_times)) > 1e-12 ||
+      any(!is.finite(gamma_forward$B)) ||
+      any(!is.finite(gamma_forward$I)) ||
+      any(!is.finite(constant_forward$I))) {
+    stop("Forward simulations failed validation for Task ", task_id, ".")
+  }
 
   retained_B <- retained_B_all[retained_B_all$task_id == task_id, , drop = FALSE]
   if (nrow(retained_B) != 70L ||
@@ -277,35 +282,29 @@ for (task_id in task_ids) {
     )
   )
 
-  gamma_B_path <- gamma_filtered$trajectory[
-    gamma_filtered$trajectory$name == "B", , drop = FALSE
-  ]
-  gamma_I_path <- gamma_filtered$trajectory[
-    gamma_filtered$trajectory$name == "I", , drop = FALSE
-  ]
-  constant_I_path <- constant_filtered$trajectory[
-    constant_filtered$trajectory$name == "I", , drop = FALSE
-  ]
-
-  conditioned_parts[[as.character(task_id)]] <- rbind(
+  forward_parts[[as.character(task_id)]] <- rbind(
     true_B,
     make_rows(
-      task_id, gamma_B_path$time, gamma_B_path$value, "B", "gamma",
-      "observation_conditioned_ancestry_trajectory", "Y_1:70",
-      "fitted_B0"
+      task_id, c(0, gamma_forward$week),
+      c(gamma_theta[["B0"]], gamma_forward$B), "B", "gamma",
+      "forward_simulation_at_fitted_parameters",
+      "none_after_parameters_are_fixed", "fitted_B0"
     ),
     make_rows(
       task_id, c(0, expected_times), rep(constant_theta[["Beta"]], 71L),
-      "B", "constant", "fitted_static_parameter", "Y_1:70", "fitted_Beta"
+      "B", "constant", "forward_simulation_at_fitted_parameters",
+      "none_after_parameters_are_fixed", "fitted_Beta"
     ),
     true_I,
     make_rows(
-      task_id, gamma_I_path$time, gamma_I_path$value, "I", "gamma",
-      "observation_conditioned_ancestry_trajectory", "Y_1:70", "fixed_I0"
+      task_id, c(0, gamma_forward$week), c(10, gamma_forward$I),
+      "I", "gamma", "forward_simulation_at_fitted_parameters",
+      "none_after_parameters_are_fixed", "fixed_I0"
     ),
     make_rows(
-      task_id, constant_I_path$time, constant_I_path$value, "I", "constant",
-      "observation_conditioned_ancestry_trajectory", "Y_1:70", "fixed_I0"
+      task_id, c(0, constant_forward$week), c(10, constant_forward$I),
+      "I", "constant", "forward_simulation_at_fitted_parameters",
+      "none_after_parameters_are_fixed", "fixed_I0"
     )
   )
 
@@ -348,12 +347,14 @@ for (task_id in task_ids) {
       constant_all$RMSE <= constant_metric$RMSE[[1]]
     ),
     filtering_mean_conditioning = "Y_1:n_at_each_observation_time",
-    conditioned_trajectory_conditioning = "Y_1:70_via_final_particle_filter_genealogy",
-    trajectory_selection_rule = paste0(
-      "one_seeded_ancestry_trajectory_returned_by_filter_traj;",
+    gamma_forward_seed = gamma_forward_seed,
+    constant_forward_seed = constant_forward_seed,
+    forward_simulation_conditioning = "none_after_fitted_parameters_are_fixed",
+    forward_simulation_selection_rule = paste0(
+      "first_realization_from_prespecified_final_filter_seed_plus_100000;",
       "no_visual_or_truth_based_screening"
     ),
-    gamma_B_and_I_share_one_ancestry = TRUE,
+    gamma_B_and_I_share_one_forward_simulation = TRUE,
     parameter_uncertainty_integrated = FALSE,
     R_version = R.version.string,
     pomp_version = as.character(packageVersion("pomp")),
@@ -363,10 +364,10 @@ for (task_id in task_ids) {
 }
 
 filtering_source <- do.call(rbind, filtering_parts)
-conditioned_source <- do.call(rbind, conditioned_parts)
+forward_source <- do.call(rbind, forward_parts)
 provenance <- do.call(rbind, provenance_parts)
 rownames(filtering_source) <- NULL
-rownames(conditioned_source) <- NULL
+rownames(forward_source) <- NULL
 rownames(provenance) <- NULL
 
 series_labels_filter <- c(
@@ -374,18 +375,18 @@ series_labels_filter <- c(
   gamma = "Gamma-noise filtering mean",
   constant = "Constant-B model"
 )
-series_labels_conditioned <- c(
+series_labels_forward <- c(
   truth = "Truth",
-  gamma = "Gamma-noise conditioned trajectory",
-  constant = "Constant-B conditioned trajectory"
+  gamma = "Gamma-noise forward simulation",
+  constant = "Constant-B forward simulation"
 )
 palette <- c(truth = "#252525", gamma = "#0072B2", constant = "#D55E00")
 line_types <- c(truth = "solid", gamma = "longdash", constant = "dotdash")
 filtering_source$series_label <- unname(
   series_labels_filter[filtering_source$series_key]
 )
-conditioned_source$series_label <- unname(
-  series_labels_conditioned[conditioned_source$series_key]
+forward_source$series_label <- unname(
+  series_labels_forward[forward_source$series_key]
 )
 
 dir.create(figure_root, recursive = TRUE, showWarnings = FALSE)
@@ -394,16 +395,16 @@ dir.create(source_data_root, recursive = TRUE, showWarnings = FALSE)
 filtering_csv <- file.path(
   source_data_root, "experiment4_selected_tasks_filtering_mean_trajectories.csv"
 )
-conditioned_csv <- file.path(
+forward_csv <- file.path(
   source_data_root,
-  "experiment4_selected_tasks_observation_conditioned_trajectories.csv"
+  "experiment4_selected_tasks_forward_simulation_trajectories.csv"
 )
 provenance_csv <- file.path(
   source_data_root,
-  "experiment4_selected_tasks_filtering_conditioned_provenance.csv"
+  "experiment4_selected_tasks_filtering_forward_provenance.csv"
 )
 write.csv(filtering_source, filtering_csv, row.names = FALSE)
-write.csv(conditioned_source, conditioned_csv, row.names = FALSE)
+write.csv(forward_source, forward_csv, row.names = FALSE)
 write.csv(provenance, provenance_csv, row.names = FALSE)
 
 theme_trajectory <- function() {
@@ -425,13 +426,14 @@ theme_trajectory <- function() {
     )
 }
 
-shared_limits <- function(source, quantity) {
+shared_limits <- function(source, quantity, show_zero_line = FALSE) {
   values <- source$value[source$quantity == quantity]
   limits <- range(values, finite = TRUE)
   span <- diff(limits)
   if (span <= 0) span <- max(abs(limits), 1)
   if (quantity == "I") {
-    c(0, limits[[2]] + 0.09 * span)
+    upper <- limits[[2]] + 0.09 * span
+    c(if (show_zero_line) -0.025 * upper else 0, upper)
   } else {
     c(limits[[1]] - 0.04 * span, limits[[2]] + 0.10 * span)
   }
@@ -506,9 +508,9 @@ make_panel <- function(
   plot
 }
 
-assemble_figure <- function(source, labels) {
+assemble_figure <- function(source, labels, show_zero_line = FALSE) {
   B_limits <- shared_limits(source, "B")
-  I_limits <- shared_limits(source, "I")
+  I_limits <- shared_limits(source, "I", show_zero_line = show_zero_line)
   p_a <- make_panel(
     source, 1L, "B", labels, B_limits,
     show_x = FALSE, show_y_title = TRUE, show_title = TRUE
@@ -585,21 +587,23 @@ save_figure <- function(plot, stem, width_mm = 183, height_mm = 150, dpi = 600) 
 }
 
 figure6 <- assemble_figure(filtering_source, series_labels_filter)
-figure9 <- assemble_figure(conditioned_source, series_labels_conditioned)
+figure9 <- assemble_figure(
+  forward_source, series_labels_forward, show_zero_line = TRUE
+)
 
 figure6_stem <- file.path(
   figure_root, "01_selected_tasks_particle_filtering_mean_trajectories"
 )
 figure9_stem <- file.path(
-  figure_root, "09_selected_tasks_observation_conditioned_trajectories"
+  figure_root, "09_selected_tasks_forward_simulations_at_fitted_parameters"
 )
 save_figure(figure6, figure6_stem)
 save_figure(figure9, figure9_stem)
 
 cat(
-  "Generated selected-task filtering-mean and conditioned-trajectory figures.\n",
+  "Generated selected-task filtering-mean and forward-simulation figures.\n",
   "Figure 6 source: ", filtering_csv, "\n",
-  "Figure 9 source: ", conditioned_csv, "\n",
+  "Figure 9 source: ", forward_csv, "\n",
   "Provenance: ", provenance_csv, "\n",
   "Figure 6 stem: ", figure6_stem, "\n",
   "Figure 9 stem: ", figure9_stem, "\n",
