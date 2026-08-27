@@ -6,8 +6,8 @@ historical environments used for the full HPC fitting runs.
 
 ## Version 1.0.0 scope
 
-Repository version 1.0.0 contains an renv lockfile for the final three-model
-figure-reproduction workflow under:
+Repository version 1.0.0 contains a dependency lockfile managed by renv for
+the final three-model figure-reproduction workflow under:
 
 experiments/experiment_5_bspline_B_recovery/
 
