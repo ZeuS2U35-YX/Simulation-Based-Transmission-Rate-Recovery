@@ -2,12 +2,12 @@
 
 This repository contains the simulation, fitting, recovery, and figure-generation
 workflows for a controlled comparison of three representations of the
-time-varying epidemic transmission rate \(B(t)\):
+time-varying epidemic transmission rate $B(t)$:
 
 - a Gamma-noise process, reconstructed using observation-time particle
   filtering means;
-- a deterministic non-periodic cubic B-spline for \(\log B(t)\);
-- a constant-\(B\) model using one fitted value over the complete epidemic.
+- a deterministic non-periodic cubic B-spline for $\log B(t)$;
+- a constant-$B$ model using one fitted value over the complete epidemic.
 
 All three models are compared on the same 200 accepted simulated case series.
 The simulation study uses a shared stochastic SIR process, negative-binomial
@@ -40,9 +40,9 @@ It does not generate another set of observations. The final design is:
 ~~~
 
 The final three-model comparison gives mean replicate-level RMSE values of
-0.5218 for Gamma-noise, 0.7128 for B-spline, and 1.1858 for constant-\(B\).
+0.5218 for Gamma-noise, 0.7128 for B-spline, and 1.1858 for constant-$B$.
 Gamma-noise has lower RMSE than B-spline in 162 of 200 paired replicates, and
-B-spline has lower RMSE than constant-\(B\) in 188 of 200 paired replicates.
+B-spline has lower RMSE than constant-$B$ in 188 of 200 paired replicates.
 These results concern latent transmission-path recovery under the configured
 single step-change simulation. They are not predictive-performance comparisons
 and do not establish a general model ranking.
@@ -60,7 +60,7 @@ independent replicates.
 | [Experiment 1](experiments/experiment_1_gamma_B_recovery/) | Developmental Gamma-noise fitting scenarios and likelihood-surface diagnostics | Supporting |
 | [Experiment 2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | High-particle single-data-set Gamma-noise diagnostic | Supporting |
 | [Experiment 3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated Gamma-noise recovery study | Supporting; superseded for final numerical claims |
-| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Accepted data, Gamma-noise fits, and constant-\(B\) fits for 200 paired replicates | Primary computational foundation |
+| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Accepted data, Gamma-noise fits, and constant-$B$ fits for 200 paired replicates | Primary computational foundation |
 | [Experiment 5](experiments/experiment_5_bspline_B_recovery/) | B-spline extension and final paired three-model comparison | Primary manuscript analysis |
 
 Experiments 1--3 document development history and supporting diagnostics.
