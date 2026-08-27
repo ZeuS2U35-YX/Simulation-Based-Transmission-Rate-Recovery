@@ -1,5 +1,7 @@
 # Simulation-Based Transmission-Rate Recovery
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22127917.svg)](https://doi.org/10.5281/zenodo.22127917)
+
 This repository contains the simulation, fitting, recovery, and figure-generation
 workflows for a controlled comparison of three representations of the
 time-varying epidemic transmission rate $B(t)$:
@@ -19,9 +21,8 @@ times per replicate.
 The manuscript-supporting GitHub release is version **1.0.0**. The release
 records the code, retained aggregate outputs, figure source data, plotting
 scripts, software documentation, seeds, and checksum-based pairing information
-available in this repository. A DOI-backed archival record will be added
-separately after the GitHub release has been deposited in a permanent
-repository.
+available in this repository. The exact v1.0.0 release is permanently
+archived in Zenodo at [https://doi.org/10.5281/zenodo.22127917](https://doi.org/10.5281/zenodo.22127917).
 
 The repository is distributed under the [MIT License](LICENSE). Citation
 metadata are provided in [CITATION.cff](CITATION.cff).
