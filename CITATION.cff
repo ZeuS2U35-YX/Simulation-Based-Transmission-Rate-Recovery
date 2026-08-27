@@ -7,6 +7,7 @@ authors:
     given-names: "Yixin"
 version: 1.0.0
 date-released: 2026-08-27
+doi: "10.5281/zenodo.22127917"
 repository-code: "https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery"
 url: "https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases/tag/v1.0.0"
 license: MIT
