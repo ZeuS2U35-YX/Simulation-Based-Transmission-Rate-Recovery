@@ -1,101 +1,112 @@
-# 2026 Summer Epidemic Project
+# Simulation-Based Transmission-Rate Recovery
 
-This repository develops and evaluates partially observed Markov process models for recovering a time-varying epidemic transmission rate from noisy case-report data. The canonical final analysis is a Gamma-noise versus constant-B comparison, where the constant-`B` model is deliberately restricted.
+This repository contains the simulation, fitting, recovery, and figure-generation
+workflows for a controlled comparison of three representations of the
+time-varying epidemic transmission rate $B(t)$:
 
-This repository state is a **canonical computational results milestone**, not the final repository release. The report is currently in progress. The repository is distributed under the [MIT License](LICENSE).
+- a Gamma-noise process, reconstructed using observation-time particle
+  filtering means;
+- a deterministic non-periodic cubic B-spline for $\log B(t)$;
+- a constant-$B$ model using one fitted value over the complete epidemic.
 
-## Scientific hierarchy
+All three models are compared on the same 200 accepted simulated case series.
+The simulation study uses a shared stochastic SIR process, negative-binomial
+measurement model, multi-start iterated filtering framework, and 70 observation
+times per replicate.
 
-The experiments document a progression rather than four co-equal final analyses:
+## Version
 
-| Experiment | Scientific role | Main question | Status in the report |
-| --- | --- | --- | --- |
-| [Experiment 1](experiments/experiment_1_gamma_B_recovery/) | Developmental and exploratory | Do the initial one-dataset fitting scenarios recover constant and piecewise transmission paths from several starts? | Workflow development only |
-| [Experiment 2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | Supporting high-particle diagnostic | On one fixed data set, do nine starts reach a similar high-likelihood region with 50,000 particles? | Supporting implementation evidence |
-| [Experiment 3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated recovery study | How accurately do `Nmif = 100` observation-time filtering means recover prescribed values across 200 accepted outbreaks? | Supporting study; superseded by Experiment 4 for final Gamma-noise numerical claims |
-| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Canonical final computational analysis | How does the `Nmif = 600` Gamma-noise model compare with the constant-`B` model on the same 200 accepted outbreaks? | Primary quantitative evidence for the report |
+The manuscript-supporting GitHub release is version **1.0.0**. The release
+records the code, retained aggregate outputs, figure source data, plotting
+scripts, software documentation, seeds, and checksum-based pairing information
+available in this repository. A DOI-backed archival record will be added
+separately after the GitHub release has been deposited in a permanent
+repository.
 
-Experiment 4 is therefore the canonical source for final numerical results. Experiments 1–3 remain useful for development history, diagnostics, and supporting interpretation, but should not be presented as equally important final analyses.
+The repository is distributed under the [MIT License](LICENSE). Citation
+metadata are provided in [CITATION.cff](CITATION.cff).
 
-## Interpretation boundaries
+## Primary analysis
 
-- The constant-`B` model in Experiment 4 cannot represent temporal variation in `B(t)`; it is intentionally used as a restricted comparator.
-- Recovery and comparison conclusions in Experiments 3 and 4 are conditional on accepted informative outbreaks satisfying `max(H) > 20`. They do not estimate unconditional performance over every attempted epidemic trajectory.
-- Experiment 3 retains its earlier filtering-mean summaries. In Experiment 4, each accepted replicate contributes one ancestry-preserving sampled latent Gamma trajectory from the final plug-in particle filter; the constant-model estimate is repeated over the same 70 observation times. These paired replicate-level objects are the inputs to the RSS, RMSE, signed mean error, and absolute overall bias tables.
-- Experiment 4 Figures 01 and 08 show the exact sampled trajectories used for the task-1 and task-117 recovery metrics. Each is a single finite-particle approximation conditional on one complete case series, not a filtering mean, uncertainty interval, or across-task average.
-- Traces from selected Experiment 4 diagnostic tasks 1, 50, 100, 150, and 200 provide empirical support for `Nmif = 600`, but do not establish convergence for all 200 fitted data sets. These tasks are selected diagnostics, not a random sample.
+Experiment 5 extends the accepted Experiment 4 data with paired B-spline fits.
+It does not generate another set of observations. The final design is:
 
-## Repository layout
+~~~text
+200 accepted Experiment 4 data sets
+  -> 200 Gamma-noise filtering-mean reconstructions
+  -> 200 selected B-spline trajectories
+  -> 200 repeated constant-B estimates
+  -> exactly 200 paired three-model comparison rows
+~~~
 
-```text
-experiments/
-├── experiment_1_gamma_B_recovery/
-├── experiment_2_large_scale_gamma_B_recovery_HPC/
-├── experiment_3_gamma_B_recovery_accuracy/
-└── experiment_4_nmif600_model_comparison/
-README.md
-SOFTWARE.md
-LICENSE
-```
+The final three-model comparison gives mean replicate-level RMSE values of
+0.5218 for Gamma-noise, 0.7128 for B-spline, and 1.1858 for constant-$B$.
+Gamma-noise has lower RMSE than B-spline in 162 of 200 paired replicates, and
+B-spline has lower RMSE than constant-$B$ in 188 of 200 paired replicates.
+These results concern latent transmission-path recovery under the configured
+single step-change simulation. They are not predictive-performance comparisons
+and do not establish a general model ranking.
 
-Each experiment README documents its scientific purpose, settings, execution order, compact retained results, figure provenance, limitations, and full or lightweight reproduction commands. Raw task-level HPC outputs and Slurm logs are intentionally kept out of Git when compact combined evidence is available.
+Primary reporting uses RMSE and signed mean error. The independent analysis
+unit is the accepted simulation replicate. Multi-start fits, repeated
+particle-filter likelihood evaluations, particles, Euler substeps, and
+observation times are computational or within-replicate components rather than
+independent replicates.
 
-The canonical Experiment 4 evidence is under:
+## Experiment hierarchy
 
-- [`results/combined/gamma/`](experiments/experiment_4_nmif600_model_comparison/results/combined/gamma/)
-- [`results/combined/constant/`](experiments/experiment_4_nmif600_model_comparison/results/combined/constant/)
-- [`results/comparison/`](experiments/experiment_4_nmif600_model_comparison/results/comparison/)
-- [`results/selected_trajectory/`](experiments/experiment_4_nmif600_model_comparison/results/selected_trajectory/)
-- [`figures/comparison/`](experiments/experiment_4_nmif600_model_comparison/figures/comparison/)
-- [`figures/convergence/`](experiments/experiment_4_nmif600_model_comparison/figures/convergence/)
+| Experiment | Role | Status |
+| --- | --- | --- |
+| [Experiment 1](experiments/experiment_1_gamma_B_recovery/) | Developmental Gamma-noise fitting scenarios and likelihood-surface diagnostics | Supporting |
+| [Experiment 2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | High-particle single-data-set Gamma-noise diagnostic | Supporting |
+| [Experiment 3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated Gamma-noise recovery study | Supporting; superseded for final numerical claims |
+| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Accepted data, Gamma-noise fits, and constant-$B$ fits for 200 paired replicates | Primary computational foundation |
+| [Experiment 5](experiments/experiment_5_bspline_B_recovery/) | B-spline extension and final paired three-model comparison | Primary manuscript analysis |
 
-The current sampled-trajectory results have mean RMSE 0.653 for the Gamma-noise model and 1.199 for the constant-`B` comparator. Gamma has lower paired RMSE in 195 of 200 accepted replicates (97.5%) and lower absolute replicate-level mean error in 177 of 200 (88.5%). The root-level trajectory audit and repair record document earlier stages of the analysis; their filtering-mean values are historical rather than active Experiment 4 results.
+Experiments 1--3 document development history and supporting diagnostics.
+Experiments 4 and 5 provide the paired computational evidence used in the
+current manuscript.
 
-## Lightweight reproduction entry points
+## Final tracked outputs
 
-Run each command from the corresponding experiment directory. These commands rebuild figures and compact summaries from retained results; they do not rerun MIF2 or the full HPC studies.
+The final three-model analysis is documented under
+[Experiment 5](experiments/experiment_5_bspline_B_recovery/). Important tracked
+outputs include:
 
-```bash
-# Experiment 1
-Rscript code/04_regenerate_figures.R
+- experiments/experiment_5_bspline_B_recovery/results/combined/bspline/
+- experiments/experiment_5_bspline_B_recovery/results/comparison_three_models/
+- experiments/experiment_5_bspline_B_recovery/figures/comparison_three_models/
+- experiments/experiment_5_bspline_B_recovery/results/paired_input_manifest.csv
 
-# Experiment 2
-Rscript code/05_regenerate_figures.R
+The figure directory includes PDF, SVG, PNG, and 600-dpi TIFF files, figure
+source-data CSV files, and visual quality-control notes. Raw HPC task
+directories are not tracked in Git; the retained combined results and source
+data are sufficient for the documented lightweight figure reproduction.
 
-# Experiment 3
-Rscript code/04_analyze_results.R
-```
+## Reproducing the final figures
 
-For Experiment 4:
+The Experiment 5 plotting environment is locked with renv. Follow
+[REPRODUCE_FIGURES.md](experiments/experiment_5_bspline_B_recovery/REPRODUCE_FIGURES.md)
+for the complete instructions. The abbreviated workflow is:
 
-```bash
-# Reconstruct the 200 canonical sampled Gamma trajectories from saved fits.
-# This reruns only the final 50,000-particle filters.
-Rscript code/09_regenerate_sampled_B_trajectories.R \
-  results/combined/gamma/combined_B_paths.csv \
-  results/combined/gamma/sampled_B_trajectory_provenance.csv \
-  4 \
-  1:200
+~~~bash
+git clone https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery.git
+cd Simulation-Based-Transmission-Rate-Recovery/experiments/experiment_5_bspline_B_recovery
+Rscript -e 'renv::restore(prompt = FALSE)'
+Rscript code/06_plot_three_model_comparison.R
+~~~
 
-# Rebuild selected-task figures from the canonical sampled paths.
-# These commands do not run another particle filter.
-Rscript code/07_generate_task1_comparison_figures.R
-Rscript code/08_generate_task117_comparison_figures.R
+This workflow regenerates the final comparison figures and their source-data
+files. It does not rerun MIF2, the complete particle-filtering analyses, or the
+HPC task arrays.
 
-Rscript code/05_compare_models.R \
-  results/combined/gamma \
-  results/combined/constant \
-  results/comparison \
-  figures/comparison
+## Full computational workflows
 
-Rscript code/06_make_convergence_diagnostics.R \
-  results/combined/gamma \
-  results/combined/constant \
-  figures/convergence
-```
+The complete fitting workflows are computationally expensive and use Slurm.
+Each experiment README records its scientific purpose, configuration,
+execution order, retained outputs, and limitations. Before rerunning a full
+workflow, consult the corresponding README and validate all input manifests,
+simulation seeds, and checksums.
 
-The complete HPC workflows are computationally expensive and require Slurm. See each experiment README before submitting them. Software and environment evidence is summarized in [SOFTWARE.md](SOFTWARE.md).
-
-## Release status
-
-The computational milestone is suitable for supervisor review and continued report drafting. It is not a final archival release: the report remains in progress and exact historical package environments are only partly documented. The repository is licensed under the [MIT License](LICENSE).
+Software and computing-environment information is summarized in
+[SOFTWARE.md](SOFTWARE.md).

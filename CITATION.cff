@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software or its retained analysis outputs, please cite this release."
+title: "Simulation-Based Transmission-Rate Recovery"
+type: software
+authors:
+  - family-names: "Ma"
+    given-names: "Yixin"
+version: 1.0.0
+date-released: 2026-08-27
+repository-code: "https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery"
+url: "https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases/tag/v1.0.0"
+license: MIT
