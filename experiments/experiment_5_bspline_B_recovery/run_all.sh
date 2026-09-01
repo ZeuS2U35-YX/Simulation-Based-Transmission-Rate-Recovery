@@ -18,3 +18,4 @@ done
 
 Rscript code/03_combine_results.R
 Rscript code/04_compare_with_gamma.R
+Rscript code/05_compare_three_models.R
