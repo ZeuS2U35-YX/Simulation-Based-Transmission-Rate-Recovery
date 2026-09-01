@@ -24,7 +24,7 @@ saved filtering-mean metrics.
 - Applicable `AGENTS.md`: none found in the repository or its checked ancestor
   directories.
 - `git rev-parse --show-toplevel`:
-  `/Users/zeus/Desktop/R/GitHub/2026_summer_epidemic_project`
+  `<local-repository-checkout>`
 - Initial `git status --short`: `?? overleaf_model_code/` (preserved; not
   inspected as an audit artifact and not modified).
 - `git branch --show-current`: `main`.
@@ -286,7 +286,7 @@ and this audit found no row-order or duplication issue.
 ## 8. Report/documentation impact assessment
 
 Report source **was available and audited** at
-`/Users/zeus/Desktop/Math-Resources/Research_2026summer/Reports/Summer_Report_revision_01/`.
+`<local-report-root>/`.
 It copied Figure 01 unchanged (`sections/D_reproducibility.tex:6-18`) and calls
 it an average (`sections/05_results.tex:12-25`), so the report does not falsely
 call the old line a single trajectory.  It nevertheless needs a replacement
