@@ -96,7 +96,7 @@ The CSV contains one task, one Gamma `B_trajectory`, the prescribed truth, and t
 A pre-repair SHA-256 manifest covered 27 canonical Experiment 3 and Experiment 4 result CSVs, including combined FM/static paths, fitted-parameter tables, likelihood tables, task metrics, paired comparisons, and overall summaries. After all figure generation, this command returned `OK` for all 27 files:
 
 ```text
-shasum -a 256 -c /Users/zeus/Documents/Codex/2026-08-11/you-are-conducting-an-independent-evidence/work/repair/immutable_csv_sha256_before.txt
+shasum -a 256 -c <local-workdir>/immutable_csv_sha256_before.txt
 ```
 
 Consequently, the saved RSS, RMSE, bias/signed-error, likelihood, fitted-parameter, comparison-table, and convergence inputs remain byte-for-byte unchanged. In particular, the Experiment 4 mean FM RMSE remains `0.575074590343979`, the mean RS RMSE remains `1.19892369846335`, and Gamma has lower paired FM-versus-RS RMSE in 200/200 tasks.
@@ -113,7 +113,7 @@ Metric plots now identify their estimands as observation-time filtering-mean err
 
 ## LaTeX report repair
 
-Report root: `/Users/zeus/Desktop/Math-Resources/Research_2026summer/Reports/Summer_Report_revision_01` (not Git-backed).
+Report root: `<local-report-root>` (not Git-backed).
 
 Updated report material:
 
@@ -137,7 +137,7 @@ Canonical build command:
 latexmk -pdf -interaction=nonstopmode -halt-on-error report.tex
 ```
 
-The command exited successfully. The resulting `/Users/zeus/Desktop/Math-Resources/Research_2026summer/Reports/Summer_Report_revision_01/report.pdf` has 32 letter-size pages. The final log contains no LaTeX/package warnings, undefined references/citations, overfull boxes, or underfull boxes.
+The command exited successfully. The resulting `<local-report-root>/report.pdf` has 32 letter-size pages. The final log contains no LaTeX/package warnings, undefined references/citations, overfull boxes, or underfull boxes.
 
 ## Commands used for retained trajectory filters
 
