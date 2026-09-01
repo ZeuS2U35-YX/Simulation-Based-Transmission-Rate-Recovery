@@ -36,7 +36,7 @@ make_data_generating_model <- function(config) {
     double p_SI;
     double p_IR;
 
-    if (t <= t_switch) {
+    if (t < t_switch) {
       Beta_now = Beta_high;
     } else {
       Beta_now = Beta_low;
