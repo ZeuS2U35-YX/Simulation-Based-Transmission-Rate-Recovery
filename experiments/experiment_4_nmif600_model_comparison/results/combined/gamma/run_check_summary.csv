@@ -1,2 +1,2 @@
-"model","task_spec","n_expected_tasks","n_found_tasks","n_missing_tasks","n_problem_messages","all_task_ids_unique","all_nmif_600","all_status_success"
-"gamma_noise","1:200",200,200,0,0,TRUE,TRUE,TRUE
+"model","task_spec","n_expected_tasks","n_found_tasks","n_missing_tasks","n_problem_messages","all_task_ids_unique","all_nmif_600","all_status_success","path_semantics","filtering_mean_used_for_metrics"
+"gamma_noise","1:200",200,200,0,0,TRUE,TRUE,TRUE,"particle_filtering_mean",TRUE
