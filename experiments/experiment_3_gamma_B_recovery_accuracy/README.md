@@ -2,7 +2,7 @@
 
 ## Overview
 
-This earlier `Nmif = 100` supporting study evaluates observation-time recovery of a prescribed time-varying epidemic transmission rate from simulated case-report data. Experiment 4 supersedes it as the source of final Gamma-noise model numerical claims.
+This earlier `Nmif = 100` supporting study evaluates observation-time recovery of a prescribed time-varying epidemic transmission rate from simulated case-report data. Experiment 4 supersedes it for the final Gamma-noise fits, and Experiment 5 is the final paired Gamma-noise/B-spline/constant-B manuscript analysis.
 
 The experiment contains 200 independently generated, accepted simulation replicates. For each replicate, the same fitting workflow is applied: the model is fitted from nine starting-value combinations, each fitted parameter vector is evaluated using repeated particle filters, the run with the largest independently evaluated log likelihood is selected, and a final particle filter estimates the filtering mean of `B(t)` at each observation time.
 
@@ -26,6 +26,8 @@ The data-generating transmission rate is piecewise constant:
 - `B(t) = 2` for `t >= 5` weeks.
 
 Each data set covers 10 weeks and contains 70 observation times separated by `1/7` week. A simulated trajectory is accepted only if the accumulated number of new infections satisfies `max(H) > 20` for at least one observation interval. The reported recovery results are therefore conditional on this acceptance rule.
+
+The Experiment 3 code and retained tables use the historical point convention `B(t) = 4` for `t < 5` and `B(t) = 2` for `t >= 5`, including `B(5) = 2`. The final Experiment 5 three-model analysis uses an endpoint-aligned reporting convention with `B(5) = 4` and the low period defined by `t > 5`. Experiment 3 outputs remain unchanged for provenance and should not be mixed with the normalized Experiment 5 primary metrics.
 
 The data-generating process is a stochastic SIR model with Euler step `1/30` week, latent states `S`, `I`, `R`, and the incidence accumulator `H`, and initial state `S = 9990`, `I = 10`, `R = 0`, `H = 0`. The fixed values are `mu_IR = 3`, population size `N = 10000`, reporting fraction `rho = 0.5`, and negative-binomial size `k = 10`. Reports follow
 
@@ -148,6 +150,10 @@ Before using a figure in a report or manuscript, perform the following check:
 Reference for the visual standard:
 
 > King, A. A., Nguyen, D., & Ionides, E. L. (2016). *Statistical Inference for Partially Observed Markov Processes via the R Package pomp*. Journal of Statistical Software, 69(12), 1-43. https://doi.org/10.18637/jss.v069.i12
+
+## Fresh-clone and full-bundle boundary
+
+A fresh clone includes `results/combined/` and `results/selected_trajectory/`, but not `Results/task_*` or logs. `code/04_analyze_results.R` works from tracked files; `code/03_combine_results.R` requires the full replication bundle or a new Slurm run.
 
 ## Reproducibility
 
