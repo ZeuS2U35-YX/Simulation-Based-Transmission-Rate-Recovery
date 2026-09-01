@@ -92,28 +92,88 @@ for (task_id in expected_tasks) {
   if (nrow(path) != 70L) {
     problems <- c(problems, paste0("task_", sprintf("%03d", task_id), " has ", nrow(path), " B-path rows; expected 70"))
   }
+  if (nrow(path) == 70L) {
+    expected_times <- seq(
+      experiment_config$observation_interval,
+      experiment_config$n_weeks,
+      by = experiment_config$observation_interval
+    )
+    expected_true <- ifelse(
+      path$week <= experiment_config$true_parameters[["t_switch"]],
+      experiment_config$true_parameters[["Beta_high"]],
+      experiment_config$true_parameters[["Beta_low"]]
+    )
+    legacy_true <- ifelse(
+      path$week < experiment_config$true_parameters[["t_switch"]],
+      experiment_config$true_parameters[["Beta_high"]],
+      experiment_config$true_parameters[["Beta_low"]]
+    )
+    uses_current_truth <- max(abs(path$B_true - expected_true)) <= 1e-12
+    uses_legacy_week5_truth <-
+      max(abs(path$B_true - legacy_true)) <= 1e-12
+    if (max(abs(path$week - expected_times)) > 1e-12 ||
+        is.unsorted(path$week, strictly = TRUE) || anyDuplicated(path$week) ||
+        (!uses_current_truth && !uses_legacy_week5_truth)) {
+      problems <- c(
+        problems,
+        paste0(
+          "task_", sprintf("%03d", task_id),
+          " has incorrect B-path times or true B(t)"
+        )
+      )
+    } else {
+      # Historical raw outputs labelled the single observation at week 5 as
+      # B=2. Canonical combined outputs use the requested B(5)=4 without
+      # changing any fitted parameters or estimates.
+      path$B_true <- expected_true
+    }
+  }
   if (model_arg == "gamma" && nrow(path) > 0L) {
-    required_path_columns <- c("trajectory_seed", "path_semantics")
-    if (!all(required_path_columns %in% names(path))) {
+    if (!"path_semantics" %in% names(path)) {
       problems <- c(
         problems,
         paste0(
           "task_", sprintf("%03d", task_id),
-          " Gamma B path is not labelled as a sampled latent trajectory"
+          " Gamma B path lacks path_semantics"
         )
       )
-    } else if (
-      length(unique(path$trajectory_seed)) != 1L ||
-      !all(path$path_semantics ==
-           "ancestry_preserving_sampled_latent_trajectory")
-    ) {
-      problems <- c(
-        problems,
-        paste0(
-          "task_", sprintf("%03d", task_id),
-          " Gamma B path has inconsistent trajectory provenance"
-        )
+    } else {
+      semantics <- unique(as.character(path$path_semantics))
+      allowed_semantics <- c(
+        "particle_filtering_mean",
+        "ancestry_preserving_sampled_latent_trajectory"
       )
+      if (length(semantics) != 1L || !(semantics %in% allowed_semantics)) {
+        problems <- c(
+          problems,
+          paste0(
+            "task_", sprintf("%03d", task_id),
+            " Gamma B path has unsupported or mixed path semantics"
+          )
+        )
+      } else if (semantics == "particle_filtering_mean" &&
+                 (!"filter_seed" %in% names(path) ||
+                  length(unique(path$filter_seed)) != 1L)) {
+        problems <- c(
+          problems,
+          paste0(
+            "task_", sprintf("%03d", task_id),
+            " Gamma filtering mean has inconsistent filter provenance"
+          )
+        )
+      } else if (
+        semantics == "ancestry_preserving_sampled_latent_trajectory" &&
+        (!"trajectory_seed" %in% names(path) ||
+         length(unique(path$trajectory_seed)) != 1L)
+      ) {
+        problems <- c(
+          problems,
+          paste0(
+            "task_", sprintf("%03d", task_id),
+            " legacy Gamma sampled path has inconsistent provenance"
+          )
+        )
+      }
     }
   }
 
@@ -174,6 +234,12 @@ run_check <- data.frame(
   all_task_ids_unique = nrow(combined_best) == length(unique(combined_best$task_id)),
   all_nmif_600 = nrow(combined_best) > 0L && all(combined_best$Nmif == experiment_config$Nmif),
   all_status_success = nrow(combined_best) > 0L && all(combined_best$status == "success"),
+  path_semantics = if (nrow(combined_path) > 0L &&
+      "path_semantics" %in% names(combined_path)) {
+    paste(sort(unique(combined_path$path_semantics)), collapse = ",")
+  } else {
+    NA_character_
+  },
   stringsAsFactors = FALSE
 )
 write.csv(run_check, file.path(combined_dir, "run_check_summary.csv"), row.names = FALSE)
