@@ -10,7 +10,7 @@ source(file.path("config", "experiment_config.R"))
 
 true_B_at_times_for_figure <- function(times) {
   ifelse(
-    times < experiment_config$true_parameters[["t_switch"]],
+    times <= experiment_config$true_parameters[["t_switch"]],
     experiment_config$true_parameters[["Beta_high"]],
     experiment_config$true_parameters[["Beta_low"]]
   )
@@ -153,7 +153,7 @@ generate_selected_B_trajectory_figure <- function(
   gamma_B_path <- Sys.getenv(
     "EXP4_GAMMA_B_PATH",
     unset = file.path(
-      "results", "combined", "gamma", "combined_B_paths.csv"
+      "results", "selected_trajectory", "sampled_gamma_B_paths.csv"
     )
   )
   constant_B_path <- file.path(
@@ -325,6 +325,12 @@ generate_selected_B_trajectory_figure <- function(
       aes(x = week, y = value, colour = series, linetype = series),
       linewidth = 0.92, lineend = "butt", linejoin = "mitre"
     ) +
+    geom_point(
+      data = data.frame(week = 5, value = 4),
+      aes(x = week, y = value),
+      shape = 21, size = 1.7, stroke = 0.45,
+      colour = "#1A1A1A", fill = "white", inherit.aes = FALSE
+    ) +
     annotate(
       "text", x = 5.10, y = 0.985 * y_upper, label = "Week 5",
       hjust = 0, vjust = 1, size = 2.55, family = "Helvetica",
@@ -385,9 +391,10 @@ generate_selected_B_trajectory_figure <- function(
       format(constant_row$Beta_hat[[1]], digits = 17)
     ),
     paste0("trajectory_seed: ", unique(gamma_paths$trajectory_seed)),
-    "trajectory_source: canonical Gamma combined_B_paths.csv used for the recovery metrics",
+    "trajectory_source: example-only sampled Gamma path; not used for recovery metrics",
     "trajectory_semantics: one ancestry-preserving sampled latent trajectory from the final plug-in particle-filter approximation",
-    "metric_times: 70 observation times; t0 excluded from RSS, RMSE, mean error, and AOB",
+    "main_analysis_source: particle filtering mean at 70 observation times",
+    "sampled_trajectory_used_for_metrics: no",
     "figure_times: t0 plus the 70 observation times",
     "filtering_mean_used: no",
     "across_task_average_used: no",
