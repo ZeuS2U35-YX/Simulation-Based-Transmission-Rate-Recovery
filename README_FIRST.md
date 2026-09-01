@@ -39,20 +39,17 @@ model.
 ### Week-5 convention and provenance
 
 The retained files contain two explicit endpoint conventions at the week-5
-change point. Historical code and CSV artifacts from Experiments 1–4 assign
-the exact week-5 observation to the low segment and therefore record
-\(B(5)=2\): \(B(t)=4\) for \(t<5\) and \(B(t)=2\) for \(t\geq5\). The final
-Experiment 5 reporting pipeline normalizes the common comparison truth to
-\(B(5)=4\): \(B(t)=4\) for \(t\leq5\) and \(B(t)=2\) for \(t>5\). It
-recomputes the reported comparison metrics under the normalized convention
-without changing the observed data, fitted B-spline coefficients, or fitted
-model objects.
+change point. Historical step-change workflows and raw truth labels underlying
+Experiments 1–4 used \(B(t)=4\) for \(t<5\) and \(B(t)=2\) for
+\(t\geq5\), so the exact week-5 point was labelled \(B(5)=2\). This does not
+describe Experiment 1's separate constant-\(B=4\) scenario.
 
-Historical Experiment 1–4 products remain unchanged in this package as
-provenance. Do not combine their truth values or metrics with normalized
-Experiment 5 results. Use the normalized Experiment 5 comparison tables for
-final three-model reporting, and use each historical artifact only under the
-endpoint convention recorded in that artifact.
+The current post-processing code and final Experiment 5 reporting normalize
+the shared comparison truth to \(B(5)=4\): \(B(t)=4\) for \(t\leq5\) and
+\(B(t)=2\) for \(t>5\). They recompute the final metrics without changing
+the historical observed data, fitted B-spline coefficients, or fitted model
+objects. Historical raw products remain in the package as provenance. Do not
+combine their truth labels or metrics with normalized Experiment 5 results.
 
 ## Experiment 4 and Experiment 5
 
@@ -99,8 +96,10 @@ SOFTWARE.md
 CITATION.cff
 LICENSE
 MANIFEST.csv
+PACKAGE_METADATA.txt
 SHA256SUMS
 experiments/
+scripts/
 shared_code/
 ```
 
@@ -125,7 +124,9 @@ path,size_bytes,sha256,role,provenance
 ```
 
 The fields identify the relative file path, file size in bytes, SHA-256 hash,
-package role, and provenance classification for each archived file.
+package role, and provenance classification for each regular payload file.
+The manifest excludes itself and `SHA256SUMS` to avoid self-referential hashes;
+`SHA256SUMS` covers `MANIFEST.csv` and every other regular file except itself.
 
 If checksum verification fails, stop. Do not use the failed archive for
 reproduction or citation.
@@ -336,18 +337,22 @@ experiments/experiment_5_bspline_B_recovery/README.md
 
 ### Step D: rebuild the final three-model analysis
 
-After all 200 B-spline tasks pass validation, the documented local
-post-processing commands are:
+After all 200 newly fitted B-spline tasks pass validation, combine the new
+formal result tree rather than the bundled historical archive:
 
 ```bash
 Rscript code/03_combine_results.R \
-  results_raw/bspline \
+  results/bspline \
   results/combined/bspline \
   results/paired_input_manifest.csv
 
 Rscript code/05_compare_three_models.R
 Rscript code/06_plot_three_model_comparison.R
 ```
+
+To reprocess the unchanged B-spline task outputs supplied in the full bundle
+instead of a new fit, use `results_raw/bspline` as the first argument in a
+separate archival-reprocessing run.
 
 The final pairing checks must pass before the summary tables or figures are
 treated as valid.
