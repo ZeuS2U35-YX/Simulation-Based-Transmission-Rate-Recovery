@@ -1,4 +1,4 @@
-# Experiment 5: paired B-spline recovery on the accepted Experiment 4 data
+# Experiment 5: B-spline recovery and final paired three-model comparison
 
 ## Design invariant
 
@@ -16,14 +16,25 @@ The resulting design is:
 
 ```text
 200 accepted Experiment 4 observed data sets
-  -> 200 selected B-spline fits
-  -> 200 existing Gamma-noise fits
-  -> exactly 200 paired comparison rows
+  -> 200 Gamma-noise particle-filtering means
+  -> 200 selected deterministic cubic B-spline trajectories
+  -> 200 repeated constant-B estimates
+  -> exactly 200 paired three-model comparison rows
 ```
 
-There is no second or third group of 200 simulations. The files currently under
-`data/`, `results/debug`, `results/formal`, and historical figure directories
-are legacy single-data-set artifacts and are not inputs to the paired batch.
+The comparison contains exactly three fitted models:
+
+| Fitted model | Representation | Path used in final comparison |
+| --- | --- | --- |
+| Gamma-noise | Positive latent stochastic transmission process | Observation-time particle filtering mean |
+| B-spline | Deterministic non-periodic cubic B-spline for `log B(t)` with six basis coefficients | Selected deterministic trajectory |
+| Constant-B | One fitted scalar for the complete epidemic | Selected scalar repeated over all observation times |
+
+The six spline coefficients form one B-spline model; they are not six separate
+models. The stochastic SIR simulator is the shared data-generating process and
+is not a fourth fitted model.
+
+There is no second or third group of 200 simulations. If `data/`, `results/debug`, `results/formal`, or historical figure directories are present in an older or local workspace, they are legacy single-data-set artifacts and are not inputs to the paired batch.
 `code/01_generate_observed_data.R` is deliberately disabled to prevent an
 accidental second data-generating workflow.
 
@@ -103,7 +114,7 @@ then repeats the pairing checks and writes:
 results/comparison/paired_gamma_bspline_comparison.csv
 ```
 
-That final table must contain exactly 200 rows.
+That generated legacy two-model table must contain exactly 200 rows. It is not the tracked final reporting table; the final three-model outputs are under `results/comparison_three_models/`.
 
 The paired recovery metrics use the Gamma model's particle filtering mean,
 labelled `path_semantics=particle_filtering_mean`; ancestry-preserving sampled
@@ -115,6 +126,17 @@ the former single-point `B(5)=2` label are accepted only if every other truth
 value is consistent; `code/03_combine_results.R` normalizes the combined truth
 column and recomputes `B_rmse` without changing any fitted coefficients or MIF2
 objects.
+
+## Fresh-clone and full-bundle boundary
+
+A fresh Git clone contains the tracked paired-input manifest, validated combined
+B-spline tables, final three-model summaries, figure source data, and plotting
+environment. It does not contain the Experiment 4 `shared_data/` tree,
+`results/bspline/`, `results_raw/`, or `results_pilot/`. Consequently,
+the final figures can be reproduced from a fresh clone, but
+`code/01_validate_paired_inputs.R`, `code/02_fit_bspline_B.R`, and
+`code/03_combine_results.R` require the full replication bundle or locally
+generated raw inputs.
 
 ## Run order
 
@@ -223,10 +245,7 @@ follow [`REPRODUCE_FIGURES.md`](REPRODUCE_FIGURES.md). The accompanying
 `renv.lock` records the exact R package versions used for the archived figure
 exports; reproducing the figures does not require the raw HPC task directories.
 
-The completed production B-spline task tree was copied from the HPC into the
-local, Git-ignored directory `results_raw/bspline/task_001` through
-`task_200`. The downloaded raw task files remain unchanged and are not tracked
-in Git. Local post-processing uses them explicitly:
+In the author's archival workspace and the full replication bundle, the completed production B-spline task tree is stored under `results_raw/bspline/task_001` through `task_200`. The downloaded raw task files remain unchanged and are not tracked in Git. Full-bundle post-processing uses them explicitly:
 
 ```bash
 Rscript code/03_combine_results.R \
