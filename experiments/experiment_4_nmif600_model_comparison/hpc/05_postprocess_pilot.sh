@@ -21,6 +21,11 @@ Rscript code/04_combine_results.R \
 Rscript code/04_combine_results.R \
   constant results_raw/constant results/pilot_combined/constant "$TASKS"
 
+Rscript code/10_regenerate_filtering_means.R \
+  results/pilot_combined/gamma/combined_B_paths.csv \
+  results/pilot_combined/gamma/filtering_mean_provenance.csv \
+  1 "$TASKS"
+
 Rscript code/05_compare_models.R \
   results/pilot_combined/gamma \
   results/pilot_combined/constant \
