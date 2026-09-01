@@ -1,11 +1,12 @@
 # ============================================================
-# Reconstruct Experiment 4 Gamma-noise recovery paths
-# as sampled latent trajectories
+# Reconstruct illustrative Experiment 4 Gamma-noise sampled latent paths.
 #
 # This script does not rerun MIF2 or the five independent likelihood
 # evaluations. For each saved best fit, it runs the final particle filter
 # with filter.traj=TRUE and extracts one ancestry-preserving B trajectory.
-# Only the 70 observation-time values are written to the combined path file;
+# These sampled paths are for selected-task example figures only. They must
+# never be written over the canonical filtering-mean input to the main
+# recovery analysis. Only the 70 observation-time values are written;
 # t0 is retained in the provenance table for validation.
 #
 # Usage from the Experiment 4 root:
@@ -33,6 +34,17 @@ provenance_path <- args[[2]]
 workers <- if (length(args) >= 3L) as.integer(args[[3]]) else 1L
 task_spec <- if (length(args) >= 4L) args[[4]] else "1:200"
 if (!is.finite(workers) || workers < 1L) stop("workers must be a positive integer.")
+
+canonical_main_path <- normalizePath(
+  file.path("results", "combined", "gamma", "combined_B_paths.csv"),
+  mustWork = FALSE
+)
+if (identical(normalizePath(output_path, mustWork = FALSE), canonical_main_path)) {
+  stop(
+    "Sampled trajectories are example-only and cannot overwrite the ",
+    "canonical Gamma filtering-mean path file."
+  )
+}
 
 parse_task_spec <- function(x) {
   if (grepl("^[0-9]+:[0-9]+$", x)) {
