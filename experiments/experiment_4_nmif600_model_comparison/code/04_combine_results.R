@@ -57,6 +57,20 @@ problems <- character(0)
 
 read_csv <- function(path) read.csv(path, check.names = FALSE, stringsAsFactors = FALSE)
 
+config_value <- function(run_config, setting_name) {
+  if (!all(c("setting", "value") %in% names(run_config))) {
+    return(NA_character_)
+  }
+  values <- run_config$value[run_config$setting == setting_name]
+  if (length(values) != 1L) NA_character_ else as.character(values[[1]])
+}
+
+paramlist <- read_csv(file.path("results", "paramlist.csv"))
+if (!all(c("task_id", "gamma_final_pf_seed") %in% names(paramlist)) ||
+    anyDuplicated(paramlist$task_id)) {
+  stop("results/paramlist.csv lacks a unique Gamma final-filter seed per task.")
+}
+
 for (task_id in expected_tasks) {
   task_dir <- file.path(raw_root, sprintf("task_%03d", task_id))
   missing <- required_files[!file.exists(file.path(task_dir, required_files))]
@@ -130,18 +144,68 @@ for (task_id in expected_tasks) {
   }
   if (model_arg == "gamma" && nrow(path) > 0L) {
     if (!"path_semantics" %in% names(path)) {
-      problems <- c(
-        problems,
-        paste0(
-          "task_", sprintf("%03d", task_id),
-          " Gamma B path lacks path_semantics"
-        )
+      legacy_columns <- c(
+        "task_id", "simulation_seed", "simulation_attempt",
+        "observed_data_md5", "model", "Nmif", "week", "B_estimate",
+        "B_true"
       )
-    } else {
+      seed_row <- paramlist[paramlist$task_id == task_id, , drop = FALSE]
+      legacy_filter_seed <- suppressWarnings(as.integer(
+        config_value(run_config, "final_pf_seed")
+      ))
+      legacy_contract_ok <-
+        identical(names(path), legacy_columns) &&
+        nrow(seed_row) == 1L &&
+        is.finite(legacy_filter_seed) &&
+        identical(legacy_filter_seed, as.integer(seed_row$gamma_final_pf_seed[[1]])) &&
+        identical(config_value(run_config, "model"), "gamma_transition") &&
+        identical(suppressWarnings(as.integer(config_value(run_config, "task_id"))), task_id) &&
+        identical(
+          suppressWarnings(as.integer(config_value(run_config, "simulation_seed"))),
+          as.integer(best$simulation_seed[[1]])
+        ) &&
+        identical(
+          config_value(run_config, "observed_data_md5"),
+          as.character(best$observed_data_md5[[1]])
+        ) &&
+        identical(
+          suppressWarnings(as.integer(config_value(run_config, "Np_final"))),
+          as.integer(experiment_config$Np_final)
+        ) &&
+        identical(config_value(run_config, "pomp_version"), "6.4") &&
+        all(path$model == "gamma_transition") &&
+        all(path$Nmif == experiment_config$Nmif) &&
+        all(path$simulation_seed == best$simulation_seed[[1]]) &&
+        all(path$observed_data_md5 == best$observed_data_md5[[1]]) &&
+        all(is.finite(path$B_estimate)) &&
+        is.finite(best$final_pf_logLik[[1]])
+
+      if (!legacy_contract_ok) {
+        problems <- c(
+          problems,
+          paste0(
+            "task_", sprintf("%03d", task_id),
+            " has an unlabelled Gamma path that fails the strict legacy contract"
+          )
+        )
+      } else {
+        # The archived 200-task Gamma files predate explicit path semantics.
+        # They are accepted only as a temporary migration input. The HPC
+        # post-processing wrapper immediately reconstructs and overwrites the
+        # combined file with code/10_regenerate_filtering_means.R before any
+        # metric calculation is allowed.
+        path$filter_seed <- legacy_filter_seed
+        path$path_semantics <-
+          "legacy_unlabelled_path_pending_filtering_mean_reconstruction"
+      }
+    }
+
+    if ("path_semantics" %in% names(path)) {
       semantics <- unique(as.character(path$path_semantics))
       allowed_semantics <- c(
         "particle_filtering_mean",
-        "ancestry_preserving_sampled_latent_trajectory"
+        "ancestry_preserving_sampled_latent_trajectory",
+        "legacy_unlabelled_path_pending_filtering_mean_reconstruction"
       )
       if (length(semantics) != 1L || !(semantics %in% allowed_semantics)) {
         problems <- c(
@@ -151,7 +215,10 @@ for (task_id in expected_tasks) {
             " Gamma B path has unsupported or mixed path semantics"
           )
         )
-      } else if (semantics == "particle_filtering_mean" &&
+      } else if (semantics %in% c(
+                   "particle_filtering_mean",
+                   "legacy_unlabelled_path_pending_filtering_mean_reconstruction"
+                 ) &&
                  (!"filter_seed" %in% names(path) ||
                   length(unique(path$filter_seed)) != 1L)) {
         problems <- c(
