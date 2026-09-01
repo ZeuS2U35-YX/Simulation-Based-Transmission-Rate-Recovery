@@ -1,0 +1,3 @@
+"task_id","best_run","B0_hat","sigma_beta_hat","trajectory_seed","Np","final_pf_logLik","t0_B","n_trajectory_times_including_t0","n_metric_times","path_semantics","parameter_uncertainty_integrated","filtering_mean_used_for_metrics"
+1,2,4.35032977730012,0.206674783764282,21260900,50000,-184.847710562297,4.35032977730012,71,70,"ancestry_preserving_sampled_latent_trajectory",FALSE,FALSE
+117,6,3.61026637785311,0.345283889826574,137260900,50000,-184.241573557224,3.61026637785311,71,70,"ancestry_preserving_sampled_latent_trajectory",FALSE,FALSE
