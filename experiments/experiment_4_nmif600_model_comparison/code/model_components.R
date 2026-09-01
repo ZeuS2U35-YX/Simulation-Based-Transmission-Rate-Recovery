@@ -36,7 +36,7 @@ make_data_generating_model <- function(config) {
     double p_SI;
     double p_IR;
 
-    if (t < t_switch) {
+    if (t <= t_switch) {
       Beta_now = Beta_high;
     } else {
       Beta_now = Beta_low;
@@ -205,7 +205,7 @@ constant_baseline_parameters <- function(config) {
 
 true_B_at_times <- function(times, config) {
   ifelse(
-    times < config$true_parameters[["t_switch"]],
+    times <= config$true_parameters[["t_switch"]],
     config$true_parameters[["Beta_high"]],
     config$true_parameters[["Beta_low"]]
   )
