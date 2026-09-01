@@ -10,3 +10,9 @@
 
 # Local pre-cleanup archive retained outside the published repository.
 /experiments/experiment_1_gamma_B_recovery_final.tar.gz
+
+# Locally assembled release artifacts; publish as Release/Zenodo assets, not Git blobs.
+/release_artifacts/
+/dist/
+/Simulation-Based-Transmission-Rate-Recovery-v*-full-replication.zip
+/Simulation-Based-Transmission-Rate-Recovery-v*-full-replication.zip.sha256
