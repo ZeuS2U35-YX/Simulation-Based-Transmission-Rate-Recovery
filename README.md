@@ -41,20 +41,19 @@ observed-data checksums.
 ### Week-5 convention and provenance
 
 The transmission-rate step occurs at week 5, but two endpoint conventions are
-present in the retained record and must be distinguished. Historical code and
-CSV artifacts from Experiments 1–4 assign the observation exactly at week 5 to
-the low segment, so those artifacts record \(B(5)=2\), with \(B(t)=4\) for
-\(t<5\) and \(B(t)=2\) for \(t\geq5\). The final Experiment 5 reporting
-pipeline normalizes the common comparison truth to \(B(5)=4\), using
-\(B(t)=4\) for \(t\leq5\) and \(B(t)=2\) for \(t>5\), and recomputes the
-reported recovery metrics under that convention without changing the observed
-data, fitted coefficients, or fitted model objects.
+present in the retained record and must be distinguished. Historical
+step-change workflows and raw truth labels underlying Experiments 1–4 used
+\(B(t)=4\) for \(t<5\) and \(B(t)=2\) for \(t\geq5\), so the exact week-5
+point was labelled \(B(5)=2\). This statement does not apply to Experiment
+1's separate constant-\(B=4\) scenario.
 
-The historical files are retained unchanged as provenance. Values or metrics
-from the historical and normalized conventions must not be mixed. Final
-three-model manuscript reporting must use the normalized Experiment 5 tables;
-historical Experiment 1–4 artifacts must be interpreted according to their own
-recorded convention.
+The current post-processing code and final Experiment 5 reporting normalize
+the common comparison truth to \(B(5)=4\), using \(B(t)=4\) for \(t\leq5\)
+and \(B(t)=2\) for \(t>5\), and recompute the reported recovery metrics under
+that convention without changing the historical observed data, fitted
+coefficients, or fitted model objects. Historical raw files are retained as
+provenance; their truth labels or metrics must not be mixed with the normalized
+final tables.
 
 | Fitted model | Representation of \(B(t)\) | Primary path used for comparison |
 | --- | --- | --- |
@@ -273,9 +272,10 @@ and visual quality-control notes.
   process and measurement models.
 - Recovery is evaluated conditionally on accepted outbreaks satisfying
   `max(H) > 20`.
-- Historical Experiment 1–4 artifacts use `B(5) = 2`; normalized final
-  Experiment 5 reporting uses `B(5) = 4`. Results from the two conventions
-  must not be mixed.
+- Historical step-change raw artifacts underlying Experiments 1–4 use
+  `B(5) = 2`; current normalized post-processing and final Experiment 5
+  reporting use `B(5) = 4`. Results from the two conventions must not be
+  mixed.
 - Gamma-noise recovery metrics use observation-time particle filtering means.
   Selected-task sampled trajectories are illustrative artifacts and are not
   the primary metric inputs.
