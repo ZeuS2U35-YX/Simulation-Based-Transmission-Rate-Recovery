@@ -10,7 +10,7 @@ Experiment 1 is an early developmental simulation study of a Gamma-noise POMP mo
 
 The purpose is to illustrate the fitting workflow, inspect starting-value sensitivity, and compare filtered latent trajectories with known simulated truth. Because each scenario uses only one simulated epidemic, Experiment 1 is **not** a repeated-simulation assessment of bias, RMSE, coverage, or robustness. Those questions belong to later experiments.
 
-Experiment 1 is developmental evidence, not a co-equal final analysis. Experiment 4 is the canonical computational analysis and the primary source of quantitative evidence for the report.
+Experiment 1 is a supporting developmental study. Experiment 4 supplies the accepted 200-replicate data and the Gamma-noise/constant-B computational foundation; Experiment 5 adds the deterministic cubic B-spline fits and is the final paired three-model manuscript analysis.
 
 ## Model
 
@@ -132,7 +132,13 @@ When `B0` is fixed, only `sigma_beta` is perturbed and log-transformed.
 
 The five likelihood estimates for each candidate are combined using `pomp::logmeanexp(..., se = TRUE)`.
 
+## Historical week-5 convention
+
+The Experiment 1 piecewise scripts and retained artifacts use the historical point convention `B(t) = 4` for `t < 5` and `B(t) = 2` for `t >= 5`, so the exact observation at week 5 is labelled 2 here. The final Experiment 5 three-model reporting uses an endpoint-aligned convention with `B(5) = 4` and `B(t) = 2` only after week 5. Historical Experiment 1 outputs are preserved for provenance and should not be substituted for the normalized Experiment 5 primary metrics.
+
 ## Reproducibility
+
+A fresh Git clone contains the scripts, compact CSV results, and figures. Ignored fitted RDS objects are not included; `run_all.sh` recreates them by rerunning inference.
 
 Requirements:
 
