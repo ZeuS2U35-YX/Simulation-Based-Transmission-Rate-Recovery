@@ -13,20 +13,20 @@ The B-spline model is intentionally not fitted in Experiment 4; it is added in E
 
 Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each data set, the current workflow reconstructs the best Gamma fit with the observation-time particle filtering mean. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from that filtering mean and the repeated fitted constant-B estimate. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
 
-One ancestry-preserving sampled Gamma trajectory is retained only for each selected-task illustration. It is not used in the current two-model metrics or in the final Experiment 5 three-model analysis. The older `v1.0.0` Experiment 4 tables and figures that used sampled trajectories remain historical provenance.
+One ancestry-preserving sampled Gamma trajectory is retained only for each selected-task illustration. It is not used in the current two-model metrics or in the final Experiment 5 three-model analysis. The older `v1.0.0` Experiment 4 tables and figures that used sampled trajectories remain available in the `v1.0.0` tag and release as historical provenance.
 
 ## Fixed experiment settings
 
-The shared data-generating model uses:
+The shared stochastic SIR process retains the step implementation:
 
-- `B(t) = 4` through week 5, including the exact week-5 observation;
-- `B(t) = 2` after week 5;
+- `B(t) = 4` for process times `t < 5`;
+- `B(t) = 2` for process times `t >= 5`;
 - `mu_IR = 3`, `N = 10000`, `rho = 0.5`, `k = 10`;
 - 10 weeks, 70 daily observation times, Euler step `1/30` week;
 - acceptance rule `max(H) > 20`;
 - simulation seeds 1001 through 1200.
 
-The archived raw simulation outputs were produced by the earlier step-change implementation, which labelled the exact week-5 point as `B(5) = 2`. The current source uses the endpoint-aligned `B(5) = 4` convention. When historical raw outputs are recombined, `code/04_combine_results.R` accepts the documented legacy label, normalizes the combined truth column to `B(5) = 4`, and leaves the observed data, fitted parameters, and fitted model objects unchanged.
+For the discrete observation-time recovery tables, current post-processing uses the endpoint-aligned reporting truth `B(5) = 4`: `B(t) = 4` for `t <= 5` and `B(t) = 2` for `t > 5`. When historical raw outputs are recombined, `code/04_combine_results.R` accepts the documented legacy `B(5) = 2` label, normalizes only the combined truth label, and recomputes the recovery metrics. It does not alter the simulated observations, fitted parameters, or fitted model objects.
 
 Both fitted models use:
 
@@ -160,7 +160,7 @@ Pilot task directories already marked `COMPLETE` are validated and skipped.
 After a completed HPC run, `bash hpc/package_outputs.sh` creates the local archive
 `downloads/experiment_4_nmif600_model_comparison_outputs.tar.gz` and its
 manifest. These generated files are not tracked by Git and are not public
-download links. The published one-download artifact is the repository-level
+download links. The planned public one-download artifact is the repository-level
 `v1.1.0` full-replication ZIP described in the root README.
 
 ## Main outputs
