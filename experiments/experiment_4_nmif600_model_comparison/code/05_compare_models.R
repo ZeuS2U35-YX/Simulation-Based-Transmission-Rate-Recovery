@@ -37,6 +37,15 @@ read_combined <- function(dir) {
 gamma <- read_combined(gamma_dir)
 constant <- read_combined(constant_dir)
 
+required_gamma_path_columns <- c("filter_seed", "path_semantics")
+if (!all(required_gamma_path_columns %in% names(gamma$paths)) ||
+    !all(gamma$paths$path_semantics == "particle_filtering_mean")) {
+  stop(
+    "The Gamma main analysis requires particle filtering means. Run ",
+    "code/10_regenerate_filtering_means.R before comparison."
+  )
+}
+
 gamma_tasks <- sort(unique(gamma$best$task_id))
 constant_tasks <- sort(unique(constant$best$task_id))
 if (!identical(gamma_tasks, constant_tasks)) {
@@ -90,6 +99,17 @@ calculate_metrics <- function(paths, model_name) {
         " does not contain exactly the 70 configured observation times."
       )
     }
+    expected_true <- ifelse(
+      x$week <= experiment_config$true_parameters[["t_switch"]],
+      experiment_config$true_parameters[["Beta_high"]],
+      experiment_config$true_parameters[["Beta_low"]]
+    )
+    if (max(abs(x$B_true - expected_true)) > 1e-12) {
+      stop(
+        model_name, " task ", x$task_id[[1]],
+        " does not encode B(5)=4 and the configured true B(t)."
+      )
+    }
     mean_error <- mean(x$error)
     data.frame(
       task_id = x$task_id[[1]],
@@ -98,11 +118,11 @@ calculate_metrics <- function(paths, model_name) {
       RMSE = sqrt(mean(x$squared_error)),
       mean_error = mean_error,
       AOB = abs(mean_error),
-      mean_error_before_5 = mean(
-        x$error[x$week < experiment_config$true_parameters[["t_switch"]]]
+      mean_error_through_5 = mean(
+        x$error[x$week <= experiment_config$true_parameters[["t_switch"]]]
       ),
       mean_error_after_5 = mean(
-        x$error[x$week >= experiment_config$true_parameters[["t_switch"]]]
+        x$error[x$week > experiment_config$true_parameters[["t_switch"]]]
       ),
       stringsAsFactors = FALSE
     )
@@ -206,21 +226,21 @@ write.csv(paired, file.path(output_dir, "paired_model_comparison.csv"), row.name
 overall <- data.frame(
   quantity = c(
     "RSS", "RMSE", "AOB (absolute task-level mean error)",
-    "mean error before week 5", "mean error from week 5",
+    "mean error through week 5", "mean error after week 5",
     "independent log-likelihood", "Gamma-noise model win proportion by RSS",
     "Gamma-noise model win proportion by RMSE",
     "Gamma-noise model win proportion by AOB"
   ),
   gamma_mean_or_proportion = c(
     mean(paired$RSS_gamma), mean(paired$RMSE_gamma), mean(paired$AOB_gamma),
-    mean(paired$mean_error_before_5_gamma),
+    mean(paired$mean_error_through_5_gamma),
     mean(paired$mean_error_after_5_gamma), mean(paired$logLik_gamma),
     mean(paired$gamma_lower_RSS), mean(paired$gamma_lower_RMSE),
     mean(paired$gamma_lower_AOB)
   ),
   constant_mean = c(
     mean(paired$RSS_constant), mean(paired$RMSE_constant), mean(paired$AOB_constant),
-    mean(paired$mean_error_before_5_constant),
+    mean(paired$mean_error_through_5_constant),
     mean(paired$mean_error_after_5_constant), mean(paired$logLik_constant),
     NA_real_, NA_real_, NA_real_
   ),
@@ -228,8 +248,8 @@ overall <- data.frame(
     median(paired$delta_RSS_gamma_minus_constant),
     median(paired$delta_RMSE_gamma_minus_constant),
     median(paired$delta_AOB_gamma_minus_constant),
-    median(paired$mean_error_before_5_gamma -
-           paired$mean_error_before_5_constant),
+    median(paired$mean_error_through_5_gamma -
+           paired$mean_error_through_5_constant),
     median(paired$mean_error_after_5_gamma -
            paired$mean_error_after_5_constant),
     median(paired$delta_logLik_gamma_minus_constant),
@@ -254,7 +274,7 @@ write.csv(overall, file.path(output_dir, "overall_model_comparison.csv"), row.na
 set_figure_par <- function(mar = c(4.2, 4.5, 0.5, 0.5)) {
   par(
     mar = mar,
-    family = "sans",
+    family = "Helvetica",
     las = 1,
     mgp = c(2.5, 0.7, 0),
     tcl = -0.25,
@@ -262,6 +282,63 @@ set_figure_par <- function(mar = c(4.2, 4.5, 0.5, 0.5)) {
     cex.lab = 1.00,
     bty = "o"
   )
+}
+
+render_base_figure <- function(
+  stem, width, height, draw_figure, pointsize = 8.5, dpi = 600
+) {
+  grDevices::cairo_pdf(
+    paste0(stem, ".pdf"), width = width, height = height,
+    family = "Helvetica", pointsize = pointsize,
+    fallback_resolution = dpi
+  )
+  draw_figure()
+  dev.off()
+
+  if (requireNamespace("svglite", quietly = TRUE)) {
+    svglite::svglite(
+      paste0(stem, ".svg"), width = width, height = height,
+      pointsize = pointsize, system_fonts = list(sans = "Helvetica")
+    )
+  } else {
+    grDevices::svg(
+      paste0(stem, ".svg"), width = width, height = height,
+      pointsize = pointsize, family = "Helvetica", onefile = TRUE
+    )
+  }
+  draw_figure()
+  dev.off()
+
+  if (requireNamespace("ragg", quietly = TRUE)) {
+    ragg::agg_png(
+      paste0(stem, ".png"), width = width, height = height,
+      units = "in", res = 300, background = "white",
+      pointsize = pointsize
+    )
+  } else {
+    grDevices::png(
+      paste0(stem, ".png"), width = width, height = height,
+      units = "in", res = 300, type = "cairo", pointsize = pointsize
+    )
+  }
+  draw_figure()
+  dev.off()
+
+  if (requireNamespace("ragg", quietly = TRUE)) {
+    ragg::agg_tiff(
+      paste0(stem, ".tiff"), width = width, height = height,
+      units = "in", res = dpi, compression = "lzw",
+      background = "white", pointsize = pointsize
+    )
+  } else {
+    grDevices::tiff(
+      paste0(stem, ".tiff"), width = width, height = height,
+      units = "in", res = dpi, compression = "lzw", type = "cairo",
+      pointsize = pointsize
+    )
+  }
+  draw_figure()
+  dev.off()
 }
 
 # ------------------------------------------------------------
@@ -324,39 +401,49 @@ if (include_selected_trajectory_figure) {
 rss_max <- max(260, ceiling(max(c(paired$RSS_gamma, paired$RSS_constant), na.rm = TRUE) / 20) * 20)
 rss_breaks <- seq(0, rss_max, by = 20)
 
-pdf(file.path(figures_dir, "02_RSS_distributions.pdf"), width = 6.15, height = 4.60, useDingbats = FALSE)
-layout(matrix(1:2, ncol = 1))
-set_figure_par(c(2.0, 4.5, 0.5, 0.5))
-hist(
-  paired$RSS_gamma,
-  breaks = rss_breaks,
-  col = "grey82",
-  border = "black",
-  xlim = c(0, rss_max),
-  xaxt = "n",
-  xlab = "",
-  ylab = "Frequency",
-  main = ""
-)
-text(rss_max * 0.98, par("usr")[[4]] * 0.86, "Gamma-noise model", adj = c(1, 0.5), cex = 0.88)
+render_base_figure(
+  file.path(figures_dir, "02_RSS_distributions"),
+  width = 6.15, height = 4.60,
+  draw_figure = function() {
+    layout(matrix(1:2, ncol = 1))
+    set_figure_par(c(2.0, 4.5, 0.5, 0.5))
+    hist(
+      paired$RSS_gamma,
+      breaks = rss_breaks,
+      col = "grey82",
+      border = "black",
+      xlim = c(0, rss_max),
+      xaxt = "n",
+      xlab = "",
+      ylab = "Frequency",
+      main = ""
+    )
+    text(
+      rss_max * 0.98, par("usr")[[4]] * 0.86,
+      "Gamma-noise model", adj = c(1, 0.5), cex = 0.88
+    )
 
-set_figure_par(c(4.2, 4.5, 0.5, 0.5))
-hist(
-  paired$RSS_constant,
-  breaks = rss_breaks,
-  col = "grey82",
-  border = "black",
-  xlim = c(0, rss_max),
-  xlab = "Observation-time point-estimator RSS",
-  ylab = "Frequency",
-  main = ""
+    set_figure_par(c(4.2, 4.5, 0.5, 0.5))
+    hist(
+      paired$RSS_constant,
+      breaks = rss_breaks,
+      col = "grey82",
+      border = "black",
+      xlim = c(0, rss_max),
+      xlab = "Observation-time point-estimator RSS",
+      ylab = "Frequency",
+      main = ""
+    )
+    text(
+      rss_max * 0.98, par("usr")[[4]] * 0.86,
+      "Constant-B", adj = c(1, 0.5), cex = 0.88
+    )
+  }
 )
-text(rss_max * 0.98, par("usr")[[4]] * 0.86, "Constant-B", adj = c(1, 0.5), cex = 0.88)
-dev.off()
 
 # ------------------------------------------------------------
 # Figure 3: signed mean-error distributions in a 2 x 3 panel figure.
-# Columns are overall, before week 5, and from week 5 onward.
+# Columns are overall, through week 5, and after week 5.
 # Rows are Gamma-noise model and constant-B. The dashed vertical
 # line is zero error; the dotted line is the across-task mean error.
 # ------------------------------------------------------------
@@ -368,12 +455,12 @@ mean_error_sets <- list(
     constant = paired$mean_error_constant
   ),
   list(
-    title = "Before week 5",
-    gamma = paired$mean_error_before_5_gamma,
-    constant = paired$mean_error_before_5_constant
+    title = "Through week 5",
+    gamma = paired$mean_error_through_5_gamma,
+    constant = paired$mean_error_through_5_constant
   ),
   list(
-    title = "From week 5",
+    title = "After week 5",
     gamma = paired$mean_error_after_5_gamma,
     constant = paired$mean_error_after_5_constant
   )
@@ -389,38 +476,53 @@ mean_error_max <- max(
 )
 mean_error_breaks <- seq(mean_error_min, mean_error_max, by = 0.25)
 
-pdf(file.path(figures_dir, "03_mean_error_distributions.pdf"), width = 7.15, height = 4.55, useDingbats = FALSE)
-par(mfrow = c(2, 3), oma = c(0.5, 0.5, 0.2, 2.0))
-for (row_name in c("gamma", "constant")) {
-  for (j in seq_along(mean_error_sets)) {
-    z <- mean_error_sets[[j]]
-    values <- z[[row_name]]
-    set_figure_par(c(if (row_name == "constant") 4.0 else 1.7, if (j == 1) 3.8 else 2.0, 1.8, 0.5))
-    hist(
-      values,
-      breaks = mean_error_breaks,
-      col = "grey82",
-      border = "black",
-      xlim = c(mean_error_min, mean_error_max),
-      xaxt = if (row_name == "gamma") "n" else "s",
-      xlab = if (row_name == "constant") "Mean estimation error" else "",
-      ylab = if (j == 1) "Frequency" else "",
-      main = if (row_name == "gamma") z$title else ""
-    )
-    abline(v = 0, lty = 2, lwd = 0.8)
-    abline(v = mean(values, na.rm = TRUE), lty = 3, lwd = 0.9, col = "grey35")
-    if (j == 3) {
-      mtext(
-        if (row_name == "gamma") "Gamma-noise model" else "Constant-B",
-        side = 4,
-        line = 0.7,
-        las = 3,
-        cex = 0.85
-      )
+render_base_figure(
+  file.path(figures_dir, "03_mean_error_distributions"),
+  width = 7.15, height = 4.55,
+  draw_figure = function() {
+    par(mfrow = c(2, 3), oma = c(0.5, 0.5, 0.2, 2.0))
+    for (row_name in c("gamma", "constant")) {
+      for (j in seq_along(mean_error_sets)) {
+        z <- mean_error_sets[[j]]
+        values <- z[[row_name]]
+        set_figure_par(c(
+          if (row_name == "constant") 4.0 else 1.7,
+          if (j == 1) 3.8 else 2.0,
+          1.8, 0.5
+        ))
+        hist(
+          values,
+          breaks = mean_error_breaks,
+          col = "grey82",
+          border = "black",
+          xlim = c(mean_error_min, mean_error_max),
+          xaxt = if (row_name == "gamma") "n" else "s",
+          xlab = if (row_name == "constant") {
+            "Mean estimation error"
+          } else {
+            ""
+          },
+          ylab = if (j == 1) "Frequency" else "",
+          main = if (row_name == "gamma") z$title else ""
+        )
+        abline(v = 0, lty = 2, lwd = 0.8)
+        abline(
+          v = mean(values, na.rm = TRUE), lty = 3, lwd = 0.9,
+          col = "grey35"
+        )
+        if (j == 3) {
+          mtext(
+            if (row_name == "gamma") "Gamma-noise model" else "Constant-B",
+            side = 4,
+            line = 0.7,
+            las = 3,
+            cex = 0.85
+          )
+        }
+      }
     }
   }
-}
-dev.off()
+)
 
 # ------------------------------------------------------------
 # Figure 4: paired RMSE scatter.
@@ -433,23 +535,27 @@ rmse_limits <- c(
   floor(min(all_rmse, na.rm = TRUE) * 10) / 10,
   ceiling(max(all_rmse, na.rm = TRUE) * 10) / 10
 )
-pdf(file.path(figures_dir, "04_paired_RMSE_scatter.pdf"), width = 4.85, height = 4.75, useDingbats = FALSE)
-set_figure_par(c(4.2, 4.5, 0.5, 0.5))
-plot(
-  paired$RMSE_constant,
-  paired$RMSE_gamma,
-  xlim = rmse_limits,
-  ylim = rmse_limits,
-  xaxs = "i",
-  yaxs = "i",
-  asp = 1,
-  pch = 1,
-  cex = 0.75,
-  xlab = "Repeated-static-estimate RMSE",
-  ylab = "Sampled-trajectory RMSE"
+render_base_figure(
+  file.path(figures_dir, "04_paired_RMSE_scatter"),
+  width = 4.85, height = 4.75,
+  draw_figure = function() {
+    set_figure_par(c(4.2, 4.5, 0.5, 0.5))
+    plot(
+      paired$RMSE_constant,
+      paired$RMSE_gamma,
+      xlim = rmse_limits,
+      ylim = rmse_limits,
+      xaxs = "i",
+      yaxs = "i",
+      asp = 1,
+      pch = 1,
+      cex = 0.75,
+      xlab = "Repeated-static-estimate RMSE",
+      ylab = "Filtering-mean RMSE"
+    )
+    abline(0, 1, lty = 2, lwd = 0.9)
+  }
 )
-abline(0, 1, lty = 2, lwd = 0.9)
-dev.off()
 
 # ------------------------------------------------------------
 # Figure 5: RMSE distributions, again using vertically stacked
@@ -457,43 +563,47 @@ dev.off()
 # ------------------------------------------------------------
 
 rmse_breaks <- seq(rmse_limits[[1]], rmse_limits[[2]], by = 0.10)
-pdf(file.path(figures_dir, "05_RMSE_distributions.pdf"), width = 6.15, height = 4.60, useDingbats = FALSE)
-layout(matrix(1:2, ncol = 1))
-set_figure_par(c(2.0, 4.5, 0.5, 0.5))
-hist(
-  paired$RMSE_gamma,
-  breaks = rmse_breaks,
-  col = "grey82",
-  border = "black",
-  xlim = rmse_limits,
-  xaxt = "n",
-  xlab = "",
-  ylab = "Frequency",
-  main = ""
-)
-text(
-  rmse_limits[[2]] - 0.01 * diff(rmse_limits),
-  par("usr")[[4]] * 0.86,
-  "Gamma-noise model", adj = c(1, 0.5), cex = 0.88
-)
+render_base_figure(
+  file.path(figures_dir, "05_RMSE_distributions"),
+  width = 6.15, height = 4.60,
+  draw_figure = function() {
+    layout(matrix(1:2, ncol = 1))
+    set_figure_par(c(2.0, 4.5, 0.5, 0.5))
+    hist(
+      paired$RMSE_gamma,
+      breaks = rmse_breaks,
+      col = "grey82",
+      border = "black",
+      xlim = rmse_limits,
+      xaxt = "n",
+      xlab = "",
+      ylab = "Frequency",
+      main = ""
+    )
+    text(
+      rmse_limits[[2]] - 0.01 * diff(rmse_limits),
+      par("usr")[[4]] * 0.86,
+      "Gamma-noise model", adj = c(1, 0.5), cex = 0.88
+    )
 
-set_figure_par(c(4.2, 4.5, 0.5, 0.5))
-hist(
-  paired$RMSE_constant,
-  breaks = rmse_breaks,
-  col = "grey82",
-  border = "black",
-  xlim = rmse_limits,
-  xlab = "Observation-time point-estimator RMSE",
-  ylab = "Frequency",
-  main = ""
+    set_figure_par(c(4.2, 4.5, 0.5, 0.5))
+    hist(
+      paired$RMSE_constant,
+      breaks = rmse_breaks,
+      col = "grey82",
+      border = "black",
+      xlim = rmse_limits,
+      xlab = "Observation-time point-estimator RMSE",
+      ylab = "Frequency",
+      main = ""
+    )
+    text(
+      rmse_limits[[2]] - 0.01 * diff(rmse_limits),
+      par("usr")[[4]] * 0.86,
+      "Constant-B", adj = c(1, 0.5), cex = 0.88
+    )
+  }
 )
-text(
-  rmse_limits[[2]] - 0.01 * diff(rmse_limits),
-  par("usr")[[4]] * 0.86,
-  "Constant-B", adj = c(1, 0.5), cex = 0.88
-)
-dev.off()
 
 # ------------------------------------------------------------
 # Figure 6: descriptive independent-likelihood difference.
@@ -504,18 +614,22 @@ lik_breaks <- seq(
   ceiling(max(paired$delta_logLik_gamma_minus_constant, na.rm = TRUE) / 3) * 3,
   by = 3
 )
-pdf(file.path(figures_dir, "06_independent_loglik_difference.pdf"), width = 6.15, height = 4.00, useDingbats = FALSE)
-set_figure_par(c(4.4, 4.5, 0.5, 0.5))
-hist(
-  paired$delta_logLik_gamma_minus_constant,
-  breaks = lik_breaks,
-  col = "grey82",
-  border = "black",
-  xlab = "Independent log likelihood difference (Gamma-noise - constant-B)",
-  ylab = "Frequency",
-  main = ""
+render_base_figure(
+  file.path(figures_dir, "06_independent_loglik_difference"),
+  width = 6.15, height = 4.00,
+  draw_figure = function() {
+    set_figure_par(c(4.4, 4.5, 0.5, 0.5))
+    hist(
+      paired$delta_logLik_gamma_minus_constant,
+      breaks = lik_breaks,
+      col = "grey82",
+      border = "black",
+      xlab = "Independent log likelihood difference (Gamma-noise - constant-B)",
+      ylab = "Frequency",
+      main = ""
+    )
+    abline(v = 0, lty = 2, lwd = 0.9)
+  }
 )
-abline(v = 0, lty = 2, lwd = 0.9)
-dev.off()
 
 cat("Paired model comparison complete. Outputs: ", output_dir, " and ", figures_dir, "\n", sep = "")
