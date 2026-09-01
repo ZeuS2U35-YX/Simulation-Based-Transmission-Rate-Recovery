@@ -16,15 +16,23 @@ It is intentionally scoped to `code/06_plot_three_model_comparison.R` through
 `.renvignore`; it is not the dependency environment for the MIF2, particle
 filtering, or other analysis scripts in this directory.
 
-## 1. Obtain the repository
+## 1. Obtain the repository or replication bundle
 
 ```bash
 git clone https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery.git
 cd Simulation-Based-Transmission-Rate-Recovery/experiments/experiment_5_bspline_B_recovery
 ```
 
-If Git is unavailable, download the repository ZIP from GitHub, extract it,
-and open a terminal in `experiments/experiment_5_bspline_B_recovery`.
+If Git is unavailable, download the repository source ZIP from GitHub,
+extract it, and open a terminal in
+`experiments/experiment_5_bspline_B_recovery`.
+
+After the planned `v1.1.0` release is published, the custom
+`Simulation-Based-Transmission-Rate-Recovery-v1.1.0-full-replication.zip`
+asset provides the same tracked plotting inputs plus the accepted shared data
+and raw task-level outputs. The custom full-replication ZIP is distinct from
+GitHub's automatically generated source-code ZIP. Raw task directories are not
+needed for this figure-only workflow.
 
 ## 2. Restore the locked R environment
 
