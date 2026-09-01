@@ -260,27 +260,27 @@ supports the final Experiment 5 figure-only workflow documented at the
 repository root; it does not contain the raw inputs needed to reconstruct all
 200 filtering means.
 
-## Historical completed-run validation and two-model results
+## Completed-run validation and headline results
 
 The packaged run passed the model-specific combination checks for all 200 tasks. Both models have 200 of 200 tasks present, no missing tasks, no combination problems, unique task IDs, `Nmif = 600`, and successful best-fit status. The paired data check confirms matching simulation seeds and identical observed-data MD5 checksums for the two models on every task.
 
-The main recovery summaries from `results/comparison/overall_model_comparison.csv` compare one sampled Gamma trajectory per task with the fitted constant value repeated over the same 70 observation times:
+The main recovery summaries in `results/comparison/overall_model_comparison.csv` compare one Gamma particle filtering mean per task with the fitted constant value repeated over the same 70 observation times:
 
-- mean RSS: Gamma-noise model 33.054; constant-B 102.833;
-- mean RMSE: Gamma-noise model 0.653; constant-B 1.199;
-- mean AOB: Gamma-noise model 0.229; constant-B 0.606;
-- mean post-switch signed mean error: Gamma-noise model 0.008; constant-B 1.576;
-- the Gamma-noise model has lower RSS and lower RMSE on 97.5% of paired tasks;
-- the Gamma-noise model has lower AOB on 88.5% of paired tasks.
+- mean RSS: Gamma-noise 20.055; constant-B 100.528;
+- mean RMSE: Gamma-noise 0.522; constant-B 1.186;
+- mean AOB: Gamma-noise 0.160; constant-B 0.579;
+- mean error through week 5: Gamma-noise -0.087; constant-B -0.424;
+- mean error after week 5: Gamma-noise 0.086; constant-B 1.576;
+- Gamma-noise has lower RSS and RMSE on all 200 paired tasks and lower AOB on 90%.
 
-Figures 01 and 08 use the same task-1 and task-117 sampled trajectories already included in the 200-task recovery metrics. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Neither MIF2 nor the independent likelihood evaluations were rerun for this correction.
+Week 5 belongs to the `through week 5` period and has true `B = 4`; the `after week 5` period uses only `week > 5`. Figures 01 and 08 instead use sampled trajectories solely as selected-task illustrations. The independent likelihood comparison remains a descriptive fitting diagnostic rather than a complexity-adjusted model-selection test. Regenerating filtering means reruns only the final particle filters; it does not rerun MIF2 or the independent likelihood evaluations.
 
 ## Rerunning an incomplete or failed task
 
-A complete task is skipped. An incomplete task directory causes the script to stop rather than overwrite it. Inspect the log first, then remove only the failed task directory and resubmit that array index. For example:
+A complete task is skipped. An incomplete task directory causes the script to stop rather than overwrite it. Inspect the log first and move the failed task directory to a timestamped quarantine location before resubmitting that array index. Do not delete results during diagnosis. For example:
 
 ```bash
-rm -rf results_raw/gamma/task_149
+mv results_raw/gamma/task_149 results_raw/gamma/task_149.incomplete.$(date +%Y%m%dT%H%M%S)
 sbatch --array=149 hpc/02_gamma_array.sh
 ```
 
