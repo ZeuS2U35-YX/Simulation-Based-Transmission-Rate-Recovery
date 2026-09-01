@@ -19,6 +19,16 @@ Rscript code/04_combine_results.R \
 Rscript code/04_combine_results.R \
   constant results_raw/constant results/combined/constant 1:200
 
+Rscript code/10_regenerate_filtering_means.R \
+  results/combined/gamma/combined_B_paths.csv \
+  results/combined/gamma/filtering_mean_provenance.csv \
+  1 1:200
+
+Rscript code/09_regenerate_sampled_B_trajectories.R \
+  results/selected_trajectory/sampled_gamma_B_paths.csv \
+  results/selected_trajectory/sampled_gamma_B_path_provenance.csv \
+  1 1,117
+
 Rscript code/07_generate_task1_comparison_figures.R
 Rscript code/08_generate_task117_comparison_figures.R
 
