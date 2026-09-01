@@ -4,7 +4,7 @@ This file distinguishes the dependency-locked environment used to reproduce
 the final Experiment 5 comparison figures from the partially recorded
 historical environments used for the full HPC fitting runs.
 
-## Version 1.0.0 scope
+## Archived v1.0.0 scope
 
 Repository version 1.0.0 contains a dependency lockfile managed by renv for
 the final three-model figure-reproduction workflow under:
@@ -16,6 +16,20 @@ archived Experiment 5 figures and figure source-data files. It is intentionally
 scoped to the plotting workflow and does not claim exact restoration of the
 historical environments used for the complete MIF2 and particle-filtering HPC
 runs.
+
+## Distribution modes
+
+The project has three reproducibility modes with different software claims:
+
+| Distribution or workflow | Included evidence | Software boundary |
+| --- | --- | --- |
+| Fresh Git clone or GitHub source archive | Tracked final three-model summaries, figure source data, plotting code, and `renv.lock` | Restores the final Experiment 5 plotting environment |
+| Planned `v1.1.0` full-replication ZIP | The tracked source plus Experiment 4 accepted shared data, Experiment 4 Gamma/constant raw outputs, and Experiment 5 B-spline raw outputs | Supports inspection, validation, and recombination of retained task results; it does not reconstruct missing historical package versions |
+| New full HPC rerun | Newly generated simulations and three fitted-model workflows | Requires Slurm, a compatible compiler, `pomp`, and a deliberately provisioned analysis environment |
+
+Adding raw data and task outputs to the full-replication ZIP does not turn the
+partially recorded historical HPC environment into a dependency-locked or
+containerized environment.
 
 ## Locked Experiment 5 figure environment
 
@@ -121,8 +135,12 @@ documentation.
 
 ## Reproducibility boundary
 
-Version 1.0.0 supports exact restoration of the final figure-generation
-environment and regeneration of the tracked three-model comparison figures
-from retained source data. It does not provide a containerized reconstruction
-of the complete historical HPC fitting environment. This distinction should
-be preserved in manuscript reproducibility statements.
+A fresh clone supports restoration of the final figure-generation environment
+and regeneration of the tracked three-model comparison figures from retained
+source data. The planned `v1.1.0` full-replication ZIP additionally preserves
+the accepted shared data and required raw task outputs at their original
+relative paths, enabling validation and recombination without claiming exact
+restoration of the original HPC dependencies. A new full fit remains a
+computationally expensive Slurm workflow whose complete historical package
+environment was not preserved as a lockfile or container image. These
+distinctions should be retained in manuscript reproducibility statements.
