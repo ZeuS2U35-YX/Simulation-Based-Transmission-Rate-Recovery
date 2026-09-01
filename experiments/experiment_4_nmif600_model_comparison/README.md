@@ -1,6 +1,6 @@
-# Experiment 4: Gamma-noise versus constant-B comparison at `Nmif = 600`
+# Experiment 4: two-model computational foundation at `Nmif = 600`
 
-Experiment 4 is the canonical computational analysis in this repository and the primary source of quantitative evidence for the report. It replaces Experiment 3's earlier `Nmif = 100` workflow as the source of final Gamma-noise model numerical claims. Experiments 1-3 remain developmental or supporting studies.
+Experiment 4 is the primary computational foundation for the final study. It provides the 200 accepted data sets and the `Nmif = 600` Gamma-noise and constant-B fits. Experiment 5 fits a deterministic six-basis cubic B-spline to the same data and is the final paired three-model manuscript analysis. Experiment 4 therefore remains foundational rather than the final model comparison. Experiments 1–3 remain developmental or supporting studies.
 
 ## Research question
 
@@ -9,7 +9,11 @@ This experiment asks which of two fitted partially observed Markov process (POMP
 1. a Gamma-noise model with latent time-varying `B(t)`;
 2. a deliberately restricted constant-B comparator that cannot represent temporal variation in `B(t)`.
 
+The B-spline model is intentionally not fitted in Experiment 4; it is added in Experiment 5 as the third fitted model.
+
 Both models are fitted by iterated filtering (MIF2) with `Nmif = 600` on **the same 200 accepted simulated epidemic data sets**. Acceptance requires `max(H) > 20`, so the reported performance is conditional on informative accepted outbreaks rather than unconditional over all attempted simulations. For each data set, the best Gamma fit is followed by one ancestry-preserving sampled latent `B(t)` trajectory from the final particle filter. Numerical comparisons use residual sum of squares (RSS), root mean squared error (RMSE), signed mean error, and absolute overall bias (AOB) calculated from that sampled trajectory and the repeated fitted constant-B estimate. Independent particle-filter log likelihoods are retained as descriptive fitting diagnostics, not as complexity-adjusted model-selection criteria.
+
+These sampled-trajectory results document the historical two-model Experiment 4 analysis. The final manuscript-facing three-model metrics are calculated in Experiment 5 from Gamma particle-filtering means, selected deterministic B-spline trajectories, and repeated constant-B estimates.
 
 ## Fixed experiment settings
 
@@ -21,6 +25,8 @@ The shared data-generating model uses:
 - 10 weeks, 70 daily observation times, Euler step `1/30` week;
 - acceptance rule `max(H) > 20`;
 - simulation seeds 1001 through 1200.
+
+The Experiment 4 code and retained artifacts use the historical endpoint convention `B(t) = 4` for `t < 5` and `B(t) = 2` for `t >= 5`, including `B(5) = 2`. The final Experiment 5 three-model reporting normalizes the shared comparison truth to `B(5) = 4` and defines the low period by `t > 5`. Experiment 4 outputs remain unchanged for provenance and must not be mixed with the normalized Experiment 5 primary metrics.
 
 Both fitted models use:
 
@@ -52,16 +58,16 @@ Constant-B starts:
 config/                         Single experiment configuration
 code/                           Data generation, fitting, combination, analysis
 hpc/                            Slurm scripts and submission wrappers
-shared_data/task_###/           One immutable shared data set per task
-results_raw/gamma/task_###/     Gamma task-level outputs
-results_raw/constant/task_###/  Constant-B task-level outputs
+shared_data/task_###/           One immutable shared data set per task [full bundle or generated locally; not in Git]
+results_raw/gamma/task_###/     Gamma task-level outputs [full bundle or generated locally; not in Git]
+results_raw/constant/task_###/  Constant-B task-level outputs [full bundle or generated locally; not in Git]
 results/combined/               Validated model-specific combined tables
 results/comparison/             Paired model-comparison tables
 results/selected_trajectory/    Selected task-1 and task-117 comparisons and provenance
 figures/comparison/             Final model-comparison PDFs
 figures/convergence/            Nmif = 600 convergence diagnostics
-logs/                           Slurm stdout and stderr
-downloads/                      Final downloadable tar.gz archive
+logs/                           Slurm stdout and stderr [generated locally; not in Git]
+downloads/                      Optional local HPC package output [generated locally; not in Git]
 ```
 
 Each task is written through a temporary directory and atomically renamed only after completion. A completed task contains a `COMPLETE` marker and is skipped on resubmission. Existing complete results are never overwritten automatically.
@@ -79,6 +85,10 @@ export R_LIBS_USER="$HOME/packages-R4.1"
 The Slurm scripts intentionally do **not** hard-code a partition. On the Frontenac CAC system used for this run, explicit partition names caused submission failures for this account, while submitting without `--partition` allowed the scheduler to choose an eligible partition automatically. Fitting tasks request one CPU, 12 GB memory, and a 24-hour wall-time limit.
 
 The completed five-task pilot showed that these limits were conservative. Gamma-noise tasks took approximately 1 hour 9-11 minutes, while constant-B tasks took approximately 33-36 minutes. Peak resident memory was about 200 MB, so the requested resources should be interpreted as safety ceilings rather than expected usage.
+
+## Distribution boundary
+
+A fresh Git clone contains code, configuration, validated combined tables, selected artifacts, and tracked figures. It does not contain `shared_data/`, `results_raw/`, Slurm logs, or `downloads/`. The repository-level full-replication ZIP adds the accepted shared data and required task-level raw results at their original relative paths. Use the full bundle to inspect or recombine the completed historical tasks; use the workflow below to generate a new complete run.
 
 ## Recommended workflow
 
@@ -145,19 +155,13 @@ The wrapper submits, in order:
 
 Pilot task directories already marked `COMPLETE` are validated and skipped.
 
-### 4. Download the completed experiment
+### 4. Optional local packaging
 
-After the post-processing job succeeds, download:
-
-```text
-downloads/experiment_4_nmif600_model_comparison_outputs.tar.gz
-```
-
-The archive includes code, configuration, shared data, task-level outputs, combined tables, figures, and logs. Its file list is stored in:
-
-```text
-downloads/experiment_4_nmif600_model_comparison_manifest.txt
-```
+After a completed HPC run, `bash hpc/package_outputs.sh` creates the local archive
+`downloads/experiment_4_nmif600_model_comparison_outputs.tar.gz` and its
+manifest. These generated files are not tracked by Git and are not public
+download links. The published one-download artifact is the repository-level
+`v1.1.0` full-replication ZIP described in the root README.
 
 ## Main outputs
 
@@ -195,15 +199,15 @@ The figures use a restrained publication style with a white background, no decor
 
 The Gamma curves in Figures 01 and 08 are the exact sampled paths used for the corresponding task-level recovery metrics. Each is one ancestry-preserving finite-particle plug-in approximation to a smoothing trajectory conditional on the complete observation series. It is not a filtering mean, an exact posterior draw, an uncertainty interval, or an across-task average. The constant curves are fitted static estimates repeated over time, not latent trajectories. The figures include `t0`; RSS, RMSE, mean error, and AOB use only the 70 observation times.
 
-Figures 01-05 and 08 provide the primary recovery summaries for the report. Figure 06 should be presented only with its stated likelihood-interpretation boundary.
+Figures 01–05 and 08 document the historical Experiment 4 two-model recovery analysis. They are not the final three-model manuscript figures; those are produced in Experiment 5. Figure 06 should be presented only with its stated likelihood-interpretation boundary.
 
-## Canonical lightweight figure regeneration
+## Post-processing and trajectory reconstruction
 
 `code/09_regenerate_sampled_B_trajectories.R` reconstructs the 200 canonical Gamma paths from the saved best-fit parameter records. It does not rerun MIF2 or the five independent likelihood evaluations. For each task, it runs the final 50,000-particle filter with `filter.traj = TRUE`, extracts one path with `filter_traj()`, verifies the saved final-filter log likelihood, and writes the 70 observation-time values.
 
 `code/07_generate_task1_comparison_figures.R` and `code/08_generate_task117_comparison_figures.R` then read the canonical sampled paths used by the recovery metrics and generate the selected-task figures. They do not run another particle filter, so the displayed curve and the metric input cannot diverge.
 
-The canonical lightweight generators are:
+The Experiment 4 post-processing generators are:
 
 - `code/09_regenerate_sampled_B_trajectories.R` for the 200 sampled Gamma paths;
 - `code/07_generate_task1_comparison_figures.R` for Figure 01;
@@ -235,9 +239,11 @@ Rscript code/06_make_convergence_diagnostics.R \
   figures/convergence
 ```
 
+In a fresh clone, `code/05_compare_models.R` and `code/06_make_convergence_diagnostics.R` can use the tracked combined tables. The full 200-path reconstruction in `code/09_regenerate_sampled_B_trajectories.R` requires the accepted shared data and completed fit records supplied by the full bundle or a new run; the selected-task scripts should be treated as downstream of those validated reconstructed paths.
+
 `code/07_generate_selected_B_trajectory.R` is retained as a backward-compatible wrapper for the task-1 generator. The Python regeneration script is non-canonical; the R workflow above is the authoritative route for Figures 01 and 08. Pilot regeneration deliberately omits the selected-task figures.
 
-## Completed-run validation and headline results
+## Historical completed-run validation and two-model results
 
 The packaged run passed the model-specific combination checks for all 200 tasks. Both models have 200 of 200 tasks present, no missing tasks, no combination problems, unique task IDs, `Nmif = 600`, and successful best-fit status. The paired data check confirms matching simulation seeds and identical observed-data MD5 checksums for the two models on every task.
 
