@@ -238,7 +238,7 @@ empty_path <- data.frame(
   week = numeric(0),
   B_estimate = numeric(0),
   B_true = numeric(0),
-  trajectory_seed = integer(0),
+  filter_seed = integer(0),
   path_semantics = character(0),
   stringsAsFactors = FALSE
 )
@@ -265,7 +265,7 @@ if (nrow(valid) == 0L) {
       gamma_model,
       params = theta_best,
       Np = config$Np_final,
-      filter.traj = TRUE
+      filter.mean = TRUE
     ),
     error = function(e) structure(
       list(message = conditionMessage(e)), class = "final_pf_error"
@@ -278,35 +278,37 @@ if (nrow(valid) == 0L) {
     final_pf_success <- FALSE
     final_status <- "final_pf_failed"
   } else {
-    sampled <- tryCatch(
-      filter_traj(pf_best, vars = "B", format = "data.frame"),
+    filtering_mean <- tryCatch(
+      filter_mean(pf_best, vars = "B", format = "data.frame"),
       error = function(e) structure(
-        list(message = conditionMessage(e)), class = "trajectory_error"
+        list(message = conditionMessage(e)), class = "filter_mean_error"
       )
     )
 
-    expected_times <- c(0, observed_data$week)
-    valid_sample <- !inherits(sampled, "trajectory_error") &&
-      all(c("time", "value") %in% names(sampled)) &&
-      nrow(sampled) == length(expected_times) &&
-      all(is.finite(sampled$time)) && all(is.finite(sampled$value)) &&
-      max(abs(sampled$time - expected_times)) <= 1e-12 &&
-      !is.unsorted(sampled$time, strictly = TRUE) &&
-      !anyDuplicated(sampled$time)
+    expected_times <- observed_data$week
+    valid_filtering_mean <- !inherits(filtering_mean, "filter_mean_error") &&
+      all(c("time", "value") %in% names(filtering_mean)) &&
+      nrow(filtering_mean) == length(expected_times) &&
+      all(is.finite(filtering_mean$time)) &&
+      all(is.finite(filtering_mean$value)) &&
+      max(abs(filtering_mean$time - expected_times)) <= 1e-12 &&
+      !is.unsorted(filtering_mean$time, strictly = TRUE) &&
+      !anyDuplicated(filtering_mean$time) &&
+      (!("name" %in% names(filtering_mean)) ||
+       identical(unique(as.character(filtering_mean$name)), "B"))
 
-    if (!valid_sample) {
+    if (!valid_filtering_mean) {
       B_path <- empty_path
       final_pf_logLik <- as.numeric(logLik(pf_best))
       final_pf_success <- FALSE
-      final_status <- "sampled_trajectory_extraction_failed"
+      final_status <- "filtering_mean_extraction_failed"
     } else {
-      sampled_observation_times <- sampled[-1L, , drop = FALSE]
       B_path <- data.frame(
-        week = as.numeric(sampled_observation_times$time),
-        B_estimate = as.numeric(sampled_observation_times$value),
-        B_true = true_B_at_times(sampled_observation_times$time, config),
-        trajectory_seed = final_pf_seed,
-        path_semantics = "ancestry_preserving_sampled_latent_trajectory",
+        week = as.numeric(filtering_mean$time),
+        B_estimate = as.numeric(filtering_mean$value),
+        B_true = true_B_at_times(filtering_mean$time, config),
+        filter_seed = final_pf_seed,
+        path_semantics = "particle_filtering_mean",
         stringsAsFactors = FALSE
       )
       final_pf_logLik <- as.numeric(logLik(pf_best))
