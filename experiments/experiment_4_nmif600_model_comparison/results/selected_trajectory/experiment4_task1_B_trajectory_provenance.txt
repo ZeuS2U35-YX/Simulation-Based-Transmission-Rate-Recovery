@@ -9,14 +9,15 @@ Gamma_B0_hat: 4.3503297773001197
 Gamma_sigma_beta_hat: 0.206674783764282
 constant_Beta_hat: 4.0453494040449103
 trajectory_seed: 21260900
-trajectory_source: canonical Gamma combined_B_paths.csv used for the recovery metrics
+trajectory_source: example-only sampled Gamma path; not used for recovery metrics
 trajectory_semantics: one ancestry-preserving sampled latent trajectory from the final plug-in particle-filter approximation
-metric_times: 70 observation times; t0 excluded from RSS, RMSE, mean error, and AOB
+main_analysis_source: particle filtering mean at 70 observation times
+sampled_trajectory_used_for_metrics: no
 figure_times: t0 plus the 70 observation times
 filtering_mean_used: no
 across_task_average_used: no
 parameter_uncertainty_integrated: no
 R_version: R version 4.5.2 (2025-10-31)
 ggplot2_version: 4.0.3
-generated_at_utc: 2026-08-17 02:28:15 UTC
-comparison_csv_sha256: 5c04fedfd2227fe3a7376c46a82723b0f326bcd4eccb34c28239bc878e053272
+generated_at_utc: 2026-08-19 17:39:13 UTC
+comparison_csv_sha256: b47c6053d96bf385f84182b6cc03491fea79d5d00b3aa84107538e317d9dc84a
