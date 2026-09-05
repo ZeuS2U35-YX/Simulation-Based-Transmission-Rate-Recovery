@@ -52,7 +52,9 @@ Rscript code/06_plot_three_model_comparison.R
 
 The lockfile is scoped through the Experiment 5 configuration. It is not the
 dependency environment for MIF2, particle filtering, or the other experiment
-directories.
+directories. Experiment 5 fitting, validation, and post-processing entry
+points therefore invoke `Rscript --vanilla`; only the figure workflow relies
+on the directory's automatic renv activation.
 
 ## Recorded historical HPC configuration
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=exp4_gamma600
-#SBATCH --array=1-200%20
+# The submission wrapper supplies the array range explicitly.
 #SBATCH --time=24:00:00
 #SBATCH --mem=12G
 #SBATCH --cpus-per-task=1
@@ -8,6 +8,7 @@
 #SBATCH --error=logs/gamma/slurm-%A_%a.err
 
 set -euo pipefail
+: "${SLURM_ARRAY_TASK_ID:?Submit with an explicit --array range.}"
 module --force purge
 module load StdEnv/2020
 module load r/4.1.2

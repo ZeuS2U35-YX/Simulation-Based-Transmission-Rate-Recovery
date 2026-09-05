@@ -1,6 +1,12 @@
 # Experiment 3/4 B-trajectory audit
 
-> **Historical audit record.** This audit predates the current Experiment 4 sampled-trajectory analysis. Its filtering-mean findings and values, including the earlier RMSE and win-count summaries, are preserved as evidence of the issue that prompted correction; they are not active Experiment 4 results. Use the Experiment 4 README, `results/comparison/`, and `results/selected_trajectory/` for the current estimands, values, and provenance.
+> **Historical audit record.** This audit predates the current Experiment 4
+> analysis. Current aggregate recovery metrics use per-task particle filtering
+> means; ancestry-preserving sampled trajectories are retained only for
+> selected-task illustrations. The values below document the issue and the
+> intervening repair stages rather than the active results. Use the Experiment
+> 4 README, `results/comparison/`, and `results/selected_trajectory/` for the
+> current estimands, values, and provenance.
 
 ## 1. Executive verdict: FAIL
 

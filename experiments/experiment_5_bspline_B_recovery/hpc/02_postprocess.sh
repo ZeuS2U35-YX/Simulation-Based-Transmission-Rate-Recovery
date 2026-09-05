@@ -13,6 +13,6 @@ module load r/4.1.2
 export R_LIBS_USER="$HOME/packages-R4.1"
 cd "$SLURM_SUBMIT_DIR"
 
-Rscript code/03_combine_results.R
-Rscript code/04_compare_with_gamma.R
-Rscript code/05_compare_three_models.R
+Rscript --vanilla code/03_combine_results.R
+Rscript --vanilla code/04_compare_with_gamma.R
+Rscript --vanilla code/05_compare_three_models.R

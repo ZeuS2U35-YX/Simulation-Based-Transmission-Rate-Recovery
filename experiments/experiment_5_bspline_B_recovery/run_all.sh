@@ -10,12 +10,12 @@ if [[ "${EXP5_CONFIRM_200_TASKS:-}" != "YES" ]]; then
   exit 2
 fi
 
-Rscript code/01_validate_paired_inputs.R
+Rscript --vanilla code/01_validate_paired_inputs.R
 
 for task_id in $(seq 1 200); do
-  Rscript code/02_fit_bspline_B.R "$task_id"
+  Rscript --vanilla code/02_fit_bspline_B.R "$task_id"
 done
 
-Rscript code/03_combine_results.R
-Rscript code/04_compare_with_gamma.R
-Rscript code/05_compare_three_models.R
+Rscript --vanilla code/03_combine_results.R
+Rscript --vanilla code/04_compare_with_gamma.R
+Rscript --vanilla code/05_compare_three_models.R

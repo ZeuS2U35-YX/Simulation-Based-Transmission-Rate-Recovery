@@ -5,6 +5,27 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+if [[ "${1:-}" == "--dry-run" ]]; then
+  printf '%s\n' \
+    'Experiment 4 pilot submission plan (no commands executed):' \
+    '  1. Create the fixed parameter list.' \
+    '  2. Submit tasks 1, 50, 100, 150, and 200 for shared data and both models.' \
+    '  3. Submit pilot post-processing after both model arrays succeed.' \
+    'Run with EXP4_CONFIRM_PILOT_SUBMIT=YES to submit.'
+  exit 0
+fi
+if [[ $# -ne 0 ]]; then
+  printf 'Usage: bash hpc/submit_pilot.sh [--dry-run]\n' >&2
+  exit 2
+fi
+if [[ "${EXP4_CONFIRM_PILOT_SUBMIT:-}" != "YES" ]]; then
+  printf '%s\n' \
+    'Submission stopped before file creation or sbatch.' \
+    'Review with: bash hpc/submit_pilot.sh --dry-run' \
+    'Submit with: EXP4_CONFIRM_PILOT_SUBMIT=YES bash hpc/submit_pilot.sh' >&2
+  exit 2
+fi
+
 mkdir -p logs/data logs/gamma logs/constant logs/pilot \
   shared_data results_raw/gamma results_raw/constant \
   results/pilot_combined/gamma results/pilot_combined/constant \
@@ -14,6 +35,8 @@ module --force purge
 module load StdEnv/2020
 module load r/4.1.2
 export R_LIBS_USER="$HOME/packages-R4.1"
+command -v sbatch >/dev/null
+Rscript --vanilla -e 'stopifnot(requireNamespace("pomp", quietly = TRUE)); cat(R.version.string, "\npomp ", as.character(packageVersion("pomp")), "\n", sep = "")'
 Rscript code/00_create_paramlist.R results/paramlist.csv
 
 clean_job_id() { echo "${1%%;*}"; }

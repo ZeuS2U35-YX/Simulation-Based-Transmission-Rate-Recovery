@@ -1,306 +1,226 @@
 # Simulation-Based Transmission-Rate Recovery
 
+[![Validate tracked results](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/actions/workflows/validate.yml/badge.svg)](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/actions/workflows/validate.yml)
 [![Archived release v1.0.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22127917.svg)](https://doi.org/10.5281/zenodo.22127917)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-This repository contains simulation, fitting, recovery, validation, and
-figure-generation workflows for recovering a time-varying epidemic
-transmission rate, \(B(t)\), from partially observed epidemic data.
+This project studies how well three transmission-rate representations recover
+a prescribed step change from partially observed stochastic SIR epidemics. All
+three models are evaluated on the same 200 accepted simulated outbreaks, with
+task IDs, random seeds, and data checksums used to enforce pairing.
 
-The study has **one shared data-generating stochastic SIR process** and
-**three fitted transmission-rate models**:
+The repository contains the R workflows, retained post-processed evidence,
+publication-quality figures, provenance checks, and a lightweight numerical
+regression test. It also states explicitly which parts of the historical HPC
+analysis can and cannot be reproduced from a fresh clone.
 
-1. a Gamma-noise model with a latent stochastic \(B(t)\), summarized for the
-   primary analysis by observation-time particle filtering means;
-2. a deterministic non-periodic cubic B-spline model for \(\log B(t)\), using
-   six B-spline basis coefficients;
-3. a constant-\(B\) model using one fitted transmission-rate value over the
-   complete epidemic.
-
-The six B-spline coefficients are components of one fitted B-spline model;
-they are not six separate models. The stochastic SIR data-generating process
-is also not counted as a fourth fitted model.
-
-> **Release status.** The current public release is
+> **Development status.** The archived public release is
 > [v1.0.0](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases/tag/v1.0.0).
-> A single-download full-replication package is being prepared for a future
-> `v1.1.0` release, but `v1.1.0` has not been published. No DOI has been
-> assigned to `v1.1.0`.
+> Post-v1.0.0 work corrects the Gamma-noise aggregate path from an
+> ancestry-sampled trajectory to the observation-time particle filtering mean.
+> It also normalizes the reporting truth at week 5 to $B(5)=4$ without changing
+> the simulated observations, fitted parameters, or likelihood evaluations.
+> Because that changes an analysis estimand and its numerical summaries, it is
+> recorded as an analysis correction rather than a documentation-only change.
+> The original release remains immutable; no v1.1.0 release or DOI is claimed.
 
-## Study design
+## Results at a glance
 
-One stochastic SIR data-generating process is used to produce the shared
-simulation replicates. Each accepted replicate contains 70 observation times
-over 10 weeks. Reported cases follow a negative-binomial measurement model.
-Replicates are retained when \(\max(H)>20\), so the reported recovery
-performance is conditional on this informative-outbreak acceptance rule.
+The final comparison evaluates latent-path recovery over the complete 10-week,
+70-observation-time window. Lower RMSE is better.
 
-The same 200 accepted simulated case series are used for all three fitted
-models. Pairing is checked using task identifiers, simulation seeds, and
-observed-data checksums.
+| Fitted model | Representation of $B(t)$ | Mean RMSE |
+| --- | --- | ---: |
+| Gamma-noise | Positive latent stochastic process; particle filtering mean | 0.5218 |
+| B-spline | Deterministic non-periodic cubic spline for $\log B(t)$ with six basis coefficients | 0.7128 |
+| Constant-$B$ | One fitted scalar repeated across the observation window | 1.1858 |
 
-### Week-5 convention and provenance
+In paired replicate-level comparisons, Gamma-noise has lower RMSE than
+B-spline in 162/200 tasks, B-spline has lower RMSE than constant-$B$ in
+188/200 tasks, and Gamma-noise has lower RMSE than constant-$B$ in 200/200
+tasks.
 
-The transmission-rate step occurs at week 5, but two endpoint conventions are
-present in the retained record and must be distinguished. Historical
-step-change workflows and raw truth labels underlying Experiments 1–4 used
-\(B(t)=4\) for \(t<5\) and \(B(t)=2\) for \(t\geq5\), so the exact week-5
-point was labelled \(B(5)=2\). This statement does not apply to Experiment
-1's separate constant-\(B=4\) scenario.
+![Paired RMSE comparison across the three fitted models](experiments/experiment_5_bspline_B_recovery/figures/comparison_three_models/01_three_model_RMSE_comparison.png)
 
-The current post-processing code and final Experiment 5 reporting normalize
-the common comparison truth to \(B(5)=4\), using \(B(t)=4\) for \(t\leq5\)
-and \(B(t)=2\) for \(t>5\), and recompute the reported recovery metrics under
-that convention without changing the historical observed data, fitted
-coefficients, or fitted model objects. Historical raw files are retained as
-provenance; their truth labels or metrics must not be mixed with the normalized
-final tables.
+These results concern recovery of a known latent transmission path under one
+configured simulation design. They are not predictive-performance results,
+significance tests, or evidence of a universal ranking on real surveillance
+data.
 
-| Fitted model | Representation of \(B(t)\) | Primary path used for comparison |
-| --- | --- | --- |
-| Gamma-noise | Positive latent stochastic process | Observation-time particle filtering mean |
-| B-spline | Deterministic non-periodic cubic B-spline for \(\log B(t)\) with six basis coefficients | Selected deterministic B-spline trajectory |
-| Constant-\(B\) | One fitted scalar over the complete epidemic | Fitted scalar repeated at all observation times |
+Primary retained evidence:
 
-All three models are fitted within a partially observed Markov process
-framework using multi-start iterated filtering. Starting values, particles,
-Euler substeps, repeated likelihood evaluations, and observation times are
-computational or within-replicate components. The independent analysis unit is
-the accepted simulation replicate.
+- [overall three-model summary](experiments/experiment_5_bspline_B_recovery/results/comparison_three_models/three_model_overall_summary.csv);
+- [paired RMSE summary](experiments/experiment_5_bspline_B_recovery/results/comparison_three_models/pairwise_RMSE_summary.csv);
+- [paired-input manifest](experiments/experiment_5_bspline_B_recovery/results/paired_input_manifest.csv);
+- [figure source data and visual QA](experiments/experiment_5_bspline_B_recovery/figures/comparison_three_models/).
 
-## Primary analysis
+## Five-minute verification
 
-Experiment 4 and Experiment 5 have distinct roles:
-
-- **Experiment 4 is the two-model computational foundation.** It generates the
-  200 accepted shared data sets and fits the Gamma-noise and constant-\(B\)
-  models.
-- **Experiment 5 is the final three-model analysis.** It fits the deterministic
-  six-basis cubic B-spline model to the same accepted Experiment 4 data and
-  combines all three fitted models in one paired comparison.
-
-The final design is therefore:
-
-```text
-one shared stochastic SIR data-generating process
-  -> 200 accepted simulated epidemic replicates
-  -> 200 Gamma-noise fits
-  -> 200 deterministic six-basis cubic B-spline fits
-  -> 200 constant-B fits
-  -> exactly 200 paired three-model comparison rows
-```
-
-Under the normalized Experiment 5 reporting convention, the final comparison
-gives the following mean replicate-level RMSE values:
-
-| Model | Mean RMSE |
-| --- | ---: |
-| Gamma-noise | 0.5218 |
-| Deterministic six-basis cubic B-spline | 0.7128 |
-| Constant-\(B\) | 1.1858 |
-
-Gamma-noise has lower RMSE than B-spline in 162 of 200 paired replicates.
-B-spline has lower RMSE than constant-\(B\) in 188 of 200 paired replicates.
-Gamma-noise has lower RMSE than constant-\(B\) in all 200 paired replicates.
-
-These are latent transmission-path recovery results for the configured
-single-step-change simulation. They are not predictive-performance
-comparisons, do not establish a universal ranking of the three models, and
-should not be generalized directly to real surveillance data.
-
-## Experiment hierarchy
-
-| Experiment | Role | Status |
-| --- | --- | --- |
-| [Experiment 1](experiments/experiment_1_gamma_B_recovery/) | Developmental Gamma-noise fitting scenarios and starting-value diagnostics | Supporting |
-| [Experiment 2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | High-particle, single-data-set Gamma-noise diagnostic | Supporting |
-| [Experiment 3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated Gamma-noise recovery study | Supporting; superseded for final numerical claims |
-| [Experiment 4](experiments/experiment_4_nmif600_model_comparison/) | Shared accepted data plus Gamma-noise and constant-\(B\) fits for 200 paired replicates | Primary computational foundation; two fitted models |
-| [Experiment 5](experiments/experiment_5_bspline_B_recovery/) | B-spline extension and paired Gamma-noise/B-spline/constant-\(B\) comparison | Final primary analysis; three fitted models |
-
-Experiments 1–3 document workflow development and supporting computational
-evidence. Experiment 4 supplies the shared data and two-model foundation.
-Experiment 5 supplies the B-spline extension and the final manuscript-facing
-three-model results.
-
-## Download options
-
-### Current public release
-
-The current public release is
-[v1.0.0](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases/tag/v1.0.0).
-Its exact archived record is available from Zenodo at
-[https://doi.org/10.5281/zenodo.22127917](https://doi.org/10.5281/zenodo.22127917).
-
-Version `v1.0.0` contains the tracked code, retained aggregate results, figure
-source data, plotting scripts, software documentation, seeds, and pairing
-information needed for the documented lightweight figure reproduction. It
-does not contain a custom full-replication ZIP with every Git-ignored shared
-input and raw task-level HPC output.
-
-### Planned full-replication package
-
-The planned future release asset is:
-
-```text
-Simulation-Based-Transmission-Rate-Recovery-v1.1.0-full-replication.zip
-```
-
-It is intended to provide one download containing one top-level folder while
-preserving the internal experiment subdirectories and relative paths. The
-package is also intended to include the shared accepted data, required raw HPC
-outputs, retained combined results, figures, `MANIFEST.csv`, and
-`SHA256SUMS`.
-
-`MANIFEST.csv` uses the columns:
-
-```text
-path,size_bytes,sha256,role,provenance
-```
-
-This package has **not yet been published**. It will appear on the
-[GitHub Releases page](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases)
-only after validation and release approval.
-
-GitHub's automatically generated “Source code” ZIP is a snapshot of
-Git-tracked files. It should not be confused with the planned full-replication
-package.
-
-The package entry guide is [README_FIRST.md](README_FIRST.md).
-
-## Choose a reproduction level
-
-| Level | Purpose | Input | Computational scope |
-| --- | --- | --- | --- |
-| Quick reproduction | Regenerate the final three-model figures and figure source-data files | Git-tracked post-processed tables | No simulation, MIF2, particle filtering, or Slurm |
-| Full reproduction | Regenerate accepted data and refit the Gamma-noise, B-spline, and constant-\(B\) models | Full-replication package plus an appropriate HPC environment | Slurm arrays, MIF2, repeated particle filtering, validation, and post-processing |
-
-### Quick reproduction of the final figures
-
-Requirements:
-
-- R 4.5.2;
-- Internet access for the first package restore;
-- Git or a GitHub source-code download.
-
-Run:
+With Bash and R available, a fresh clone can check the tracked evidence without
+installing contributed R packages and without running simulation, MIF2,
+particle filtering, or Slurm:
 
 ```bash
 git clone https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery.git
-cd Simulation-Based-Transmission-Rate-Recovery/experiments/experiment_5_bspline_B_recovery
+cd Simulation-Based-Transmission-Rate-Recovery
+bash scripts/check_repository.sh
+```
 
+The check parses every project R file, validates every shell script, verifies
+the 200-task manifest and path-provenance contracts, recomputes the full-window
+three-model summaries, and checks the week-8 sensitivity analysis against the
+tracked outputs.
+
+### Observation-window sensitivity
+
+Truncating the common path-recovery window at week 8 narrows the difference
+between the two time-varying approaches. This recalculation uses retained
+paths and does not refit either model.
+
+| Model | Mean RMSE through week 8 |
+| --- | ---: |
+| Gamma-noise | 0.5501 |
+| B-spline | 0.5808 |
+
+Gamma-noise has lower truncated-window RMSE in 114/200 paired tasks; B-spline
+has lower RMSE in the other 86. This
+sensitivity result shows that the strength of the comparison depends on the
+evaluation window; it does not replace the prespecified full-window analysis.
+The most stable conclusion is the limitation of a constant transmission rate
+under the prescribed step change; the relative comparison of the two
+time-varying formulations is conditional on the evaluation window.
+It can be regenerated separately with:
+
+```bash
+mkdir -p /tmp/transmission-week8
+Rscript --vanilla scripts/compute_week8_sensitivity.R \
+  /tmp/transmission-week8 8
+```
+
+See the tracked [week-8 summary](experiments/experiment_5_bspline_B_recovery/results/comparison_three_models/week8_sensitivity_summary.csv)
+and [task-level values](experiments/experiment_5_bspline_B_recovery/results/comparison_three_models/week8_sensitivity_task_metrics.csv).
+
+## Study design
+
+One stochastic SIR data-generating process produces the shared simulation
+replicates. Each accepted replicate contains 70 daily observation times over
+10 weeks, reported counts follow a negative-binomial measurement model, and
+acceptance requires $\max(H)>20$. Reported recovery performance is therefore
+conditional on informative accepted outbreaks.
+
+The same 200 accepted case series feed three fitted partially observed Markov
+process (POMP) formulations:
+
+```text
+one stochastic SIR data-generating process
+  -> 200 accepted simulated outbreaks
+  -> Gamma-noise fits
+  -> deterministic six-basis B-spline fits
+  -> constant-B fits
+  -> 200 paired comparison rows
+```
+
+The simulator implements $B(t)=4$ for process times $t<5$ and $B(t)=2$ for
+$t\geq5$. Final observation-grid reporting uses the endpoint-aligned convention
+$B(5)=4$ and recomputes recovery metrics accordingly. This reporting
+normalization does not change simulated observations, fitted coefficients, or
+saved fitted objects. Historical raw metrics and normalized final tables must
+not be mixed.
+
+For the Gamma-noise model, aggregate recovery uses an observation-time
+particle filtering mean. Ancestry-preserving sampled paths are retained only
+as clearly labelled selected-task illustrations. For the B-spline model, the
+six coefficients are components of one fitted curve, not six separate models.
+The independent analysis unit is the accepted simulation replicate—not a
+particle, starting value, likelihood evaluation, or observation time.
+
+## Experiment map
+
+| Experiment | Purpose | Role in final result |
+| --- | --- | --- |
+| [1](experiments/experiment_1_gamma_B_recovery/) | Gamma-noise workflow development and starting-value diagnostics | Supporting |
+| [2](experiments/experiment_2_large_scale_gamma_B_recovery_HPC/) | High-particle, single-data-set Gamma-noise diagnostic | Supporting |
+| [3](experiments/experiment_3_gamma_B_recovery_accuracy/) | Earlier repeated Gamma-noise recovery study | Supporting; superseded for final claims |
+| [4](experiments/experiment_4_nmif600_model_comparison/) | Shared accepted data and Gamma-noise/constant-$B$ fits | Computational foundation |
+| [5](experiments/experiment_5_bspline_B_recovery/) | B-spline extension and paired three-model comparison | Final analysis |
+
+## Reproduce the final figures
+
+The Experiment 5 lockfile is intentionally limited to figure generation. From
+that experiment directory:
+
+```bash
+cd experiments/experiment_5_bspline_B_recovery
 Rscript -e 'renv::restore(prompt = FALSE)'
 Rscript -e 'renv::status()'
 Rscript code/06_plot_three_model_comparison.R
 ```
 
-The command regenerates the two final comparison figures in PDF, SVG, PNG, and
-600-dpi TIFF formats, together with their source-data CSV files under:
+The workflow regenerates PDF, SVG, PNG, and 600-dpi TIFF exports plus source
+CSV files. See the detailed
+[figure-reproduction guide](experiments/experiment_5_bspline_B_recovery/REPRODUCE_FIGURES.md)
+and [software record](SOFTWARE.md).
 
-```text
-figures/comparison_three_models/
-```
+## Reproducibility scope
 
-For an additional data check, run:
+| Goal | Fresh clone | Additional requirements |
+| --- | :---: | --- |
+| Validate tracked manifests, path semantics, and numerical summaries | Yes | Bash and R |
+| Regenerate the final comparison figures | Yes | Restore the Experiment 5 `renv.lock` |
+| Recompute aggregate comparisons from tracked combined paths | Yes | Base R |
+| Recombine all retained task-level fits | No | Untracked `shared_data/` and `results_raw/` trees |
+| Run a new 200-task fit | No | Slurm, compiler toolchain, `pomp`, and substantial compute |
+| Recreate the historical HPC run bit for bit | Not claimed | Complete historical package environment was not preserved |
+
+The current v1.0.0 source archive does not contain every accepted input and raw
+task output. A future full-replication package is planned, but it should not be
+cited or treated as available until it is actually published. The
+[package entry guide](README_FIRST.md) documents the intended boundary.
+
+Full HPC workflows have deliberate submission guards. Inspect their plans
+before setting the explicit confirmation variables:
 
 ```bash
-Rscript -e 'x <- read.csv("figures/comparison_three_models/source_data/figure_2_mean_error_histograms_source_data.csv"); stopifnot(nrow(x) == 1800L, length(unique(x$task_id)) == 200L); cat("Reproduction checks passed.\n")'
+cd experiments/experiment_4_nmif600_model_comparison
+bash hpc/submit_pilot.sh --dry-run
+bash hpc/submit_all.sh --dry-run
+
+cd ../experiment_5_bspline_B_recovery
+bash hpc/submit_all.sh --dry-run
 ```
 
-See
-[Experiment 5 figure-reproduction instructions](experiments/experiment_5_bspline_B_recovery/REPRODUCE_FIGURES.md)
-for details.
-
-### Full reproduction
-
-The complete workflow is computationally expensive and is not a laptop-scale
-figure-regeneration task. It requires a Slurm environment, an R compiler
-toolchain compatible with `pomp`, and careful validation of all task-level
-inputs and outputs.
-
-The required order is:
-
-1. run Experiment 4 to generate the accepted shared data and fit the
-   Gamma-noise and constant-\(B\) models;
-2. validate the paired Experiment 4 inputs;
-3. run the Experiment 5 production pilot and B-spline task array;
-4. combine and validate all 200 B-spline tasks;
-5. construct the paired three-model tables and figures.
-
-Follow the experiment-specific instructions rather than launching scripts from
-the repository root:
-
-- [Experiment 4 full workflow](experiments/experiment_4_nmif600_model_comparison/)
-- [Experiment 5 full workflow](experiments/experiment_5_bspline_B_recovery/)
-- [Software and computing environment](SOFTWARE.md)
-
-The historical full HPC package environment was not preserved as a complete
-lockfile or container image. Exact bit-for-bit reproduction of every historical
-particle-filter realization is therefore not claimed. The Experiment 5
-`renv.lock` is intentionally scoped to the final plotting workflow.
+Follow the experiment-specific READMEs before any full run. Experiment 5
+fitting and post-processing use `Rscript --vanilla` so its plotting-only renv
+profile cannot silently replace the separately provisioned `pomp` environment.
 
 ## Repository guide
 
 ```text
 Simulation-Based-Transmission-Rate-Recovery/
-├── README.md
-├── README_FIRST.md
-├── SOFTWARE.md
-├── CITATION.cff
-├── LICENSE
-├── shared_code/
-└── experiments/
-    ├── experiment_1_gamma_B_recovery/
-    ├── experiment_2_large_scale_gamma_B_recovery_HPC/
-    ├── experiment_3_gamma_B_recovery_accuracy/
-    ├── experiment_4_nmif600_model_comparison/
-    └── experiment_5_bspline_B_recovery/
+├── scripts/                 Fast validation and release utilities
+├── shared_code/             Shared model and analysis helpers
+├── experiments/             Five documented experiment workflows
+├── README_FIRST.md          Full-bundle entry guide
+├── SOFTWARE.md              Dependency and environment boundaries
+├── CITATION.cff             Machine-readable citation metadata
+└── CHANGELOG.md             Corrections and unreleased changes
 ```
 
-The final tracked three-model evidence is under Experiment 5:
+## Citation and release history
 
-- `results/combined/bspline/`;
-- `results/comparison_three_models/`;
-- `figures/comparison_three_models/`;
-- `results/paired_input_manifest.csv`.
+For work that uses the archived release, cite the version-specific record:
 
-The figure directory includes vector and raster exports, source-data CSV files,
-and visual quality-control notes.
+- Yixin Ma, *Simulation-Based Transmission-Rate Recovery*, v1.0.0;
+- DOI: [10.5281/zenodo.22127917](https://doi.org/10.5281/zenodo.22127917);
+- [GitHub release v1.0.0](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases/tag/v1.0.0).
 
-## Interpretation boundaries
+Do not attribute unreleased branch results or corrections to v1.0.0. See
+[CHANGELOG.md](CHANGELOG.md) for the distinction. Machine-readable metadata are
+provided in [CITATION.cff](CITATION.cff).
 
-- All findings arise from simulated stochastic SIR epidemics under the stated
-  process and measurement models.
-- Recovery is evaluated conditionally on accepted outbreaks satisfying
-  `max(H) > 20`.
-- Historical step-change raw artifacts underlying Experiments 1–4 use
-  `B(5) = 2`; current normalized post-processing and final Experiment 5
-  reporting use `B(5) = 4`. Results from the two conventions must not be
-  mixed.
-- Gamma-noise recovery metrics use observation-time particle filtering means.
-  Selected-task sampled trajectories are illustrative artifacts and are not
-  the primary metric inputs.
-- The B-spline path is deterministic conditional on its selected fitted
-  coefficient vector.
-- The constant-\(B\) estimate is repeated across observation times for the
-  path-recovery comparison.
-- Independent particle-filter likelihoods are descriptive fitting diagnostics,
-  not complexity-adjusted model-selection criteria.
-- No significance tests are used to turn the paired simulation results into a
-  general model-ranking claim.
+## Acknowledgment and license
 
-## Versioning, citation, and license
+This project was conducted at Queen's University under the supervision of
+Professor Felicia Magpantay.
 
-The current public release is `v1.0.0`. Cite its version-specific Zenodo record
-when using that archived release:
-
-- DOI: [10.5281/zenodo.22127917](https://doi.org/10.5281/zenodo.22127917)
-- GitHub release:
-  [v1.0.0](https://github.com/ZeuS2U35-YX/Simulation-Based-Transmission-Rate-Recovery/releases/tag/v1.0.0)
-
-The `main` branch may contain documentation or packaging work performed after
-the `v1.0.0` tag. A future `v1.1.0` release should be cited only after it is
-actually published and assigned its own release metadata. No `v1.1.0` DOI is
-claimed here.
-
-Citation metadata are provided in [CITATION.cff](CITATION.cff). Code is
-distributed under the [MIT License](LICENSE).
+Code is released under the [MIT License](LICENSE). Copyright © 2026 Yixin Ma.

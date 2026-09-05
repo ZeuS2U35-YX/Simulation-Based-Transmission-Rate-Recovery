@@ -14,5 +14,6 @@
 # Locally assembled release artifacts; publish as Release/Zenodo assets, not Git blobs.
 /release_artifacts/
 /dist/
+/tmp/
 /Simulation-Based-Transmission-Rate-Recovery-v*-full-replication.zip
 /Simulation-Based-Transmission-Rate-Recovery-v*-full-replication.zip.sha256

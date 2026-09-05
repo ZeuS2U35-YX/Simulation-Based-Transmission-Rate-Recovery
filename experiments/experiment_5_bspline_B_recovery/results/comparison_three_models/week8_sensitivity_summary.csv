@@ -1,0 +1,2 @@
+"cutoff_week","n_tasks","n_observation_times_per_task","gamma_mean_RMSE","bspline_mean_RMSE","gamma_lower_RMSE_count","bspline_lower_RMSE_count","tie_count","truth_convention","scope"
+8,200,56,0.550096374886285,0.580798337692794,114,86,0,"B(t)=4 through week 5; B(t)=2 after week 5","paired latent-path recovery truncated at week 8"

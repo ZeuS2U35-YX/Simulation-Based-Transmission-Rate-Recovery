@@ -2,6 +2,13 @@
 
 Experiment 4 is the primary computational foundation for the final study. It provides the 200 accepted data sets and the `Nmif = 600` Gamma-noise and constant-B fits. Experiment 5 fits a deterministic six-basis cubic B-spline to the same data and is the final paired three-model manuscript analysis. Experiment 4 therefore remains foundational rather than the final model comparison. Experiments 1–3 remain developmental or supporting studies.
 
+> **Analysis correction in the post-v1.0.0 candidate.** Experiment 4 recovery
+> metrics were recomputed from per-task particle filtering means rather than
+> ancestry-sampled latent trajectories, and reporting truth at week 5 was
+> normalized to `B(5)=4`. The simulated observations, fitted parameters, and
+> independent likelihood evaluations were not changed or rerun. The v1.0.0
+> release remains archived for provenance.
+
 ## Research question
 
 This experiment asks which of two fitted partially observed Markov process (POMP) models more accurately recovers the prescribed transmission-rate path `B(t)`:
@@ -84,6 +91,10 @@ export R_LIBS_USER="$HOME/packages-R4.1"
 
 The Slurm scripts intentionally do **not** hard-code a partition. On the Frontenac CAC system used for this run, explicit partition names caused submission failures for this account, while submitting without `--partition` allowed the scheduler to choose an eligible partition automatically. Fitting tasks request one CPU, 12 GB memory, and a 24-hour wall-time limit.
 
+Large array ranges are supplied explicitly by the guarded submission wrappers,
+not embedded in the worker headers. A directly submitted worker therefore
+fails unless an explicit `--array` range is provided.
+
 The completed five-task pilot showed that these limits were conservative. Gamma-noise tasks took approximately 1 hour 9-11 minutes, while constant-B tasks took approximately 33-36 minutes. Peak resident memory was about 200 MB, so the requested resources should be interpreted as safety ceilings rather than expected usage.
 
 ## Distribution boundary
@@ -105,7 +116,8 @@ cd experiment_4_nmif600_model_comparison
 The pilot uses diagnostic tasks 1, 50, 100, 150, and 200. They are not a random sample. The pilot uses the full `Nmif = 600` setting, particle counts, starting grids, and likelihood evaluations. Its completed task outputs are production-quality and are reused by the full array.
 
 ```bash
-bash hpc/submit_pilot.sh
+bash hpc/submit_pilot.sh --dry-run
+EXP4_CONFIRM_PILOT_SUBMIT=YES bash hpc/submit_pilot.sh
 ```
 
 Check status:
@@ -144,7 +156,8 @@ The pilot post-processing produces metric distributions and convergence diagnost
 After reviewing the pilot:
 
 ```bash
-bash hpc/submit_all.sh
+bash hpc/submit_all.sh --dry-run
+EXP4_CONFIRM_FULL_SUBMIT=YES bash hpc/submit_all.sh
 ```
 
 The wrapper submits, in order:

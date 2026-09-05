@@ -143,8 +143,13 @@ generated raw inputs.
 Validation only (no simulation and no model fitting):
 
 ```bash
-Rscript code/01_validate_paired_inputs.R
+Rscript --vanilla code/01_validate_paired_inputs.R
 ```
+
+This command requires the untracked Experiment 4 `shared_data/` tree from a
+full replication bundle or a newly generated run; it is not a fresh-clone
+check. From a fresh clone, use `bash scripts/check_repository.sh` at the
+repository root instead.
 
 ### Independent task 1 production pilot
 
@@ -153,14 +158,17 @@ settings `Nmif=600`, `Np_mif=5000`, `n_start=10`, `Np_eval=50000`, and
 `n_pf_evals=5`. It writes only to `results_pilot/bspline/task_001`; it does not
 write to `results/bspline` and is not called by `submit_all.sh`.
 
-After synchronizing this experiment to the HPC, submit the pilot manually:
+After synchronizing this experiment to the HPC, review and submit the pilot
+through its guarded wrapper:
 
 ```bash
-mkdir -p logs/pilot results_pilot/bspline
-sbatch hpc/03_task1_production_pilot.sh
+bash hpc/submit_task1_pilot.sh --dry-run
+EXP5_CONFIRM_TASK1_PILOT=YES bash hpc/submit_task1_pilot.sh
 ```
 
-Creating or validating the pilot files does not submit the job automatically.
+The worker script rejects direct submissions that do not carry the wrapper's
+internal guard. The wrapper records the submitted job ID under
+`results_pilot/`.
 
 ### Validate and promote the completed task-1 pilot
 
@@ -177,17 +185,17 @@ pilot=results_pilot/bspline/task_001
 formal=results/bspline/task_001
 stage=results/bspline/.task_001_promote_$$
 
-Rscript code/00_validate_completed_bspline_task.R \
+Rscript --vanilla code/00_validate_completed_bspline_task.R \
   1 "$pilot" results/paired_input_manifest.csv
 test ! -e "$formal"
 test ! -e "$stage"
 mkdir -p results/bspline
 cp -a "$pilot" "$stage"
 diff -qr "$pilot" "$stage"
-Rscript code/00_validate_completed_bspline_task.R \
+Rscript --vanilla code/00_validate_completed_bspline_task.R \
   1 "$stage" results/paired_input_manifest.csv
 mv "$stage" "$formal"
-Rscript code/00_validate_completed_bspline_task.R \
+Rscript --vanilla code/00_validate_completed_bspline_task.R \
   1 "$formal" results/paired_input_manifest.csv
 ```
 
@@ -200,20 +208,21 @@ promoted formal task before it submits anything.
 Fit one task:
 
 ```bash
-Rscript code/02_fit_bspline_B.R 1
+Rscript --vanilla code/02_fit_bspline_B.R 1
 ```
 
 Combine all 200 tasks and compare with the existing Gamma fits:
 
 ```bash
-Rscript code/03_combine_results.R
-Rscript code/04_compare_with_gamma.R
+Rscript --vanilla code/03_combine_results.R
+Rscript --vanilla code/04_compare_with_gamma.R
 ```
 
-Submit the single HPC batch:
+Review the single HPC submission plan, then submit it explicitly:
 
 ```bash
-bash hpc/submit_all.sh
+bash hpc/submit_all.sh --dry-run
+EXP5_CONFIRM_SUBMIT=YES bash hpc/submit_all.sh
 ```
 
 `hpc/submit_all.sh` first requires a valid promoted
@@ -244,15 +253,18 @@ For a clean, dependency-locked reproduction of the final comparison figures,
 follow [`REPRODUCE_FIGURES.md`](REPRODUCE_FIGURES.md). The accompanying
 `renv.lock` records the exact R package versions used for the archived figure
 exports; reproducing the figures does not require the raw HPC task directories.
+The local `.Rprofile` activates that plotting-only environment. Fitting,
+validation, and post-processing commands use `Rscript --vanilla` so they use
+the separately provisioned `pomp`/HPC library instead of the plotting lock.
 
 In the author's archival workspace and the full replication bundle, the completed production B-spline task tree is stored under `results_raw/bspline/task_001` through `task_200`. The downloaded raw task files remain unchanged and are not tracked in Git. Full-bundle post-processing uses them explicitly:
 
 ```bash
-Rscript code/03_combine_results.R \
+Rscript --vanilla code/03_combine_results.R \
   results_raw/bspline \
   results/combined/bspline \
   results/paired_input_manifest.csv
-Rscript code/05_compare_three_models.R
+Rscript --vanilla code/05_compare_three_models.R
 Rscript code/06_plot_three_model_comparison.R
 ```
 
